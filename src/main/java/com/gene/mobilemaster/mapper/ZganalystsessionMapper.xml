@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ZganalystsessionMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zganalystsession">
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="sessionid" jdbcType="INTEGER" property="sessionid" />
+    <result column="pvsum" jdbcType="INTEGER" property="pvsum" />
+    <result column="pindaoname" jdbcType="INTEGER" property="pindaoname" />
+    <result column="pindaourl" jdbcType="VARCHAR" property="pindaourl" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zganalystsession">
+    insert into zganalystsession (accesstime, channelid, sessionid, 
+      pvsum, pindaoname, pindaourl
+      )
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{sessionid,jdbcType=INTEGER}, 
+      #{pvsum,jdbcType=INTEGER}, #{pindaoname,jdbcType=INTEGER}, #{pindaourl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zganalystsession">
+    insert into zganalystsession
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="sessionid != null">
+        sessionid,
+      </if>
+      <if test="pvsum != null">
+        pvsum,
+      </if>
+      <if test="pindaoname != null">
+        pindaoname,
+      </if>
+      <if test="pindaourl != null">
+        pindaourl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=INTEGER},
+      </if>
+      <if test="pvsum != null">
+        #{pvsum,jdbcType=INTEGER},
+      </if>
+      <if test="pindaoname != null">
+        #{pindaoname,jdbcType=INTEGER},
+      </if>
+      <if test="pindaourl != null">
+        #{pindaourl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

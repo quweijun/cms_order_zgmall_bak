@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Purchase_ordersMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Purchase_orders">
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="prodsize" jdbcType="VARCHAR" property="prodsize" />
+    <result column="barcodeid" jdbcType="VARCHAR" property="barcodeid" />
+    <result column="daifahuo" jdbcType="INTEGER" property="daifahuo" />
+    <result column="kucun" jdbcType="INTEGER" property="kucun" />
+    <result column="daicaigou" jdbcType="INTEGER" property="daicaigou" />
+    <result column="caigou" jdbcType="INTEGER" property="caigou" />
+    <result column="caigoutime" jdbcType="TIMESTAMP" property="caigoutime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Purchase_orders">
+    insert into purchase_orders (typename, productid, productname, 
+      prodcolor, prodsize, barcodeid, 
+      daifahuo, kucun, daicaigou, 
+      caigou, caigoutime)
+    values (#{typename,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, 
+      #{prodcolor,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, #{barcodeid,jdbcType=VARCHAR}, 
+      #{daifahuo,jdbcType=INTEGER}, #{kucun,jdbcType=INTEGER}, #{daicaigou,jdbcType=INTEGER}, 
+      #{caigou,jdbcType=INTEGER}, #{caigoutime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Purchase_orders">
+    insert into purchase_orders
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="prodsize != null">
+        prodsize,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="daifahuo != null">
+        daifahuo,
+      </if>
+      <if test="kucun != null">
+        kucun,
+      </if>
+      <if test="daicaigou != null">
+        daicaigou,
+      </if>
+      <if test="caigou != null">
+        caigou,
+      </if>
+      <if test="caigoutime != null">
+        caigoutime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="prodsize != null">
+        #{prodsize,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="daifahuo != null">
+        #{daifahuo,jdbcType=INTEGER},
+      </if>
+      <if test="kucun != null">
+        #{kucun,jdbcType=INTEGER},
+      </if>
+      <if test="daicaigou != null">
+        #{daicaigou,jdbcType=INTEGER},
+      </if>
+      <if test="caigou != null">
+        #{caigou,jdbcType=INTEGER},
+      </if>
+      <if test="caigoutime != null">
+        #{caigoutime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

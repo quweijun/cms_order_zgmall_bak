@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sp_codeMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sp_code">
+    <result column="codeid" jdbcType="INTEGER" property="codeid" />
+    <result column="codetype" jdbcType="VARCHAR" property="codetype" />
+    <result column="codename" jdbcType="VARCHAR" property="codename" />
+    <result column="spname" jdbcType="VARCHAR" property="spname" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sp_code">
+    insert into sp_code (codeid, codetype, codename, 
+      spname)
+    values (#{codeid,jdbcType=INTEGER}, #{codetype,jdbcType=VARCHAR}, #{codename,jdbcType=VARCHAR}, 
+      #{spname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sp_code">
+    insert into sp_code
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="codeid != null">
+        codeid,
+      </if>
+      <if test="codetype != null">
+        codetype,
+      </if>
+      <if test="codename != null">
+        codename,
+      </if>
+      <if test="spname != null">
+        spname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="codeid != null">
+        #{codeid,jdbcType=INTEGER},
+      </if>
+      <if test="codetype != null">
+        #{codetype,jdbcType=VARCHAR},
+      </if>
+      <if test="codename != null">
+        #{codename,jdbcType=VARCHAR},
+      </if>
+      <if test="spname != null">
+        #{spname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

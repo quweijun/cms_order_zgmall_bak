@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zgmall.mapper.consoledb.SysUserMapper">
+    <select id="selectAmUserByName" parameterType="string" resultType="com.zgmall.model.SysUser">
+        select * from sys_user  where user_name=#{username}
+    </select>
+    <select id="selectUserAll" parameterType="string" resultType="java.util.Map">
+        SELECT s.uuid, s.user_name userName, s.email, s.mobile, s.time, s.state, s.real_name realName,u.real_name createName
+        FROM sys_user s  LEFT JOIN sys_user u ON s.create_id=u.uuid
+        <where>
+            s.user_name LIKE "%"#{name}"%"  ||  s.real_name LIKE "%"#{name}"%"
+        </where>
+        order by s.time desc
+    </select>
+</mapper>

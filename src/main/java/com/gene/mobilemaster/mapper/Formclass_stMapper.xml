@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Formclass_stMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Formclass_st">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="typeid" jdbcType="INTEGER" property="typeid" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="bzdesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Formclass_st">
+    insert into formclass_st (flowid, typeid, typename, 
+      addtime, bzdesc, flag, 
+      xh)
+    values (#{flowid,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{bzdesc,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{xh,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Formclass_st">
+    insert into formclass_st
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="typeid != null">
+        typeid,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="bzdesc != null">
+        bzdesc,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

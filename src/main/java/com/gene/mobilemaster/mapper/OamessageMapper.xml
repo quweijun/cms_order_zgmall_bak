@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OamessageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Oamessage">
+    <result column="MsgID" jdbcType="INTEGER" property="msgid" />
+    <result column="TypeID" jdbcType="INTEGER" property="typeid" />
+    <result column="ClassID" jdbcType="INTEGER" property="classid" />
+    <result column="SenderID" jdbcType="VARCHAR" property="senderid" />
+    <result column="ReceiverID" jdbcType="VARCHAR" property="receiverid" />
+    <result column="SendRole" jdbcType="VARCHAR" property="sendrole" />
+    <result column="ReceiverRole" jdbcType="VARCHAR" property="receiverrole" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="Content" jdbcType="VARCHAR" property="content" />
+    <result column="StartDate" jdbcType="TIMESTAMP" property="startdate" />
+    <result column="EndDate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="SendDate" jdbcType="TIMESTAMP" property="senddate" />
+    <result column="isRead" jdbcType="INTEGER" property="isread" />
+    <result column="ReadTime" jdbcType="TIMESTAMP" property="readtime" />
+    <result column="isLock" jdbcType="INTEGER" property="islock" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Oamessage">
+    insert into oamessage (MsgID, TypeID, ClassID, 
+      SenderID, ReceiverID, SendRole, 
+      ReceiverRole, type, title, 
+      Content, StartDate, EndDate, 
+      SendDate, isRead, ReadTime, 
+      isLock)
+    values (#{msgid,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{senderid,jdbcType=VARCHAR}, #{receiverid,jdbcType=VARCHAR}, #{sendrole,jdbcType=VARCHAR}, 
+      #{receiverrole,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{startdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, 
+      #{senddate,jdbcType=TIMESTAMP}, #{isread,jdbcType=INTEGER}, #{readtime,jdbcType=TIMESTAMP}, 
+      #{islock,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Oamessage">
+    insert into oamessage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgid != null">
+        MsgID,
+      </if>
+      <if test="typeid != null">
+        TypeID,
+      </if>
+      <if test="classid != null">
+        ClassID,
+      </if>
+      <if test="senderid != null">
+        SenderID,
+      </if>
+      <if test="receiverid != null">
+        ReceiverID,
+      </if>
+      <if test="sendrole != null">
+        SendRole,
+      </if>
+      <if test="receiverrole != null">
+        ReceiverRole,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        Content,
+      </if>
+      <if test="startdate != null">
+        StartDate,
+      </if>
+      <if test="enddate != null">
+        EndDate,
+      </if>
+      <if test="senddate != null">
+        SendDate,
+      </if>
+      <if test="isread != null">
+        isRead,
+      </if>
+      <if test="readtime != null">
+        ReadTime,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgid != null">
+        #{msgid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="senderid != null">
+        #{senderid,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverid != null">
+        #{receiverid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendrole != null">
+        #{sendrole,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverrole != null">
+        #{receiverrole,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="senddate != null">
+        #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="readtime != null">
+        #{readtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

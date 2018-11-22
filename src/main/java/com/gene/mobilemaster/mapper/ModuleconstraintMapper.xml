@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModuleconstraintMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Moduleconstraint">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="ModuleID" jdbcType="BIGINT" property="moduleid" />
+    <result column="Role" jdbcType="VARCHAR" property="role" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Moduleconstraint">
+    insert into moduleconstraint (FlowID, ModuleID, Role
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{moduleid,jdbcType=BIGINT}, #{role,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Moduleconstraint">
+    insert into moduleconstraint
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="moduleid != null">
+        ModuleID,
+      </if>
+      <if test="role != null">
+        Role,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=BIGINT},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

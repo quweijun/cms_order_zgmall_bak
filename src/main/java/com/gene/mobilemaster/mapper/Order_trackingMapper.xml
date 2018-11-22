@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Order_trackingMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Order_tracking">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="orderstate1" jdbcType="INTEGER" property="orderstate1" />
+    <result column="orderstate2" jdbcType="INTEGER" property="orderstate2" />
+    <result column="payment1" jdbcType="INTEGER" property="payment1" />
+    <result column="payment2" jdbcType="INTEGER" property="payment2" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="notes" jdbcType="VARCHAR" property="notes" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Order_tracking">
+    insert into order_tracking (flowno, orderid, userid, 
+      orderstate1, orderstate2, payment1, 
+      payment2, updatetime, notes
+      )
+    values (#{flowno,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{orderstate1,jdbcType=INTEGER}, #{orderstate2,jdbcType=INTEGER}, #{payment1,jdbcType=INTEGER}, 
+      #{payment2,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}, #{notes,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Order_tracking">
+    insert into order_tracking
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="orderstate1 != null">
+        orderstate1,
+      </if>
+      <if test="orderstate2 != null">
+        orderstate2,
+      </if>
+      <if test="payment1 != null">
+        payment1,
+      </if>
+      <if test="payment2 != null">
+        payment2,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="notes != null">
+        notes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate1 != null">
+        #{orderstate1,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate2 != null">
+        #{orderstate2,jdbcType=INTEGER},
+      </if>
+      <if test="payment1 != null">
+        #{payment1,jdbcType=INTEGER},
+      </if>
+      <if test="payment2 != null">
+        #{payment2,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notes != null">
+        #{notes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SiteinfoMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Siteinfo">
+    <result column="SiteID" jdbcType="INTEGER" property="siteid" />
+    <result column="CustID" jdbcType="INTEGER" property="custid" />
+    <result column="Sitetype" jdbcType="INTEGER" property="sitetype" />
+    <result column="SiteName" jdbcType="VARCHAR" property="sitename" />
+    <result column="SiteUrl" jdbcType="VARCHAR" property="siteurl" />
+    <result column="ContentType" jdbcType="INTEGER" property="contenttype" />
+    <result column="SiteResume" jdbcType="VARCHAR" property="siteresume" />
+    <result column="SiteStatus" jdbcType="INTEGER" property="sitestatus" />
+    <result column="SiteLogurl" jdbcType="VARCHAR" property="sitelogurl" />
+    <result column="SubDomain" jdbcType="VARCHAR" property="subdomain" />
+    <result column="JumpType" jdbcType="INTEGER" property="jumptype" />
+    <result column="JumpPindao" jdbcType="VARCHAR" property="jumppindao" />
+    <result column="JumpUrl" jdbcType="VARCHAR" property="jumpurl" />
+    <result column="Addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Siteinfo">
+    insert into siteinfo (SiteID, CustID, Sitetype, 
+      SiteName, SiteUrl, ContentType, 
+      SiteResume, SiteStatus, SiteLogurl, 
+      SubDomain, JumpType, JumpPindao, 
+      JumpUrl, Addtime)
+    values (#{siteid,jdbcType=INTEGER}, #{custid,jdbcType=INTEGER}, #{sitetype,jdbcType=INTEGER}, 
+      #{sitename,jdbcType=VARCHAR}, #{siteurl,jdbcType=VARCHAR}, #{contenttype,jdbcType=INTEGER}, 
+      #{siteresume,jdbcType=VARCHAR}, #{sitestatus,jdbcType=INTEGER}, #{sitelogurl,jdbcType=VARCHAR}, 
+      #{subdomain,jdbcType=VARCHAR}, #{jumptype,jdbcType=INTEGER}, #{jumppindao,jdbcType=VARCHAR}, 
+      #{jumpurl,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Siteinfo">
+    insert into siteinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="siteid != null">
+        SiteID,
+      </if>
+      <if test="custid != null">
+        CustID,
+      </if>
+      <if test="sitetype != null">
+        Sitetype,
+      </if>
+      <if test="sitename != null">
+        SiteName,
+      </if>
+      <if test="siteurl != null">
+        SiteUrl,
+      </if>
+      <if test="contenttype != null">
+        ContentType,
+      </if>
+      <if test="siteresume != null">
+        SiteResume,
+      </if>
+      <if test="sitestatus != null">
+        SiteStatus,
+      </if>
+      <if test="sitelogurl != null">
+        SiteLogurl,
+      </if>
+      <if test="subdomain != null">
+        SubDomain,
+      </if>
+      <if test="jumptype != null">
+        JumpType,
+      </if>
+      <if test="jumppindao != null">
+        JumpPindao,
+      </if>
+      <if test="jumpurl != null">
+        JumpUrl,
+      </if>
+      <if test="addtime != null">
+        Addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="siteid != null">
+        #{siteid,jdbcType=INTEGER},
+      </if>
+      <if test="custid != null">
+        #{custid,jdbcType=INTEGER},
+      </if>
+      <if test="sitetype != null">
+        #{sitetype,jdbcType=INTEGER},
+      </if>
+      <if test="sitename != null">
+        #{sitename,jdbcType=VARCHAR},
+      </if>
+      <if test="siteurl != null">
+        #{siteurl,jdbcType=VARCHAR},
+      </if>
+      <if test="contenttype != null">
+        #{contenttype,jdbcType=INTEGER},
+      </if>
+      <if test="siteresume != null">
+        #{siteresume,jdbcType=VARCHAR},
+      </if>
+      <if test="sitestatus != null">
+        #{sitestatus,jdbcType=INTEGER},
+      </if>
+      <if test="sitelogurl != null">
+        #{sitelogurl,jdbcType=VARCHAR},
+      </if>
+      <if test="subdomain != null">
+        #{subdomain,jdbcType=VARCHAR},
+      </if>
+      <if test="jumptype != null">
+        #{jumptype,jdbcType=INTEGER},
+      </if>
+      <if test="jumppindao != null">
+        #{jumppindao,jdbcType=VARCHAR},
+      </if>
+      <if test="jumpurl != null">
+        #{jumpurl,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

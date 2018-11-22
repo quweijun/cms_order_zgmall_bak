@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProductextpropcfgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Productextpropcfg">
+    <result column="ExtPropID" jdbcType="INTEGER" property="extpropid" />
+    <result column="InputType" jdbcType="VARCHAR" property="inputtype" />
+    <result column="ExtPropEnName" jdbcType="VARCHAR" property="extpropenname" />
+    <result column="ExtPropDisplayName" jdbcType="VARCHAR" property="extpropdisplayname" />
+    <result column="ExtPropFullName" jdbcType="VARCHAR" property="extpropfullname" />
+    <result column="ExtPropRemark" jdbcType="VARCHAR" property="extpropremark" />
+    <result column="ValueType" jdbcType="VARCHAR" property="valuetype" />
+    <result column="ValueLength" jdbcType="INTEGER" property="valuelength" />
+    <result column="DefaultValue" jdbcType="VARCHAR" property="defaultvalue" />
+    <result column="IsRequired" jdbcType="VARCHAR" property="isrequired" />
+    <result column="IsShow" jdbcType="VARCHAR" property="isshow" />
+    <result column="IsQuery" jdbcType="VARCHAR" property="isquery" />
+    <result column="Orders" jdbcType="INTEGER" property="orders" />
+    <result column="IsValid" jdbcType="VARCHAR" property="isvalid" />
+    <result column="bjflag" jdbcType="INTEGER" property="bjflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Productextpropcfg">
+    insert into productextpropcfg (ExtPropID, InputType, ExtPropEnName, 
+      ExtPropDisplayName, ExtPropFullName, ExtPropRemark, 
+      ValueType, ValueLength, DefaultValue, 
+      IsRequired, IsShow, IsQuery, 
+      Orders, IsValid, bjflag
+      )
+    values (#{extpropid,jdbcType=INTEGER}, #{inputtype,jdbcType=VARCHAR}, #{extpropenname,jdbcType=VARCHAR}, 
+      #{extpropdisplayname,jdbcType=VARCHAR}, #{extpropfullname,jdbcType=VARCHAR}, #{extpropremark,jdbcType=VARCHAR}, 
+      #{valuetype,jdbcType=VARCHAR}, #{valuelength,jdbcType=INTEGER}, #{defaultvalue,jdbcType=VARCHAR}, 
+      #{isrequired,jdbcType=VARCHAR}, #{isshow,jdbcType=VARCHAR}, #{isquery,jdbcType=VARCHAR}, 
+      #{orders,jdbcType=INTEGER}, #{isvalid,jdbcType=VARCHAR}, #{bjflag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Productextpropcfg">
+    insert into productextpropcfg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extpropid != null">
+        ExtPropID,
+      </if>
+      <if test="inputtype != null">
+        InputType,
+      </if>
+      <if test="extpropenname != null">
+        ExtPropEnName,
+      </if>
+      <if test="extpropdisplayname != null">
+        ExtPropDisplayName,
+      </if>
+      <if test="extpropfullname != null">
+        ExtPropFullName,
+      </if>
+      <if test="extpropremark != null">
+        ExtPropRemark,
+      </if>
+      <if test="valuetype != null">
+        ValueType,
+      </if>
+      <if test="valuelength != null">
+        ValueLength,
+      </if>
+      <if test="defaultvalue != null">
+        DefaultValue,
+      </if>
+      <if test="isrequired != null">
+        IsRequired,
+      </if>
+      <if test="isshow != null">
+        IsShow,
+      </if>
+      <if test="isquery != null">
+        IsQuery,
+      </if>
+      <if test="orders != null">
+        Orders,
+      </if>
+      <if test="isvalid != null">
+        IsValid,
+      </if>
+      <if test="bjflag != null">
+        bjflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extpropid != null">
+        #{extpropid,jdbcType=INTEGER},
+      </if>
+      <if test="inputtype != null">
+        #{inputtype,jdbcType=VARCHAR},
+      </if>
+      <if test="extpropenname != null">
+        #{extpropenname,jdbcType=VARCHAR},
+      </if>
+      <if test="extpropdisplayname != null">
+        #{extpropdisplayname,jdbcType=VARCHAR},
+      </if>
+      <if test="extpropfullname != null">
+        #{extpropfullname,jdbcType=VARCHAR},
+      </if>
+      <if test="extpropremark != null">
+        #{extpropremark,jdbcType=VARCHAR},
+      </if>
+      <if test="valuetype != null">
+        #{valuetype,jdbcType=VARCHAR},
+      </if>
+      <if test="valuelength != null">
+        #{valuelength,jdbcType=INTEGER},
+      </if>
+      <if test="defaultvalue != null">
+        #{defaultvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="isrequired != null">
+        #{isrequired,jdbcType=VARCHAR},
+      </if>
+      <if test="isshow != null">
+        #{isshow,jdbcType=VARCHAR},
+      </if>
+      <if test="isquery != null">
+        #{isquery,jdbcType=VARCHAR},
+      </if>
+      <if test="orders != null">
+        #{orders,jdbcType=INTEGER},
+      </if>
+      <if test="isvalid != null">
+        #{isvalid,jdbcType=VARCHAR},
+      </if>
+      <if test="bjflag != null">
+        #{bjflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.LinshiMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Linshi">
+    <result column="city" jdbcType="CHAR" property="city" />
+    <result column="resultCN" jdbcType="VARCHAR" property="resultcn" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="result" jdbcType="INTEGER" property="result" />
+    <result column="hycompany" jdbcType="INTEGER" property="hycompany" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Linshi">
+    insert into linshi (city, resultCN, orderid, 
+      result, hycompany)
+    values (#{city,jdbcType=CHAR}, #{resultcn,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, 
+      #{result,jdbcType=INTEGER}, #{hycompany,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Linshi">
+    insert into linshi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="city != null">
+        city,
+      </if>
+      <if test="resultcn != null">
+        resultCN,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="hycompany != null">
+        hycompany,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="city != null">
+        #{city,jdbcType=CHAR},
+      </if>
+      <if test="resultcn != null">
+        #{resultcn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=INTEGER},
+      </if>
+      <if test="hycompany != null">
+        #{hycompany,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

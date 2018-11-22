@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.LogtrackingMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Logtracking">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="hycompany" jdbcType="INTEGER" property="hycompany" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="expressid2" jdbcType="VARCHAR" property="expressid2" />
+    <result column="ordername" jdbcType="VARCHAR" property="ordername" />
+    <result column="orderphone" jdbcType="VARCHAR" property="orderphone" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="paisong" jdbcType="VARCHAR" property="paisong" />
+    <result column="leixing" jdbcType="INTEGER" property="leixing" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="iscomplete" jdbcType="INTEGER" property="iscomplete" />
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Logtracking">
+    insert into logtracking (flowid, orderid, hycompany, 
+      expressid, expressid2, ordername, 
+      orderphone, userid, editor, 
+      paisong, leixing, status, 
+      iscomplete, beizhu, addtime
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{hycompany,jdbcType=INTEGER}, 
+      #{expressid,jdbcType=VARCHAR}, #{expressid2,jdbcType=VARCHAR}, #{ordername,jdbcType=VARCHAR}, 
+      #{orderphone,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{paisong,jdbcType=VARCHAR}, #{leixing,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{iscomplete,jdbcType=INTEGER}, #{beizhu,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Logtracking">
+    insert into logtracking
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="hycompany != null">
+        hycompany,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="expressid2 != null">
+        expressid2,
+      </if>
+      <if test="ordername != null">
+        ordername,
+      </if>
+      <if test="orderphone != null">
+        orderphone,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="paisong != null">
+        paisong,
+      </if>
+      <if test="leixing != null">
+        leixing,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="iscomplete != null">
+        iscomplete,
+      </if>
+      <if test="beizhu != null">
+        beizhu,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="hycompany != null">
+        #{hycompany,jdbcType=INTEGER},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid2 != null">
+        #{expressid2,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="orderphone != null">
+        #{orderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="paisong != null">
+        #{paisong,jdbcType=VARCHAR},
+      </if>
+      <if test="leixing != null">
+        #{leixing,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="iscomplete != null">
+        #{iscomplete,jdbcType=INTEGER},
+      </if>
+      <if test="beizhu != null">
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

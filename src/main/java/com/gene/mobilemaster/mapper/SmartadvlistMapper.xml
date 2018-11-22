@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SmartadvlistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Smartadvlist">
+    <result column="PKID" jdbcType="INTEGER" property="pkid" />
+    <result column="channelID" jdbcType="INTEGER" property="channelid" />
+    <result column="positionID" jdbcType="INTEGER" property="positionid" />
+    <result column="adType" jdbcType="VARCHAR" property="adtype" />
+    <result column="adWord" jdbcType="VARCHAR" property="adword" />
+    <result column="adUrl" jdbcType="VARCHAR" property="adurl" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="isAuto" jdbcType="TINYINT" property="isauto" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Smartadvlist">
+    insert into smartadvlist (PKID, channelID, positionID, 
+      adType, adWord, adUrl, 
+      addDate, isAuto)
+    values (#{pkid,jdbcType=INTEGER}, #{channelid,jdbcType=INTEGER}, #{positionid,jdbcType=INTEGER}, 
+      #{adtype,jdbcType=VARCHAR}, #{adword,jdbcType=VARCHAR}, #{adurl,jdbcType=VARCHAR}, 
+      #{adddate,jdbcType=TIMESTAMP}, #{isauto,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Smartadvlist">
+    insert into smartadvlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        PKID,
+      </if>
+      <if test="channelid != null">
+        channelID,
+      </if>
+      <if test="positionid != null">
+        positionID,
+      </if>
+      <if test="adtype != null">
+        adType,
+      </if>
+      <if test="adword != null">
+        adWord,
+      </if>
+      <if test="adurl != null">
+        adUrl,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+      <if test="isauto != null">
+        isAuto,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        #{pkid,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=INTEGER},
+      </if>
+      <if test="positionid != null">
+        #{positionid,jdbcType=INTEGER},
+      </if>
+      <if test="adtype != null">
+        #{adtype,jdbcType=VARCHAR},
+      </if>
+      <if test="adword != null">
+        #{adword,jdbcType=VARCHAR},
+      </if>
+      <if test="adurl != null">
+        #{adurl,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isauto != null">
+        #{isauto,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

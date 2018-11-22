@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Gift_tableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Gift_table">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Gift_table">
+    insert into gift_table (flowid, orderid, productid, 
+      mobile, addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Gift_table">
+    insert into gift_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

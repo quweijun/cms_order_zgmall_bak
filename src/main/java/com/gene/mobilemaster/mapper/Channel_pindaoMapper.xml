@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Channel_pindaoMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Channel_pindao">
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="PindaoID" jdbcType="VARCHAR" property="pindaoid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Channel_pindao">
+    insert into channel_pindao (ChannelID, PindaoID, title, 
+      icon, sort, addUser, 
+      addtime, flag)
+    values (#{channelid,jdbcType=VARCHAR}, #{pindaoid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{adduser,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Channel_pindao">
+    insert into channel_pindao
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="pindaoid != null">
+        PindaoID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="pindaoid != null">
+        #{pindaoid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

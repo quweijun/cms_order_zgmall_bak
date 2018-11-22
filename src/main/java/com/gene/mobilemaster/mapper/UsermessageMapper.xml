@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UsermessageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Usermessage">
+    <result column="FlowNo" jdbcType="BIGINT" property="flowno" />
+    <result column="MsgID" jdbcType="INTEGER" property="msgid" />
+    <result column="SenderID" jdbcType="VARCHAR" property="senderid" />
+    <result column="ReceiverID" jdbcType="VARCHAR" property="receiverid" />
+    <result column="SendRole" jdbcType="VARCHAR" property="sendrole" />
+    <result column="ReceiverRole" jdbcType="VARCHAR" property="receiverrole" />
+    <result column="typeid" jdbcType="INTEGER" property="typeid" />
+    <result column="classid" jdbcType="INTEGER" property="classid" />
+    <result column="images" jdbcType="VARCHAR" property="images" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="Actions" jdbcType="VARCHAR" property="actions" />
+    <result column="sendDate" jdbcType="TIMESTAMP" property="senddate" />
+    <result column="isRead" jdbcType="INTEGER" property="isread" />
+    <result column="ReadTime" jdbcType="TIMESTAMP" property="readtime" />
+    <result column="isSys" jdbcType="INTEGER" property="issys" />
+    <result column="isLock" jdbcType="INTEGER" property="islock" />
+    <result column="isShare" jdbcType="INTEGER" property="isshare" />
+    <result column="senderlock" jdbcType="INTEGER" property="senderlock" />
+    <result column="receiverlock" jdbcType="INTEGER" property="receiverlock" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Usermessage">
+    insert into usermessage (FlowNo, MsgID, SenderID, 
+      ReceiverID, SendRole, ReceiverRole, 
+      typeid, classid, images, 
+      content, Actions, sendDate, 
+      isRead, ReadTime, isSys, 
+      isLock, isShare, senderlock, 
+      receiverlock)
+    values (#{flowno,jdbcType=BIGINT}, #{msgid,jdbcType=INTEGER}, #{senderid,jdbcType=VARCHAR}, 
+      #{receiverid,jdbcType=VARCHAR}, #{sendrole,jdbcType=VARCHAR}, #{receiverrole,jdbcType=VARCHAR}, 
+      #{typeid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, #{images,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{actions,jdbcType=VARCHAR}, #{senddate,jdbcType=TIMESTAMP}, 
+      #{isread,jdbcType=INTEGER}, #{readtime,jdbcType=TIMESTAMP}, #{issys,jdbcType=INTEGER}, 
+      #{islock,jdbcType=INTEGER}, #{isshare,jdbcType=INTEGER}, #{senderlock,jdbcType=INTEGER}, 
+      #{receiverlock,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Usermessage">
+    insert into usermessage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="msgid != null">
+        MsgID,
+      </if>
+      <if test="senderid != null">
+        SenderID,
+      </if>
+      <if test="receiverid != null">
+        ReceiverID,
+      </if>
+      <if test="sendrole != null">
+        SendRole,
+      </if>
+      <if test="receiverrole != null">
+        ReceiverRole,
+      </if>
+      <if test="typeid != null">
+        typeid,
+      </if>
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="images != null">
+        images,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="actions != null">
+        Actions,
+      </if>
+      <if test="senddate != null">
+        sendDate,
+      </if>
+      <if test="isread != null">
+        isRead,
+      </if>
+      <if test="readtime != null">
+        ReadTime,
+      </if>
+      <if test="issys != null">
+        isSys,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+      <if test="isshare != null">
+        isShare,
+      </if>
+      <if test="senderlock != null">
+        senderlock,
+      </if>
+      <if test="receiverlock != null">
+        receiverlock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="msgid != null">
+        #{msgid,jdbcType=INTEGER},
+      </if>
+      <if test="senderid != null">
+        #{senderid,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverid != null">
+        #{receiverid,jdbcType=VARCHAR},
+      </if>
+      <if test="sendrole != null">
+        #{sendrole,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverrole != null">
+        #{receiverrole,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="images != null">
+        #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="actions != null">
+        #{actions,jdbcType=VARCHAR},
+      </if>
+      <if test="senddate != null">
+        #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="readtime != null">
+        #{readtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issys != null">
+        #{issys,jdbcType=INTEGER},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="isshare != null">
+        #{isshare,jdbcType=INTEGER},
+      </if>
+      <if test="senderlock != null">
+        #{senderlock,jdbcType=INTEGER},
+      </if>
+      <if test="receiverlock != null">
+        #{receiverlock,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

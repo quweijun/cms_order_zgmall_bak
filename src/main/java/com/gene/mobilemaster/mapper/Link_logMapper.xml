@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Link_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Link_log">
+    <result column="linkid" jdbcType="BIGINT" property="linkid" />
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="mobileIP" jdbcType="VARCHAR" property="mobileip" />
+    <result column="mobileUA" jdbcType="VARCHAR" property="mobileua" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="http_referer" jdbcType="VARCHAR" property="httpReferer" />
+    <result column="Logflag" jdbcType="INTEGER" property="logflag" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Link_log">
+    insert into link_log (linkid, accesstime, mobileIP, 
+      mobileUA, mobile, url, 
+      channelid, http_referer, Logflag, 
+      EnableFlag)
+    values (#{linkid,jdbcType=BIGINT}, #{accesstime,jdbcType=TIMESTAMP}, #{mobileip,jdbcType=VARCHAR}, 
+      #{mobileua,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{channelid,jdbcType=VARCHAR}, #{httpReferer,jdbcType=VARCHAR}, #{logflag,jdbcType=INTEGER}, 
+      #{enableflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Link_log">
+    insert into link_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="linkid != null">
+        linkid,
+      </if>
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="mobileip != null">
+        mobileIP,
+      </if>
+      <if test="mobileua != null">
+        mobileUA,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="httpReferer != null">
+        http_referer,
+      </if>
+      <if test="logflag != null">
+        Logflag,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="linkid != null">
+        #{linkid,jdbcType=BIGINT},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobileip != null">
+        #{mobileip,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileua != null">
+        #{mobileua,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="httpReferer != null">
+        #{httpReferer,jdbcType=VARCHAR},
+      </if>
+      <if test="logflag != null">
+        #{logflag,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

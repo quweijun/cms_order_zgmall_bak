@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.FangtableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Fangtable">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="FangDate" jdbcType="TIMESTAMP" property="fangdate" />
+    <result column="FangCount" jdbcType="BIGINT" property="fangcount" />
+    <result column="FangFlag" jdbcType="VARCHAR" property="fangflag" />
+    <result column="HaveFang" jdbcType="BIGINT" property="havefang" />
+    <result column="AccessTime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="SuccessTime" jdbcType="TIMESTAMP" property="successtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Fangtable">
+    insert into fangtable (FlowID, ChannelID, FangDate, 
+      FangCount, FangFlag, HaveFang, 
+      AccessTime, SuccessTime)
+    values (#{flowid,jdbcType=BIGINT}, #{channelid,jdbcType=VARCHAR}, #{fangdate,jdbcType=TIMESTAMP}, 
+      #{fangcount,jdbcType=BIGINT}, #{fangflag,jdbcType=VARCHAR}, #{havefang,jdbcType=BIGINT}, 
+      #{accesstime,jdbcType=TIMESTAMP}, #{successtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Fangtable">
+    insert into fangtable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="fangdate != null">
+        FangDate,
+      </if>
+      <if test="fangcount != null">
+        FangCount,
+      </if>
+      <if test="fangflag != null">
+        FangFlag,
+      </if>
+      <if test="havefang != null">
+        HaveFang,
+      </if>
+      <if test="accesstime != null">
+        AccessTime,
+      </if>
+      <if test="successtime != null">
+        SuccessTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="fangdate != null">
+        #{fangdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fangcount != null">
+        #{fangcount,jdbcType=BIGINT},
+      </if>
+      <if test="fangflag != null">
+        #{fangflag,jdbcType=VARCHAR},
+      </if>
+      <if test="havefang != null">
+        #{havefang,jdbcType=BIGINT},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="successtime != null">
+        #{successtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

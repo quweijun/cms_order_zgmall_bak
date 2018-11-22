@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.GlobalparamcfgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Globalparamcfg">
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="ParamEngName" jdbcType="VARCHAR" property="paramengname" />
+    <result column="ParamChnName" jdbcType="VARCHAR" property="paramchnname" />
+    <result column="ParamDefaultValue" jdbcType="DOUBLE" property="paramdefaultvalue" />
+    <result column="BZ" jdbcType="VARCHAR" property="bz" />
+    <result column="Flag" jdbcType="VARCHAR" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Globalparamcfg">
+    insert into globalparamcfg (FlowNo, ParamEngName, ParamChnName, 
+      ParamDefaultValue, BZ, Flag
+      )
+    values (#{flowno,jdbcType=INTEGER}, #{paramengname,jdbcType=VARCHAR}, #{paramchnname,jdbcType=VARCHAR}, 
+      #{paramdefaultvalue,jdbcType=DOUBLE}, #{bz,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Globalparamcfg">
+    insert into globalparamcfg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="paramengname != null">
+        ParamEngName,
+      </if>
+      <if test="paramchnname != null">
+        ParamChnName,
+      </if>
+      <if test="paramdefaultvalue != null">
+        ParamDefaultValue,
+      </if>
+      <if test="bz != null">
+        BZ,
+      </if>
+      <if test="flag != null">
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="paramengname != null">
+        #{paramengname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramchnname != null">
+        #{paramchnname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramdefaultvalue != null">
+        #{paramdefaultvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

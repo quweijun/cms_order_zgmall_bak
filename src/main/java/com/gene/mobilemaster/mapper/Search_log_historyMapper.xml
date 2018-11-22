@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Search_log_historyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Search_log_history">
+    <result column="searchid" jdbcType="BIGINT" property="searchid" />
+    <result column="searchkey" jdbcType="VARCHAR" property="searchkey" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="result" jdbcType="INTEGER" property="result" />
+    <result column="searchdate" jdbcType="TIMESTAMP" property="searchdate" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="cnt" jdbcType="INTEGER" property="cnt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Search_log_history">
+    insert into search_log_history (searchid, searchkey, userid, 
+      channelid, result, searchdate, 
+      flag, cnt)
+    values (#{searchid,jdbcType=BIGINT}, #{searchkey,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{channelid,jdbcType=VARCHAR}, #{result,jdbcType=INTEGER}, #{searchdate,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=INTEGER}, #{cnt,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Search_log_history">
+    insert into search_log_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="searchid != null">
+        searchid,
+      </if>
+      <if test="searchkey != null">
+        searchkey,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="searchdate != null">
+        searchdate,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="cnt != null">
+        cnt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="searchid != null">
+        #{searchid,jdbcType=BIGINT},
+      </if>
+      <if test="searchkey != null">
+        #{searchkey,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=INTEGER},
+      </if>
+      <if test="searchdate != null">
+        #{searchdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="cnt != null">
+        #{cnt,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

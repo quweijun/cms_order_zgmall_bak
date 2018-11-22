@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CommdictMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Commdict">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="zddh" jdbcType="INTEGER" property="zddh" />
+    <result column="mddh" jdbcType="INTEGER" property="mddh" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="bzdesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Commdict">
+    insert into commdict (flowid, zddh, mddh, 
+      name, bzdesc, xh, flag
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{zddh,jdbcType=INTEGER}, #{mddh,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{bzdesc,jdbcType=VARCHAR}, #{xh,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Commdict">
+    insert into commdict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="bzdesc != null">
+        bzdesc,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="zddh != null">
+        #{zddh,jdbcType=INTEGER},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Test_trigerMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Test_triger">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="uptDate" jdbcType="TIMESTAMP" property="uptdate" />
+    <result column="uptTime" jdbcType="INTEGER" property="upttime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Test_triger">
+    insert into test_triger (flowid, uptDate, uptTime
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{uptdate,jdbcType=TIMESTAMP}, #{upttime,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Test_triger">
+    insert into test_triger
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="uptdate != null">
+        uptDate,
+      </if>
+      <if test="upttime != null">
+        uptTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="uptdate != null">
+        #{uptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="upttime != null">
+        #{upttime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

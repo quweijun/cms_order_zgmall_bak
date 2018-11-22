@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.DoublescoreMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Doublescore">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="orderprice" jdbcType="VARCHAR" property="orderprice" />
+    <result column="giftscore" jdbcType="VARCHAR" property="giftscore" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Doublescore">
+    insert into doublescore (flowid, orderid, orderprice, 
+      giftscore, addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{orderprice,jdbcType=VARCHAR}, 
+      #{giftscore,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Doublescore">
+    insert into doublescore
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="orderprice != null">
+        orderprice,
+      </if>
+      <if test="giftscore != null">
+        giftscore,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderprice != null">
+        #{orderprice,jdbcType=VARCHAR},
+      </if>
+      <if test="giftscore != null">
+        #{giftscore,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

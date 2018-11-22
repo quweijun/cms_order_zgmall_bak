@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Jd_productcssummaryMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jd_productcssummary">
+    <result column="cpid" jdbcType="VARCHAR" property="cpid" />
+    <result column="zgid" jdbcType="VARCHAR" property="zgid" />
+    <result column="cshz" jdbcType="VARCHAR" property="cshz" />
+    <result column="cssl" jdbcType="INTEGER" property="cssl" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jd_productcssummary">
+    insert into jd_productcssummary (cpid, zgid, cshz, 
+      cssl)
+    values (#{cpid,jdbcType=VARCHAR}, #{zgid,jdbcType=VARCHAR}, #{cshz,jdbcType=VARCHAR}, 
+      #{cssl,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jd_productcssummary">
+    insert into jd_productcssummary
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cpid != null">
+        cpid,
+      </if>
+      <if test="zgid != null">
+        zgid,
+      </if>
+      <if test="cshz != null">
+        cshz,
+      </if>
+      <if test="cssl != null">
+        cssl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cpid != null">
+        #{cpid,jdbcType=VARCHAR},
+      </if>
+      <if test="zgid != null">
+        #{zgid,jdbcType=VARCHAR},
+      </if>
+      <if test="cshz != null">
+        #{cshz,jdbcType=VARCHAR},
+      </if>
+      <if test="cssl != null">
+        #{cssl,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Android_more_configMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Android_more_config">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Android_more_config">
+    <result column="intor" jdbcType="LONGVARCHAR" property="intor" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    intor
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Android_more_config">
+    insert into android_more_config (id, channelid, name, 
+      url, addUser, addTime, 
+      sort, flag, intor
+      )
+    values (#{id,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{adduser,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{sort,jdbcType=INTEGER}, #{flag,jdbcType=VARCHAR}, #{intor,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Android_more_config">
+    insert into android_more_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="intor != null">
+        intor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="intor != null">
+        #{intor,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

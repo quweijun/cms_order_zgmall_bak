@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Bft_recordsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Bft_records">
+    <result column="Q_MerID" jdbcType="VARCHAR" property="qMerid" />
+    <result column="Q_PayID" jdbcType="VARCHAR" property="qPayid" />
+    <result column="Q_UserID" jdbcType="VARCHAR" property="qUserid" />
+    <result column="Q_BankCard" jdbcType="VARCHAR" property="qBankcard" />
+    <result column="Q_OrderMount" jdbcType="VARCHAR" property="qOrdermount" />
+    <result column="Q_Transdate" jdbcType="VARCHAR" property="qTransdate" />
+    <result column="Q_TransTime" jdbcType="VARCHAR" property="qTranstime" />
+    <result column="Q_TransType" jdbcType="VARCHAR" property="qTranstype" />
+    <result column="Q_SystemSSN" jdbcType="VARCHAR" property="qSystemssn" />
+    <result column="Q_YLSystemSSN" jdbcType="VARCHAR" property="qYlsystemssn" />
+    <result column="Q_BankCode" jdbcType="VARCHAR" property="qBankcode" />
+    <result column="Q_RetCode" jdbcType="VARCHAR" property="qRetcode" />
+    <result column="P_UserID" jdbcType="VARCHAR" property="pUserid" />
+    <result column="P_MerID" jdbcType="VARCHAR" property="pMerid" />
+    <result column="P_PayID" jdbcType="VARCHAR" property="pPayid" />
+    <result column="P_RetCode" jdbcType="VARCHAR" property="pRetcode" />
+    <result column="P_TransType" jdbcType="VARCHAR" property="pTranstype" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="bft_ID" jdbcType="BIGINT" property="bftId" />
+    <result column="Q_Syscode" jdbcType="VARCHAR" property="qSyscode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Bft_records">
+    insert into bft_records (Q_MerID, Q_PayID, Q_UserID, 
+      Q_BankCard, Q_OrderMount, Q_Transdate, 
+      Q_TransTime, Q_TransType, Q_SystemSSN, 
+      Q_YLSystemSSN, Q_BankCode, Q_RetCode, 
+      P_UserID, P_MerID, P_PayID, 
+      P_RetCode, P_TransType, addtime, 
+      bft_ID, Q_Syscode)
+    values (#{qMerid,jdbcType=VARCHAR}, #{qPayid,jdbcType=VARCHAR}, #{qUserid,jdbcType=VARCHAR}, 
+      #{qBankcard,jdbcType=VARCHAR}, #{qOrdermount,jdbcType=VARCHAR}, #{qTransdate,jdbcType=VARCHAR}, 
+      #{qTranstime,jdbcType=VARCHAR}, #{qTranstype,jdbcType=VARCHAR}, #{qSystemssn,jdbcType=VARCHAR}, 
+      #{qYlsystemssn,jdbcType=VARCHAR}, #{qBankcode,jdbcType=VARCHAR}, #{qRetcode,jdbcType=VARCHAR}, 
+      #{pUserid,jdbcType=VARCHAR}, #{pMerid,jdbcType=VARCHAR}, #{pPayid,jdbcType=VARCHAR}, 
+      #{pRetcode,jdbcType=VARCHAR}, #{pTranstype,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{bftId,jdbcType=BIGINT}, #{qSyscode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Bft_records">
+    insert into bft_records
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="qMerid != null">
+        Q_MerID,
+      </if>
+      <if test="qPayid != null">
+        Q_PayID,
+      </if>
+      <if test="qUserid != null">
+        Q_UserID,
+      </if>
+      <if test="qBankcard != null">
+        Q_BankCard,
+      </if>
+      <if test="qOrdermount != null">
+        Q_OrderMount,
+      </if>
+      <if test="qTransdate != null">
+        Q_Transdate,
+      </if>
+      <if test="qTranstime != null">
+        Q_TransTime,
+      </if>
+      <if test="qTranstype != null">
+        Q_TransType,
+      </if>
+      <if test="qSystemssn != null">
+        Q_SystemSSN,
+      </if>
+      <if test="qYlsystemssn != null">
+        Q_YLSystemSSN,
+      </if>
+      <if test="qBankcode != null">
+        Q_BankCode,
+      </if>
+      <if test="qRetcode != null">
+        Q_RetCode,
+      </if>
+      <if test="pUserid != null">
+        P_UserID,
+      </if>
+      <if test="pMerid != null">
+        P_MerID,
+      </if>
+      <if test="pPayid != null">
+        P_PayID,
+      </if>
+      <if test="pRetcode != null">
+        P_RetCode,
+      </if>
+      <if test="pTranstype != null">
+        P_TransType,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="bftId != null">
+        bft_ID,
+      </if>
+      <if test="qSyscode != null">
+        Q_Syscode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="qMerid != null">
+        #{qMerid,jdbcType=VARCHAR},
+      </if>
+      <if test="qPayid != null">
+        #{qPayid,jdbcType=VARCHAR},
+      </if>
+      <if test="qUserid != null">
+        #{qUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="qBankcard != null">
+        #{qBankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="qOrdermount != null">
+        #{qOrdermount,jdbcType=VARCHAR},
+      </if>
+      <if test="qTransdate != null">
+        #{qTransdate,jdbcType=VARCHAR},
+      </if>
+      <if test="qTranstime != null">
+        #{qTranstime,jdbcType=VARCHAR},
+      </if>
+      <if test="qTranstype != null">
+        #{qTranstype,jdbcType=VARCHAR},
+      </if>
+      <if test="qSystemssn != null">
+        #{qSystemssn,jdbcType=VARCHAR},
+      </if>
+      <if test="qYlsystemssn != null">
+        #{qYlsystemssn,jdbcType=VARCHAR},
+      </if>
+      <if test="qBankcode != null">
+        #{qBankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="qRetcode != null">
+        #{qRetcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pUserid != null">
+        #{pUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="pMerid != null">
+        #{pMerid,jdbcType=VARCHAR},
+      </if>
+      <if test="pPayid != null">
+        #{pPayid,jdbcType=VARCHAR},
+      </if>
+      <if test="pRetcode != null">
+        #{pRetcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pTranstype != null">
+        #{pTranstype,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bftId != null">
+        #{bftId,jdbcType=BIGINT},
+      </if>
+      <if test="qSyscode != null">
+        #{qSyscode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

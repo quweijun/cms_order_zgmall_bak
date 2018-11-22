@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PindaoareaubbcfgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pindaoareaubbcfg">
+    <result column="pdjb" jdbcType="INTEGER" property="pdjb" />
+    <result column="pdid" jdbcType="INTEGER" property="pdid" />
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="UBBAreaName" jdbcType="VARCHAR" property="ubbareaname" />
+    <result column="Addor" jdbcType="VARCHAR" property="addor" />
+    <result column="Addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="UptOr" jdbcType="VARCHAR" property="uptor" />
+    <result column="UptTime" jdbcType="TIMESTAMP" property="upttime" />
+    <result column="Xh" jdbcType="INTEGER" property="xh" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Pindaoareaubbcfg">
+    <result column="UBBContent" jdbcType="LONGVARCHAR" property="ubbcontent" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    UBBContent
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pindaoareaubbcfg">
+    insert into pindaoareaubbcfg (pdjb, pdid, FlowNo, 
+      UBBAreaName, Addor, Addtime, 
+      UptOr, UptTime, Xh, 
+      EnableFlag, UBBContent)
+    values (#{pdjb,jdbcType=INTEGER}, #{pdid,jdbcType=INTEGER}, #{flowno,jdbcType=INTEGER}, 
+      #{ubbareaname,jdbcType=VARCHAR}, #{addor,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{uptor,jdbcType=VARCHAR}, #{upttime,jdbcType=TIMESTAMP}, #{xh,jdbcType=INTEGER}, 
+      #{enableflag,jdbcType=INTEGER}, #{ubbcontent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pindaoareaubbcfg">
+    insert into pindaoareaubbcfg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pdjb != null">
+        pdjb,
+      </if>
+      <if test="pdid != null">
+        pdid,
+      </if>
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="ubbareaname != null">
+        UBBAreaName,
+      </if>
+      <if test="addor != null">
+        Addor,
+      </if>
+      <if test="addtime != null">
+        Addtime,
+      </if>
+      <if test="uptor != null">
+        UptOr,
+      </if>
+      <if test="upttime != null">
+        UptTime,
+      </if>
+      <if test="xh != null">
+        Xh,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="ubbcontent != null">
+        UBBContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pdjb != null">
+        #{pdjb,jdbcType=INTEGER},
+      </if>
+      <if test="pdid != null">
+        #{pdid,jdbcType=INTEGER},
+      </if>
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="ubbareaname != null">
+        #{ubbareaname,jdbcType=VARCHAR},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uptor != null">
+        #{uptor,jdbcType=VARCHAR},
+      </if>
+      <if test="upttime != null">
+        #{upttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="ubbcontent != null">
+        #{ubbcontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

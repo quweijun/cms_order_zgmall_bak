@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Expresspandian_excelMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Expresspandian_excel">
+    <result column="pkid" jdbcType="BIGINT" property="pkid" />
+    <result column="fileID" jdbcType="VARCHAR" property="fileid" />
+    <result column="barcodeid" jdbcType="DOUBLE" property="barcodeid" />
+    <result column="exceltype" jdbcType="VARCHAR" property="exceltype" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="iscangku" jdbcType="INTEGER" property="iscangku" />
+    <result column="iskucun" jdbcType="INTEGER" property="iskucun" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Expresspandian_excel">
+    insert into expresspandian_excel (pkid, fileID, barcodeid, 
+      exceltype, addDate, iscangku, 
+      iskucun, username)
+    values (#{pkid,jdbcType=BIGINT}, #{fileid,jdbcType=VARCHAR}, #{barcodeid,jdbcType=DOUBLE}, 
+      #{exceltype,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}, #{iscangku,jdbcType=INTEGER}, 
+      #{iskucun,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Expresspandian_excel">
+    insert into expresspandian_excel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        pkid,
+      </if>
+      <if test="fileid != null">
+        fileID,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="exceltype != null">
+        exceltype,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+      <if test="iscangku != null">
+        iscangku,
+      </if>
+      <if test="iskucun != null">
+        iskucun,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid != null">
+        #{pkid,jdbcType=BIGINT},
+      </if>
+      <if test="fileid != null">
+        #{fileid,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=DOUBLE},
+      </if>
+      <if test="exceltype != null">
+        #{exceltype,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iscangku != null">
+        #{iscangku,jdbcType=INTEGER},
+      </if>
+      <if test="iskucun != null">
+        #{iskucun,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.AftersaleserviceMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Aftersaleservice">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="orderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="ordername" jdbcType="VARCHAR" property="ordername" />
+    <result column="orderphone" jdbcType="VARCHAR" property="orderphone" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="salesType" jdbcType="INTEGER" property="salestype" />
+    <result column="orderState" jdbcType="INTEGER" property="orderstate" />
+    <result column="protype" jdbcType="INTEGER" property="protype" />
+    <result column="DetContents" jdbcType="VARCHAR" property="detcontents" />
+    <result column="userID" jdbcType="VARCHAR" property="userid" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="myideaa" jdbcType="INTEGER" property="myideaa" />
+    <result column="mystate" jdbcType="INTEGER" property="mystate" />
+    <result column="cl_service" jdbcType="VARCHAR" property="clService" />
+    <result column="cl_time" jdbcType="TIMESTAMP" property="clTime" />
+    <result column="kfdesc" jdbcType="VARCHAR" property="kfdesc" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Aftersaleservice">
+    insert into aftersaleservice (ID, orderID, ordername, 
+      orderphone, productid, salesType, 
+      orderState, protype, DetContents, 
+      userID, updateTime, myideaa, 
+      mystate, cl_service, cl_time, 
+      kfdesc, flag)
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{ordername,jdbcType=VARCHAR}, 
+      #{orderphone,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{salestype,jdbcType=INTEGER}, 
+      #{orderstate,jdbcType=INTEGER}, #{protype,jdbcType=INTEGER}, #{detcontents,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{myideaa,jdbcType=INTEGER}, 
+      #{mystate,jdbcType=INTEGER}, #{clService,jdbcType=VARCHAR}, #{clTime,jdbcType=TIMESTAMP}, 
+      #{kfdesc,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Aftersaleservice">
+    insert into aftersaleservice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="orderid != null">
+        orderID,
+      </if>
+      <if test="ordername != null">
+        ordername,
+      </if>
+      <if test="orderphone != null">
+        orderphone,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="salestype != null">
+        salesType,
+      </if>
+      <if test="orderstate != null">
+        orderState,
+      </if>
+      <if test="protype != null">
+        protype,
+      </if>
+      <if test="detcontents != null">
+        DetContents,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+      <if test="myideaa != null">
+        myideaa,
+      </if>
+      <if test="mystate != null">
+        mystate,
+      </if>
+      <if test="clService != null">
+        cl_service,
+      </if>
+      <if test="clTime != null">
+        cl_time,
+      </if>
+      <if test="kfdesc != null">
+        kfdesc,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="orderphone != null">
+        #{orderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="salestype != null">
+        #{salestype,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=INTEGER},
+      </if>
+      <if test="protype != null">
+        #{protype,jdbcType=INTEGER},
+      </if>
+      <if test="detcontents != null">
+        #{detcontents,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="myideaa != null">
+        #{myideaa,jdbcType=INTEGER},
+      </if>
+      <if test="mystate != null">
+        #{mystate,jdbcType=INTEGER},
+      </if>
+      <if test="clService != null">
+        #{clService,jdbcType=VARCHAR},
+      </if>
+      <if test="clTime != null">
+        #{clTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kfdesc != null">
+        #{kfdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

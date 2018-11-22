@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Customer_delMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customer_del">
+    <result column="CustomerID" jdbcType="BIGINT" property="customerid" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="CustomerName" jdbcType="VARCHAR" property="customername" />
+    <result column="CustomerMobile" jdbcType="VARCHAR" property="customermobile" />
+    <result column="Tel" jdbcType="VARCHAR" property="tel" />
+    <result column="CustomerPass" jdbcType="VARCHAR" property="customerpass" />
+    <result column="PostCode" jdbcType="VARCHAR" property="postcode" />
+    <result column="province" jdbcType="CHAR" property="province" />
+    <result column="city" jdbcType="CHAR" property="city" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Birthdayyear" jdbcType="VARCHAR" property="birthdayyear" />
+    <result column="Birthdaymonth" jdbcType="VARCHAR" property="birthdaymonth" />
+    <result column="Brithdaydy" jdbcType="VARCHAR" property="brithdaydy" />
+    <result column="RegisterTime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="LastLoginTime" jdbcType="TIMESTAMP" property="lastlogintime" />
+    <result column="Class" jdbcType="VARCHAR" property="class" />
+    <result column="AllCcurency" jdbcType="DOUBLE" property="allccurency" />
+    <result column="RedPackets" jdbcType="DOUBLE" property="redpackets" />
+    <result column="GiftAmount" jdbcType="DOUBLE" property="giftamount" />
+    <result column="registerip" jdbcType="VARCHAR" property="registerip" />
+    <result column="logintimes" jdbcType="INTEGER" property="logintimes" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="truemobile" jdbcType="VARCHAR" property="truemobile" />
+    <result column="trueua" jdbcType="VARCHAR" property="trueua" />
+    <result column="LJJF" jdbcType="INTEGER" property="ljjf" />
+    <result column="DQJF" jdbcType="INTEGER" property="dqjf" />
+    <result column="jinbi" jdbcType="INTEGER" property="jinbi" />
+    <result column="lqjfdate" jdbcType="TIMESTAMP" property="lqjfdate" />
+    <result column="khdflag" jdbcType="INTEGER" property="khdflag" />
+    <result column="lqhbflag" jdbcType="INTEGER" property="lqhbflag" />
+    <result column="sendflag" jdbcType="CHAR" property="sendflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customer_del">
+    insert into customer_del (CustomerID, UserName, CustomerName, 
+      CustomerMobile, Tel, CustomerPass, 
+      PostCode, province, city, 
+      email, Address, Birthdayyear, 
+      Birthdaymonth, Brithdaydy, RegisterTime, 
+      LastLoginTime, Class, AllCcurency, 
+      RedPackets, GiftAmount, registerip, 
+      logintimes, flag, channelid, 
+      truemobile, trueua, LJJF, 
+      DQJF, jinbi, lqjfdate, 
+      khdflag, lqhbflag, sendflag
+      )
+    values (#{customerid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{customername,jdbcType=VARCHAR}, 
+      #{customermobile,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{customerpass,jdbcType=VARCHAR}, 
+      #{postcode,jdbcType=VARCHAR}, #{province,jdbcType=CHAR}, #{city,jdbcType=CHAR}, 
+      #{email,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{birthdayyear,jdbcType=VARCHAR}, 
+      #{birthdaymonth,jdbcType=VARCHAR}, #{brithdaydy,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}, 
+      #{lastlogintime,jdbcType=TIMESTAMP}, #{class,jdbcType=VARCHAR}, #{allccurency,jdbcType=DOUBLE}, 
+      #{redpackets,jdbcType=DOUBLE}, #{giftamount,jdbcType=DOUBLE}, #{registerip,jdbcType=VARCHAR}, 
+      #{logintimes,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR}, 
+      #{truemobile,jdbcType=VARCHAR}, #{trueua,jdbcType=VARCHAR}, #{ljjf,jdbcType=INTEGER}, 
+      #{dqjf,jdbcType=INTEGER}, #{jinbi,jdbcType=INTEGER}, #{lqjfdate,jdbcType=TIMESTAMP}, 
+      #{khdflag,jdbcType=INTEGER}, #{lqhbflag,jdbcType=INTEGER}, #{sendflag,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customer_del">
+    insert into customer_del
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        CustomerID,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="customername != null">
+        CustomerName,
+      </if>
+      <if test="customermobile != null">
+        CustomerMobile,
+      </if>
+      <if test="tel != null">
+        Tel,
+      </if>
+      <if test="customerpass != null">
+        CustomerPass,
+      </if>
+      <if test="postcode != null">
+        PostCode,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="birthdayyear != null">
+        Birthdayyear,
+      </if>
+      <if test="birthdaymonth != null">
+        Birthdaymonth,
+      </if>
+      <if test="brithdaydy != null">
+        Brithdaydy,
+      </if>
+      <if test="registertime != null">
+        RegisterTime,
+      </if>
+      <if test="lastlogintime != null">
+        LastLoginTime,
+      </if>
+      <if test="class != null">
+        Class,
+      </if>
+      <if test="allccurency != null">
+        AllCcurency,
+      </if>
+      <if test="redpackets != null">
+        RedPackets,
+      </if>
+      <if test="giftamount != null">
+        GiftAmount,
+      </if>
+      <if test="registerip != null">
+        registerip,
+      </if>
+      <if test="logintimes != null">
+        logintimes,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="truemobile != null">
+        truemobile,
+      </if>
+      <if test="trueua != null">
+        trueua,
+      </if>
+      <if test="ljjf != null">
+        LJJF,
+      </if>
+      <if test="dqjf != null">
+        DQJF,
+      </if>
+      <if test="jinbi != null">
+        jinbi,
+      </if>
+      <if test="lqjfdate != null">
+        lqjfdate,
+      </if>
+      <if test="khdflag != null">
+        khdflag,
+      </if>
+      <if test="lqhbflag != null">
+        lqhbflag,
+      </if>
+      <if test="sendflag != null">
+        sendflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="customermobile != null">
+        #{customermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="customerpass != null">
+        #{customerpass,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=CHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=CHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdayyear != null">
+        #{birthdayyear,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdaymonth != null">
+        #{birthdaymonth,jdbcType=VARCHAR},
+      </if>
+      <if test="brithdaydy != null">
+        #{brithdaydy,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastlogintime != null">
+        #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="class != null">
+        #{class,jdbcType=VARCHAR},
+      </if>
+      <if test="allccurency != null">
+        #{allccurency,jdbcType=DOUBLE},
+      </if>
+      <if test="redpackets != null">
+        #{redpackets,jdbcType=DOUBLE},
+      </if>
+      <if test="giftamount != null">
+        #{giftamount,jdbcType=DOUBLE},
+      </if>
+      <if test="registerip != null">
+        #{registerip,jdbcType=VARCHAR},
+      </if>
+      <if test="logintimes != null">
+        #{logintimes,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="truemobile != null">
+        #{truemobile,jdbcType=VARCHAR},
+      </if>
+      <if test="trueua != null">
+        #{trueua,jdbcType=VARCHAR},
+      </if>
+      <if test="ljjf != null">
+        #{ljjf,jdbcType=INTEGER},
+      </if>
+      <if test="dqjf != null">
+        #{dqjf,jdbcType=INTEGER},
+      </if>
+      <if test="jinbi != null">
+        #{jinbi,jdbcType=INTEGER},
+      </if>
+      <if test="lqjfdate != null">
+        #{lqjfdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="khdflag != null">
+        #{khdflag,jdbcType=INTEGER},
+      </if>
+      <if test="lqhbflag != null">
+        #{lqhbflag,jdbcType=INTEGER},
+      </if>
+      <if test="sendflag != null">
+        #{sendflag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

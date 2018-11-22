@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.HfczjgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Hfczjg">
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="ordermoney" jdbcType="VARCHAR" property="ordermoney" />
+    <result column="verifystring" jdbcType="VARCHAR" property="verifystring" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Hfczjg">
+    insert into hfczjg (orderid, status, ordermoney, 
+      verifystring, addtime)
+    values (#{orderid,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{ordermoney,jdbcType=VARCHAR}, 
+      #{verifystring,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Hfczjg">
+    insert into hfczjg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="ordermoney != null">
+        ordermoney,
+      </if>
+      <if test="verifystring != null">
+        verifystring,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="ordermoney != null">
+        #{ordermoney,jdbcType=VARCHAR},
+      </if>
+      <if test="verifystring != null">
+        #{verifystring,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

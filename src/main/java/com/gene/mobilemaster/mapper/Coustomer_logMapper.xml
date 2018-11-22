@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Coustomer_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Coustomer_log">
+    <result column="sessionid" jdbcType="VARCHAR" property="sessionid" />
+    <result column="sessionid2" jdbcType="VARCHAR" property="sessionid2" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Coustomer_log">
+    insert into coustomer_log (sessionid, sessionid2, userid, 
+      channelid, mobile, addtime
+      )
+    values (#{sessionid,jdbcType=VARCHAR}, #{sessionid2,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{channelid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Coustomer_log">
+    insert into coustomer_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        sessionid,
+      </if>
+      <if test="sessionid2 != null">
+        sessionid2,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="sessionid2 != null">
+        #{sessionid2,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

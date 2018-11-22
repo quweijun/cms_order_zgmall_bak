@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ClientconfigMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Clientconfig">
+    <result column="flowId" jdbcType="INTEGER" property="flowid" />
+    <result column="ckey" jdbcType="VARCHAR" property="ckey" />
+    <result column="cvalue" jdbcType="VARCHAR" property="cvalue" />
+    <result column="isEnable" jdbcType="INTEGER" property="isenable" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Clientconfig">
+    insert into clientconfig (flowId, ckey, cvalue, 
+      isEnable, addDate)
+    values (#{flowid,jdbcType=INTEGER}, #{ckey,jdbcType=VARCHAR}, #{cvalue,jdbcType=VARCHAR}, 
+      #{isenable,jdbcType=INTEGER}, #{adddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Clientconfig">
+    insert into clientconfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowId,
+      </if>
+      <if test="ckey != null">
+        ckey,
+      </if>
+      <if test="cvalue != null">
+        cvalue,
+      </if>
+      <if test="isenable != null">
+        isEnable,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="ckey != null">
+        #{ckey,jdbcType=VARCHAR},
+      </if>
+      <if test="cvalue != null">
+        #{cvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="isenable != null">
+        #{isenable,jdbcType=INTEGER},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

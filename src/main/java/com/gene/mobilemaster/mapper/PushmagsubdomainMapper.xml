@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PushmagsubdomainMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pushmagsubdomain">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="subdomainId" jdbcType="VARCHAR" property="subdomainid" />
+    <result column="subdomainStatus" jdbcType="VARCHAR" property="subdomainstatus" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pushmagsubdomain">
+    insert into pushmagsubdomain (ID, subdomainId, subdomainStatus, 
+      createDate)
+    values (#{id,jdbcType=INTEGER}, #{subdomainid,jdbcType=VARCHAR}, #{subdomainstatus,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pushmagsubdomain">
+    insert into pushmagsubdomain
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="subdomainid != null">
+        subdomainId,
+      </if>
+      <if test="subdomainstatus != null">
+        subdomainStatus,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="subdomainid != null">
+        #{subdomainid,jdbcType=VARCHAR},
+      </if>
+      <if test="subdomainstatus != null">
+        #{subdomainstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

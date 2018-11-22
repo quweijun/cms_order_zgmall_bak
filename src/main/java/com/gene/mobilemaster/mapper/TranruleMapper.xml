@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TranruleMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Tranrule">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="Provideid" jdbcType="BIGINT" property="provideid" />
+    <result column="AreaName" jdbcType="VARCHAR" property="areaname" />
+    <result column="PostAmount" jdbcType="DOUBLE" property="postamount" />
+    <result column="Formalities" jdbcType="DOUBLE" property="formalities" />
+    <result column="Formaltype" jdbcType="VARCHAR" property="formaltype" />
+    <result column="MinFormalities" jdbcType="DOUBLE" property="minformalities" />
+    <result column="BackAmount" jdbcType="DOUBLE" property="backamount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Tranrule">
+    insert into tranrule (FlowID, Provideid, AreaName, 
+      PostAmount, Formalities, Formaltype, 
+      MinFormalities, BackAmount)
+    values (#{flowid,jdbcType=BIGINT}, #{provideid,jdbcType=BIGINT}, #{areaname,jdbcType=VARCHAR}, 
+      #{postamount,jdbcType=DOUBLE}, #{formalities,jdbcType=DOUBLE}, #{formaltype,jdbcType=VARCHAR}, 
+      #{minformalities,jdbcType=DOUBLE}, #{backamount,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Tranrule">
+    insert into tranrule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="provideid != null">
+        Provideid,
+      </if>
+      <if test="areaname != null">
+        AreaName,
+      </if>
+      <if test="postamount != null">
+        PostAmount,
+      </if>
+      <if test="formalities != null">
+        Formalities,
+      </if>
+      <if test="formaltype != null">
+        Formaltype,
+      </if>
+      <if test="minformalities != null">
+        MinFormalities,
+      </if>
+      <if test="backamount != null">
+        BackAmount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="provideid != null">
+        #{provideid,jdbcType=BIGINT},
+      </if>
+      <if test="areaname != null">
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="postamount != null">
+        #{postamount,jdbcType=DOUBLE},
+      </if>
+      <if test="formalities != null">
+        #{formalities,jdbcType=DOUBLE},
+      </if>
+      <if test="formaltype != null">
+        #{formaltype,jdbcType=VARCHAR},
+      </if>
+      <if test="minformalities != null">
+        #{minformalities,jdbcType=DOUBLE},
+      </if>
+      <if test="backamount != null">
+        #{backamount,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

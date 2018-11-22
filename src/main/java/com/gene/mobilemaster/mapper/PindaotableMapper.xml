@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PindaotableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pindaotable">
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="Pindaoid" jdbcType="VARCHAR" property="pindaoid" />
+    <result column="PindaoName" jdbcType="VARCHAR" property="pindaoname" />
+    <result column="PindaoUrl" jdbcType="VARCHAR" property="pindaourl" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="pindaoflag" jdbcType="INTEGER" property="pindaoflag" />
+    <result column="ispublic" jdbcType="INTEGER" property="ispublic" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pindaotable">
+    insert into pindaotable (pid, Pindaoid, PindaoName, 
+      PindaoUrl, flag, pindaoflag, 
+      ispublic)
+    values (#{pid,jdbcType=INTEGER}, #{pindaoid,jdbcType=VARCHAR}, #{pindaoname,jdbcType=VARCHAR}, 
+      #{pindaourl,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{pindaoflag,jdbcType=INTEGER}, 
+      #{ispublic,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pindaotable">
+    insert into pindaotable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="pindaoid != null">
+        Pindaoid,
+      </if>
+      <if test="pindaoname != null">
+        PindaoName,
+      </if>
+      <if test="pindaourl != null">
+        PindaoUrl,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="pindaoflag != null">
+        pindaoflag,
+      </if>
+      <if test="ispublic != null">
+        ispublic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="pindaoid != null">
+        #{pindaoid,jdbcType=VARCHAR},
+      </if>
+      <if test="pindaoname != null">
+        #{pindaoname,jdbcType=VARCHAR},
+      </if>
+      <if test="pindaourl != null">
+        #{pindaourl,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="pindaoflag != null">
+        #{pindaoflag,jdbcType=INTEGER},
+      </if>
+      <if test="ispublic != null">
+        #{ispublic,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

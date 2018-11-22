@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Returnpro_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Returnpro_log">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="rknumber" jdbcType="VARCHAR" property="rknumber" />
+    <result column="productID" jdbcType="VARCHAR" property="productid" />
+    <result column="editname" jdbcType="VARCHAR" property="editname" />
+    <result column="ordername" jdbcType="VARCHAR" property="ordername" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Returnpro_log">
+    insert into returnpro_log (id, rknumber, productID, 
+      editname, ordername, updatetime, 
+      flag)
+    values (#{id,jdbcType=INTEGER}, #{rknumber,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{editname,jdbcType=VARCHAR}, #{ordername,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Returnpro_log">
+    insert into returnpro_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="rknumber != null">
+        rknumber,
+      </if>
+      <if test="productid != null">
+        productID,
+      </if>
+      <if test="editname != null">
+        editname,
+      </if>
+      <if test="ordername != null">
+        ordername,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="rknumber != null">
+        #{rknumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="editname != null">
+        #{editname,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

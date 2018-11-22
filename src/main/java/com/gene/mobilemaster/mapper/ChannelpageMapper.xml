@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ChannelpageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Channelpage">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="PageID" jdbcType="VARCHAR" property="pageid" />
+    <result column="PageColID" jdbcType="VARCHAR" property="pagecolid" />
+    <result column="Img" jdbcType="VARCHAR" property="img" />
+    <result column="PageContent" jdbcType="VARCHAR" property="pagecontent" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="EnableFlag" jdbcType="VARCHAR" property="enableflag" />
+    <result column="pagetype" jdbcType="INTEGER" property="pagetype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Channelpage">
+    insert into channelpage (FlowID, ChannelID, PageID, 
+      PageColID, Img, PageContent, 
+      xh, EnableFlag, pagetype
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{channelid,jdbcType=VARCHAR}, #{pageid,jdbcType=VARCHAR}, 
+      #{pagecolid,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{pagecontent,jdbcType=VARCHAR}, 
+      #{xh,jdbcType=INTEGER}, #{enableflag,jdbcType=VARCHAR}, #{pagetype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Channelpage">
+    insert into channelpage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="pageid != null">
+        PageID,
+      </if>
+      <if test="pagecolid != null">
+        PageColID,
+      </if>
+      <if test="img != null">
+        Img,
+      </if>
+      <if test="pagecontent != null">
+        PageContent,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="pagetype != null">
+        pagetype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="pageid != null">
+        #{pageid,jdbcType=VARCHAR},
+      </if>
+      <if test="pagecolid != null">
+        #{pagecolid,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="pagecontent != null">
+        #{pagecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+      <if test="pagetype != null">
+        #{pagetype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

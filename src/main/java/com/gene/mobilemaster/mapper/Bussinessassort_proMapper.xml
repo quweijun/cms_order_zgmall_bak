@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Bussinessassort_proMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Bussinessassort_pro">
+    <result column="zddh" jdbcType="VARCHAR" property="zddh" />
+    <result column="mddh" jdbcType="VARCHAR" property="mddh" />
+    <result column="mddh2" jdbcType="VARCHAR" property="mddh2" />
+    <result column="mddh3" jdbcType="VARCHAR" property="mddh3" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="bzdesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Bussinessassort_pro">
+    insert into bussinessassort_pro (zddh, mddh, mddh2, 
+      mddh3, name, flag, 
+      url, bzdesc, FlowID, 
+      xh)
+    values (#{zddh,jdbcType=VARCHAR}, #{mddh,jdbcType=VARCHAR}, #{mddh2,jdbcType=VARCHAR}, 
+      #{mddh3,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{bzdesc,jdbcType=VARCHAR}, #{flowid,jdbcType=BIGINT}, 
+      #{xh,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Bussinessassort_pro">
+    insert into bussinessassort_pro
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="mddh2 != null">
+        mddh2,
+      </if>
+      <if test="mddh3 != null">
+        mddh3,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="bzdesc != null">
+        bzdesc,
+      </if>
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zddh != null">
+        #{zddh,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh2 != null">
+        #{mddh2,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh3 != null">
+        #{mddh3,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

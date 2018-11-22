@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ClientlistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Clientlist">
+    <result column="flowId" jdbcType="INTEGER" property="flowid" />
+    <result column="os" jdbcType="VARCHAR" property="os" />
+    <result column="clientName" jdbcType="VARCHAR" property="clientname" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="uniqueKey" jdbcType="VARCHAR" property="uniquekey" />
+    <result column="developer" jdbcType="VARCHAR" property="developer" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Clientlist">
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    remark
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Clientlist">
+    insert into clientlist (flowId, os, clientName, 
+      version, uniqueKey, developer, 
+      url, channelid, addDate, 
+      remark)
+    values (#{flowid,jdbcType=INTEGER}, #{os,jdbcType=VARCHAR}, #{clientname,jdbcType=VARCHAR}, 
+      #{version,jdbcType=VARCHAR}, #{uniquekey,jdbcType=VARCHAR}, #{developer,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Clientlist">
+    insert into clientlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowId,
+      </if>
+      <if test="os != null">
+        os,
+      </if>
+      <if test="clientname != null">
+        clientName,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="uniquekey != null">
+        uniqueKey,
+      </if>
+      <if test="developer != null">
+        developer,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="os != null">
+        #{os,jdbcType=VARCHAR},
+      </if>
+      <if test="clientname != null">
+        #{clientname,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="uniquekey != null">
+        #{uniquekey,jdbcType=VARCHAR},
+      </if>
+      <if test="developer != null">
+        #{developer,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

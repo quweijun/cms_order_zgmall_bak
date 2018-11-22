@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PhototypeMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Phototype">
+    <result column="ID" jdbcType="BIGINT" property="id" />
+    <result column="PicTypeId" jdbcType="INTEGER" property="pictypeid" />
+    <result column="PicTypeName" jdbcType="VARCHAR" property="pictypename" />
+    <result column="PicEdition" jdbcType="INTEGER" property="picedition" />
+    <result column="PicPath" jdbcType="VARCHAR" property="picpath" />
+    <result column="PicUrlPath" jdbcType="VARCHAR" property="picurlpath" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="ShowFlag" jdbcType="INTEGER" property="showflag" />
+    <result column="ShowOrder" jdbcType="INTEGER" property="showorder" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Phototype">
+    insert into phototype (ID, PicTypeId, PicTypeName, 
+      PicEdition, PicPath, PicUrlPath, 
+      EnableFlag, addUser, addTime, 
+      ShowFlag, ShowOrder)
+    values (#{id,jdbcType=BIGINT}, #{pictypeid,jdbcType=INTEGER}, #{pictypename,jdbcType=VARCHAR}, 
+      #{picedition,jdbcType=INTEGER}, #{picpath,jdbcType=VARCHAR}, #{picurlpath,jdbcType=VARCHAR}, 
+      #{enableflag,jdbcType=INTEGER}, #{adduser,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{showflag,jdbcType=INTEGER}, #{showorder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Phototype">
+    insert into phototype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="pictypeid != null">
+        PicTypeId,
+      </if>
+      <if test="pictypename != null">
+        PicTypeName,
+      </if>
+      <if test="picedition != null">
+        PicEdition,
+      </if>
+      <if test="picpath != null">
+        PicPath,
+      </if>
+      <if test="picurlpath != null">
+        PicUrlPath,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="showflag != null">
+        ShowFlag,
+      </if>
+      <if test="showorder != null">
+        ShowOrder,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="pictypeid != null">
+        #{pictypeid,jdbcType=INTEGER},
+      </if>
+      <if test="pictypename != null">
+        #{pictypename,jdbcType=VARCHAR},
+      </if>
+      <if test="picedition != null">
+        #{picedition,jdbcType=INTEGER},
+      </if>
+      <if test="picpath != null">
+        #{picpath,jdbcType=VARCHAR},
+      </if>
+      <if test="picurlpath != null">
+        #{picurlpath,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="showflag != null">
+        #{showflag,jdbcType=INTEGER},
+      </if>
+      <if test="showorder != null">
+        #{showorder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Threeimportzg_prodlibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Threeimportzg_prodlib">
+    <result column="Productname" jdbcType="VARCHAR" property="productname" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="cgjg" jdbcType="DOUBLE" property="cgjg" />
+    <result column="zgjg" jdbcType="DOUBLE" property="zgjg" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Threeimportzg_prodlib">
+    insert into threeimportzg_prodlib (Productname, productid, cgjg, 
+      zgjg, prodcolor)
+    values (#{productname,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{cgjg,jdbcType=DOUBLE}, 
+      #{zgjg,jdbcType=DOUBLE}, #{prodcolor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Threeimportzg_prodlib">
+    insert into threeimportzg_prodlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productname != null">
+        Productname,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="cgjg != null">
+        cgjg,
+      </if>
+      <if test="zgjg != null">
+        zgjg,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="cgjg != null">
+        #{cgjg,jdbcType=DOUBLE},
+      </if>
+      <if test="zgjg != null">
+        #{zgjg,jdbcType=DOUBLE},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.A_proMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.A_pro">
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="no" jdbcType="DOUBLE" property="no" />
+    <result column="F3" jdbcType="VARCHAR" property="f3" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.A_pro">
+    insert into a_pro (productid, no, F3
+      )
+    values (#{productid,jdbcType=VARCHAR}, #{no,jdbcType=DOUBLE}, #{f3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.A_pro">
+    insert into a_pro
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="no != null">
+        no,
+      </if>
+      <if test="f3 != null">
+        F3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="no != null">
+        #{no,jdbcType=DOUBLE},
+      </if>
+      <if test="f3 != null">
+        #{f3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

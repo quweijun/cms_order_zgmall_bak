@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Customer_tempMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customer_temp">
+    <result column="customer_temp_id" jdbcType="VARCHAR" property="customerTempId" />
+    <result column="customerphone" jdbcType="VARCHAR" property="customerphone" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="registerdate" jdbcType="TIMESTAMP" property="registerdate" />
+    <result column="lastlogindate" jdbcType="TIMESTAMP" property="lastlogindate" />
+    <result column="logintimes" jdbcType="INTEGER" property="logintimes" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customer_temp">
+    insert into customer_temp (customer_temp_id, customerphone, username, 
+      address, registerdate, lastlogindate, 
+      logintimes, customerid)
+    values (#{customerTempId,jdbcType=VARCHAR}, #{customerphone,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{registerdate,jdbcType=TIMESTAMP}, #{lastlogindate,jdbcType=TIMESTAMP}, 
+      #{logintimes,jdbcType=INTEGER}, #{customerid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customer_temp">
+    insert into customer_temp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerTempId != null">
+        customer_temp_id,
+      </if>
+      <if test="customerphone != null">
+        customerphone,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="registerdate != null">
+        registerdate,
+      </if>
+      <if test="lastlogindate != null">
+        lastlogindate,
+      </if>
+      <if test="logintimes != null">
+        logintimes,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerTempId != null">
+        #{customerTempId,jdbcType=VARCHAR},
+      </if>
+      <if test="customerphone != null">
+        #{customerphone,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="registerdate != null">
+        #{registerdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastlogindate != null">
+        #{lastlogindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logintimes != null">
+        #{logintimes,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CommodityaggregatesMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Commodityaggregates">
+    <result column="Aggergatedate" jdbcType="VARCHAR" property="aggergatedate" />
+    <result column="handleDate" jdbcType="TIMESTAMP" property="handledate" />
+    <result column="commodityAggregatesMioh1" jdbcType="INTEGER" property="commodityaggregatesmioh1" />
+    <result column="commodityAggregatesMioh2" jdbcType="INTEGER" property="commodityaggregatesmioh2" />
+    <result column="commodityAggregatesMioh3" jdbcType="INTEGER" property="commodityaggregatesmioh3" />
+    <result column="commodityAggregatesMioh4" jdbcType="INTEGER" property="commodityaggregatesmioh4" />
+    <result column="commodityAggregatesMioh5" jdbcType="INTEGER" property="commodityaggregatesmioh5" />
+    <result column="commodityAggregatesMioh6" jdbcType="INTEGER" property="commodityaggregatesmioh6" />
+    <result column="commodityAggregatesMioh7" jdbcType="INTEGER" property="commodityaggregatesmioh7" />
+    <result column="commodityAggregatesMioh8" jdbcType="INTEGER" property="commodityaggregatesmioh8" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Commodityaggregates">
+    insert into commodityaggregates (Aggergatedate, handleDate, commodityAggregatesMioh1, 
+      commodityAggregatesMioh2, commodityAggregatesMioh3, 
+      commodityAggregatesMioh4, commodityAggregatesMioh5, 
+      commodityAggregatesMioh6, commodityAggregatesMioh7, 
+      commodityAggregatesMioh8)
+    values (#{aggergatedate,jdbcType=VARCHAR}, #{handledate,jdbcType=TIMESTAMP}, #{commodityaggregatesmioh1,jdbcType=INTEGER}, 
+      #{commodityaggregatesmioh2,jdbcType=INTEGER}, #{commodityaggregatesmioh3,jdbcType=INTEGER}, 
+      #{commodityaggregatesmioh4,jdbcType=INTEGER}, #{commodityaggregatesmioh5,jdbcType=INTEGER}, 
+      #{commodityaggregatesmioh6,jdbcType=INTEGER}, #{commodityaggregatesmioh7,jdbcType=INTEGER}, 
+      #{commodityaggregatesmioh8,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Commodityaggregates">
+    insert into commodityaggregates
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aggergatedate != null">
+        Aggergatedate,
+      </if>
+      <if test="handledate != null">
+        handleDate,
+      </if>
+      <if test="commodityaggregatesmioh1 != null">
+        commodityAggregatesMioh1,
+      </if>
+      <if test="commodityaggregatesmioh2 != null">
+        commodityAggregatesMioh2,
+      </if>
+      <if test="commodityaggregatesmioh3 != null">
+        commodityAggregatesMioh3,
+      </if>
+      <if test="commodityaggregatesmioh4 != null">
+        commodityAggregatesMioh4,
+      </if>
+      <if test="commodityaggregatesmioh5 != null">
+        commodityAggregatesMioh5,
+      </if>
+      <if test="commodityaggregatesmioh6 != null">
+        commodityAggregatesMioh6,
+      </if>
+      <if test="commodityaggregatesmioh7 != null">
+        commodityAggregatesMioh7,
+      </if>
+      <if test="commodityaggregatesmioh8 != null">
+        commodityAggregatesMioh8,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aggergatedate != null">
+        #{aggergatedate,jdbcType=VARCHAR},
+      </if>
+      <if test="handledate != null">
+        #{handledate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commodityaggregatesmioh1 != null">
+        #{commodityaggregatesmioh1,jdbcType=INTEGER},
+      </if>
+      <if test="commodityaggregatesmioh2 != null">
+        #{commodityaggregatesmioh2,jdbcType=INTEGER},
+      </if>
+      <if test="commodityaggregatesmioh3 != null">
+        #{commodityaggregatesmioh3,jdbcType=INTEGER},
+      </if>
+      <if test="commodityaggregatesmioh4 != null">
+        #{commodityaggregatesmioh4,jdbcType=INTEGER},
+      </if>
+      <if test="commodityaggregatesmioh5 != null">
+        #{commodityaggregatesmioh5,jdbcType=INTEGER},
+      </if>
+      <if test="commodityaggregatesmioh6 != null">
+        #{commodityaggregatesmioh6,jdbcType=INTEGER},
+      </if>
+      <if test="commodityaggregatesmioh7 != null">
+        #{commodityaggregatesmioh7,jdbcType=INTEGER},
+      </if>
+      <if test="commodityaggregatesmioh8 != null">
+        #{commodityaggregatesmioh8,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CpsadvlogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Cpsadvlog">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="AdvertisementID" jdbcType="VARCHAR" property="advertisementid" />
+    <result column="VerifyID" jdbcType="VARCHAR" property="verifyid" />
+    <result column="adtype" jdbcType="INTEGER" property="adtype" />
+    <result column="adurl" jdbcType="VARCHAR" property="adurl" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Cpsadvlog">
+    insert into cpsadvlog (ID, AdvertisementID, VerifyID, 
+      adtype, adurl, EnableFlag, 
+      Operator, AddTime)
+    values (#{id,jdbcType=INTEGER}, #{advertisementid,jdbcType=VARCHAR}, #{verifyid,jdbcType=VARCHAR}, 
+      #{adtype,jdbcType=INTEGER}, #{adurl,jdbcType=VARCHAR}, #{enableflag,jdbcType=INTEGER}, 
+      #{operator,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Cpsadvlog">
+    insert into cpsadvlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="advertisementid != null">
+        AdvertisementID,
+      </if>
+      <if test="verifyid != null">
+        VerifyID,
+      </if>
+      <if test="adtype != null">
+        adtype,
+      </if>
+      <if test="adurl != null">
+        adurl,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="advertisementid != null">
+        #{advertisementid,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyid != null">
+        #{verifyid,jdbcType=VARCHAR},
+      </if>
+      <if test="adtype != null">
+        #{adtype,jdbcType=INTEGER},
+      </if>
+      <if test="adurl != null">
+        #{adurl,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Android_noticeMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Android_notice">
+    <result column="noticeId" jdbcType="BIGINT" property="noticeid" />
+    <result column="noticeType" jdbcType="VARCHAR" property="noticetype" />
+    <result column="notice_objectId" jdbcType="VARCHAR" property="noticeObjectid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Android_notice">
+    insert into android_notice (noticeId, noticeType, notice_objectId, 
+      addtime)
+    values (#{noticeid,jdbcType=BIGINT}, #{noticetype,jdbcType=VARCHAR}, #{noticeObjectid,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Android_notice">
+    insert into android_notice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noticeid != null">
+        noticeId,
+      </if>
+      <if test="noticetype != null">
+        noticeType,
+      </if>
+      <if test="noticeObjectid != null">
+        notice_objectId,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noticeid != null">
+        #{noticeid,jdbcType=BIGINT},
+      </if>
+      <if test="noticetype != null">
+        #{noticetype,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeObjectid != null">
+        #{noticeObjectid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

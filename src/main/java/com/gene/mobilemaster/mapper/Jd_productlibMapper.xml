@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Jd_productlibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jd_productlib">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="FLBH" jdbcType="VARCHAR" property="flbh" />
+    <result column="CPID" jdbcType="VARCHAR" property="cpid" />
+    <result column="CPRQ" jdbcType="INTEGER" property="cprq" />
+    <result column="HPBL" jdbcType="VARCHAR" property="hpbl" />
+    <result column="CPName" jdbcType="VARCHAR" property="cpname" />
+    <result column="CPURL" jdbcType="VARCHAR" property="cpurl" />
+    <result column="IMGURL" jdbcType="VARCHAR" property="imgurl" />
+    <result column="JGURL" jdbcType="VARCHAR" property="jgurl" />
+    <result column="JDJG" jdbcType="DECIMAL" property="jdjg" />
+    <result column="ZGJG" jdbcType="DECIMAL" property="zgjg" />
+    <result column="zgid" jdbcType="VARCHAR" property="zgid" />
+    <result column="YSSL" jdbcType="INTEGER" property="yssl" />
+    <result column="Brand" jdbcType="VARCHAR" property="brand" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="ZGFLC1" jdbcType="INTEGER" property="zgflc1" />
+    <result column="ZGFLC2" jdbcType="INTEGER" property="zgflc2" />
+    <result column="ZGFLC3" jdbcType="INTEGER" property="zgflc3" />
+    <result column="BrandID" jdbcType="INTEGER" property="brandid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jd_productlib">
+    insert into jd_productlib (id, FLBH, CPID, 
+      CPRQ, HPBL, CPName, 
+      CPURL, IMGURL, JGURL, 
+      JDJG, ZGJG, zgid, YSSL, 
+      Brand, EnableFlag, ZGFLC1, 
+      ZGFLC2, ZGFLC3, BrandID
+      )
+    values (#{id,jdbcType=INTEGER}, #{flbh,jdbcType=VARCHAR}, #{cpid,jdbcType=VARCHAR}, 
+      #{cprq,jdbcType=INTEGER}, #{hpbl,jdbcType=VARCHAR}, #{cpname,jdbcType=VARCHAR}, 
+      #{cpurl,jdbcType=VARCHAR}, #{imgurl,jdbcType=VARCHAR}, #{jgurl,jdbcType=VARCHAR}, 
+      #{jdjg,jdbcType=DECIMAL}, #{zgjg,jdbcType=DECIMAL}, #{zgid,jdbcType=VARCHAR}, #{yssl,jdbcType=INTEGER}, 
+      #{brand,jdbcType=VARCHAR}, #{enableflag,jdbcType=INTEGER}, #{zgflc1,jdbcType=INTEGER}, 
+      #{zgflc2,jdbcType=INTEGER}, #{zgflc3,jdbcType=INTEGER}, #{brandid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jd_productlib">
+    insert into jd_productlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="flbh != null">
+        FLBH,
+      </if>
+      <if test="cpid != null">
+        CPID,
+      </if>
+      <if test="cprq != null">
+        CPRQ,
+      </if>
+      <if test="hpbl != null">
+        HPBL,
+      </if>
+      <if test="cpname != null">
+        CPName,
+      </if>
+      <if test="cpurl != null">
+        CPURL,
+      </if>
+      <if test="imgurl != null">
+        IMGURL,
+      </if>
+      <if test="jgurl != null">
+        JGURL,
+      </if>
+      <if test="jdjg != null">
+        JDJG,
+      </if>
+      <if test="zgjg != null">
+        ZGJG,
+      </if>
+      <if test="zgid != null">
+        zgid,
+      </if>
+      <if test="yssl != null">
+        YSSL,
+      </if>
+      <if test="brand != null">
+        Brand,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="zgflc1 != null">
+        ZGFLC1,
+      </if>
+      <if test="zgflc2 != null">
+        ZGFLC2,
+      </if>
+      <if test="zgflc3 != null">
+        ZGFLC3,
+      </if>
+      <if test="brandid != null">
+        BrandID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="flbh != null">
+        #{flbh,jdbcType=VARCHAR},
+      </if>
+      <if test="cpid != null">
+        #{cpid,jdbcType=VARCHAR},
+      </if>
+      <if test="cprq != null">
+        #{cprq,jdbcType=INTEGER},
+      </if>
+      <if test="hpbl != null">
+        #{hpbl,jdbcType=VARCHAR},
+      </if>
+      <if test="cpname != null">
+        #{cpname,jdbcType=VARCHAR},
+      </if>
+      <if test="cpurl != null">
+        #{cpurl,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="jgurl != null">
+        #{jgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="jdjg != null">
+        #{jdjg,jdbcType=DECIMAL},
+      </if>
+      <if test="zgjg != null">
+        #{zgjg,jdbcType=DECIMAL},
+      </if>
+      <if test="zgid != null">
+        #{zgid,jdbcType=VARCHAR},
+      </if>
+      <if test="yssl != null">
+        #{yssl,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="zgflc1 != null">
+        #{zgflc1,jdbcType=INTEGER},
+      </if>
+      <if test="zgflc2 != null">
+        #{zgflc2,jdbcType=INTEGER},
+      </if>
+      <if test="zgflc3 != null">
+        #{zgflc3,jdbcType=INTEGER},
+      </if>
+      <if test="brandid != null">
+        #{brandid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

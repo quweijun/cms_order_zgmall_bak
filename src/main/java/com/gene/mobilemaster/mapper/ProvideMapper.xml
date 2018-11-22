@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProvideMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Provide">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="provideName" jdbcType="VARCHAR" property="providename" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="telephone" jdbcType="VARCHAR" property="telephone" />
+    <result column="fax" jdbcType="VARCHAR" property="fax" />
+    <result column="linkman" jdbcType="VARCHAR" property="linkman" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtor" jdbcType="VARCHAR" property="addtor" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="provideId" jdbcType="VARCHAR" property="provideid" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="trackingman" jdbcType="VARCHAR" property="trackingman" />
+    <result column="sh_contact" jdbcType="VARCHAR" property="shContact" />
+    <result column="sh_mobile" jdbcType="VARCHAR" property="shMobile" />
+    <result column="sh_address" jdbcType="VARCHAR" property="shAddress" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Provide">
+    insert into provide (id, pid, provideName, 
+      address, telephone, fax, 
+      linkman, mobile, remark, 
+      flag, addtor, addtime, 
+      provideId, QQ, trackingman, 
+      sh_contact, sh_mobile, sh_address
+      )
+    values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, #{providename,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, 
+      #{linkman,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{addtor,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{provideid,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{trackingman,jdbcType=VARCHAR}, 
+      #{shContact,jdbcType=VARCHAR}, #{shMobile,jdbcType=VARCHAR}, #{shAddress,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Provide">
+    insert into provide
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="providename != null">
+        provideName,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="telephone != null">
+        telephone,
+      </if>
+      <if test="fax != null">
+        fax,
+      </if>
+      <if test="linkman != null">
+        linkman,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtor != null">
+        addtor,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="provideid != null">
+        provideId,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="trackingman != null">
+        trackingman,
+      </if>
+      <if test="shContact != null">
+        sh_contact,
+      </if>
+      <if test="shMobile != null">
+        sh_mobile,
+      </if>
+      <if test="shAddress != null">
+        sh_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="providename != null">
+        #{providename,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null">
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtor != null">
+        #{addtor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="provideid != null">
+        #{provideid,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="trackingman != null">
+        #{trackingman,jdbcType=VARCHAR},
+      </if>
+      <if test="shContact != null">
+        #{shContact,jdbcType=VARCHAR},
+      </if>
+      <if test="shMobile != null">
+        #{shMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="shAddress != null">
+        #{shAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

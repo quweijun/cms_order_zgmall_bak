@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BftwaptrackMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Bftwaptrack">
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="TrackDirect" jdbcType="VARCHAR" property="trackdirect" />
+    <result column="MerID" jdbcType="VARCHAR" property="merid" />
+    <result column="MerName" jdbcType="VARCHAR" property="mername" />
+    <result column="UsrName" jdbcType="VARCHAR" property="usrname" />
+    <result column="UserID" jdbcType="VARCHAR" property="userid" />
+    <result column="TelCard" jdbcType="VARCHAR" property="telcard" />
+    <result column="UserPID" jdbcType="VARCHAR" property="userpid" />
+    <result column="BankPID" jdbcType="VARCHAR" property="bankpid" />
+    <result column="PayID" jdbcType="VARCHAR" property="payid" />
+    <result column="OrderAmount" jdbcType="DOUBLE" property="orderamount" />
+    <result column="OrderFeeAmount" jdbcType="DOUBLE" property="orderfeeamount" />
+    <result column="OrderActAmount" jdbcType="DOUBLE" property="orderactamount" />
+    <result column="OhannselAmount" jdbcType="DOUBLE" property="ohannselamount" />
+    <result column="TransDate" jdbcType="VARCHAR" property="transdate" />
+    <result column="TransTime" jdbcType="VARCHAR" property="transtime" />
+    <result column="SystemSSN" jdbcType="VARCHAR" property="systemssn" />
+    <result column="ylSystemSSN" jdbcType="VARCHAR" property="ylsystemssn" />
+    <result column="RetCode" jdbcType="VARCHAR" property="retcode" />
+    <result column="SysCode" jdbcType="VARCHAR" property="syscode" />
+    <result column="BankCard" jdbcType="VARCHAR" property="bankcard" />
+    <result column="BankCode" jdbcType="VARCHAR" property="bankcode" />
+    <result column="MerHomeUrl" jdbcType="VARCHAR" property="merhomeurl" />
+    <result column="MerBackUrl" jdbcType="VARCHAR" property="merbackurl" />
+    <result column="WapType" jdbcType="VARCHAR" property="waptype" />
+    <result column="RetDescription" jdbcType="VARCHAR" property="retdescription" />
+    <result column="Remark1" jdbcType="VARCHAR" property="remark1" />
+    <result column="Remark2" jdbcType="VARCHAR" property="remark2" />
+    <result column="Remark3" jdbcType="VARCHAR" property="remark3" />
+    <result column="TransType" jdbcType="VARCHAR" property="transtype" />
+    <result column="AccessTime" jdbcType="TIMESTAMP" property="accesstime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Bftwaptrack">
+    insert into bftwaptrack (FlowNo, TrackDirect, MerID, 
+      MerName, UsrName, UserID, 
+      TelCard, UserPID, BankPID, 
+      PayID, OrderAmount, OrderFeeAmount, 
+      OrderActAmount, OhannselAmount, TransDate, 
+      TransTime, SystemSSN, ylSystemSSN, 
+      RetCode, SysCode, BankCard, 
+      BankCode, MerHomeUrl, MerBackUrl, 
+      WapType, RetDescription, Remark1, 
+      Remark2, Remark3, TransType, 
+      AccessTime)
+    values (#{flowno,jdbcType=INTEGER}, #{trackdirect,jdbcType=VARCHAR}, #{merid,jdbcType=VARCHAR}, 
+      #{mername,jdbcType=VARCHAR}, #{usrname,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{telcard,jdbcType=VARCHAR}, #{userpid,jdbcType=VARCHAR}, #{bankpid,jdbcType=VARCHAR}, 
+      #{payid,jdbcType=VARCHAR}, #{orderamount,jdbcType=DOUBLE}, #{orderfeeamount,jdbcType=DOUBLE}, 
+      #{orderactamount,jdbcType=DOUBLE}, #{ohannselamount,jdbcType=DOUBLE}, #{transdate,jdbcType=VARCHAR}, 
+      #{transtime,jdbcType=VARCHAR}, #{systemssn,jdbcType=VARCHAR}, #{ylsystemssn,jdbcType=VARCHAR}, 
+      #{retcode,jdbcType=VARCHAR}, #{syscode,jdbcType=VARCHAR}, #{bankcard,jdbcType=VARCHAR}, 
+      #{bankcode,jdbcType=VARCHAR}, #{merhomeurl,jdbcType=VARCHAR}, #{merbackurl,jdbcType=VARCHAR}, 
+      #{waptype,jdbcType=VARCHAR}, #{retdescription,jdbcType=VARCHAR}, #{remark1,jdbcType=VARCHAR}, 
+      #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}, #{transtype,jdbcType=VARCHAR}, 
+      #{accesstime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Bftwaptrack">
+    insert into bftwaptrack
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="trackdirect != null">
+        TrackDirect,
+      </if>
+      <if test="merid != null">
+        MerID,
+      </if>
+      <if test="mername != null">
+        MerName,
+      </if>
+      <if test="usrname != null">
+        UsrName,
+      </if>
+      <if test="userid != null">
+        UserID,
+      </if>
+      <if test="telcard != null">
+        TelCard,
+      </if>
+      <if test="userpid != null">
+        UserPID,
+      </if>
+      <if test="bankpid != null">
+        BankPID,
+      </if>
+      <if test="payid != null">
+        PayID,
+      </if>
+      <if test="orderamount != null">
+        OrderAmount,
+      </if>
+      <if test="orderfeeamount != null">
+        OrderFeeAmount,
+      </if>
+      <if test="orderactamount != null">
+        OrderActAmount,
+      </if>
+      <if test="ohannselamount != null">
+        OhannselAmount,
+      </if>
+      <if test="transdate != null">
+        TransDate,
+      </if>
+      <if test="transtime != null">
+        TransTime,
+      </if>
+      <if test="systemssn != null">
+        SystemSSN,
+      </if>
+      <if test="ylsystemssn != null">
+        ylSystemSSN,
+      </if>
+      <if test="retcode != null">
+        RetCode,
+      </if>
+      <if test="syscode != null">
+        SysCode,
+      </if>
+      <if test="bankcard != null">
+        BankCard,
+      </if>
+      <if test="bankcode != null">
+        BankCode,
+      </if>
+      <if test="merhomeurl != null">
+        MerHomeUrl,
+      </if>
+      <if test="merbackurl != null">
+        MerBackUrl,
+      </if>
+      <if test="waptype != null">
+        WapType,
+      </if>
+      <if test="retdescription != null">
+        RetDescription,
+      </if>
+      <if test="remark1 != null">
+        Remark1,
+      </if>
+      <if test="remark2 != null">
+        Remark2,
+      </if>
+      <if test="remark3 != null">
+        Remark3,
+      </if>
+      <if test="transtype != null">
+        TransType,
+      </if>
+      <if test="accesstime != null">
+        AccessTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="trackdirect != null">
+        #{trackdirect,jdbcType=VARCHAR},
+      </if>
+      <if test="merid != null">
+        #{merid,jdbcType=VARCHAR},
+      </if>
+      <if test="mername != null">
+        #{mername,jdbcType=VARCHAR},
+      </if>
+      <if test="usrname != null">
+        #{usrname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="telcard != null">
+        #{telcard,jdbcType=VARCHAR},
+      </if>
+      <if test="userpid != null">
+        #{userpid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankpid != null">
+        #{bankpid,jdbcType=VARCHAR},
+      </if>
+      <if test="payid != null">
+        #{payid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderamount != null">
+        #{orderamount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderfeeamount != null">
+        #{orderfeeamount,jdbcType=DOUBLE},
+      </if>
+      <if test="orderactamount != null">
+        #{orderactamount,jdbcType=DOUBLE},
+      </if>
+      <if test="ohannselamount != null">
+        #{ohannselamount,jdbcType=DOUBLE},
+      </if>
+      <if test="transdate != null">
+        #{transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="transtime != null">
+        #{transtime,jdbcType=VARCHAR},
+      </if>
+      <if test="systemssn != null">
+        #{systemssn,jdbcType=VARCHAR},
+      </if>
+      <if test="ylsystemssn != null">
+        #{ylsystemssn,jdbcType=VARCHAR},
+      </if>
+      <if test="retcode != null">
+        #{retcode,jdbcType=VARCHAR},
+      </if>
+      <if test="syscode != null">
+        #{syscode,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcard != null">
+        #{bankcard,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcode != null">
+        #{bankcode,jdbcType=VARCHAR},
+      </if>
+      <if test="merhomeurl != null">
+        #{merhomeurl,jdbcType=VARCHAR},
+      </if>
+      <if test="merbackurl != null">
+        #{merbackurl,jdbcType=VARCHAR},
+      </if>
+      <if test="waptype != null">
+        #{waptype,jdbcType=VARCHAR},
+      </if>
+      <if test="retdescription != null">
+        #{retdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null">
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="transtype != null">
+        #{transtype,jdbcType=VARCHAR},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

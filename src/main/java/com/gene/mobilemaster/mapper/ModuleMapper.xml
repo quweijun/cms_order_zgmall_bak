@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModuleMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Module">
+    <result column="ModuleID" jdbcType="BIGINT" property="moduleid" />
+    <result column="ModuleName" jdbcType="VARCHAR" property="modulename" />
+    <result column="ChModuleName" jdbcType="VARCHAR" property="chmodulename" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Module">
+    insert into module (ModuleID, ModuleName, ChModuleName
+      )
+    values (#{moduleid,jdbcType=BIGINT}, #{modulename,jdbcType=VARCHAR}, #{chmodulename,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Module">
+    insert into module
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        ModuleID,
+      </if>
+      <if test="modulename != null">
+        ModuleName,
+      </if>
+      <if test="chmodulename != null">
+        ChModuleName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=BIGINT},
+      </if>
+      <if test="modulename != null">
+        #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="chmodulename != null">
+        #{chmodulename,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

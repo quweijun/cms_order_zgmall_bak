@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UnicomiplibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Unicomiplib">
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="network" jdbcType="VARCHAR" property="network" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Unicomiplib">
+    insert into unicomiplib (ip, sheng, city, 
+      network)
+    values (#{ip,jdbcType=VARCHAR}, #{sheng,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{network,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Unicomiplib">
+    insert into unicomiplib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="network != null">
+        network,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="network != null">
+        #{network,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

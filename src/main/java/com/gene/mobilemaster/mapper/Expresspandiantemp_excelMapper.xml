@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Expresspandiantemp_excelMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Expresspandiantemp_excel">
+    <result column="fileID" jdbcType="VARCHAR" property="fileid" />
+    <result column="barcodeid" jdbcType="DOUBLE" property="barcodeid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Expresspandiantemp_excel">
+    insert into expresspandiantemp_excel (fileID, barcodeid)
+    values (#{fileid,jdbcType=VARCHAR}, #{barcodeid,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Expresspandiantemp_excel">
+    insert into expresspandiantemp_excel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        fileID,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        #{fileid,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

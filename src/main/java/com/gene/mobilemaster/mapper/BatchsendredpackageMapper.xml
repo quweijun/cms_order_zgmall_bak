@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BatchsendredpackageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Batchsendredpackage">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="BatchNo" jdbcType="INTEGER" property="batchno" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="SendRedPackage" jdbcType="INTEGER" property="sendredpackage" />
+    <result column="GetStatus" jdbcType="INTEGER" property="getstatus" />
+    <result column="InitDate" jdbcType="TIMESTAMP" property="initdate" />
+    <result column="GetRedDate" jdbcType="TIMESTAMP" property="getreddate" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Batchsendredpackage">
+    insert into batchsendredpackage (flowno, BatchNo, Mobile, 
+      SendRedPackage, GetStatus, InitDate, 
+      GetRedDate, EnableFlag)
+    values (#{flowno,jdbcType=BIGINT}, #{batchno,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, 
+      #{sendredpackage,jdbcType=INTEGER}, #{getstatus,jdbcType=INTEGER}, #{initdate,jdbcType=TIMESTAMP}, 
+      #{getreddate,jdbcType=TIMESTAMP}, #{enableflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Batchsendredpackage">
+    insert into batchsendredpackage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="batchno != null">
+        BatchNo,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="sendredpackage != null">
+        SendRedPackage,
+      </if>
+      <if test="getstatus != null">
+        GetStatus,
+      </if>
+      <if test="initdate != null">
+        InitDate,
+      </if>
+      <if test="getreddate != null">
+        GetRedDate,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="batchno != null">
+        #{batchno,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sendredpackage != null">
+        #{sendredpackage,jdbcType=INTEGER},
+      </if>
+      <if test="getstatus != null">
+        #{getstatus,jdbcType=INTEGER},
+      </if>
+      <if test="initdate != null">
+        #{initdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="getreddate != null">
+        #{getreddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

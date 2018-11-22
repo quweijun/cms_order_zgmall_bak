@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ExperienceruleMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Experiencerule">
+    <result column="experienceid" jdbcType="BIGINT" property="experienceid" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+    <result column="exprience" jdbcType="INTEGER" property="exprience" />
+    <result column="maxexprience" jdbcType="INTEGER" property="maxexprience" />
+    <result column="ExDesc" jdbcType="VARCHAR" property="exdesc" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Experiencerule">
+    insert into experiencerule (experienceid, operation, exprience, 
+      maxexprience, ExDesc, editor, 
+      addtime, flag)
+    values (#{experienceid,jdbcType=BIGINT}, #{operation,jdbcType=VARCHAR}, #{exprience,jdbcType=INTEGER}, 
+      #{maxexprience,jdbcType=INTEGER}, #{exdesc,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Experiencerule">
+    insert into experiencerule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="experienceid != null">
+        experienceid,
+      </if>
+      <if test="operation != null">
+        operation,
+      </if>
+      <if test="exprience != null">
+        exprience,
+      </if>
+      <if test="maxexprience != null">
+        maxexprience,
+      </if>
+      <if test="exdesc != null">
+        ExDesc,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="experienceid != null">
+        #{experienceid,jdbcType=BIGINT},
+      </if>
+      <if test="operation != null">
+        #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="exprience != null">
+        #{exprience,jdbcType=INTEGER},
+      </if>
+      <if test="maxexprience != null">
+        #{maxexprience,jdbcType=INTEGER},
+      </if>
+      <if test="exdesc != null">
+        #{exdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

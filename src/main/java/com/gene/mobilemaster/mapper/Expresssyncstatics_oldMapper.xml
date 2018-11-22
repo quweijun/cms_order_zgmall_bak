@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Expresssyncstatics_oldMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Expresssyncstatics_old">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="ExpressID" jdbcType="VARCHAR" property="expressid" />
+    <result column="ExpressCompany" jdbcType="VARCHAR" property="expresscompany" />
+    <result column="ExpressStatus" jdbcType="VARCHAR" property="expressstatus" />
+    <result column="LastUptDate" jdbcType="TIMESTAMP" property="lastuptdate" />
+    <result column="FullExpressStatus" jdbcType="VARCHAR" property="fullexpressstatus" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Expresssyncstatics_old">
+    insert into expresssyncstatics_old (flowno, ExpressID, ExpressCompany, 
+      ExpressStatus, LastUptDate, FullExpressStatus
+      )
+    values (#{flowno,jdbcType=BIGINT}, #{expressid,jdbcType=VARCHAR}, #{expresscompany,jdbcType=VARCHAR}, 
+      #{expressstatus,jdbcType=VARCHAR}, #{lastuptdate,jdbcType=TIMESTAMP}, #{fullexpressstatus,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Expresssyncstatics_old">
+    insert into expresssyncstatics_old
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="expressid != null">
+        ExpressID,
+      </if>
+      <if test="expresscompany != null">
+        ExpressCompany,
+      </if>
+      <if test="expressstatus != null">
+        ExpressStatus,
+      </if>
+      <if test="lastuptdate != null">
+        LastUptDate,
+      </if>
+      <if test="fullexpressstatus != null">
+        FullExpressStatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="expresscompany != null">
+        #{expresscompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressstatus != null">
+        #{expressstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="lastuptdate != null">
+        #{lastuptdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fullexpressstatus != null">
+        #{fullexpressstatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

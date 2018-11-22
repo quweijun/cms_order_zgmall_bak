@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PriceareaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pricearea">
+    <result column="priceAreaId" jdbcType="INTEGER" property="priceareaid" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+    <result column="smalltype" jdbcType="INTEGER" property="smalltype" />
+    <result column="subclass" jdbcType="INTEGER" property="subclass" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="priceAreaDesc" jdbcType="VARCHAR" property="priceareadesc" />
+    <result column="beginPrice" jdbcType="DOUBLE" property="beginprice" />
+    <result column="endprice" jdbcType="DOUBLE" property="endprice" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtor" jdbcType="VARCHAR" property="addtor" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="orders" jdbcType="INTEGER" property="orders" />
+    <result column="android_Desc" jdbcType="VARCHAR" property="androidDesc" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pricearea">
+    insert into pricearea (priceAreaId, bigtype, smalltype, 
+      subclass, title, priceAreaDesc, 
+      beginPrice, endprice, flag, 
+      addtor, addTime, orders, 
+      android_Desc)
+    values (#{priceareaid,jdbcType=INTEGER}, #{bigtype,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, 
+      #{subclass,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{priceareadesc,jdbcType=VARCHAR}, 
+      #{beginprice,jdbcType=DOUBLE}, #{endprice,jdbcType=DOUBLE}, #{flag,jdbcType=INTEGER}, 
+      #{addtor,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{orders,jdbcType=INTEGER}, 
+      #{androidDesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pricearea">
+    insert into pricearea
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="priceareaid != null">
+        priceAreaId,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="subclass != null">
+        subclass,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="priceareadesc != null">
+        priceAreaDesc,
+      </if>
+      <if test="beginprice != null">
+        beginPrice,
+      </if>
+      <if test="endprice != null">
+        endprice,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtor != null">
+        addtor,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="orders != null">
+        orders,
+      </if>
+      <if test="androidDesc != null">
+        android_Desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="priceareaid != null">
+        #{priceareaid,jdbcType=INTEGER},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="priceareadesc != null">
+        #{priceareadesc,jdbcType=VARCHAR},
+      </if>
+      <if test="beginprice != null">
+        #{beginprice,jdbcType=DOUBLE},
+      </if>
+      <if test="endprice != null">
+        #{endprice,jdbcType=DOUBLE},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtor != null">
+        #{addtor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orders != null">
+        #{orders,jdbcType=INTEGER},
+      </if>
+      <if test="androidDesc != null">
+        #{androidDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Score_ruleMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Score_rule">
+    <result column="score_rule_id" jdbcType="BIGINT" property="scoreRuleId" />
+    <result column="action_desc" jdbcType="VARCHAR" property="actionDesc" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Score_rule">
+    insert into score_rule (score_rule_id, action_desc, score, 
+      operation)
+    values (#{scoreRuleId,jdbcType=BIGINT}, #{actionDesc,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, 
+      #{operation,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Score_rule">
+    insert into score_rule
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scoreRuleId != null">
+        score_rule_id,
+      </if>
+      <if test="actionDesc != null">
+        action_desc,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="operation != null">
+        operation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scoreRuleId != null">
+        #{scoreRuleId,jdbcType=BIGINT},
+      </if>
+      <if test="actionDesc != null">
+        #{actionDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="operation != null">
+        #{operation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

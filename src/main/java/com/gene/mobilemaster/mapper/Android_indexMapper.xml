@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Android_indexMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Android_index">
+    <result column="modalId" jdbcType="INTEGER" property="modalid" />
+    <result column="modalName" jdbcType="VARCHAR" property="modalname" />
+    <result column="modalTile" jdbcType="VARCHAR" property="modaltile" />
+    <result column="searchkeywords" jdbcType="VARCHAR" property="searchkeywords" />
+    <result column="modalCss" jdbcType="VARCHAR" property="modalcss" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="smalltype" jdbcType="INTEGER" property="smalltype" />
+    <result column="iconurl" jdbcType="VARCHAR" property="iconurl" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Android_index">
+    insert into android_index (modalId, modalName, modalTile, 
+      searchkeywords, modalCss, flag, 
+      addTime, addUser, smalltype, 
+      iconurl, sort)
+    values (#{modalid,jdbcType=INTEGER}, #{modalname,jdbcType=VARCHAR}, #{modaltile,jdbcType=VARCHAR}, 
+      #{searchkeywords,jdbcType=VARCHAR}, #{modalcss,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{adduser,jdbcType=VARCHAR}, #{smalltype,jdbcType=INTEGER}, 
+      #{iconurl,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Android_index">
+    insert into android_index
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="modalid != null">
+        modalId,
+      </if>
+      <if test="modalname != null">
+        modalName,
+      </if>
+      <if test="modaltile != null">
+        modalTile,
+      </if>
+      <if test="searchkeywords != null">
+        searchkeywords,
+      </if>
+      <if test="modalcss != null">
+        modalCss,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="iconurl != null">
+        iconurl,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="modalid != null">
+        #{modalid,jdbcType=INTEGER},
+      </if>
+      <if test="modalname != null">
+        #{modalname,jdbcType=VARCHAR},
+      </if>
+      <if test="modaltile != null">
+        #{modaltile,jdbcType=VARCHAR},
+      </if>
+      <if test="searchkeywords != null">
+        #{searchkeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="modalcss != null">
+        #{modalcss,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="iconurl != null">
+        #{iconurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

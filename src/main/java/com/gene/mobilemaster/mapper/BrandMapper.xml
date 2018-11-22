@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BrandMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Brand">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="brandname" jdbcType="VARCHAR" property="brandname" />
+    <result column="brandtype" jdbcType="INTEGER" property="brandtype" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="staff" jdbcType="VARCHAR" property="staff" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Brand">
+    <result column="branddesc" jdbcType="LONGVARCHAR" property="branddesc" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    branddesc
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Brand">
+    insert into brand (id, brandname, brandtype, 
+      logo, staff, flag, 
+      addtime, branddesc)
+    values (#{id,jdbcType=INTEGER}, #{brandname,jdbcType=VARCHAR}, #{brandtype,jdbcType=INTEGER}, 
+      #{logo,jdbcType=VARCHAR}, #{staff,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{branddesc,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Brand">
+    insert into brand
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="brandname != null">
+        brandname,
+      </if>
+      <if test="brandtype != null">
+        brandtype,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="staff != null">
+        staff,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="branddesc != null">
+        branddesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="brandname != null">
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="brandtype != null">
+        #{brandtype,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="staff != null">
+        #{staff,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="branddesc != null">
+        #{branddesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

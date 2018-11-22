@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Minfo_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Minfo_log">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="mo" jdbcType="VARCHAR" property="mo" />
+    <result column="ua" jdbcType="VARCHAR" property="ua" />
+    <result column="tourl" jdbcType="VARCHAR" property="tourl" />
+    <result column="verify" jdbcType="VARCHAR" property="verify" />
+    <result column="tes" jdbcType="VARCHAR" property="tes" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="network" jdbcType="VARCHAR" property="network" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Minfo_log">
+    insert into minfo_log (flowid, createdate, mo, 
+      ua, tourl, verify, 
+      tes, sheng, shi, network, 
+      ip)
+    values (#{flowid,jdbcType=BIGINT}, #{createdate,jdbcType=TIMESTAMP}, #{mo,jdbcType=VARCHAR}, 
+      #{ua,jdbcType=VARCHAR}, #{tourl,jdbcType=VARCHAR}, #{verify,jdbcType=VARCHAR}, 
+      #{tes,jdbcType=VARCHAR}, #{sheng,jdbcType=VARCHAR}, #{shi,jdbcType=VARCHAR}, #{network,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Minfo_log">
+    insert into minfo_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="mo != null">
+        mo,
+      </if>
+      <if test="ua != null">
+        ua,
+      </if>
+      <if test="tourl != null">
+        tourl,
+      </if>
+      <if test="verify != null">
+        verify,
+      </if>
+      <if test="tes != null">
+        tes,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="network != null">
+        network,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mo != null">
+        #{mo,jdbcType=VARCHAR},
+      </if>
+      <if test="ua != null">
+        #{ua,jdbcType=VARCHAR},
+      </if>
+      <if test="tourl != null">
+        #{tourl,jdbcType=VARCHAR},
+      </if>
+      <if test="verify != null">
+        #{verify,jdbcType=VARCHAR},
+      </if>
+      <if test="tes != null">
+        #{tes,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="network != null">
+        #{network,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

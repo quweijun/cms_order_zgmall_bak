@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.JushourkMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jushourk">
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="shuliang" jdbcType="DOUBLE" property="shuliang" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jushourk">
+    insert into jushourk (productid, prodcolor, shuliang
+      )
+    values (#{productid,jdbcType=VARCHAR}, #{prodcolor,jdbcType=VARCHAR}, #{shuliang,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jushourk">
+    insert into jushourk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="shuliang != null">
+        shuliang,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="shuliang != null">
+        #{shuliang,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

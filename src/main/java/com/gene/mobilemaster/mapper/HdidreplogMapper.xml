@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.HdidreplogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Hdidreplog">
+    <result column="flowno" jdbcType="INTEGER" property="flowno" />
+    <result column="InHdid" jdbcType="INTEGER" property="inhdid" />
+    <result column="OutHdid" jdbcType="INTEGER" property="outhdid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Hdidreplog">
+    insert into hdidreplog (flowno, InHdid, OutHdid, 
+      addtime)
+    values (#{flowno,jdbcType=INTEGER}, #{inhdid,jdbcType=INTEGER}, #{outhdid,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Hdidreplog">
+    insert into hdidreplog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="inhdid != null">
+        InHdid,
+      </if>
+      <if test="outhdid != null">
+        OutHdid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="inhdid != null">
+        #{inhdid,jdbcType=INTEGER},
+      </if>
+      <if test="outhdid != null">
+        #{outhdid,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

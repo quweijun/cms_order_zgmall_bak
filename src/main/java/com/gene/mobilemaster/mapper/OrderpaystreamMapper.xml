@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OrderpaystreamMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Orderpaystream">
+    <result column="osID" jdbcType="BIGINT" property="osid" />
+    <result column="orderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="csPrice" jdbcType="DOUBLE" property="csprice" />
+    <result column="csShopCatPrice" jdbcType="DOUBLE" property="csshopcatprice" />
+    <result column="csPayType" jdbcType="VARCHAR" property="cspaytype" />
+    <result column="csPayTag" jdbcType="VARCHAR" property="cspaytag" />
+    <result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo" />
+    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
+    <result column="csHasPay" jdbcType="DOUBLE" property="cshaspay" />
+    <result column="ssName" jdbcType="VARCHAR" property="ssname" />
+    <result column="ssTime" jdbcType="TIMESTAMP" property="sstime" />
+    <result column="ssPrice" jdbcType="DOUBLE" property="ssprice" />
+    <result column="ssPayType" jdbcType="VARCHAR" property="sspaytype" />
+    <result column="ssPayTag" jdbcType="VARCHAR" property="sspaytag" />
+    <result column="fsName" jdbcType="VARCHAR" property="fsname" />
+    <result column="fsTime" jdbcType="TIMESTAMP" property="fstime" />
+    <result column="fsPrice" jdbcType="DOUBLE" property="fsprice" />
+    <result column="factPrice" jdbcType="DOUBLE" property="factprice" />
+    <result column="PostName" jdbcType="VARCHAR" property="postname" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Orderpaystream">
+    insert into orderpaystream (osID, orderID, csPrice, 
+      csShopCatPrice, csPayType, csPayTag, 
+      out_trade_no, trade_no, csHasPay, 
+      ssName, ssTime, ssPrice, 
+      ssPayType, ssPayTag, fsName, 
+      fsTime, fsPrice, factPrice, 
+      PostName)
+    values (#{osid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{csprice,jdbcType=DOUBLE}, 
+      #{csshopcatprice,jdbcType=DOUBLE}, #{cspaytype,jdbcType=VARCHAR}, #{cspaytag,jdbcType=VARCHAR}, 
+      #{outTradeNo,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, #{cshaspay,jdbcType=DOUBLE}, 
+      #{ssname,jdbcType=VARCHAR}, #{sstime,jdbcType=TIMESTAMP}, #{ssprice,jdbcType=DOUBLE}, 
+      #{sspaytype,jdbcType=VARCHAR}, #{sspaytag,jdbcType=VARCHAR}, #{fsname,jdbcType=VARCHAR}, 
+      #{fstime,jdbcType=TIMESTAMP}, #{fsprice,jdbcType=DOUBLE}, #{factprice,jdbcType=DOUBLE}, 
+      #{postname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Orderpaystream">
+    insert into orderpaystream
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="osid != null">
+        osID,
+      </if>
+      <if test="orderid != null">
+        orderID,
+      </if>
+      <if test="csprice != null">
+        csPrice,
+      </if>
+      <if test="csshopcatprice != null">
+        csShopCatPrice,
+      </if>
+      <if test="cspaytype != null">
+        csPayType,
+      </if>
+      <if test="cspaytag != null">
+        csPayTag,
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no,
+      </if>
+      <if test="tradeNo != null">
+        trade_no,
+      </if>
+      <if test="cshaspay != null">
+        csHasPay,
+      </if>
+      <if test="ssname != null">
+        ssName,
+      </if>
+      <if test="sstime != null">
+        ssTime,
+      </if>
+      <if test="ssprice != null">
+        ssPrice,
+      </if>
+      <if test="sspaytype != null">
+        ssPayType,
+      </if>
+      <if test="sspaytag != null">
+        ssPayTag,
+      </if>
+      <if test="fsname != null">
+        fsName,
+      </if>
+      <if test="fstime != null">
+        fsTime,
+      </if>
+      <if test="fsprice != null">
+        fsPrice,
+      </if>
+      <if test="factprice != null">
+        factPrice,
+      </if>
+      <if test="postname != null">
+        PostName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="osid != null">
+        #{osid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="csprice != null">
+        #{csprice,jdbcType=DOUBLE},
+      </if>
+      <if test="csshopcatprice != null">
+        #{csshopcatprice,jdbcType=DOUBLE},
+      </if>
+      <if test="cspaytype != null">
+        #{cspaytype,jdbcType=VARCHAR},
+      </if>
+      <if test="cspaytag != null">
+        #{cspaytag,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null">
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null">
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="cshaspay != null">
+        #{cshaspay,jdbcType=DOUBLE},
+      </if>
+      <if test="ssname != null">
+        #{ssname,jdbcType=VARCHAR},
+      </if>
+      <if test="sstime != null">
+        #{sstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ssprice != null">
+        #{ssprice,jdbcType=DOUBLE},
+      </if>
+      <if test="sspaytype != null">
+        #{sspaytype,jdbcType=VARCHAR},
+      </if>
+      <if test="sspaytag != null">
+        #{sspaytag,jdbcType=VARCHAR},
+      </if>
+      <if test="fsname != null">
+        #{fsname,jdbcType=VARCHAR},
+      </if>
+      <if test="fstime != null">
+        #{fstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fsprice != null">
+        #{fsprice,jdbcType=DOUBLE},
+      </if>
+      <if test="factprice != null">
+        #{factprice,jdbcType=DOUBLE},
+      </if>
+      <if test="postname != null">
+        #{postname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

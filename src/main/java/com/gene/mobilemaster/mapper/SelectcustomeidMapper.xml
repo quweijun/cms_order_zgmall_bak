@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SelectcustomeidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Selectcustomeid">
+    <result column="InfoID" jdbcType="BIGINT" property="infoid" />
+    <result column="SessionID" jdbcType="VARCHAR" property="sessionid" />
+    <result column="CustomerID" jdbcType="VARCHAR" property="customerid" />
+    <result column="DayTime" jdbcType="TIMESTAMP" property="daytime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Selectcustomeid">
+    insert into selectcustomeid (InfoID, SessionID, CustomerID, 
+      DayTime)
+    values (#{infoid,jdbcType=BIGINT}, #{sessionid,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
+      #{daytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Selectcustomeid">
+    insert into selectcustomeid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="infoid != null">
+        InfoID,
+      </if>
+      <if test="sessionid != null">
+        SessionID,
+      </if>
+      <if test="customerid != null">
+        CustomerID,
+      </if>
+      <if test="daytime != null">
+        DayTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="infoid != null">
+        #{infoid,jdbcType=BIGINT},
+      </if>
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="daytime != null">
+        #{daytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

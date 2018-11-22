@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Wk_villagesMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Wk_villages">
+    <result column="wk_villages_id" jdbcType="INTEGER" property="wkVillagesId" />
+    <result column="wk_company" jdbcType="INTEGER" property="wkCompany" />
+    <result column="wk_province" jdbcType="VARCHAR" property="wkProvince" />
+    <result column="wk_city" jdbcType="VARCHAR" property="wkCity" />
+    <result column="wk_area" jdbcType="VARCHAR" property="wkArea" />
+    <result column="wk_villages" jdbcType="VARCHAR" property="wkVillages" />
+    <result column="wk_user" jdbcType="VARCHAR" property="wkUser" />
+    <result column="wk_bz" jdbcType="VARCHAR" property="wkBz" />
+    <result column="wk_addtime" jdbcType="TIMESTAMP" property="wkAddtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Wk_villages">
+    insert into wk_villages (wk_villages_id, wk_company, wk_province, 
+      wk_city, wk_area, wk_villages, 
+      wk_user, wk_bz, wk_addtime
+      )
+    values (#{wkVillagesId,jdbcType=INTEGER}, #{wkCompany,jdbcType=INTEGER}, #{wkProvince,jdbcType=VARCHAR}, 
+      #{wkCity,jdbcType=VARCHAR}, #{wkArea,jdbcType=VARCHAR}, #{wkVillages,jdbcType=VARCHAR}, 
+      #{wkUser,jdbcType=VARCHAR}, #{wkBz,jdbcType=VARCHAR}, #{wkAddtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Wk_villages">
+    insert into wk_villages
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wkVillagesId != null">
+        wk_villages_id,
+      </if>
+      <if test="wkCompany != null">
+        wk_company,
+      </if>
+      <if test="wkProvince != null">
+        wk_province,
+      </if>
+      <if test="wkCity != null">
+        wk_city,
+      </if>
+      <if test="wkArea != null">
+        wk_area,
+      </if>
+      <if test="wkVillages != null">
+        wk_villages,
+      </if>
+      <if test="wkUser != null">
+        wk_user,
+      </if>
+      <if test="wkBz != null">
+        wk_bz,
+      </if>
+      <if test="wkAddtime != null">
+        wk_addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wkVillagesId != null">
+        #{wkVillagesId,jdbcType=INTEGER},
+      </if>
+      <if test="wkCompany != null">
+        #{wkCompany,jdbcType=INTEGER},
+      </if>
+      <if test="wkProvince != null">
+        #{wkProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="wkCity != null">
+        #{wkCity,jdbcType=VARCHAR},
+      </if>
+      <if test="wkArea != null">
+        #{wkArea,jdbcType=VARCHAR},
+      </if>
+      <if test="wkVillages != null">
+        #{wkVillages,jdbcType=VARCHAR},
+      </if>
+      <if test="wkUser != null">
+        #{wkUser,jdbcType=VARCHAR},
+      </if>
+      <if test="wkBz != null">
+        #{wkBz,jdbcType=VARCHAR},
+      </if>
+      <if test="wkAddtime != null">
+        #{wkAddtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BarcodeMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Barcode">
+    <result column="barcodeid" jdbcType="DOUBLE" property="barcodeid" />
+    <result column="rknumber" jdbcType="VARCHAR" property="rknumber" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Barcode">
+    insert into barcode (barcodeid, rknumber, productid, 
+      addtime, addor)
+    values (#{barcodeid,jdbcType=DOUBLE}, #{rknumber,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{addor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Barcode">
+    insert into barcode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="rknumber != null">
+        rknumber,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=DOUBLE},
+      </if>
+      <if test="rknumber != null">
+        #{rknumber,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

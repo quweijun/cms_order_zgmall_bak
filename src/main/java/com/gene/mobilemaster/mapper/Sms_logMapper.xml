@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sms_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sms_log">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="SmsDirect" jdbcType="VARCHAR" property="smsdirect" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="sendtime" jdbcType="TIMESTAMP" property="sendtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sms_log">
+    insert into sms_log (flowid, SmsDirect, mobile, 
+      content, sendtime)
+    values (#{flowid,jdbcType=BIGINT}, #{smsdirect,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{sendtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sms_log">
+    insert into sms_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="smsdirect != null">
+        SmsDirect,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="sendtime != null">
+        sendtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="smsdirect != null">
+        #{smsdirect,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null">
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

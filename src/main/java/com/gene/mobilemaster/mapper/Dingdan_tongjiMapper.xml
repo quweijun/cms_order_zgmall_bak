@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Dingdan_tongjiMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Dingdan_tongji">
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="submitdate" jdbcType="TIMESTAMP" property="submitdate" />
+    <result column="dwc_time" jdbcType="TIMESTAMP" property="dwcTime" />
+    <result column="fhtime" jdbcType="TIMESTAMP" property="fhtime" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="prodsize" jdbcType="VARCHAR" property="prodsize" />
+    <result column="barcodeid" jdbcType="VARCHAR" property="barcodeid" />
+    <result column="jpflag" jdbcType="INTEGER" property="jpflag" />
+    <result column="BussinessPrice" jdbcType="DOUBLE" property="bussinessprice" />
+    <result column="ordername" jdbcType="VARCHAR" property="ordername" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="OrderPhone" jdbcType="VARCHAR" property="orderphone" />
+    <result column="Payment" jdbcType="INTEGER" property="payment" />
+    <result column="hycompany" jdbcType="VARCHAR" property="hycompany" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="UpdateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="Submitflag" jdbcType="INTEGER" property="submitflag" />
+    <result column="Orderstate" jdbcType="INTEGER" property="orderstate" />
+    <result column="kfdesc" jdbcType="VARCHAR" property="kfdesc" />
+    <result column="fydesc" jdbcType="VARCHAR" property="fydesc" />
+    <result column="productidlist" jdbcType="VARCHAR" property="productidlist" />
+    <result column="productnamelist" jdbcType="VARCHAR" property="productnamelist" />
+    <result column="productgglist" jdbcType="VARCHAR" property="productgglist" />
+    <result column="productbarcodelist" jdbcType="VARCHAR" property="productbarcodelist" />
+    <result column="productzplist" jdbcType="VARCHAR" property="productzplist" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="fhuser" jdbcType="VARCHAR" property="fhuser" />
+    <result column="ssje" jdbcType="DOUBLE" property="ssje" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Dingdan_tongji">
+    insert into dingdan_tongji (orderid, submitdate, dwc_time, 
+      fhtime, userid, channelid, 
+      typename, productid, productname, 
+      prodcolor, prodsize, barcodeid, 
+      jpflag, BussinessPrice, ordername, 
+      Address, OrderPhone, Payment, 
+      hycompany, expressid, UpdateTime, 
+      Submitflag, Orderstate, kfdesc, 
+      fydesc, productidlist, productnamelist, 
+      productgglist, productbarcodelist, productzplist, 
+      province, city, area, 
+      fhuser, ssje)
+    values (#{orderid,jdbcType=VARCHAR}, #{submitdate,jdbcType=TIMESTAMP}, #{dwcTime,jdbcType=TIMESTAMP}, 
+      #{fhtime,jdbcType=TIMESTAMP}, #{userid,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, 
+      #{typename,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, 
+      #{prodcolor,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, #{barcodeid,jdbcType=VARCHAR}, 
+      #{jpflag,jdbcType=INTEGER}, #{bussinessprice,jdbcType=DOUBLE}, #{ordername,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{orderphone,jdbcType=VARCHAR}, #{payment,jdbcType=INTEGER}, 
+      #{hycompany,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{submitflag,jdbcType=INTEGER}, #{orderstate,jdbcType=INTEGER}, #{kfdesc,jdbcType=VARCHAR}, 
+      #{fydesc,jdbcType=VARCHAR}, #{productidlist,jdbcType=VARCHAR}, #{productnamelist,jdbcType=VARCHAR}, 
+      #{productgglist,jdbcType=VARCHAR}, #{productbarcodelist,jdbcType=VARCHAR}, #{productzplist,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{fhuser,jdbcType=VARCHAR}, #{ssje,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Dingdan_tongji">
+    insert into dingdan_tongji
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="submitdate != null">
+        submitdate,
+      </if>
+      <if test="dwcTime != null">
+        dwc_time,
+      </if>
+      <if test="fhtime != null">
+        fhtime,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="prodsize != null">
+        prodsize,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="jpflag != null">
+        jpflag,
+      </if>
+      <if test="bussinessprice != null">
+        BussinessPrice,
+      </if>
+      <if test="ordername != null">
+        ordername,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="orderphone != null">
+        OrderPhone,
+      </if>
+      <if test="payment != null">
+        Payment,
+      </if>
+      <if test="hycompany != null">
+        hycompany,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="updatetime != null">
+        UpdateTime,
+      </if>
+      <if test="submitflag != null">
+        Submitflag,
+      </if>
+      <if test="orderstate != null">
+        Orderstate,
+      </if>
+      <if test="kfdesc != null">
+        kfdesc,
+      </if>
+      <if test="fydesc != null">
+        fydesc,
+      </if>
+      <if test="productidlist != null">
+        productidlist,
+      </if>
+      <if test="productnamelist != null">
+        productnamelist,
+      </if>
+      <if test="productgglist != null">
+        productgglist,
+      </if>
+      <if test="productbarcodelist != null">
+        productbarcodelist,
+      </if>
+      <if test="productzplist != null">
+        productzplist,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="fhuser != null">
+        fhuser,
+      </if>
+      <if test="ssje != null">
+        ssje,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="submitdate != null">
+        #{submitdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dwcTime != null">
+        #{dwcTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fhtime != null">
+        #{fhtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="prodsize != null">
+        #{prodsize,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="jpflag != null">
+        #{jpflag,jdbcType=INTEGER},
+      </if>
+      <if test="bussinessprice != null">
+        #{bussinessprice,jdbcType=DOUBLE},
+      </if>
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="orderphone != null">
+        #{orderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="payment != null">
+        #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="hycompany != null">
+        #{hycompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitflag != null">
+        #{submitflag,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=INTEGER},
+      </if>
+      <if test="kfdesc != null">
+        #{kfdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="fydesc != null">
+        #{fydesc,jdbcType=VARCHAR},
+      </if>
+      <if test="productidlist != null">
+        #{productidlist,jdbcType=VARCHAR},
+      </if>
+      <if test="productnamelist != null">
+        #{productnamelist,jdbcType=VARCHAR},
+      </if>
+      <if test="productgglist != null">
+        #{productgglist,jdbcType=VARCHAR},
+      </if>
+      <if test="productbarcodelist != null">
+        #{productbarcodelist,jdbcType=VARCHAR},
+      </if>
+      <if test="productzplist != null">
+        #{productzplist,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="fhuser != null">
+        #{fhuser,jdbcType=VARCHAR},
+      </if>
+      <if test="ssje != null">
+        #{ssje,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

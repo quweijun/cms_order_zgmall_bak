@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModulecfgzdMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Modulecfgzd">
+    <result column="zddh" jdbcType="VARCHAR" property="zddh" />
+    <result column="mddh" jdbcType="VARCHAR" property="mddh" />
+    <result column="enzddh" jdbcType="VARCHAR" property="enzddh" />
+    <result column="zwmc" jdbcType="VARCHAR" property="zwmc" />
+    <result column="bzsm" jdbcType="VARCHAR" property="bzsm" />
+    <result column="bzsm2" jdbcType="VARCHAR" property="bzsm2" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="enableflag" jdbcType="VARCHAR" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Modulecfgzd">
+    insert into modulecfgzd (zddh, mddh, enzddh, 
+      zwmc, bzsm, bzsm2, 
+      xh, enableflag)
+    values (#{zddh,jdbcType=VARCHAR}, #{mddh,jdbcType=VARCHAR}, #{enzddh,jdbcType=VARCHAR}, 
+      #{zwmc,jdbcType=VARCHAR}, #{bzsm,jdbcType=VARCHAR}, #{bzsm2,jdbcType=VARCHAR}, 
+      #{xh,jdbcType=INTEGER}, #{enableflag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Modulecfgzd">
+    insert into modulecfgzd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="enzddh != null">
+        enzddh,
+      </if>
+      <if test="zwmc != null">
+        zwmc,
+      </if>
+      <if test="bzsm != null">
+        bzsm,
+      </if>
+      <if test="bzsm2 != null">
+        bzsm2,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="enableflag != null">
+        enableflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zddh != null">
+        #{zddh,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=VARCHAR},
+      </if>
+      <if test="enzddh != null">
+        #{enzddh,jdbcType=VARCHAR},
+      </if>
+      <if test="zwmc != null">
+        #{zwmc,jdbcType=VARCHAR},
+      </if>
+      <if test="bzsm != null">
+        #{bzsm,jdbcType=VARCHAR},
+      </if>
+      <if test="bzsm2 != null">
+        #{bzsm2,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

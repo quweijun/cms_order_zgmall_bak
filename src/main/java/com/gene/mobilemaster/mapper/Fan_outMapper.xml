@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Fan_outMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Fan_out">
+    <result column="fanid" jdbcType="BIGINT" property="fanid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="sendtime" jdbcType="TIMESTAMP" property="sendtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Fan_out">
+    insert into fan_out (fanid, mobile, sendtime
+      )
+    values (#{fanid,jdbcType=BIGINT}, #{mobile,jdbcType=VARCHAR}, #{sendtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Fan_out">
+    insert into fan_out
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fanid != null">
+        fanid,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="sendtime != null">
+        sendtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fanid != null">
+        #{fanid,jdbcType=BIGINT},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null">
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.MessageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Message">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="productID" jdbcType="VARCHAR" property="productid" />
+    <result column="userID" jdbcType="VARCHAR" property="userid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="kfid" jdbcType="VARCHAR" property="kfid" />
+    <result column="hfContent" jdbcType="VARCHAR" property="hfcontent" />
+    <result column="reverTime" jdbcType="TIMESTAMP" property="revertime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="unRead" jdbcType="INTEGER" property="unread" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Message">
+    insert into message (id, type, productID, 
+      userID, content, mobile, 
+      addTime, kfid, hfContent, 
+      reverTime, flag, unRead
+      )
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{kfid,jdbcType=VARCHAR}, #{hfcontent,jdbcType=VARCHAR}, 
+      #{revertime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER}, #{unread,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Message">
+    insert into message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="productid != null">
+        productID,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="kfid != null">
+        kfid,
+      </if>
+      <if test="hfcontent != null">
+        hfContent,
+      </if>
+      <if test="revertime != null">
+        reverTime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="unread != null">
+        unRead,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kfid != null">
+        #{kfid,jdbcType=VARCHAR},
+      </if>
+      <if test="hfcontent != null">
+        #{hfcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="revertime != null">
+        #{revertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="unread != null">
+        #{unread,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

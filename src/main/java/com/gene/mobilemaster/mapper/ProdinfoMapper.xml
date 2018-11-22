@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProdinfoMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Prodinfo">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="pid" jdbcType="VARCHAR" property="pid" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="proddesc" jdbcType="VARCHAR" property="proddesc" />
+    <result column="photoid" jdbcType="BIGINT" property="photoid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="ColorVersionPhotoid" jdbcType="BIGINT" property="colorversionphotoid" />
+    <result column="SerialNumber" jdbcType="INTEGER" property="serialnumber" />
+    <result column="EnableFlag" jdbcType="TINYINT" property="enableflag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Prodinfo">
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    remark
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Prodinfo">
+    insert into prodinfo (id, pid, type, 
+      proddesc, photoid, addtime, 
+      addor, ColorVersionPhotoid, SerialNumber, 
+      EnableFlag, remark)
+    values (#{id,jdbcType=BIGINT}, #{pid,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{proddesc,jdbcType=VARCHAR}, #{photoid,jdbcType=BIGINT}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{addor,jdbcType=VARCHAR}, #{colorversionphotoid,jdbcType=BIGINT}, #{serialnumber,jdbcType=INTEGER}, 
+      #{enableflag,jdbcType=TINYINT}, #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Prodinfo">
+    insert into prodinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="proddesc != null">
+        proddesc,
+      </if>
+      <if test="photoid != null">
+        photoid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="colorversionphotoid != null">
+        ColorVersionPhotoid,
+      </if>
+      <if test="serialnumber != null">
+        SerialNumber,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="proddesc != null">
+        #{proddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="photoid != null">
+        #{photoid,jdbcType=BIGINT},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="colorversionphotoid != null">
+        #{colorversionphotoid,jdbcType=BIGINT},
+      </if>
+      <if test="serialnumber != null">
+        #{serialnumber,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=TINYINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

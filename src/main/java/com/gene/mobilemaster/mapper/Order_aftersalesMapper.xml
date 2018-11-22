@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Order_aftersalesMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Order_aftersales">
+    <result column="OrderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="reason" jdbcType="INTEGER" property="reason" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Order_aftersales">
+    insert into order_aftersales (OrderID, type, reason, 
+      operator, addtime)
+    values (#{orderid,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, #{reason,jdbcType=INTEGER}, 
+      #{operator,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Order_aftersales">
+    insert into order_aftersales
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

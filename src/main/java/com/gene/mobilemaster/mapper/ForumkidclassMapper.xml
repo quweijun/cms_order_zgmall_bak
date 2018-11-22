@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ForumkidclassMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Forumkidclass">
+    <result column="classId" jdbcType="INTEGER" property="classid" />
+    <result column="parentId" jdbcType="INTEGER" property="parentid" />
+    <result column="className" jdbcType="VARCHAR" property="classname" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="isLock" jdbcType="TINYINT" property="islock" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Forumkidclass">
+    insert into forumkidclass (classId, parentId, className, 
+      creater, addDate, isLock
+      )
+    values (#{classid,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, 
+      #{creater,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}, #{islock,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Forumkidclass">
+    insert into forumkidclass
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        classId,
+      </if>
+      <if test="parentid != null">
+        parentId,
+      </if>
+      <if test="classname != null">
+        className,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="parentid != null">
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

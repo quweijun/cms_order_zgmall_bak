@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Dh_areaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Dh_area">
+    <result column="dhid" jdbcType="INTEGER" property="dhid" />
+    <result column="dhtype" jdbcType="INTEGER" property="dhtype" />
+    <result column="dhname" jdbcType="VARCHAR" property="dhname" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="dhcontent" jdbcType="VARCHAR" property="dhcontent" />
+    <result column="dhdesc" jdbcType="VARCHAR" property="dhdesc" />
+    <result column="dhurl" jdbcType="VARCHAR" property="dhurl" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="taxis" jdbcType="INTEGER" property="taxis" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Dh_area">
+    insert into dh_area (dhid, dhtype, dhname, 
+      sort, dhcontent, dhdesc, 
+      dhurl, addtime, addor, 
+      taxis, flag)
+    values (#{dhid,jdbcType=INTEGER}, #{dhtype,jdbcType=INTEGER}, #{dhname,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=INTEGER}, #{dhcontent,jdbcType=VARCHAR}, #{dhdesc,jdbcType=VARCHAR}, 
+      #{dhurl,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{addor,jdbcType=VARCHAR}, 
+      #{taxis,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Dh_area">
+    insert into dh_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dhid != null">
+        dhid,
+      </if>
+      <if test="dhtype != null">
+        dhtype,
+      </if>
+      <if test="dhname != null">
+        dhname,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="dhcontent != null">
+        dhcontent,
+      </if>
+      <if test="dhdesc != null">
+        dhdesc,
+      </if>
+      <if test="dhurl != null">
+        dhurl,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="taxis != null">
+        taxis,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dhid != null">
+        #{dhid,jdbcType=INTEGER},
+      </if>
+      <if test="dhtype != null">
+        #{dhtype,jdbcType=INTEGER},
+      </if>
+      <if test="dhname != null">
+        #{dhname,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="dhcontent != null">
+        #{dhcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="dhdesc != null">
+        #{dhdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="dhurl != null">
+        #{dhurl,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="taxis != null">
+        #{taxis,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

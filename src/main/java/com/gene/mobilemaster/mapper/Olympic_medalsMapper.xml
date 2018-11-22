@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Olympic_medalsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Olympic_medals">
+    <result column="OlympicXh" jdbcType="INTEGER" property="olympicxh" />
+    <result column="CountDate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="GoldMedalNum" jdbcType="INTEGER" property="goldmedalnum" />
+    <result column="SilverMedal" jdbcType="INTEGER" property="silvermedal" />
+    <result column="BronzeMedalNum" jdbcType="INTEGER" property="bronzemedalnum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Olympic_medals">
+    insert into olympic_medals (OlympicXh, CountDate, GoldMedalNum, 
+      SilverMedal, BronzeMedalNum)
+    values (#{olympicxh,jdbcType=INTEGER}, #{countdate,jdbcType=TIMESTAMP}, #{goldmedalnum,jdbcType=INTEGER}, 
+      #{silvermedal,jdbcType=INTEGER}, #{bronzemedalnum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Olympic_medals">
+    insert into olympic_medals
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="olympicxh != null">
+        OlympicXh,
+      </if>
+      <if test="countdate != null">
+        CountDate,
+      </if>
+      <if test="goldmedalnum != null">
+        GoldMedalNum,
+      </if>
+      <if test="silvermedal != null">
+        SilverMedal,
+      </if>
+      <if test="bronzemedalnum != null">
+        BronzeMedalNum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="olympicxh != null">
+        #{olympicxh,jdbcType=INTEGER},
+      </if>
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goldmedalnum != null">
+        #{goldmedalnum,jdbcType=INTEGER},
+      </if>
+      <if test="silvermedal != null">
+        #{silvermedal,jdbcType=INTEGER},
+      </if>
+      <if test="bronzemedalnum != null">
+        #{bronzemedalnum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.MiaoshacodeMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Miaoshacode">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="HolidayPeriodId" jdbcType="INTEGER" property="holidayperiodid" />
+    <result column="customerid" jdbcType="INTEGER" property="customerid" />
+    <result column="mscode" jdbcType="INTEGER" property="mscode" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Miaoshacode">
+    insert into miaoshacode (flowid, HolidayPeriodId, customerid, 
+      mscode, addtime, url
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{holidayperiodid,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, 
+      #{mscode,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, #{url,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Miaoshacode">
+    insert into miaoshacode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="holidayperiodid != null">
+        HolidayPeriodId,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="mscode != null">
+        mscode,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="holidayperiodid != null">
+        #{holidayperiodid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="mscode != null">
+        #{mscode,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

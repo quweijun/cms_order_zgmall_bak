@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.EasouorderlistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Easouorderlist">
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="orderNum" jdbcType="VARCHAR" property="ordernum" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="iid" jdbcType="VARCHAR" property="iid" />
+    <result column="buyNum" jdbcType="VARCHAR" property="buynum" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="ordertime" jdbcType="VARCHAR" property="ordertime" />
+    <result column="buyer" jdbcType="VARCHAR" property="buyer" />
+    <result column="contact" jdbcType="VARCHAR" property="contact" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="seller" jdbcType="VARCHAR" property="seller" />
+    <result column="comeFrom" jdbcType="VARCHAR" property="comefrom" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Easouorderlist">
+    insert into easouorderlist (accesstime, orderNum, title, 
+      iid, buyNum, price, 
+      ordertime, buyer, contact, 
+      address, seller, comeFrom
+      )
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{ordernum,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{iid,jdbcType=VARCHAR}, #{buynum,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{ordertime,jdbcType=VARCHAR}, #{buyer,jdbcType=VARCHAR}, #{contact,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{seller,jdbcType=VARCHAR}, #{comefrom,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Easouorderlist">
+    insert into easouorderlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="ordernum != null">
+        orderNum,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="iid != null">
+        iid,
+      </if>
+      <if test="buynum != null">
+        buyNum,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="ordertime != null">
+        ordertime,
+      </if>
+      <if test="buyer != null">
+        buyer,
+      </if>
+      <if test="contact != null">
+        contact,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="seller != null">
+        seller,
+      </if>
+      <if test="comefrom != null">
+        comeFrom,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="iid != null">
+        #{iid,jdbcType=VARCHAR},
+      </if>
+      <if test="buynum != null">
+        #{buynum,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=VARCHAR},
+      </if>
+      <if test="buyer != null">
+        #{buyer,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="seller != null">
+        #{seller,jdbcType=VARCHAR},
+      </if>
+      <if test="comefrom != null">
+        #{comefrom,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

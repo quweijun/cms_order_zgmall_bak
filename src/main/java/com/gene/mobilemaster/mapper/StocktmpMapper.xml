@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.StocktmpMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Stocktmp">
+    <result column="wareid" jdbcType="VARCHAR" property="wareid" />
+    <result column="warecolor" jdbcType="CHAR" property="warecolor" />
+    <result column="waresize" jdbcType="CHAR" property="waresize" />
+    <result column="stocksum" jdbcType="INTEGER" property="stocksum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Stocktmp">
+    insert into stocktmp (wareid, warecolor, waresize, 
+      stocksum)
+    values (#{wareid,jdbcType=VARCHAR}, #{warecolor,jdbcType=CHAR}, #{waresize,jdbcType=CHAR}, 
+      #{stocksum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Stocktmp">
+    insert into stocktmp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wareid != null">
+        wareid,
+      </if>
+      <if test="warecolor != null">
+        warecolor,
+      </if>
+      <if test="waresize != null">
+        waresize,
+      </if>
+      <if test="stocksum != null">
+        stocksum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wareid != null">
+        #{wareid,jdbcType=VARCHAR},
+      </if>
+      <if test="warecolor != null">
+        #{warecolor,jdbcType=CHAR},
+      </if>
+      <if test="waresize != null">
+        #{waresize,jdbcType=CHAR},
+      </if>
+      <if test="stocksum != null">
+        #{stocksum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

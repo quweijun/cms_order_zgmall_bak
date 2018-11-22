@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TmpiplibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Tmpiplib">
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="Sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="City" jdbcType="VARCHAR" property="city" />
+    <result column="ShengID" jdbcType="INTEGER" property="shengid" />
+    <result column="Source" jdbcType="VARCHAR" property="source" />
+    <result column="Enableflag" jdbcType="VARCHAR" property="enableflag" />
+    <result column="InitDate" jdbcType="TIMESTAMP" property="initdate" />
+    <result column="InitCount" jdbcType="INTEGER" property="initcount" />
+    <result column="RepeatNum" jdbcType="INTEGER" property="repeatnum" />
+    <result column="BzDesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="analyDate" jdbcType="TIMESTAMP" property="analydate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Tmpiplib">
+    insert into tmpiplib (FlowNo, IP, Sheng, 
+      City, ShengID, Source, 
+      Enableflag, InitDate, InitCount, 
+      RepeatNum, BzDesc, analyDate
+      )
+    values (#{flowno,jdbcType=INTEGER}, #{ip,jdbcType=VARCHAR}, #{sheng,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{shengid,jdbcType=INTEGER}, #{source,jdbcType=VARCHAR}, 
+      #{enableflag,jdbcType=VARCHAR}, #{initdate,jdbcType=TIMESTAMP}, #{initcount,jdbcType=INTEGER}, 
+      #{repeatnum,jdbcType=INTEGER}, #{bzdesc,jdbcType=VARCHAR}, #{analydate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Tmpiplib">
+    insert into tmpiplib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="sheng != null">
+        Sheng,
+      </if>
+      <if test="city != null">
+        City,
+      </if>
+      <if test="shengid != null">
+        ShengID,
+      </if>
+      <if test="source != null">
+        Source,
+      </if>
+      <if test="enableflag != null">
+        Enableflag,
+      </if>
+      <if test="initdate != null">
+        InitDate,
+      </if>
+      <if test="initcount != null">
+        InitCount,
+      </if>
+      <if test="repeatnum != null">
+        RepeatNum,
+      </if>
+      <if test="bzdesc != null">
+        BzDesc,
+      </if>
+      <if test="analydate != null">
+        analyDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="shengid != null">
+        #{shengid,jdbcType=INTEGER},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+      <if test="initdate != null">
+        #{initdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="initcount != null">
+        #{initcount,jdbcType=INTEGER},
+      </if>
+      <if test="repeatnum != null">
+        #{repeatnum,jdbcType=INTEGER},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="analydate != null">
+        #{analydate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

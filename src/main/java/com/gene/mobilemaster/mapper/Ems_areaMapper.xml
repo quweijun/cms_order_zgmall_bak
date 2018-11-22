@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ems_areaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ems_area">
+    <result column="dqdm" jdbcType="VARCHAR" property="dqdm" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="qu" jdbcType="VARCHAR" property="qu" />
+    <result column="yzbm" jdbcType="VARCHAR" property="yzbm" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ems_area">
+    insert into ems_area (dqdm, sheng, shi, 
+      qu, yzbm)
+    values (#{dqdm,jdbcType=VARCHAR}, #{sheng,jdbcType=VARCHAR}, #{shi,jdbcType=VARCHAR}, 
+      #{qu,jdbcType=VARCHAR}, #{yzbm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ems_area">
+    insert into ems_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dqdm != null">
+        dqdm,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="qu != null">
+        qu,
+      </if>
+      <if test="yzbm != null">
+        yzbm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dqdm != null">
+        #{dqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="qu != null">
+        #{qu,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null">
+        #{yzbm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

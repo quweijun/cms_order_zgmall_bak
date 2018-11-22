@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Prod_specMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Prod_spec">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="prod_color" jdbcType="VARCHAR" property="prodColor" />
+    <result column="prod_size" jdbcType="VARCHAR" property="prodSize" />
+    <result column="spec_photo" jdbcType="VARCHAR" property="specPhoto" />
+    <result column="edittime" jdbcType="TIMESTAMP" property="edittime" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Prod_spec">
+    insert into prod_spec (id, productid, prod_color, 
+      prod_size, spec_photo, edittime, 
+      editor, flag)
+    values (#{id,jdbcType=BIGINT}, #{productid,jdbcType=VARCHAR}, #{prodColor,jdbcType=VARCHAR}, 
+      #{prodSize,jdbcType=VARCHAR}, #{specPhoto,jdbcType=VARCHAR}, #{edittime,jdbcType=TIMESTAMP}, 
+      #{editor,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Prod_spec">
+    insert into prod_spec
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="prodColor != null">
+        prod_color,
+      </if>
+      <if test="prodSize != null">
+        prod_size,
+      </if>
+      <if test="specPhoto != null">
+        spec_photo,
+      </if>
+      <if test="edittime != null">
+        edittime,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="prodColor != null">
+        #{prodColor,jdbcType=VARCHAR},
+      </if>
+      <if test="prodSize != null">
+        #{prodSize,jdbcType=VARCHAR},
+      </if>
+      <if test="specPhoto != null">
+        #{specPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null">
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

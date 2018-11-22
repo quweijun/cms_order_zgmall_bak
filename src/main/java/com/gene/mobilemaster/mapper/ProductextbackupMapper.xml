@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProductextbackupMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Productextbackup">
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="ExtPropID" jdbcType="INTEGER" property="extpropid" />
+    <result column="ItemID" jdbcType="VARCHAR" property="itemid" />
+    <result column="ItemDisPlayName" jdbcType="VARCHAR" property="itemdisplayname" />
+    <result column="ItemRemark" jdbcType="VARCHAR" property="itemremark" />
+    <result column="ItemOrder" jdbcType="INTEGER" property="itemorder" />
+    <result column="IsValid" jdbcType="VARCHAR" property="isvalid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Productextbackup">
+    insert into productextbackup (FlowNo, ExtPropID, ItemID, 
+      ItemDisPlayName, ItemRemark, ItemOrder, 
+      IsValid)
+    values (#{flowno,jdbcType=INTEGER}, #{extpropid,jdbcType=INTEGER}, #{itemid,jdbcType=VARCHAR}, 
+      #{itemdisplayname,jdbcType=VARCHAR}, #{itemremark,jdbcType=VARCHAR}, #{itemorder,jdbcType=INTEGER}, 
+      #{isvalid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Productextbackup">
+    insert into productextbackup
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="extpropid != null">
+        ExtPropID,
+      </if>
+      <if test="itemid != null">
+        ItemID,
+      </if>
+      <if test="itemdisplayname != null">
+        ItemDisPlayName,
+      </if>
+      <if test="itemremark != null">
+        ItemRemark,
+      </if>
+      <if test="itemorder != null">
+        ItemOrder,
+      </if>
+      <if test="isvalid != null">
+        IsValid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="extpropid != null">
+        #{extpropid,jdbcType=INTEGER},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=VARCHAR},
+      </if>
+      <if test="itemdisplayname != null">
+        #{itemdisplayname,jdbcType=VARCHAR},
+      </if>
+      <if test="itemremark != null">
+        #{itemremark,jdbcType=VARCHAR},
+      </if>
+      <if test="itemorder != null">
+        #{itemorder,jdbcType=INTEGER},
+      </if>
+      <if test="isvalid != null">
+        #{isvalid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

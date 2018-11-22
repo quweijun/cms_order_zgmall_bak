@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Lamp_answerMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Lamp_answer">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="answer" jdbcType="INTEGER" property="answer" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Lamp_answer">
+    insert into lamp_answer (id, lid, customerid, 
+      answer, addtime)
+    values (#{id,jdbcType=INTEGER}, #{lid,jdbcType=INTEGER}, #{customerid,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Lamp_answer">
+    insert into lamp_answer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="lid != null">
+        lid,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="lid != null">
+        #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

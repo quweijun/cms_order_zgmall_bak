@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Bussinessorderform_simpleMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Bussinessorderform_simple">
+    <result column="OrderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="OrderPhone" jdbcType="VARCHAR" property="orderphone" />
+    <result column="SubmitDate" jdbcType="TIMESTAMP" property="submitdate" />
+    <result column="BussinessID" jdbcType="VARCHAR" property="bussinessid" />
+    <result column="dwc_time" jdbcType="TIMESTAMP" property="dwcTime" />
+    <result column="fhtime" jdbcType="TIMESTAMP" property="fhtime" />
+    <result column="submitflag" jdbcType="INTEGER" property="submitflag" />
+    <result column="orderstate" jdbcType="INTEGER" property="orderstate" />
+    <result column="hyCompany" jdbcType="VARCHAR" property="hycompany" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Bussinessorderform_simple">
+    insert into bussinessorderform_simple (OrderID, ChannelID, OrderPhone, 
+      SubmitDate, BussinessID, dwc_time, 
+      fhtime, submitflag, orderstate, 
+      hyCompany, expressid)
+    values (#{orderid,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, #{orderphone,jdbcType=VARCHAR}, 
+      #{submitdate,jdbcType=TIMESTAMP}, #{bussinessid,jdbcType=VARCHAR}, #{dwcTime,jdbcType=TIMESTAMP}, 
+      #{fhtime,jdbcType=TIMESTAMP}, #{submitflag,jdbcType=INTEGER}, #{orderstate,jdbcType=INTEGER}, 
+      #{hycompany,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Bussinessorderform_simple">
+    insert into bussinessorderform_simple
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="orderphone != null">
+        OrderPhone,
+      </if>
+      <if test="submitdate != null">
+        SubmitDate,
+      </if>
+      <if test="bussinessid != null">
+        BussinessID,
+      </if>
+      <if test="dwcTime != null">
+        dwc_time,
+      </if>
+      <if test="fhtime != null">
+        fhtime,
+      </if>
+      <if test="submitflag != null">
+        submitflag,
+      </if>
+      <if test="orderstate != null">
+        orderstate,
+      </if>
+      <if test="hycompany != null">
+        hyCompany,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderphone != null">
+        #{orderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="submitdate != null">
+        #{submitdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bussinessid != null">
+        #{bussinessid,jdbcType=VARCHAR},
+      </if>
+      <if test="dwcTime != null">
+        #{dwcTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fhtime != null">
+        #{fhtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="submitflag != null">
+        #{submitflag,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=INTEGER},
+      </if>
+      <if test="hycompany != null">
+        #{hycompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

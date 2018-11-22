@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Stock_ceshiMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Stock_ceshi">
+    <result column="barcodeid" jdbcType="DOUBLE" property="barcodeid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Stock_ceshi">
+    insert into stock_ceshi (barcodeid)
+    values (#{barcodeid,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Stock_ceshi">
+    insert into stock_ceshi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

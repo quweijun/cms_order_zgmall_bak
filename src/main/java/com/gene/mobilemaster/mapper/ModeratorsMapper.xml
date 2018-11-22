@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModeratorsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Moderators">
+    <result column="moderators_id" jdbcType="BIGINT" property="moderatorsId" />
+    <result column="zddh" jdbcType="INTEGER" property="zddh" />
+    <result column="mddh" jdbcType="INTEGER" property="mddh" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="theme" jdbcType="VARCHAR" property="theme" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="hits" jdbcType="INTEGER" property="hits" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="isgood" jdbcType="INTEGER" property="isgood" />
+    <result column="islock" jdbcType="INTEGER" property="islock" />
+    <result column="isdigest" jdbcType="INTEGER" property="isdigest" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Moderators">
+    insert into moderators (moderators_id, zddh, mddh, 
+      title, theme, content, 
+      customerid, province, city, 
+      hits, addtime, xh, 
+      isgood, islock, isdigest
+      )
+    values (#{moderatorsId,jdbcType=BIGINT}, #{zddh,jdbcType=INTEGER}, #{mddh,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{theme,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{customerid,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{hits,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, #{xh,jdbcType=INTEGER}, 
+      #{isgood,jdbcType=INTEGER}, #{islock,jdbcType=INTEGER}, #{isdigest,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Moderators">
+    insert into moderators
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moderatorsId != null">
+        moderators_id,
+      </if>
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="theme != null">
+        theme,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="hits != null">
+        hits,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="isgood != null">
+        isgood,
+      </if>
+      <if test="islock != null">
+        islock,
+      </if>
+      <if test="isdigest != null">
+        isdigest,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moderatorsId != null">
+        #{moderatorsId,jdbcType=BIGINT},
+      </if>
+      <if test="zddh != null">
+        #{zddh,jdbcType=INTEGER},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="theme != null">
+        #{theme,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="hits != null">
+        #{hits,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="isgood != null">
+        #{isgood,jdbcType=INTEGER},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="isdigest != null">
+        #{isdigest,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ShoubiaoMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Shoubiao">
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="baoyou" jdbcType="VARCHAR" property="baoyou" />
+    <result column="zt" jdbcType="VARCHAR" property="zt" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Shoubiao">
+    insert into shoubiao (productid, productname, baoyou, 
+      zt)
+    values (#{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{baoyou,jdbcType=VARCHAR}, 
+      #{zt,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Shoubiao">
+    insert into shoubiao
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="baoyou != null">
+        baoyou,
+      </if>
+      <if test="zt != null">
+        zt,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="baoyou != null">
+        #{baoyou,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null">
+        #{zt,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Productid_old_newMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Productid_old_new">
+    <result column="productid_old" jdbcType="VARCHAR" property="productidOld" />
+    <result column="productid_new" jdbcType="VARCHAR" property="productidNew" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Productid_old_new">
+    insert into productid_old_new (productid_old, productid_new)
+    values (#{productidOld,jdbcType=VARCHAR}, #{productidNew,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Productid_old_new">
+    insert into productid_old_new
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productidOld != null">
+        productid_old,
+      </if>
+      <if test="productidNew != null">
+        productid_new,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productidOld != null">
+        #{productidOld,jdbcType=VARCHAR},
+      </if>
+      <if test="productidNew != null">
+        #{productidNew,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

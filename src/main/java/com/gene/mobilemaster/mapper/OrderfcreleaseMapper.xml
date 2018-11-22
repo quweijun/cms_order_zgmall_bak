@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OrderfcreleaseMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Orderfcrelease">
+    <result column="CountDate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="OrderSignCount" jdbcType="INTEGER" property="ordersigncount" />
+    <result column="ChannelType" jdbcType="INTEGER" property="channeltype" />
+    <result column="SignAmount" jdbcType="DOUBLE" property="signamount" />
+    <result column="FCAmount" jdbcType="DOUBLE" property="fcamount" />
+    <result column="cSettleFlag" jdbcType="INTEGER" property="csettleflag" />
+    <result column="cSettleID" jdbcType="INTEGER" property="csettleid" />
+    <result column="PChannelID" jdbcType="VARCHAR" property="pchannelid" />
+    <result column="PublishFlag" jdbcType="INTEGER" property="publishflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Orderfcrelease">
+    insert into orderfcrelease (CountDate, ChannelID, OrderSignCount, 
+      ChannelType, SignAmount, FCAmount, 
+      cSettleFlag, cSettleID, PChannelID, 
+      PublishFlag)
+    values (#{countdate,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{ordersigncount,jdbcType=INTEGER}, 
+      #{channeltype,jdbcType=INTEGER}, #{signamount,jdbcType=DOUBLE}, #{fcamount,jdbcType=DOUBLE}, 
+      #{csettleflag,jdbcType=INTEGER}, #{csettleid,jdbcType=INTEGER}, #{pchannelid,jdbcType=VARCHAR}, 
+      #{publishflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Orderfcrelease">
+    insert into orderfcrelease
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        CountDate,
+      </if>
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="ordersigncount != null">
+        OrderSignCount,
+      </if>
+      <if test="channeltype != null">
+        ChannelType,
+      </if>
+      <if test="signamount != null">
+        SignAmount,
+      </if>
+      <if test="fcamount != null">
+        FCAmount,
+      </if>
+      <if test="csettleflag != null">
+        cSettleFlag,
+      </if>
+      <if test="csettleid != null">
+        cSettleID,
+      </if>
+      <if test="pchannelid != null">
+        PChannelID,
+      </if>
+      <if test="publishflag != null">
+        PublishFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersigncount != null">
+        #{ordersigncount,jdbcType=INTEGER},
+      </if>
+      <if test="channeltype != null">
+        #{channeltype,jdbcType=INTEGER},
+      </if>
+      <if test="signamount != null">
+        #{signamount,jdbcType=DOUBLE},
+      </if>
+      <if test="fcamount != null">
+        #{fcamount,jdbcType=DOUBLE},
+      </if>
+      <if test="csettleflag != null">
+        #{csettleflag,jdbcType=INTEGER},
+      </if>
+      <if test="csettleid != null">
+        #{csettleid,jdbcType=INTEGER},
+      </if>
+      <if test="pchannelid != null">
+        #{pchannelid,jdbcType=VARCHAR},
+      </if>
+      <if test="publishflag != null">
+        #{publishflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

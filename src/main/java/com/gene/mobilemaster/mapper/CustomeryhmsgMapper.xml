@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CustomeryhmsgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customeryhmsg">
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="yhmc" jdbcType="VARCHAR" property="yhmc" />
+    <result column="khdz" jdbcType="VARCHAR" property="khdz" />
+    <result column="khm" jdbcType="VARCHAR" property="khm" />
+    <result column="khzh" jdbcType="VARCHAR" property="khzh" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customeryhmsg">
+    insert into customeryhmsg (customerid, yhmc, khdz, 
+      khm, khzh, addtime
+      )
+    values (#{customerid,jdbcType=VARCHAR}, #{yhmc,jdbcType=VARCHAR}, #{khdz,jdbcType=VARCHAR}, 
+      #{khm,jdbcType=VARCHAR}, #{khzh,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customeryhmsg">
+    insert into customeryhmsg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="yhmc != null">
+        yhmc,
+      </if>
+      <if test="khdz != null">
+        khdz,
+      </if>
+      <if test="khm != null">
+        khm,
+      </if>
+      <if test="khzh != null">
+        khzh,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="yhmc != null">
+        #{yhmc,jdbcType=VARCHAR},
+      </if>
+      <if test="khdz != null">
+        #{khdz,jdbcType=VARCHAR},
+      </if>
+      <if test="khm != null">
+        #{khm,jdbcType=VARCHAR},
+      </if>
+      <if test="khzh != null">
+        #{khzh,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

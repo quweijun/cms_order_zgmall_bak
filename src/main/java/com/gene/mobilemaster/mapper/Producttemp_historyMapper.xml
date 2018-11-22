@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Producttemp_historyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Producttemp_history">
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+    <result column="smalltype" jdbcType="INTEGER" property="smalltype" />
+    <result column="subclass" jdbcType="INTEGER" property="subclass" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="cpaddtime" jdbcType="TIMESTAMP" property="cpaddtime" />
+    <result column="ggy" jdbcType="VARCHAR" property="ggy" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="payment" jdbcType="INTEGER" property="payment" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="saleFlag" jdbcType="VARCHAR" property="saleflag" />
+    <result column="zgprice" jdbcType="DOUBLE" property="zgprice" />
+    <result column="marketPrice" jdbcType="DOUBLE" property="marketprice" />
+    <result column="vipprice" jdbcType="DOUBLE" property="vipprice" />
+    <result column="cnt" jdbcType="INTEGER" property="cnt" />
+    <result column="begindate" jdbcType="TIMESTAMP" property="begindate" />
+    <result column="enddate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="ordercount" jdbcType="INTEGER" property="ordercount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Producttemp_history">
+    insert into producttemp_history (productid, bigtype, smalltype, 
+      subclass, productname, cpaddtime, 
+      ggy, img, payment, 
+      price, saleFlag, zgprice, 
+      marketPrice, vipprice, cnt, 
+      begindate, enddate, updatetime, 
+      ordercount)
+    values (#{productid,jdbcType=VARCHAR}, #{bigtype,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, 
+      #{subclass,jdbcType=INTEGER}, #{productname,jdbcType=VARCHAR}, #{cpaddtime,jdbcType=TIMESTAMP}, 
+      #{ggy,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{payment,jdbcType=INTEGER}, 
+      #{price,jdbcType=DOUBLE}, #{saleflag,jdbcType=VARCHAR}, #{zgprice,jdbcType=DOUBLE}, 
+      #{marketprice,jdbcType=DOUBLE}, #{vipprice,jdbcType=DOUBLE}, #{cnt,jdbcType=INTEGER}, 
+      #{begindate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{ordercount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Producttemp_history">
+    insert into producttemp_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="subclass != null">
+        subclass,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="cpaddtime != null">
+        cpaddtime,
+      </if>
+      <if test="ggy != null">
+        ggy,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="payment != null">
+        payment,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="saleflag != null">
+        saleFlag,
+      </if>
+      <if test="zgprice != null">
+        zgprice,
+      </if>
+      <if test="marketprice != null">
+        marketPrice,
+      </if>
+      <if test="vipprice != null">
+        vipprice,
+      </if>
+      <if test="cnt != null">
+        cnt,
+      </if>
+      <if test="begindate != null">
+        begindate,
+      </if>
+      <if test="enddate != null">
+        enddate,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="ordercount != null">
+        ordercount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="cpaddtime != null">
+        #{cpaddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ggy != null">
+        #{ggy,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="payment != null">
+        #{payment,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="saleflag != null">
+        #{saleflag,jdbcType=VARCHAR},
+      </if>
+      <if test="zgprice != null">
+        #{zgprice,jdbcType=DOUBLE},
+      </if>
+      <if test="marketprice != null">
+        #{marketprice,jdbcType=DOUBLE},
+      </if>
+      <if test="vipprice != null">
+        #{vipprice,jdbcType=DOUBLE},
+      </if>
+      <if test="cnt != null">
+        #{cnt,jdbcType=INTEGER},
+      </if>
+      <if test="begindate != null">
+        #{begindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordercount != null">
+        #{ordercount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

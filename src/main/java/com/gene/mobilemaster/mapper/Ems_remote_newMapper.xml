@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ems_remote_newMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ems_remote_new">
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="city_num" jdbcType="INTEGER" property="cityNum" />
+    <result column="xian" jdbcType="VARCHAR" property="xian" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ems_remote_new">
+    insert into ems_remote_new (sheng, shi, city_num, 
+      xian)
+    values (#{sheng,jdbcType=VARCHAR}, #{shi,jdbcType=VARCHAR}, #{cityNum,jdbcType=INTEGER}, 
+      #{xian,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ems_remote_new">
+    insert into ems_remote_new
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="cityNum != null">
+        city_num,
+      </if>
+      <if test="xian != null">
+        xian,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="cityNum != null">
+        #{cityNum,jdbcType=INTEGER},
+      </if>
+      <if test="xian != null">
+        #{xian,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

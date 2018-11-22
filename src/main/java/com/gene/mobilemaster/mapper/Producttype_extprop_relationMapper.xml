@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Producttype_extprop_relationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Producttype_extprop_relation">
+    <result column="SubClass" jdbcType="INTEGER" property="subclass" />
+    <result column="SmallType" jdbcType="INTEGER" property="smalltype" />
+    <result column="BigType" jdbcType="INTEGER" property="bigtype" />
+    <result column="ExtPropID" jdbcType="INTEGER" property="extpropid" />
+    <result column="PropOrder" jdbcType="INTEGER" property="proporder" />
+    <result column="id" jdbcType="BIGINT" property="id" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Producttype_extprop_relation">
+    insert into producttype_extprop_relation (SubClass, SmallType, BigType, 
+      ExtPropID, PropOrder, id
+      )
+    values (#{subclass,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, #{bigtype,jdbcType=INTEGER}, 
+      #{extpropid,jdbcType=INTEGER}, #{proporder,jdbcType=INTEGER}, #{id,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Producttype_extprop_relation">
+    insert into producttype_extprop_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="subclass != null">
+        SubClass,
+      </if>
+      <if test="smalltype != null">
+        SmallType,
+      </if>
+      <if test="bigtype != null">
+        BigType,
+      </if>
+      <if test="extpropid != null">
+        ExtPropID,
+      </if>
+      <if test="proporder != null">
+        PropOrder,
+      </if>
+      <if test="id != null">
+        id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="extpropid != null">
+        #{extpropid,jdbcType=INTEGER},
+      </if>
+      <if test="proporder != null">
+        #{proporder,jdbcType=INTEGER},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

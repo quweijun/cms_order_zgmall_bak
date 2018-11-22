@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sf_dzexpressidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sf_dzexpressid">
+    <result column="date1" jdbcType="VARCHAR" property="date1" />
+    <result column="date2" jdbcType="VARCHAR" property="date2" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="company name" jdbcType="VARCHAR" property="companyName" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="postamount" jdbcType="VARCHAR" property="postamount" />
+    <result column="total" jdbcType="VARCHAR" property="total" />
+    <result column="Handled By" jdbcType="VARCHAR" property="handledBy" />
+    <result column="delivery" jdbcType="VARCHAR" property="delivery" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sf_dzexpressid">
+    insert into sf_dzexpressid (date1, date2, expressid, 
+      area, "company name", phone, 
+      price, postamount, total, 
+      "Handled By", delivery)
+    values (#{date1,jdbcType=VARCHAR}, #{date2,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{postamount,jdbcType=VARCHAR}, #{total,jdbcType=VARCHAR}, 
+      #{handledBy,jdbcType=VARCHAR}, #{delivery,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sf_dzexpressid">
+    insert into sf_dzexpressid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="date1 != null">
+        date1,
+      </if>
+      <if test="date2 != null">
+        date2,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="companyName != null">
+        "company name",
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="postamount != null">
+        postamount,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+      <if test="handledBy != null">
+        "Handled By",
+      </if>
+      <if test="delivery != null">
+        delivery,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="date1 != null">
+        #{date1,jdbcType=VARCHAR},
+      </if>
+      <if test="date2 != null">
+        #{date2,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="postamount != null">
+        #{postamount,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=VARCHAR},
+      </if>
+      <if test="handledBy != null">
+        #{handledBy,jdbcType=VARCHAR},
+      </if>
+      <if test="delivery != null">
+        #{delivery,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

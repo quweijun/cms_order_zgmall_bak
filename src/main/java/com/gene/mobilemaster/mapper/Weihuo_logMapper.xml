@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Weihuo_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Weihuo_log">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="productid" jdbcType="CHAR" property="productid" />
+    <result column="caozuo" jdbcType="VARCHAR" property="caozuo" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Weihuo_log">
+    insert into weihuo_log (id, productid, caozuo, 
+      addtime)
+    values (#{id,jdbcType=INTEGER}, #{productid,jdbcType=CHAR}, #{caozuo,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Weihuo_log">
+    insert into weihuo_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="caozuo != null">
+        caozuo,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=CHAR},
+      </if>
+      <if test="caozuo != null">
+        #{caozuo,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Kehuduan_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Kehuduan_log">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="customerip" jdbcType="VARCHAR" property="customerip" />
+    <result column="useragent" jdbcType="VARCHAR" property="useragent" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="md5name" jdbcType="VARCHAR" property="md5name" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Kehuduan_log">
+    insert into kehuduan_log (id, type, customerid, 
+      customerip, useragent, amount, 
+      md5name, addtime)
+    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=INTEGER}, #{customerid,jdbcType=VARCHAR}, 
+      #{customerip,jdbcType=VARCHAR}, #{useragent,jdbcType=VARCHAR}, #{amount,jdbcType=INTEGER}, 
+      #{md5name,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Kehuduan_log">
+    insert into kehuduan_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="customerip != null">
+        customerip,
+      </if>
+      <if test="useragent != null">
+        useragent,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="md5name != null">
+        md5name,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="customerip != null">
+        #{customerip,jdbcType=VARCHAR},
+      </if>
+      <if test="useragent != null">
+        #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="md5name != null">
+        #{md5name,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

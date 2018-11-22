@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModulebqmapfunMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Modulebqmapfun">
+    <result column="flowno" jdbcType="INTEGER" property="flowno" />
+    <result column="bqlb" jdbcType="VARCHAR" property="bqlb" />
+    <result column="ywlx" jdbcType="VARCHAR" property="ywlx" />
+    <result column="callfun" jdbcType="VARCHAR" property="callfun" />
+    <result column="useparamcount" jdbcType="INTEGER" property="useparamcount" />
+    <result column="totalparamcount" jdbcType="INTEGER" property="totalparamcount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Modulebqmapfun">
+    insert into modulebqmapfun (flowno, bqlb, ywlx, 
+      callfun, useparamcount, totalparamcount
+      )
+    values (#{flowno,jdbcType=INTEGER}, #{bqlb,jdbcType=VARCHAR}, #{ywlx,jdbcType=VARCHAR}, 
+      #{callfun,jdbcType=VARCHAR}, #{useparamcount,jdbcType=INTEGER}, #{totalparamcount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Modulebqmapfun">
+    insert into modulebqmapfun
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="bqlb != null">
+        bqlb,
+      </if>
+      <if test="ywlx != null">
+        ywlx,
+      </if>
+      <if test="callfun != null">
+        callfun,
+      </if>
+      <if test="useparamcount != null">
+        useparamcount,
+      </if>
+      <if test="totalparamcount != null">
+        totalparamcount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="bqlb != null">
+        #{bqlb,jdbcType=VARCHAR},
+      </if>
+      <if test="ywlx != null">
+        #{ywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="callfun != null">
+        #{callfun,jdbcType=VARCHAR},
+      </if>
+      <if test="useparamcount != null">
+        #{useparamcount,jdbcType=INTEGER},
+      </if>
+      <if test="totalparamcount != null">
+        #{totalparamcount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

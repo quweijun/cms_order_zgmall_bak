@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TreelistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Treelist">
+    <result column="treeId" jdbcType="INTEGER" property="treeid" />
+    <result column="treeName" jdbcType="VARCHAR" property="treename" />
+    <result column="treeBz" jdbcType="VARCHAR" property="treebz" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="FTreeId" jdbcType="INTEGER" property="ftreeid" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="isplay" jdbcType="INTEGER" property="isplay" />
+    <result column="openType" jdbcType="INTEGER" property="opentype" />
+    <result column="systemId" jdbcType="INTEGER" property="systemid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Treelist">
+    insert into treelist (treeId, treeName, treeBz, 
+      xh, FTreeId, url, isplay, 
+      openType, systemId)
+    values (#{treeid,jdbcType=INTEGER}, #{treename,jdbcType=VARCHAR}, #{treebz,jdbcType=VARCHAR}, 
+      #{xh,jdbcType=INTEGER}, #{ftreeid,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, #{isplay,jdbcType=INTEGER}, 
+      #{opentype,jdbcType=INTEGER}, #{systemid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Treelist">
+    insert into treelist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="treeid != null">
+        treeId,
+      </if>
+      <if test="treename != null">
+        treeName,
+      </if>
+      <if test="treebz != null">
+        treeBz,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="ftreeid != null">
+        FTreeId,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="isplay != null">
+        isplay,
+      </if>
+      <if test="opentype != null">
+        openType,
+      </if>
+      <if test="systemid != null">
+        systemId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="treeid != null">
+        #{treeid,jdbcType=INTEGER},
+      </if>
+      <if test="treename != null">
+        #{treename,jdbcType=VARCHAR},
+      </if>
+      <if test="treebz != null">
+        #{treebz,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="ftreeid != null">
+        #{ftreeid,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="isplay != null">
+        #{isplay,jdbcType=INTEGER},
+      </if>
+      <if test="opentype != null">
+        #{opentype,jdbcType=INTEGER},
+      </if>
+      <if test="systemid != null">
+        #{systemid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

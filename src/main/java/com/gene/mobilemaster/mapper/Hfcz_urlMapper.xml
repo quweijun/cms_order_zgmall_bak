@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Hfcz_urlMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Hfcz_url">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Hfcz_url">
+    insert into hfcz_url (flowid, orderid, phone, 
+      url, addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Hfcz_url">
+    insert into hfcz_url
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Zjs_ps_areaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zjs_ps_area">
+    <result column="AddrXh" jdbcType="INTEGER" property="addrxh" />
+    <result column="AddrPK" jdbcType="VARCHAR" property="addrpk" />
+    <result column="ZJSCompany" jdbcType="VARCHAR" property="zjscompany" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="xian" jdbcType="VARCHAR" property="xian" />
+    <result column="fgbz" jdbcType="VARCHAR" property="fgbz" />
+    <result column="AddrXz" jdbcType="VARCHAR" property="addrxz" />
+    <result column="FWDQ" jdbcType="VARCHAR" property="fwdq" />
+    <result column="NoFWDQ" jdbcType="VARCHAR" property="nofwdq" />
+    <result column="PSBZ" jdbcType="VARCHAR" property="psbz" />
+    <result column="WWBZ" jdbcType="VARCHAR" property="wwbz" />
+    <result column="DFBZ" jdbcType="VARCHAR" property="dfbz" />
+    <result column="DSBZ" jdbcType="VARCHAR" property="dsbz" />
+    <result column="BzDesc" jdbcType="VARCHAR" property="bzdesc" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zjs_ps_area">
+    insert into zjs_ps_area (AddrXh, AddrPK, ZJSCompany, 
+      sheng, shi, xian, fgbz, 
+      AddrXz, FWDQ, NoFWDQ, 
+      PSBZ, WWBZ, DFBZ, DSBZ, 
+      BzDesc)
+    values (#{addrxh,jdbcType=INTEGER}, #{addrpk,jdbcType=VARCHAR}, #{zjscompany,jdbcType=VARCHAR}, 
+      #{sheng,jdbcType=VARCHAR}, #{shi,jdbcType=VARCHAR}, #{xian,jdbcType=VARCHAR}, #{fgbz,jdbcType=VARCHAR}, 
+      #{addrxz,jdbcType=VARCHAR}, #{fwdq,jdbcType=VARCHAR}, #{nofwdq,jdbcType=VARCHAR}, 
+      #{psbz,jdbcType=VARCHAR}, #{wwbz,jdbcType=VARCHAR}, #{dfbz,jdbcType=VARCHAR}, #{dsbz,jdbcType=VARCHAR}, 
+      #{bzdesc,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zjs_ps_area">
+    insert into zjs_ps_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="addrxh != null">
+        AddrXh,
+      </if>
+      <if test="addrpk != null">
+        AddrPK,
+      </if>
+      <if test="zjscompany != null">
+        ZJSCompany,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="xian != null">
+        xian,
+      </if>
+      <if test="fgbz != null">
+        fgbz,
+      </if>
+      <if test="addrxz != null">
+        AddrXz,
+      </if>
+      <if test="fwdq != null">
+        FWDQ,
+      </if>
+      <if test="nofwdq != null">
+        NoFWDQ,
+      </if>
+      <if test="psbz != null">
+        PSBZ,
+      </if>
+      <if test="wwbz != null">
+        WWBZ,
+      </if>
+      <if test="dfbz != null">
+        DFBZ,
+      </if>
+      <if test="dsbz != null">
+        DSBZ,
+      </if>
+      <if test="bzdesc != null">
+        BzDesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="addrxh != null">
+        #{addrxh,jdbcType=INTEGER},
+      </if>
+      <if test="addrpk != null">
+        #{addrpk,jdbcType=VARCHAR},
+      </if>
+      <if test="zjscompany != null">
+        #{zjscompany,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="xian != null">
+        #{xian,jdbcType=VARCHAR},
+      </if>
+      <if test="fgbz != null">
+        #{fgbz,jdbcType=VARCHAR},
+      </if>
+      <if test="addrxz != null">
+        #{addrxz,jdbcType=VARCHAR},
+      </if>
+      <if test="fwdq != null">
+        #{fwdq,jdbcType=VARCHAR},
+      </if>
+      <if test="nofwdq != null">
+        #{nofwdq,jdbcType=VARCHAR},
+      </if>
+      <if test="psbz != null">
+        #{psbz,jdbcType=VARCHAR},
+      </if>
+      <if test="wwbz != null">
+        #{wwbz,jdbcType=VARCHAR},
+      </if>
+      <if test="dfbz != null">
+        #{dfbz,jdbcType=VARCHAR},
+      </if>
+      <if test="dsbz != null">
+        #{dsbz,jdbcType=VARCHAR},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

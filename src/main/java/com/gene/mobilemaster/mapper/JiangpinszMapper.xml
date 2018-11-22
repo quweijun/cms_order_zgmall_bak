@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.JiangpinszMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jiangpinsz">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="jiangxiang" jdbcType="VARCHAR" property="jiangxiang" />
+    <result column="minge" jdbcType="INTEGER" property="minge" />
+    <result column="bigtypename" jdbcType="VARCHAR" property="bigtypename" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="jilv" jdbcType="INTEGER" property="jilv" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jiangpinsz">
+    insert into jiangpinsz (flowid, jiangxiang, minge, 
+      bigtypename, productid, productname, 
+      jilv)
+    values (#{flowid,jdbcType=BIGINT}, #{jiangxiang,jdbcType=VARCHAR}, #{minge,jdbcType=INTEGER}, 
+      #{bigtypename,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, 
+      #{jilv,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jiangpinsz">
+    insert into jiangpinsz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="jiangxiang != null">
+        jiangxiang,
+      </if>
+      <if test="minge != null">
+        minge,
+      </if>
+      <if test="bigtypename != null">
+        bigtypename,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="jilv != null">
+        jilv,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="jiangxiang != null">
+        #{jiangxiang,jdbcType=VARCHAR},
+      </if>
+      <if test="minge != null">
+        #{minge,jdbcType=INTEGER},
+      </if>
+      <if test="bigtypename != null">
+        #{bigtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="jilv != null">
+        #{jilv,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

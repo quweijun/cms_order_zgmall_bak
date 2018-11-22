@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Android_count_activationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Android_count_activation">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="uniqueID" jdbcType="VARCHAR" property="uniqueid" />
+    <result column="yeardate" jdbcType="VARCHAR" property="yeardate" />
+    <result column="monthdate" jdbcType="VARCHAR" property="monthdate" />
+    <result column="operacount" jdbcType="INTEGER" property="operacount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Android_count_activation">
+    insert into android_count_activation (flowid, channelid, uniqueID, 
+      yeardate, monthdate, operacount
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR}, #{uniqueid,jdbcType=VARCHAR}, 
+      #{yeardate,jdbcType=VARCHAR}, #{monthdate,jdbcType=VARCHAR}, #{operacount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Android_count_activation">
+    insert into android_count_activation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="uniqueid != null">
+        uniqueID,
+      </if>
+      <if test="yeardate != null">
+        yeardate,
+      </if>
+      <if test="monthdate != null">
+        monthdate,
+      </if>
+      <if test="operacount != null">
+        operacount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=VARCHAR},
+      </if>
+      <if test="yeardate != null">
+        #{yeardate,jdbcType=VARCHAR},
+      </if>
+      <if test="monthdate != null">
+        #{monthdate,jdbcType=VARCHAR},
+      </if>
+      <if test="operacount != null">
+        #{operacount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

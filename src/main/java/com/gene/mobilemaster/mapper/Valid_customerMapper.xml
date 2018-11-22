@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Valid_customerMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Valid_customer">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="CustomerID" jdbcType="BIGINT" property="customerid" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="CustomerName" jdbcType="VARCHAR" property="customername" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="CustomerMobile" jdbcType="VARCHAR" property="customermobile" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="LastLoginTime" jdbcType="TIMESTAMP" property="lastlogintime" />
+    <result column="logintimes" jdbcType="INTEGER" property="logintimes" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Valid_customer">
+    insert into valid_customer (flowid, CustomerID, UserName, 
+      CustomerName, sex, CustomerMobile, 
+      registertime, LastLoginTime, logintimes
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{customerid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, 
+      #{customername,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{customermobile,jdbcType=VARCHAR}, 
+      #{registertime,jdbcType=TIMESTAMP}, #{lastlogintime,jdbcType=TIMESTAMP}, #{logintimes,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Valid_customer">
+    insert into valid_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="customerid != null">
+        CustomerID,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="customername != null">
+        CustomerName,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="customermobile != null">
+        CustomerMobile,
+      </if>
+      <if test="registertime != null">
+        registertime,
+      </if>
+      <if test="lastlogintime != null">
+        LastLoginTime,
+      </if>
+      <if test="logintimes != null">
+        logintimes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="customermobile != null">
+        #{customermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastlogintime != null">
+        #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logintimes != null">
+        #{logintimes,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

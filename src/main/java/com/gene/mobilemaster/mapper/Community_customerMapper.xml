@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Community_customerMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Community_customer">
+    <result column="customerid" jdbcType="INTEGER" property="customerid" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Community_customer">
+    insert into community_customer (customerid, nickname, registertime, 
+      province)
+    values (#{customerid,jdbcType=INTEGER}, #{nickname,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}, 
+      #{province,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Community_customer">
+    insert into community_customer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="registertime != null">
+        registertime,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.MenulistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Menulist">
+    <result column="MenuID" jdbcType="BIGINT" property="menuid" />
+    <result column="MainMenuID" jdbcType="VARCHAR" property="mainmenuid" />
+    <result column="MenuName" jdbcType="VARCHAR" property="menuname" />
+    <result column="ImageName" jdbcType="VARCHAR" property="imagename" />
+    <result column="ImageUrl" jdbcType="VARCHAR" property="imageurl" />
+    <result column="MenuUrl" jdbcType="VARCHAR" property="menuurl" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="mddh" jdbcType="VARCHAR" property="mddh" />
+    <result column="new_mddh" jdbcType="VARCHAR" property="newMddh" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Menulist">
+    insert into menulist (MenuID, MainMenuID, MenuName, 
+      ImageName, ImageUrl, MenuUrl, 
+      xh, mddh, new_mddh)
+    values (#{menuid,jdbcType=BIGINT}, #{mainmenuid,jdbcType=VARCHAR}, #{menuname,jdbcType=VARCHAR}, 
+      #{imagename,jdbcType=VARCHAR}, #{imageurl,jdbcType=VARCHAR}, #{menuurl,jdbcType=VARCHAR}, 
+      #{xh,jdbcType=INTEGER}, #{mddh,jdbcType=VARCHAR}, #{newMddh,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Menulist">
+    insert into menulist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuid != null">
+        MenuID,
+      </if>
+      <if test="mainmenuid != null">
+        MainMenuID,
+      </if>
+      <if test="menuname != null">
+        MenuName,
+      </if>
+      <if test="imagename != null">
+        ImageName,
+      </if>
+      <if test="imageurl != null">
+        ImageUrl,
+      </if>
+      <if test="menuurl != null">
+        MenuUrl,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="newMddh != null">
+        new_mddh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuid != null">
+        #{menuid,jdbcType=BIGINT},
+      </if>
+      <if test="mainmenuid != null">
+        #{mainmenuid,jdbcType=VARCHAR},
+      </if>
+      <if test="menuname != null">
+        #{menuname,jdbcType=VARCHAR},
+      </if>
+      <if test="imagename != null">
+        #{imagename,jdbcType=VARCHAR},
+      </if>
+      <if test="imageurl != null">
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuurl != null">
+        #{menuurl,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=VARCHAR},
+      </if>
+      <if test="newMddh != null">
+        #{newMddh,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

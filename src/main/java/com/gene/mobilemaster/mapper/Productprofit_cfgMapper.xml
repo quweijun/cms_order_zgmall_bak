@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Productprofit_cfgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Productprofit_cfg">
+    <result column="flowID" jdbcType="INTEGER" property="flowid" />
+    <result column="provideCost_high" jdbcType="DOUBLE" property="providecostHigh" />
+    <result column="provideCost_low" jdbcType="DOUBLE" property="providecostLow" />
+    <result column="transferCost" jdbcType="DOUBLE" property="transfercost" />
+    <result column="channelCost" jdbcType="DOUBLE" property="channelcost" />
+    <result column="packageCost" jdbcType="DOUBLE" property="packagecost" />
+    <result column="profit_high_limit" jdbcType="DOUBLE" property="profitHighLimit" />
+    <result column="profit_low_limit" jdbcType="DOUBLE" property="profitLowLimit" />
+    <result column="bigtype" jdbcType="VARCHAR" property="bigtype" />
+    <result column="smalltype" jdbcType="VARCHAR" property="smalltype" />
+    <result column="subclass" jdbcType="VARCHAR" property="subclass" />
+    <result column="managementCost" jdbcType="DOUBLE" property="managementcost" />
+    <result column="replaceCost" jdbcType="DOUBLE" property="replacecost" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Productprofit_cfg">
+    insert into productprofit_cfg (flowID, provideCost_high, provideCost_low, 
+      transferCost, channelCost, packageCost, 
+      profit_high_limit, profit_low_limit, bigtype, 
+      smalltype, subclass, managementCost, 
+      replaceCost)
+    values (#{flowid,jdbcType=INTEGER}, #{providecostHigh,jdbcType=DOUBLE}, #{providecostLow,jdbcType=DOUBLE}, 
+      #{transfercost,jdbcType=DOUBLE}, #{channelcost,jdbcType=DOUBLE}, #{packagecost,jdbcType=DOUBLE}, 
+      #{profitHighLimit,jdbcType=DOUBLE}, #{profitLowLimit,jdbcType=DOUBLE}, #{bigtype,jdbcType=VARCHAR}, 
+      #{smalltype,jdbcType=VARCHAR}, #{subclass,jdbcType=VARCHAR}, #{managementcost,jdbcType=DOUBLE}, 
+      #{replacecost,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Productprofit_cfg">
+    insert into productprofit_cfg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowID,
+      </if>
+      <if test="providecostHigh != null">
+        provideCost_high,
+      </if>
+      <if test="providecostLow != null">
+        provideCost_low,
+      </if>
+      <if test="transfercost != null">
+        transferCost,
+      </if>
+      <if test="channelcost != null">
+        channelCost,
+      </if>
+      <if test="packagecost != null">
+        packageCost,
+      </if>
+      <if test="profitHighLimit != null">
+        profit_high_limit,
+      </if>
+      <if test="profitLowLimit != null">
+        profit_low_limit,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="subclass != null">
+        subclass,
+      </if>
+      <if test="managementcost != null">
+        managementCost,
+      </if>
+      <if test="replacecost != null">
+        replaceCost,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="providecostHigh != null">
+        #{providecostHigh,jdbcType=DOUBLE},
+      </if>
+      <if test="providecostLow != null">
+        #{providecostLow,jdbcType=DOUBLE},
+      </if>
+      <if test="transfercost != null">
+        #{transfercost,jdbcType=DOUBLE},
+      </if>
+      <if test="channelcost != null">
+        #{channelcost,jdbcType=DOUBLE},
+      </if>
+      <if test="packagecost != null">
+        #{packagecost,jdbcType=DOUBLE},
+      </if>
+      <if test="profitHighLimit != null">
+        #{profitHighLimit,jdbcType=DOUBLE},
+      </if>
+      <if test="profitLowLimit != null">
+        #{profitLowLimit,jdbcType=DOUBLE},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=VARCHAR},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=VARCHAR},
+      </if>
+      <if test="managementcost != null">
+        #{managementcost,jdbcType=DOUBLE},
+      </if>
+      <if test="replacecost != null">
+        #{replacecost,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

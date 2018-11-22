@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Error_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Error_log">
+    <result column="columnName" jdbcType="VARCHAR" property="columnname" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Error_log">
+    <result column="errorid" jdbcType="LONGVARCHAR" property="errorid" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    errorid
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Error_log">
+    insert into error_log (columnName, remark, url, 
+      ip, addtime, errorid
+      )
+    values (#{columnname,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{errorid,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Error_log">
+    insert into error_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="columnname != null">
+        columnName,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="errorid != null">
+        errorid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="columnname != null">
+        #{columnname,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="errorid != null">
+        #{errorid,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

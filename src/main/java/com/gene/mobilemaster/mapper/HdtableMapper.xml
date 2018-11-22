@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.HdtableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Hdtable">
+    <result column="hdid" jdbcType="INTEGER" property="hdid" />
+    <result column="hdtemplate" jdbcType="VARCHAR" property="hdtemplate" />
+    <result column="hdtype" jdbcType="INTEGER" property="hdtype" />
+    <result column="subchannel" jdbcType="INTEGER" property="subchannel" />
+    <result column="hdname" jdbcType="VARCHAR" property="hdname" />
+    <result column="hdphoto" jdbcType="VARCHAR" property="hdphoto" />
+    <result column="photourl" jdbcType="VARCHAR" property="photourl" />
+    <result column="begindate" jdbcType="TIMESTAMP" property="begindate" />
+    <result column="enddate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="location" jdbcType="INTEGER" property="location" />
+    <result column="hddesc" jdbcType="VARCHAR" property="hddesc" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="Addor" jdbcType="VARCHAR" property="addor" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="photoflag" jdbcType="INTEGER" property="photoflag" />
+    <result column="indexFlag" jdbcType="INTEGER" property="indexflag" />
+    <result column="pindaoFlag" jdbcType="INTEGER" property="pindaoflag" />
+    <result column="hdphoto_android" jdbcType="VARCHAR" property="hdphotoAndroid" />
+    <result column="lastUptTime" jdbcType="TIMESTAMP" property="lastupttime" />
+    <result column="lastUptUser" jdbcType="VARCHAR" property="lastuptuser" />
+    <result column="starthits" jdbcType="INTEGER" property="starthits" />
+    <result column="gqhdid" jdbcType="INTEGER" property="gqhdid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Hdtable">
+    insert into hdtable (hdid, hdtemplate, hdtype, 
+      subchannel, hdname, hdphoto, 
+      photourl, begindate, enddate, 
+      location, hddesc, addtime, 
+      Addor, flag, photoflag, 
+      indexFlag, pindaoFlag, hdphoto_android, 
+      lastUptTime, lastUptUser, starthits, 
+      gqhdid)
+    values (#{hdid,jdbcType=INTEGER}, #{hdtemplate,jdbcType=VARCHAR}, #{hdtype,jdbcType=INTEGER}, 
+      #{subchannel,jdbcType=INTEGER}, #{hdname,jdbcType=VARCHAR}, #{hdphoto,jdbcType=VARCHAR}, 
+      #{photourl,jdbcType=VARCHAR}, #{begindate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, 
+      #{location,jdbcType=INTEGER}, #{hddesc,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{addor,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{photoflag,jdbcType=INTEGER}, 
+      #{indexflag,jdbcType=INTEGER}, #{pindaoflag,jdbcType=INTEGER}, #{hdphotoAndroid,jdbcType=VARCHAR}, 
+      #{lastupttime,jdbcType=TIMESTAMP}, #{lastuptuser,jdbcType=VARCHAR}, #{starthits,jdbcType=INTEGER}, 
+      #{gqhdid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Hdtable">
+    insert into hdtable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        hdid,
+      </if>
+      <if test="hdtemplate != null">
+        hdtemplate,
+      </if>
+      <if test="hdtype != null">
+        hdtype,
+      </if>
+      <if test="subchannel != null">
+        subchannel,
+      </if>
+      <if test="hdname != null">
+        hdname,
+      </if>
+      <if test="hdphoto != null">
+        hdphoto,
+      </if>
+      <if test="photourl != null">
+        photourl,
+      </if>
+      <if test="begindate != null">
+        begindate,
+      </if>
+      <if test="enddate != null">
+        enddate,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="hddesc != null">
+        hddesc,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        Addor,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="photoflag != null">
+        photoflag,
+      </if>
+      <if test="indexflag != null">
+        indexFlag,
+      </if>
+      <if test="pindaoflag != null">
+        pindaoFlag,
+      </if>
+      <if test="hdphotoAndroid != null">
+        hdphoto_android,
+      </if>
+      <if test="lastupttime != null">
+        lastUptTime,
+      </if>
+      <if test="lastuptuser != null">
+        lastUptUser,
+      </if>
+      <if test="starthits != null">
+        starthits,
+      </if>
+      <if test="gqhdid != null">
+        gqhdid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        #{hdid,jdbcType=INTEGER},
+      </if>
+      <if test="hdtemplate != null">
+        #{hdtemplate,jdbcType=VARCHAR},
+      </if>
+      <if test="hdtype != null">
+        #{hdtype,jdbcType=INTEGER},
+      </if>
+      <if test="subchannel != null">
+        #{subchannel,jdbcType=INTEGER},
+      </if>
+      <if test="hdname != null">
+        #{hdname,jdbcType=VARCHAR},
+      </if>
+      <if test="hdphoto != null">
+        #{hdphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="photourl != null">
+        #{photourl,jdbcType=VARCHAR},
+      </if>
+      <if test="begindate != null">
+        #{begindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=INTEGER},
+      </if>
+      <if test="hddesc != null">
+        #{hddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="photoflag != null">
+        #{photoflag,jdbcType=INTEGER},
+      </if>
+      <if test="indexflag != null">
+        #{indexflag,jdbcType=INTEGER},
+      </if>
+      <if test="pindaoflag != null">
+        #{pindaoflag,jdbcType=INTEGER},
+      </if>
+      <if test="hdphotoAndroid != null">
+        #{hdphotoAndroid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupttime != null">
+        #{lastupttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastuptuser != null">
+        #{lastuptuser,jdbcType=VARCHAR},
+      </if>
+      <if test="starthits != null">
+        #{starthits,jdbcType=INTEGER},
+      </if>
+      <if test="gqhdid != null">
+        #{gqhdid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

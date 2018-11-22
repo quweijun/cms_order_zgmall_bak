@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ZgidtocpidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zgidtocpid">
+    <result column="zgid" jdbcType="VARCHAR" property="zgid" />
+    <result column="cpid" jdbcType="VARCHAR" property="cpid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zgidtocpid">
+    insert into zgidtocpid (zgid, cpid)
+    values (#{zgid,jdbcType=VARCHAR}, #{cpid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zgidtocpid">
+    insert into zgidtocpid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zgid != null">
+        zgid,
+      </if>
+      <if test="cpid != null">
+        cpid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zgid != null">
+        #{zgid,jdbcType=VARCHAR},
+      </if>
+      <if test="cpid != null">
+        #{cpid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

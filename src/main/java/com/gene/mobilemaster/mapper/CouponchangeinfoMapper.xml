@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CouponchangeinfoMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Couponchangeinfo">
+    <result column="ID" jdbcType="BIGINT" property="id" />
+    <result column="CouponID" jdbcType="VARCHAR" property="couponid" />
+    <result column="UpdataUser" jdbcType="VARCHAR" property="updatauser" />
+    <result column="UpdateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="UpdateInfo" jdbcType="VARCHAR" property="updateinfo" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Couponchangeinfo">
+    insert into couponchangeinfo (ID, CouponID, UpdataUser, 
+      UpdateTime, UpdateInfo)
+    values (#{id,jdbcType=BIGINT}, #{couponid,jdbcType=VARCHAR}, #{updatauser,jdbcType=VARCHAR}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{updateinfo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Couponchangeinfo">
+    insert into couponchangeinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="couponid != null">
+        CouponID,
+      </if>
+      <if test="updatauser != null">
+        UpdataUser,
+      </if>
+      <if test="updatetime != null">
+        UpdateTime,
+      </if>
+      <if test="updateinfo != null">
+        UpdateInfo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="couponid != null">
+        #{couponid,jdbcType=VARCHAR},
+      </if>
+      <if test="updatauser != null">
+        #{updatauser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateinfo != null">
+        #{updateinfo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

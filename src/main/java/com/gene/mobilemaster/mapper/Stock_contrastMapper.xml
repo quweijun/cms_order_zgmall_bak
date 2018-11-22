@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Stock_contrastMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Stock_contrast">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="prodsize" jdbcType="VARCHAR" property="prodsize" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+    <result column="collect_total" jdbcType="INTEGER" property="collectTotal" />
+    <result column="shijikc" jdbcType="INTEGER" property="shijikc" />
+    <result column="collect_shijikc" jdbcType="INTEGER" property="collectShijikc" />
+    <result column="xiaoshoukc" jdbcType="INTEGER" property="xiaoshoukc" />
+    <result column="collect_xiaoshoukc" jdbcType="INTEGER" property="collectXiaoshoukc" />
+    <result column="daipeihuo" jdbcType="INTEGER" property="daipeihuo" />
+    <result column="collect_daipeihuo" jdbcType="INTEGER" property="collectDaipeihuo" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="xiugaitime" jdbcType="TIMESTAMP" property="xiugaitime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Stock_contrast">
+    insert into stock_contrast (id, typename, productid, 
+      productname, prodcolor, prodsize, 
+      total, collect_total, shijikc, 
+      collect_shijikc, xiaoshoukc, collect_xiaoshoukc, 
+      daipeihuo, collect_daipeihuo, updatetime, 
+      addtime, xiugaitime)
+    values (#{id,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=VARCHAR}, #{prodcolor,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, 
+      #{total,jdbcType=INTEGER}, #{collectTotal,jdbcType=INTEGER}, #{shijikc,jdbcType=INTEGER}, 
+      #{collectShijikc,jdbcType=INTEGER}, #{xiaoshoukc,jdbcType=INTEGER}, #{collectXiaoshoukc,jdbcType=INTEGER}, 
+      #{daipeihuo,jdbcType=INTEGER}, #{collectDaipeihuo,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{xiugaitime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Stock_contrast">
+    insert into stock_contrast
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="prodsize != null">
+        prodsize,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+      <if test="collectTotal != null">
+        collect_total,
+      </if>
+      <if test="shijikc != null">
+        shijikc,
+      </if>
+      <if test="collectShijikc != null">
+        collect_shijikc,
+      </if>
+      <if test="xiaoshoukc != null">
+        xiaoshoukc,
+      </if>
+      <if test="collectXiaoshoukc != null">
+        collect_xiaoshoukc,
+      </if>
+      <if test="daipeihuo != null">
+        daipeihuo,
+      </if>
+      <if test="collectDaipeihuo != null">
+        collect_daipeihuo,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="xiugaitime != null">
+        xiugaitime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="prodsize != null">
+        #{prodsize,jdbcType=VARCHAR},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=INTEGER},
+      </if>
+      <if test="collectTotal != null">
+        #{collectTotal,jdbcType=INTEGER},
+      </if>
+      <if test="shijikc != null">
+        #{shijikc,jdbcType=INTEGER},
+      </if>
+      <if test="collectShijikc != null">
+        #{collectShijikc,jdbcType=INTEGER},
+      </if>
+      <if test="xiaoshoukc != null">
+        #{xiaoshoukc,jdbcType=INTEGER},
+      </if>
+      <if test="collectXiaoshoukc != null">
+        #{collectXiaoshoukc,jdbcType=INTEGER},
+      </if>
+      <if test="daipeihuo != null">
+        #{daipeihuo,jdbcType=INTEGER},
+      </if>
+      <if test="collectDaipeihuo != null">
+        #{collectDaipeihuo,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xiugaitime != null">
+        #{xiugaitime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

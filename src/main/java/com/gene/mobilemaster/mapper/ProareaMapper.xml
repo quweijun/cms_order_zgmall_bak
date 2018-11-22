@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProareaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Proarea">
+    <result column="paID" jdbcType="INTEGER" property="paid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+    <result column="smalltype" jdbcType="VARCHAR" property="smalltype" />
+    <result column="subclass" jdbcType="INTEGER" property="subclass" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="imges" jdbcType="VARCHAR" property="imges" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Proarea">
+    insert into proarea (paID, title, bigtype, 
+      smalltype, subclass, url, 
+      imges, xh, flag)
+    values (#{paid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{bigtype,jdbcType=INTEGER}, 
+      #{smalltype,jdbcType=VARCHAR}, #{subclass,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, 
+      #{imges,jdbcType=VARCHAR}, #{xh,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Proarea">
+    insert into proarea
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="paid != null">
+        paID,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="subclass != null">
+        subclass,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="imges != null">
+        imges,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="paid != null">
+        #{paid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=VARCHAR},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="imges != null">
+        #{imges,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

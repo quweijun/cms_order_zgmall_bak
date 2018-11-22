@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Proarea_wordsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Proarea_words">
+    <result column="wordID" jdbcType="INTEGER" property="wordid" />
+    <result column="paID" jdbcType="INTEGER" property="paid" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="subclass" jdbcType="INTEGER" property="subclass" />
+    <result column="smalltype" jdbcType="INTEGER" property="smalltype" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="protypes" jdbcType="VARCHAR" property="protypes" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="veiwflag" jdbcType="INTEGER" property="veiwflag" />
+    <result column="paValue" jdbcType="VARCHAR" property="pavalue" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Proarea_words">
+    insert into proarea_words (wordID, paID, bigtype, 
+      title, subclass, smalltype, 
+      addtime, url, protypes, 
+      flag, xh, veiwflag, 
+      paValue)
+    values (#{wordid,jdbcType=INTEGER}, #{paid,jdbcType=INTEGER}, #{bigtype,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{subclass,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{url,jdbcType=VARCHAR}, #{protypes,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{xh,jdbcType=INTEGER}, #{veiwflag,jdbcType=INTEGER}, 
+      #{pavalue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Proarea_words">
+    insert into proarea_words
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wordid != null">
+        wordID,
+      </if>
+      <if test="paid != null">
+        paID,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="subclass != null">
+        subclass,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="protypes != null">
+        protypes,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="veiwflag != null">
+        veiwflag,
+      </if>
+      <if test="pavalue != null">
+        paValue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wordid != null">
+        #{wordid,jdbcType=INTEGER},
+      </if>
+      <if test="paid != null">
+        #{paid,jdbcType=INTEGER},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="protypes != null">
+        #{protypes,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="veiwflag != null">
+        #{veiwflag,jdbcType=INTEGER},
+      </if>
+      <if test="pavalue != null">
+        #{pavalue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

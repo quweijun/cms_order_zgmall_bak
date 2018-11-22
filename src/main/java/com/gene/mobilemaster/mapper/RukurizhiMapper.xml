@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.RukurizhiMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Rukurizhi">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="customerID" jdbcType="CHAR" property="customerid" />
+    <result column="barcodeid" jdbcType="CHAR" property="barcodeid" />
+    <result column="cznr" jdbcType="VARCHAR" property="cznr" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="datetime" jdbcType="TIMESTAMP" property="datetime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Rukurizhi">
+    insert into rukurizhi (ID, customerID, barcodeid, 
+      cznr, IP, datetime
+      )
+    values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=CHAR}, #{barcodeid,jdbcType=CHAR}, 
+      #{cznr,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{datetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Rukurizhi">
+    insert into rukurizhi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="customerid != null">
+        customerID,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="cznr != null">
+        cznr,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="datetime != null">
+        datetime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=CHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=CHAR},
+      </if>
+      <if test="cznr != null">
+        #{cznr,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="datetime != null">
+        #{datetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

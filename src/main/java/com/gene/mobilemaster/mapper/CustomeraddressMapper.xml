@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CustomeraddressMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customeraddress">
+    <result column="addressid" jdbcType="INTEGER" property="addressid" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="orderName" jdbcType="VARCHAR" property="ordername" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="PostCode" jdbcType="VARCHAR" property="postcode" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="isDefault" jdbcType="TINYINT" property="isdefault" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customeraddress">
+    insert into customeraddress (addressid, customerid, orderName, 
+      Mobile, PostCode, province, 
+      city, area, Address, 
+      isDefault, addDate)
+    values (#{addressid,jdbcType=INTEGER}, #{customerid,jdbcType=VARCHAR}, #{ordername,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{isdefault,jdbcType=TINYINT}, #{adddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customeraddress">
+    insert into customeraddress
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="addressid != null">
+        addressid,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="ordername != null">
+        orderName,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="postcode != null">
+        PostCode,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="isdefault != null">
+        isDefault,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="addressid != null">
+        #{addressid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null">
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="isdefault != null">
+        #{isdefault,jdbcType=TINYINT},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

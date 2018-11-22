@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.All_sfMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.All_sf">
+    <result column="Col001" jdbcType="VARCHAR" property="col001" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.All_sf">
+    insert into all_sf (Col001)
+    values (#{col001,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.All_sf">
+    insert into all_sf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="col001 != null">
+        Col001,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="col001 != null">
+        #{col001,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

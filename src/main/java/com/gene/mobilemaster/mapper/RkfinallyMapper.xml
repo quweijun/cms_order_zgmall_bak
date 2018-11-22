@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.RkfinallyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Rkfinally">
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="rksum" jdbcType="INTEGER" property="rksum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Rkfinally">
+    insert into rkfinally (accesstime, channelid, rksum
+      )
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{rksum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Rkfinally">
+    insert into rkfinally
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="rksum != null">
+        rksum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="rksum != null">
+        #{rksum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

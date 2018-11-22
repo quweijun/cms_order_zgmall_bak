@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ZganalystchannelMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zganalystchannel">
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="rksum" jdbcType="INTEGER" property="rksum" />
+    <result column="pvsum" jdbcType="INTEGER" property="pvsum" />
+    <result column="yhsum" jdbcType="INTEGER" property="yhsum" />
+    <result column="pcsum" jdbcType="INTEGER" property="pcsum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zganalystchannel">
+    insert into zganalystchannel (accesstime, channelid, rksum, 
+      pvsum, yhsum, pcsum
+      )
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{rksum,jdbcType=INTEGER}, 
+      #{pvsum,jdbcType=INTEGER}, #{yhsum,jdbcType=INTEGER}, #{pcsum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zganalystchannel">
+    insert into zganalystchannel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="rksum != null">
+        rksum,
+      </if>
+      <if test="pvsum != null">
+        pvsum,
+      </if>
+      <if test="yhsum != null">
+        yhsum,
+      </if>
+      <if test="pcsum != null">
+        pcsum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="rksum != null">
+        #{rksum,jdbcType=INTEGER},
+      </if>
+      <if test="pvsum != null">
+        #{pvsum,jdbcType=INTEGER},
+      </if>
+      <if test="yhsum != null">
+        #{yhsum,jdbcType=INTEGER},
+      </if>
+      <if test="pcsum != null">
+        #{pcsum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SpacewordMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Spaceword">
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="searchtimes" jdbcType="INTEGER" property="searchtimes" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Spaceword">
+    insert into spaceword (keyword, searchtimes)
+    values (#{keyword,jdbcType=VARCHAR}, #{searchtimes,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Spaceword">
+    insert into spaceword
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="keyword != null">
+        keyword,
+      </if>
+      <if test="searchtimes != null">
+        searchtimes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="searchtimes != null">
+        #{searchtimes,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

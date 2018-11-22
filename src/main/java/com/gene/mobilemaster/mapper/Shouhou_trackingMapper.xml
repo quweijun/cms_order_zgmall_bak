@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Shouhou_trackingMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Shouhou_tracking">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="Progress" jdbcType="VARCHAR" property="progress" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="afterType" jdbcType="VARCHAR" property="aftertype" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="notes" jdbcType="VARCHAR" property="notes" />
+    <result column="sh_id" jdbcType="INTEGER" property="shId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Shouhou_tracking">
+    insert into shouhou_tracking (id, orderid, Progress, 
+      userid, afterType, updatetime, 
+      notes, sh_id)
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{progress,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{aftertype,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{notes,jdbcType=VARCHAR}, #{shId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Shouhou_tracking">
+    insert into shouhou_tracking
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="progress != null">
+        Progress,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="aftertype != null">
+        afterType,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="notes != null">
+        notes,
+      </if>
+      <if test="shId != null">
+        sh_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="progress != null">
+        #{progress,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="aftertype != null">
+        #{aftertype,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="notes != null">
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="shId != null">
+        #{shId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

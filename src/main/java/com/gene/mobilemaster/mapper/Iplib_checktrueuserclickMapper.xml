@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Iplib_checktrueuserclickMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Iplib_checktrueuserclick">
+    <result column="flowno" jdbcType="INTEGER" property="flowno" />
+    <result column="CheckIP" jdbcType="VARCHAR" property="checkip" />
+    <result column="Checktype" jdbcType="INTEGER" property="checktype" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Iplib_checktrueuserclick">
+    insert into iplib_checktrueuserclick (flowno, CheckIP, Checktype, 
+      EnableFlag)
+    values (#{flowno,jdbcType=INTEGER}, #{checkip,jdbcType=VARCHAR}, #{checktype,jdbcType=INTEGER}, 
+      #{enableflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Iplib_checktrueuserclick">
+    insert into iplib_checktrueuserclick
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="checkip != null">
+        CheckIP,
+      </if>
+      <if test="checktype != null">
+        Checktype,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="checkip != null">
+        #{checkip,jdbcType=VARCHAR},
+      </if>
+      <if test="checktype != null">
+        #{checktype,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

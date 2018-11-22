@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.DtpropertiesMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Dtproperties">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="objectid" jdbcType="INTEGER" property="objectid" />
+    <result column="property" jdbcType="VARCHAR" property="property" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="uvalue" jdbcType="VARCHAR" property="uvalue" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Dtproperties">
+    <result column="lvalue" jdbcType="LONGVARBINARY" property="lvalue" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    lvalue
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Dtproperties">
+    insert into dtproperties (id, objectid, property, 
+      value, uvalue, version, 
+      lvalue)
+    values (#{id,jdbcType=INTEGER}, #{objectid,jdbcType=INTEGER}, #{property,jdbcType=VARCHAR}, 
+      #{value,jdbcType=VARCHAR}, #{uvalue,jdbcType=VARCHAR}, #{version,jdbcType=INTEGER}, 
+      #{lvalue,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Dtproperties">
+    insert into dtproperties
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="objectid != null">
+        objectid,
+      </if>
+      <if test="property != null">
+        property,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+      <if test="uvalue != null">
+        uvalue,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="lvalue != null">
+        lvalue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="objectid != null">
+        #{objectid,jdbcType=INTEGER},
+      </if>
+      <if test="property != null">
+        #{property,jdbcType=VARCHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="uvalue != null">
+        #{uvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="lvalue != null">
+        #{lvalue,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+</mapper>

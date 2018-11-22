@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Checkordertmp2Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Checkordertmp2">
+    <result column="ordername" jdbcType="VARCHAR" property="ordername" />
+    <result column="orderphone" jdbcType="VARCHAR" property="orderphone" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="orderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="orderstate" jdbcType="INTEGER" property="orderstate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Checkordertmp2">
+    insert into checkordertmp2 (ordername, orderphone, name, 
+      mobile, orderID, userid, 
+      orderstate)
+    values (#{ordername,jdbcType=VARCHAR}, #{orderphone,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{orderstate,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Checkordertmp2">
+    insert into checkordertmp2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ordername != null">
+        ordername,
+      </if>
+      <if test="orderphone != null">
+        orderphone,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="orderid != null">
+        orderID,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="orderstate != null">
+        orderstate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="orderphone != null">
+        #{orderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

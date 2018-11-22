@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Pl_pinglun1Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pl_pinglun1">
+    <result column="序号" jdbcType="DOUBLE" property="序号" />
+    <result column="商品ID" jdbcType="VARCHAR" property="商品id" />
+    <result column="商品名称" jdbcType="VARCHAR" property="商品名称" />
+    <result column="评价内容" jdbcType="VARCHAR" property="评价内容" />
+    <result column="分数" jdbcType="DOUBLE" property="分数" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pl_pinglun1">
+    insert into pl_pinglun1 (序号, 商品ID, 商品名称, 
+      评价内容, 分数)
+    values (#{序号,jdbcType=DOUBLE}, #{商品id,jdbcType=VARCHAR}, #{商品名称,jdbcType=VARCHAR}, 
+      #{评价内容,jdbcType=VARCHAR}, #{分数,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pl_pinglun1">
+    insert into pl_pinglun1
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="序号 != null">
+        序号,
+      </if>
+      <if test="商品id != null">
+        商品ID,
+      </if>
+      <if test="商品名称 != null">
+        商品名称,
+      </if>
+      <if test="评价内容 != null">
+        评价内容,
+      </if>
+      <if test="分数 != null">
+        分数,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="序号 != null">
+        #{序号,jdbcType=DOUBLE},
+      </if>
+      <if test="商品id != null">
+        #{商品id,jdbcType=VARCHAR},
+      </if>
+      <if test="商品名称 != null">
+        #{商品名称,jdbcType=VARCHAR},
+      </if>
+      <if test="评价内容 != null">
+        #{评价内容,jdbcType=VARCHAR},
+      </if>
+      <if test="分数 != null">
+        #{分数,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

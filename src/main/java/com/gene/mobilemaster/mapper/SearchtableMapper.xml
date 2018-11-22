@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SearchtableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Searchtable">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="xswz" jdbcType="INTEGER" property="xswz" />
+    <result column="subchannel" jdbcType="INTEGER" property="subchannel" />
+    <result column="keytype" jdbcType="INTEGER" property="keytype" />
+    <result column="keyname" jdbcType="VARCHAR" property="keyname" />
+    <result column="keyurl" jdbcType="VARCHAR" property="keyurl" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="taxis" jdbcType="INTEGER" property="taxis" />
+    <result column="UbbContent" jdbcType="VARCHAR" property="ubbcontent" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Searchtable">
+    insert into searchtable (id, xswz, subchannel, 
+      keytype, keyname, keyurl, 
+      flag, addtime, addor, 
+      taxis, UbbContent)
+    values (#{id,jdbcType=INTEGER}, #{xswz,jdbcType=INTEGER}, #{subchannel,jdbcType=INTEGER}, 
+      #{keytype,jdbcType=INTEGER}, #{keyname,jdbcType=VARCHAR}, #{keyurl,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, #{addor,jdbcType=VARCHAR}, 
+      #{taxis,jdbcType=INTEGER}, #{ubbcontent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Searchtable">
+    insert into searchtable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="xswz != null">
+        xswz,
+      </if>
+      <if test="subchannel != null">
+        subchannel,
+      </if>
+      <if test="keytype != null">
+        keytype,
+      </if>
+      <if test="keyname != null">
+        keyname,
+      </if>
+      <if test="keyurl != null">
+        keyurl,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="taxis != null">
+        taxis,
+      </if>
+      <if test="ubbcontent != null">
+        UbbContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="xswz != null">
+        #{xswz,jdbcType=INTEGER},
+      </if>
+      <if test="subchannel != null">
+        #{subchannel,jdbcType=INTEGER},
+      </if>
+      <if test="keytype != null">
+        #{keytype,jdbcType=INTEGER},
+      </if>
+      <if test="keyname != null">
+        #{keyname,jdbcType=VARCHAR},
+      </if>
+      <if test="keyurl != null">
+        #{keyurl,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="taxis != null">
+        #{taxis,jdbcType=INTEGER},
+      </if>
+      <if test="ubbcontent != null">
+        #{ubbcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

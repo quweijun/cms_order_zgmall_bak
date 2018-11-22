@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ems_dzMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ems_dz">
+    <result column="Col001" jdbcType="VARCHAR" property="col001" />
+    <result column="Col002" jdbcType="VARCHAR" property="col002" />
+    <result column="Col003" jdbcType="VARCHAR" property="col003" />
+    <result column="Col004" jdbcType="VARCHAR" property="col004" />
+    <result column="Col005" jdbcType="VARCHAR" property="col005" />
+    <result column="Col006" jdbcType="VARCHAR" property="col006" />
+    <result column="Col007" jdbcType="VARCHAR" property="col007" />
+    <result column="Col008" jdbcType="VARCHAR" property="col008" />
+    <result column="Col009" jdbcType="VARCHAR" property="col009" />
+    <result column="Col010" jdbcType="VARCHAR" property="col010" />
+    <result column="Col011" jdbcType="VARCHAR" property="col011" />
+    <result column="Col012" jdbcType="VARCHAR" property="col012" />
+    <result column="Col013" jdbcType="VARCHAR" property="col013" />
+    <result column="Col014" jdbcType="VARCHAR" property="col014" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ems_dz">
+    insert into ems_dz (Col001, Col002, Col003, 
+      Col004, Col005, Col006, 
+      Col007, Col008, Col009, 
+      Col010, Col011, Col012, 
+      Col013, Col014)
+    values (#{col001,jdbcType=VARCHAR}, #{col002,jdbcType=VARCHAR}, #{col003,jdbcType=VARCHAR}, 
+      #{col004,jdbcType=VARCHAR}, #{col005,jdbcType=VARCHAR}, #{col006,jdbcType=VARCHAR}, 
+      #{col007,jdbcType=VARCHAR}, #{col008,jdbcType=VARCHAR}, #{col009,jdbcType=VARCHAR}, 
+      #{col010,jdbcType=VARCHAR}, #{col011,jdbcType=VARCHAR}, #{col012,jdbcType=VARCHAR}, 
+      #{col013,jdbcType=VARCHAR}, #{col014,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ems_dz">
+    insert into ems_dz
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="col001 != null">
+        Col001,
+      </if>
+      <if test="col002 != null">
+        Col002,
+      </if>
+      <if test="col003 != null">
+        Col003,
+      </if>
+      <if test="col004 != null">
+        Col004,
+      </if>
+      <if test="col005 != null">
+        Col005,
+      </if>
+      <if test="col006 != null">
+        Col006,
+      </if>
+      <if test="col007 != null">
+        Col007,
+      </if>
+      <if test="col008 != null">
+        Col008,
+      </if>
+      <if test="col009 != null">
+        Col009,
+      </if>
+      <if test="col010 != null">
+        Col010,
+      </if>
+      <if test="col011 != null">
+        Col011,
+      </if>
+      <if test="col012 != null">
+        Col012,
+      </if>
+      <if test="col013 != null">
+        Col013,
+      </if>
+      <if test="col014 != null">
+        Col014,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="col001 != null">
+        #{col001,jdbcType=VARCHAR},
+      </if>
+      <if test="col002 != null">
+        #{col002,jdbcType=VARCHAR},
+      </if>
+      <if test="col003 != null">
+        #{col003,jdbcType=VARCHAR},
+      </if>
+      <if test="col004 != null">
+        #{col004,jdbcType=VARCHAR},
+      </if>
+      <if test="col005 != null">
+        #{col005,jdbcType=VARCHAR},
+      </if>
+      <if test="col006 != null">
+        #{col006,jdbcType=VARCHAR},
+      </if>
+      <if test="col007 != null">
+        #{col007,jdbcType=VARCHAR},
+      </if>
+      <if test="col008 != null">
+        #{col008,jdbcType=VARCHAR},
+      </if>
+      <if test="col009 != null">
+        #{col009,jdbcType=VARCHAR},
+      </if>
+      <if test="col010 != null">
+        #{col010,jdbcType=VARCHAR},
+      </if>
+      <if test="col011 != null">
+        #{col011,jdbcType=VARCHAR},
+      </if>
+      <if test="col012 != null">
+        #{col012,jdbcType=VARCHAR},
+      </if>
+      <if test="col013 != null">
+        #{col013,jdbcType=VARCHAR},
+      </if>
+      <if test="col014 != null">
+        #{col014,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Tmp_advertiseaccessreleaseMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Tmp_advertiseaccessrelease">
+    <result column="wapspaceid" jdbcType="BIGINT" property="wapspaceid" />
+    <result column="advertiseid" jdbcType="BIGINT" property="advertiseid" />
+    <result column="countdate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="announcecount" jdbcType="INTEGER" property="announcecount" />
+    <result column="announceamount" jdbcType="DOUBLE" property="announceamount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Tmp_advertiseaccessrelease">
+    insert into tmp_advertiseaccessrelease (wapspaceid, advertiseid, countdate, 
+      announcecount, announceamount)
+    values (#{wapspaceid,jdbcType=BIGINT}, #{advertiseid,jdbcType=BIGINT}, #{countdate,jdbcType=TIMESTAMP}, 
+      #{announcecount,jdbcType=INTEGER}, #{announceamount,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Tmp_advertiseaccessrelease">
+    insert into tmp_advertiseaccessrelease
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wapspaceid != null">
+        wapspaceid,
+      </if>
+      <if test="advertiseid != null">
+        advertiseid,
+      </if>
+      <if test="countdate != null">
+        countdate,
+      </if>
+      <if test="announcecount != null">
+        announcecount,
+      </if>
+      <if test="announceamount != null">
+        announceamount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wapspaceid != null">
+        #{wapspaceid,jdbcType=BIGINT},
+      </if>
+      <if test="advertiseid != null">
+        #{advertiseid,jdbcType=BIGINT},
+      </if>
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="announcecount != null">
+        #{announcecount,jdbcType=INTEGER},
+      </if>
+      <if test="announceamount != null">
+        #{announceamount,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

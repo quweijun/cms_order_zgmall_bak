@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Link_countMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Link_count">
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="countdate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="accessincount" jdbcType="BIGINT" property="accessincount" />
+    <result column="realincount" jdbcType="BIGINT" property="realincount" />
+    <result column="accessoutcount" jdbcType="BIGINT" property="accessoutcount" />
+    <result column="realoutcount" jdbcType="BIGINT" property="realoutcount" />
+    <result column="fangliangcount" jdbcType="BIGINT" property="fangliangcount" />
+    <result column="realfanglinagcout" jdbcType="BIGINT" property="realfanglinagcout" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Link_count">
+    insert into link_count (channelid, countdate, accessincount, 
+      realincount, accessoutcount, realoutcount, 
+      fangliangcount, realfanglinagcout)
+    values (#{channelid,jdbcType=VARCHAR}, #{countdate,jdbcType=TIMESTAMP}, #{accessincount,jdbcType=BIGINT}, 
+      #{realincount,jdbcType=BIGINT}, #{accessoutcount,jdbcType=BIGINT}, #{realoutcount,jdbcType=BIGINT}, 
+      #{fangliangcount,jdbcType=BIGINT}, #{realfanglinagcout,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Link_count">
+    insert into link_count
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="countdate != null">
+        countdate,
+      </if>
+      <if test="accessincount != null">
+        accessincount,
+      </if>
+      <if test="realincount != null">
+        realincount,
+      </if>
+      <if test="accessoutcount != null">
+        accessoutcount,
+      </if>
+      <if test="realoutcount != null">
+        realoutcount,
+      </if>
+      <if test="fangliangcount != null">
+        fangliangcount,
+      </if>
+      <if test="realfanglinagcout != null">
+        realfanglinagcout,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accessincount != null">
+        #{accessincount,jdbcType=BIGINT},
+      </if>
+      <if test="realincount != null">
+        #{realincount,jdbcType=BIGINT},
+      </if>
+      <if test="accessoutcount != null">
+        #{accessoutcount,jdbcType=BIGINT},
+      </if>
+      <if test="realoutcount != null">
+        #{realoutcount,jdbcType=BIGINT},
+      </if>
+      <if test="fangliangcount != null">
+        #{fangliangcount,jdbcType=BIGINT},
+      </if>
+      <if test="realfanglinagcout != null">
+        #{realfanglinagcout,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

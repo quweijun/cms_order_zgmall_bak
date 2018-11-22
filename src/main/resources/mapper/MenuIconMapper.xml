@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zgmall.mapper.consoledb.MenuIconMapper">
+    <select id="queryIcon"  resultType="com.zgmall.model.MenuIcon">
+        SELECT *
+        FROM menu_icon s
+        <where>
+            s.menu_icon = #{queryIconName}  OR  s.menu_icon LIKE "%"#{queryIconName}"%"
+        </where>
+        order by time DESC
+    </select>
+
+</mapper>

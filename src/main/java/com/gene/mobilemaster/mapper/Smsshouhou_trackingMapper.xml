@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Smsshouhou_trackingMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Smsshouhou_tracking">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="zddh" jdbcType="VARCHAR" property="zddh" />
+    <result column="mddh" jdbcType="VARCHAR" property="mddh" />
+    <result column="mddh2" jdbcType="VARCHAR" property="mddh2" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="khh" jdbcType="VARCHAR" property="khh" />
+    <result column="yhzh" jdbcType="VARCHAR" property="yhzh" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Smsshouhou_tracking">
+    insert into smsshouhou_tracking (flowid, orderid, mobile, 
+      zddh, mddh, mddh2, 
+      expressid, khh, yhzh, 
+      addtime)
+    values (#{flowid,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{zddh,jdbcType=VARCHAR}, #{mddh,jdbcType=VARCHAR}, #{mddh2,jdbcType=VARCHAR}, 
+      #{expressid,jdbcType=VARCHAR}, #{khh,jdbcType=VARCHAR}, #{yhzh,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Smsshouhou_tracking">
+    insert into smsshouhou_tracking
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="mddh2 != null">
+        mddh2,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="khh != null">
+        khh,
+      </if>
+      <if test="yhzh != null">
+        yhzh,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="zddh != null">
+        #{zddh,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh2 != null">
+        #{mddh2,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="khh != null">
+        #{khh,jdbcType=VARCHAR},
+      </if>
+      <if test="yhzh != null">
+        #{yhzh,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.EverydaystatisticsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Everydaystatistics">
+    <result column="flowId" jdbcType="INTEGER" property="flowid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="downs" jdbcType="INTEGER" property="downs" />
+    <result column="effectivedowns" jdbcType="INTEGER" property="effectivedowns" />
+    <result column="procounts" jdbcType="INTEGER" property="procounts" />
+    <result column="hdcounts" jdbcType="INTEGER" property="hdcounts" />
+    <result column="searchcounts" jdbcType="INTEGER" property="searchcounts" />
+    <result column="smalltypecounts" jdbcType="INTEGER" property="smalltypecounts" />
+    <result column="statisticsdate" jdbcType="TIMESTAMP" property="statisticsdate" />
+    <result column="ReleaseRegCount" jdbcType="INTEGER" property="releaseregcount" />
+    <result column="regcount" jdbcType="INTEGER" property="regcount" />
+    <result column="RegCustCount" jdbcType="INTEGER" property="regcustcount" />
+    <result column="BoundRegCustCount" jdbcType="INTEGER" property="boundregcustcount" />
+    <result column="relecount" jdbcType="INTEGER" property="relecount" />
+    <result column="releallcount" jdbcType="INTEGER" property="releallcount" />
+    <result column="effactivecount" jdbcType="INTEGER" property="effactivecount" />
+    <result column="shoppcartcount" jdbcType="INTEGER" property="shoppcartcount" />
+    <result column="createordercount" jdbcType="INTEGER" property="createordercount" />
+    <result column="confirmordercount" jdbcType="INTEGER" property="confirmordercount" />
+    <result column="pv" jdbcType="INTEGER" property="pv" />
+    <result column="rksum" jdbcType="INTEGER" property="rksum" />
+    <result column="yxyhsum" jdbcType="INTEGER" property="yxyhsum" />
+    <result column="factpublishcount" jdbcType="INTEGER" property="factpublishcount" />
+    <result column="publishflag" jdbcType="INTEGER" property="publishflag" />
+    <result column="effectjihoucount" jdbcType="INTEGER" property="effectjihoucount" />
+    <result column="firstjihoucount" jdbcType="INTEGER" property="firstjihoucount" />
+    <result column="effectjihoucount2" jdbcType="INTEGER" property="effectjihoucount2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Everydaystatistics">
+    insert into everydaystatistics (flowId, channelid, downs, 
+      effectivedowns, procounts, hdcounts, 
+      searchcounts, smalltypecounts, statisticsdate, 
+      ReleaseRegCount, regcount, RegCustCount, 
+      BoundRegCustCount, relecount, releallcount, 
+      effactivecount, shoppcartcount, createordercount, 
+      confirmordercount, pv, rksum, 
+      yxyhsum, factpublishcount, publishflag, 
+      effectjihoucount, firstjihoucount, effectjihoucount2
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR}, #{downs,jdbcType=INTEGER}, 
+      #{effectivedowns,jdbcType=INTEGER}, #{procounts,jdbcType=INTEGER}, #{hdcounts,jdbcType=INTEGER}, 
+      #{searchcounts,jdbcType=INTEGER}, #{smalltypecounts,jdbcType=INTEGER}, #{statisticsdate,jdbcType=TIMESTAMP}, 
+      #{releaseregcount,jdbcType=INTEGER}, #{regcount,jdbcType=INTEGER}, #{regcustcount,jdbcType=INTEGER}, 
+      #{boundregcustcount,jdbcType=INTEGER}, #{relecount,jdbcType=INTEGER}, #{releallcount,jdbcType=INTEGER}, 
+      #{effactivecount,jdbcType=INTEGER}, #{shoppcartcount,jdbcType=INTEGER}, #{createordercount,jdbcType=INTEGER}, 
+      #{confirmordercount,jdbcType=INTEGER}, #{pv,jdbcType=INTEGER}, #{rksum,jdbcType=INTEGER}, 
+      #{yxyhsum,jdbcType=INTEGER}, #{factpublishcount,jdbcType=INTEGER}, #{publishflag,jdbcType=INTEGER}, 
+      #{effectjihoucount,jdbcType=INTEGER}, #{firstjihoucount,jdbcType=INTEGER}, #{effectjihoucount2,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Everydaystatistics">
+    insert into everydaystatistics
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowId,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="downs != null">
+        downs,
+      </if>
+      <if test="effectivedowns != null">
+        effectivedowns,
+      </if>
+      <if test="procounts != null">
+        procounts,
+      </if>
+      <if test="hdcounts != null">
+        hdcounts,
+      </if>
+      <if test="searchcounts != null">
+        searchcounts,
+      </if>
+      <if test="smalltypecounts != null">
+        smalltypecounts,
+      </if>
+      <if test="statisticsdate != null">
+        statisticsdate,
+      </if>
+      <if test="releaseregcount != null">
+        ReleaseRegCount,
+      </if>
+      <if test="regcount != null">
+        regcount,
+      </if>
+      <if test="regcustcount != null">
+        RegCustCount,
+      </if>
+      <if test="boundregcustcount != null">
+        BoundRegCustCount,
+      </if>
+      <if test="relecount != null">
+        relecount,
+      </if>
+      <if test="releallcount != null">
+        releallcount,
+      </if>
+      <if test="effactivecount != null">
+        effactivecount,
+      </if>
+      <if test="shoppcartcount != null">
+        shoppcartcount,
+      </if>
+      <if test="createordercount != null">
+        createordercount,
+      </if>
+      <if test="confirmordercount != null">
+        confirmordercount,
+      </if>
+      <if test="pv != null">
+        pv,
+      </if>
+      <if test="rksum != null">
+        rksum,
+      </if>
+      <if test="yxyhsum != null">
+        yxyhsum,
+      </if>
+      <if test="factpublishcount != null">
+        factpublishcount,
+      </if>
+      <if test="publishflag != null">
+        publishflag,
+      </if>
+      <if test="effectjihoucount != null">
+        effectjihoucount,
+      </if>
+      <if test="firstjihoucount != null">
+        firstjihoucount,
+      </if>
+      <if test="effectjihoucount2 != null">
+        effectjihoucount2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="downs != null">
+        #{downs,jdbcType=INTEGER},
+      </if>
+      <if test="effectivedowns != null">
+        #{effectivedowns,jdbcType=INTEGER},
+      </if>
+      <if test="procounts != null">
+        #{procounts,jdbcType=INTEGER},
+      </if>
+      <if test="hdcounts != null">
+        #{hdcounts,jdbcType=INTEGER},
+      </if>
+      <if test="searchcounts != null">
+        #{searchcounts,jdbcType=INTEGER},
+      </if>
+      <if test="smalltypecounts != null">
+        #{smalltypecounts,jdbcType=INTEGER},
+      </if>
+      <if test="statisticsdate != null">
+        #{statisticsdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="releaseregcount != null">
+        #{releaseregcount,jdbcType=INTEGER},
+      </if>
+      <if test="regcount != null">
+        #{regcount,jdbcType=INTEGER},
+      </if>
+      <if test="regcustcount != null">
+        #{regcustcount,jdbcType=INTEGER},
+      </if>
+      <if test="boundregcustcount != null">
+        #{boundregcustcount,jdbcType=INTEGER},
+      </if>
+      <if test="relecount != null">
+        #{relecount,jdbcType=INTEGER},
+      </if>
+      <if test="releallcount != null">
+        #{releallcount,jdbcType=INTEGER},
+      </if>
+      <if test="effactivecount != null">
+        #{effactivecount,jdbcType=INTEGER},
+      </if>
+      <if test="shoppcartcount != null">
+        #{shoppcartcount,jdbcType=INTEGER},
+      </if>
+      <if test="createordercount != null">
+        #{createordercount,jdbcType=INTEGER},
+      </if>
+      <if test="confirmordercount != null">
+        #{confirmordercount,jdbcType=INTEGER},
+      </if>
+      <if test="pv != null">
+        #{pv,jdbcType=INTEGER},
+      </if>
+      <if test="rksum != null">
+        #{rksum,jdbcType=INTEGER},
+      </if>
+      <if test="yxyhsum != null">
+        #{yxyhsum,jdbcType=INTEGER},
+      </if>
+      <if test="factpublishcount != null">
+        #{factpublishcount,jdbcType=INTEGER},
+      </if>
+      <if test="publishflag != null">
+        #{publishflag,jdbcType=INTEGER},
+      </if>
+      <if test="effectjihoucount != null">
+        #{effectjihoucount,jdbcType=INTEGER},
+      </if>
+      <if test="firstjihoucount != null">
+        #{firstjihoucount,jdbcType=INTEGER},
+      </if>
+      <if test="effectjihoucount2 != null">
+        #{effectjihoucount2,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

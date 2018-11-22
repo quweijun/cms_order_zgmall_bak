@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.EarlywarningMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Earlywarning">
+    <result column="Flowno" jdbcType="INTEGER" property="flowno" />
+    <result column="fieldEngName" jdbcType="VARCHAR" property="fieldengname" />
+    <result column="fieldChnName" jdbcType="VARCHAR" property="fieldchnname" />
+    <result column="fieldDefaultValue" jdbcType="DOUBLE" property="fielddefaultvalue" />
+    <result column="BZ" jdbcType="VARCHAR" property="bz" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Earlywarning">
+    insert into earlywarning (Flowno, fieldEngName, fieldChnName, 
+      fieldDefaultValue, BZ, flag
+      )
+    values (#{flowno,jdbcType=INTEGER}, #{fieldengname,jdbcType=VARCHAR}, #{fieldchnname,jdbcType=VARCHAR}, 
+      #{fielddefaultvalue,jdbcType=DOUBLE}, #{bz,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Earlywarning">
+    insert into earlywarning
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        Flowno,
+      </if>
+      <if test="fieldengname != null">
+        fieldEngName,
+      </if>
+      <if test="fieldchnname != null">
+        fieldChnName,
+      </if>
+      <if test="fielddefaultvalue != null">
+        fieldDefaultValue,
+      </if>
+      <if test="bz != null">
+        BZ,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="fieldengname != null">
+        #{fieldengname,jdbcType=VARCHAR},
+      </if>
+      <if test="fieldchnname != null">
+        #{fieldchnname,jdbcType=VARCHAR},
+      </if>
+      <if test="fielddefaultvalue != null">
+        #{fielddefaultvalue,jdbcType=DOUBLE},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

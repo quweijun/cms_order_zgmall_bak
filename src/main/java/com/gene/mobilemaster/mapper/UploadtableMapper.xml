@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UploadtableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Uploadtable">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="uploadname" jdbcType="VARCHAR" property="uploadname" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="adddate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Uploadtable">
+    insert into uploadtable (flowid, productid, productname, 
+      uploadname, editor, adddate
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, 
+      #{uploadname,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Uploadtable">
+    insert into uploadtable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="uploadname != null">
+        uploadname,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="adddate != null">
+        adddate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="uploadname != null">
+        #{uploadname,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

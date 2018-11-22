@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ZguserinfoMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zguserinfo">
+    <result column="RegisterFlowNo" jdbcType="DOUBLE" property="registerflowno" />
+    <result column="UserAccountNo" jdbcType="VARCHAR" property="useraccountno" />
+    <result column="UserPwd" jdbcType="VARCHAR" property="userpwd" />
+    <result column="trueName" jdbcType="VARCHAR" property="truename" />
+    <result column="MobileNumber" jdbcType="VARCHAR" property="mobilenumber" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="branch" jdbcType="INTEGER" property="branch" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="ADflag" jdbcType="VARCHAR" property="adflag" />
+    <result column="fujiarole" jdbcType="VARCHAR" property="fujiarole" />
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="chgpwddate" jdbcType="TIMESTAMP" property="chgpwddate" />
+    <result column="chgpwdip" jdbcType="VARCHAR" property="chgpwdip" />
+    <result column="modulRole" jdbcType="VARCHAR" property="modulrole" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zguserinfo">
+    insert into zguserinfo (RegisterFlowNo, UserAccountNo, UserPwd, 
+      trueName, MobileNumber, Address, 
+      branch, flag, registertime, 
+      ADflag, fujiarole, ChannelID, 
+      chgpwddate, chgpwdip, modulRole
+      )
+    values (#{registerflowno,jdbcType=DOUBLE}, #{useraccountno,jdbcType=VARCHAR}, #{userpwd,jdbcType=VARCHAR}, 
+      #{truename,jdbcType=VARCHAR}, #{mobilenumber,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{branch,jdbcType=INTEGER}, #{flag,jdbcType=VARCHAR}, #{registertime,jdbcType=TIMESTAMP}, 
+      #{adflag,jdbcType=VARCHAR}, #{fujiarole,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, 
+      #{chgpwddate,jdbcType=TIMESTAMP}, #{chgpwdip,jdbcType=VARCHAR}, #{modulrole,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zguserinfo">
+    insert into zguserinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="registerflowno != null">
+        RegisterFlowNo,
+      </if>
+      <if test="useraccountno != null">
+        UserAccountNo,
+      </if>
+      <if test="userpwd != null">
+        UserPwd,
+      </if>
+      <if test="truename != null">
+        trueName,
+      </if>
+      <if test="mobilenumber != null">
+        MobileNumber,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="branch != null">
+        branch,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="registertime != null">
+        registertime,
+      </if>
+      <if test="adflag != null">
+        ADflag,
+      </if>
+      <if test="fujiarole != null">
+        fujiarole,
+      </if>
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="chgpwddate != null">
+        chgpwddate,
+      </if>
+      <if test="chgpwdip != null">
+        chgpwdip,
+      </if>
+      <if test="modulrole != null">
+        modulRole,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="registerflowno != null">
+        #{registerflowno,jdbcType=DOUBLE},
+      </if>
+      <if test="useraccountno != null">
+        #{useraccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="userpwd != null">
+        #{userpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="truename != null">
+        #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilenumber != null">
+        #{mobilenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="branch != null">
+        #{branch,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adflag != null">
+        #{adflag,jdbcType=VARCHAR},
+      </if>
+      <if test="fujiarole != null">
+        #{fujiarole,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="chgpwddate != null">
+        #{chgpwddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="chgpwdip != null">
+        #{chgpwdip,jdbcType=VARCHAR},
+      </if>
+      <if test="modulrole != null">
+        #{modulrole,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

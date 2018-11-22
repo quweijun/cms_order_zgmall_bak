@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Inventory_operationsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Inventory_operations">
+    <result column="ID" jdbcType="DOUBLE" property="id" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="prodsize" jdbcType="VARCHAR" property="prodsize" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="shijikc" jdbcType="VARCHAR" property="shijikc" />
+    <result column="xiaoshoukc" jdbcType="VARCHAR" property="xiaoshoukc" />
+    <result column="kucun" jdbcType="INTEGER" property="kucun" />
+    <result column="G_M_address" jdbcType="VARCHAR" property="gMAddress" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Inventory_operations">
+    insert into inventory_operations (ID, productid, prodcolor, 
+      prodsize, editor, shijikc, 
+      xiaoshoukc, kucun, G_M_address, 
+      addtime)
+    values (#{id,jdbcType=DOUBLE}, #{productid,jdbcType=VARCHAR}, #{prodcolor,jdbcType=VARCHAR}, 
+      #{prodsize,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{shijikc,jdbcType=VARCHAR}, 
+      #{xiaoshoukc,jdbcType=VARCHAR}, #{kucun,jdbcType=INTEGER}, #{gMAddress,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Inventory_operations">
+    insert into inventory_operations
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="prodsize != null">
+        prodsize,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="shijikc != null">
+        shijikc,
+      </if>
+      <if test="xiaoshoukc != null">
+        xiaoshoukc,
+      </if>
+      <if test="kucun != null">
+        kucun,
+      </if>
+      <if test="gMAddress != null">
+        G_M_address,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DOUBLE},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="prodsize != null">
+        #{prodsize,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="shijikc != null">
+        #{shijikc,jdbcType=VARCHAR},
+      </if>
+      <if test="xiaoshoukc != null">
+        #{xiaoshoukc,jdbcType=VARCHAR},
+      </if>
+      <if test="kucun != null">
+        #{kucun,jdbcType=INTEGER},
+      </if>
+      <if test="gMAddress != null">
+        #{gMAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

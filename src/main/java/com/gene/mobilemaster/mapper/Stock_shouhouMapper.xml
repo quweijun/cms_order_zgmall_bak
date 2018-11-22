@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Stock_shouhouMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Stock_shouhou">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="orderId" jdbcType="VARCHAR" property="orderid" />
+    <result column="bussinessName" jdbcType="VARCHAR" property="bussinessname" />
+    <result column="barcodeid" jdbcType="VARCHAR" property="barcodeid" />
+    <result column="hand_Method" jdbcType="INTEGER" property="handMethod" />
+    <result column="cllx" jdbcType="INTEGER" property="cllx" />
+    <result column="wxzt" jdbcType="INTEGER" property="wxzt" />
+    <result column="rkzt" jdbcType="INTEGER" property="rkzt" />
+    <result column="editTime" jdbcType="TIMESTAMP" property="edittime" />
+    <result column="endTime" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="sh_id" jdbcType="INTEGER" property="shId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Stock_shouhou">
+    insert into stock_shouhou (id, orderId, bussinessName, 
+      barcodeid, hand_Method, cllx, 
+      wxzt, rkzt, editTime, 
+      endTime, sh_id)
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{bussinessname,jdbcType=VARCHAR}, 
+      #{barcodeid,jdbcType=VARCHAR}, #{handMethod,jdbcType=INTEGER}, #{cllx,jdbcType=INTEGER}, 
+      #{wxzt,jdbcType=INTEGER}, #{rkzt,jdbcType=INTEGER}, #{edittime,jdbcType=TIMESTAMP}, 
+      #{endtime,jdbcType=TIMESTAMP}, #{shId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Stock_shouhou">
+    insert into stock_shouhou
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderid != null">
+        orderId,
+      </if>
+      <if test="bussinessname != null">
+        bussinessName,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="handMethod != null">
+        hand_Method,
+      </if>
+      <if test="cllx != null">
+        cllx,
+      </if>
+      <if test="wxzt != null">
+        wxzt,
+      </if>
+      <if test="rkzt != null">
+        rkzt,
+      </if>
+      <if test="edittime != null">
+        editTime,
+      </if>
+      <if test="endtime != null">
+        endTime,
+      </if>
+      <if test="shId != null">
+        sh_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessname != null">
+        #{bussinessname,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="handMethod != null">
+        #{handMethod,jdbcType=INTEGER},
+      </if>
+      <if test="cllx != null">
+        #{cllx,jdbcType=INTEGER},
+      </if>
+      <if test="wxzt != null">
+        #{wxzt,jdbcType=INTEGER},
+      </if>
+      <if test="rkzt != null">
+        #{rkzt,jdbcType=INTEGER},
+      </if>
+      <if test="edittime != null">
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shId != null">
+        #{shId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

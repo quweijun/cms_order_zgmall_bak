@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Hycompany_selectMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Hycompany_select">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="hycompany" jdbcType="INTEGER" property="hycompany" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="all_product" jdbcType="DOUBLE" property="allProduct" />
+    <result column="dfh_product" jdbcType="DOUBLE" property="dfhProduct" />
+    <result column="yfh_product" jdbcType="DOUBLE" property="yfhProduct" />
+    <result column="qs_product" jdbcType="DOUBLE" property="qsProduct" />
+    <result column="js1_product" jdbcType="DOUBLE" property="js1Product" />
+    <result column="js2_product" jdbcType="DOUBLE" property="js2Product" />
+    <result column="sh1_product" jdbcType="DOUBLE" property="sh1Product" />
+    <result column="sh2_product" jdbcType="DOUBLE" property="sh2Product" />
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Hycompany_select">
+    insert into hycompany_select (flowid, hycompany, province, 
+      city, area, all_product, 
+      dfh_product, yfh_product, qs_product, 
+      js1_product, js2_product, sh1_product, 
+      sh2_product, beizhu, editor, 
+      addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{hycompany,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{allProduct,jdbcType=DOUBLE}, 
+      #{dfhProduct,jdbcType=DOUBLE}, #{yfhProduct,jdbcType=DOUBLE}, #{qsProduct,jdbcType=DOUBLE}, 
+      #{js1Product,jdbcType=DOUBLE}, #{js2Product,jdbcType=DOUBLE}, #{sh1Product,jdbcType=DOUBLE}, 
+      #{sh2Product,jdbcType=DOUBLE}, #{beizhu,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Hycompany_select">
+    insert into hycompany_select
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="hycompany != null">
+        hycompany,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="allProduct != null">
+        all_product,
+      </if>
+      <if test="dfhProduct != null">
+        dfh_product,
+      </if>
+      <if test="yfhProduct != null">
+        yfh_product,
+      </if>
+      <if test="qsProduct != null">
+        qs_product,
+      </if>
+      <if test="js1Product != null">
+        js1_product,
+      </if>
+      <if test="js2Product != null">
+        js2_product,
+      </if>
+      <if test="sh1Product != null">
+        sh1_product,
+      </if>
+      <if test="sh2Product != null">
+        sh2_product,
+      </if>
+      <if test="beizhu != null">
+        beizhu,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="hycompany != null">
+        #{hycompany,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="allProduct != null">
+        #{allProduct,jdbcType=DOUBLE},
+      </if>
+      <if test="dfhProduct != null">
+        #{dfhProduct,jdbcType=DOUBLE},
+      </if>
+      <if test="yfhProduct != null">
+        #{yfhProduct,jdbcType=DOUBLE},
+      </if>
+      <if test="qsProduct != null">
+        #{qsProduct,jdbcType=DOUBLE},
+      </if>
+      <if test="js1Product != null">
+        #{js1Product,jdbcType=DOUBLE},
+      </if>
+      <if test="js2Product != null">
+        #{js2Product,jdbcType=DOUBLE},
+      </if>
+      <if test="sh1Product != null">
+        #{sh1Product,jdbcType=DOUBLE},
+      </if>
+      <if test="sh2Product != null">
+        #{sh2Product,jdbcType=DOUBLE},
+      </if>
+      <if test="beizhu != null">
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

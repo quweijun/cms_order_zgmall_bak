@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProdreplogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Prodreplog">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="inprodid" jdbcType="VARCHAR" property="inprodid" />
+    <result column="outprodid" jdbcType="VARCHAR" property="outprodid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Prodreplog">
+    insert into prodreplog (flowno, inprodid, outprodid, 
+      addtime)
+    values (#{flowno,jdbcType=BIGINT}, #{inprodid,jdbcType=VARCHAR}, #{outprodid,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Prodreplog">
+    insert into prodreplog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="inprodid != null">
+        inprodid,
+      </if>
+      <if test="outprodid != null">
+        outprodid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="inprodid != null">
+        #{inprodid,jdbcType=VARCHAR},
+      </if>
+      <if test="outprodid != null">
+        #{outprodid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

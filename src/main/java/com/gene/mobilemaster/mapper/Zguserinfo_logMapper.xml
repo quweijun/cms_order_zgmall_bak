@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Zguserinfo_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zguserinfo_log">
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="useragent" jdbcType="VARCHAR" property="useragent" />
+    <result column="logintime" jdbcType="TIMESTAMP" property="logintime" />
+    <result column="loginok" jdbcType="INTEGER" property="loginok" />
+    <result column="ipsheng" jdbcType="VARCHAR" property="ipsheng" />
+    <result column="ipshi" jdbcType="VARCHAR" property="ipshi" />
+    <result column="ipnetwork" jdbcType="VARCHAR" property="ipnetwork" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zguserinfo_log">
+    insert into zguserinfo_log (userid, username, ip, 
+      useragent, logintime, loginok, 
+      ipsheng, ipshi, ipnetwork
+      )
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{useragent,jdbcType=VARCHAR}, #{logintime,jdbcType=TIMESTAMP}, #{loginok,jdbcType=INTEGER}, 
+      #{ipsheng,jdbcType=VARCHAR}, #{ipshi,jdbcType=VARCHAR}, #{ipnetwork,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zguserinfo_log">
+    insert into zguserinfo_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="useragent != null">
+        useragent,
+      </if>
+      <if test="logintime != null">
+        logintime,
+      </if>
+      <if test="loginok != null">
+        loginok,
+      </if>
+      <if test="ipsheng != null">
+        ipsheng,
+      </if>
+      <if test="ipshi != null">
+        ipshi,
+      </if>
+      <if test="ipnetwork != null">
+        ipnetwork,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="useragent != null">
+        #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="logintime != null">
+        #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginok != null">
+        #{loginok,jdbcType=INTEGER},
+      </if>
+      <if test="ipsheng != null">
+        #{ipsheng,jdbcType=VARCHAR},
+      </if>
+      <if test="ipshi != null">
+        #{ipshi,jdbcType=VARCHAR},
+      </if>
+      <if test="ipnetwork != null">
+        #{ipnetwork,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Largess_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Largess_log">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="pjid" jdbcType="VARCHAR" property="pjid" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="setstep" jdbcType="VARCHAR" property="setstep" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Largess_log">
+    insert into largess_log (flowid, pjid, editor, 
+      addtime, setstep)
+    values (#{flowid,jdbcType=BIGINT}, #{pjid,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{setstep,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Largess_log">
+    insert into largess_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="pjid != null">
+        pjid,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="setstep != null">
+        setstep,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="pjid != null">
+        #{pjid,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="setstep != null">
+        #{setstep,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

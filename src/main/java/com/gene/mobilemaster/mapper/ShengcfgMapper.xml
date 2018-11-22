@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ShengcfgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Shengcfg">
+    <result column="shengid" jdbcType="BIGINT" property="shengid" />
+    <result column="shengname" jdbcType="VARCHAR" property="shengname" />
+    <result column="AreaID" jdbcType="VARCHAR" property="areaid" />
+    <result column="FirstHY" jdbcType="VARCHAR" property="firsthy" />
+    <result column="SecondHY" jdbcType="VARCHAR" property="secondhy" />
+    <result column="YDBQ" jdbcType="VARCHAR" property="ydbq" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Shengcfg">
+    insert into shengcfg (shengid, shengname, AreaID, 
+      FirstHY, SecondHY, YDBQ
+      )
+    values (#{shengid,jdbcType=BIGINT}, #{shengname,jdbcType=VARCHAR}, #{areaid,jdbcType=VARCHAR}, 
+      #{firsthy,jdbcType=VARCHAR}, #{secondhy,jdbcType=VARCHAR}, #{ydbq,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Shengcfg">
+    insert into shengcfg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shengid != null">
+        shengid,
+      </if>
+      <if test="shengname != null">
+        shengname,
+      </if>
+      <if test="areaid != null">
+        AreaID,
+      </if>
+      <if test="firsthy != null">
+        FirstHY,
+      </if>
+      <if test="secondhy != null">
+        SecondHY,
+      </if>
+      <if test="ydbq != null">
+        YDBQ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shengid != null">
+        #{shengid,jdbcType=BIGINT},
+      </if>
+      <if test="shengname != null">
+        #{shengname,jdbcType=VARCHAR},
+      </if>
+      <if test="areaid != null">
+        #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="firsthy != null">
+        #{firsthy,jdbcType=VARCHAR},
+      </if>
+      <if test="secondhy != null">
+        #{secondhy,jdbcType=VARCHAR},
+      </if>
+      <if test="ydbq != null">
+        #{ydbq,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

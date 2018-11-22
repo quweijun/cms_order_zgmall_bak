@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Order_errorMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Order_error">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="linkman" jdbcType="VARCHAR" property="linkman" />
+    <result column="usermobile" jdbcType="VARCHAR" property="usermobile" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="error" jdbcType="VARCHAR" property="error" />
+    <result column="prodids" jdbcType="VARCHAR" property="prodids" />
+    <result column="prodnames" jdbcType="VARCHAR" property="prodnames" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Order_error">
+    insert into order_error (id, linkman, usermobile, 
+      mobile, error, prodids, 
+      prodnames, channelid, addtime
+      )
+    values (#{id,jdbcType=BIGINT}, #{linkman,jdbcType=VARCHAR}, #{usermobile,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{error,jdbcType=VARCHAR}, #{prodids,jdbcType=VARCHAR}, 
+      #{prodnames,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Order_error">
+    insert into order_error
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="linkman != null">
+        linkman,
+      </if>
+      <if test="usermobile != null">
+        usermobile,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="error != null">
+        error,
+      </if>
+      <if test="prodids != null">
+        prodids,
+      </if>
+      <if test="prodnames != null">
+        prodnames,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="usermobile != null">
+        #{usermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="error != null">
+        #{error,jdbcType=VARCHAR},
+      </if>
+      <if test="prodids != null">
+        #{prodids,jdbcType=VARCHAR},
+      </if>
+      <if test="prodnames != null">
+        #{prodnames,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

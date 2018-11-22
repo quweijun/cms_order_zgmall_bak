@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CheckordertmpMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Checkordertmp">
+    <result column="checkdate" jdbcType="TIMESTAMP" property="checkdate" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Checkordertmp">
+    insert into checkordertmp (checkdate, name, mobile
+      )
+    values (#{checkdate,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Checkordertmp">
+    insert into checkordertmp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="checkdate != null">
+        checkdate,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

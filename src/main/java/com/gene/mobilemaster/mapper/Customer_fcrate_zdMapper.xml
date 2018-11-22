@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Customer_fcrate_zdMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customer_fcrate_zd">
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="XSXX" jdbcType="DOUBLE" property="xsxx" />
+    <result column="XSSX" jdbcType="DOUBLE" property="xssx" />
+    <result column="JXSJB" jdbcType="VARCHAR" property="jxsjb" />
+    <result column="ZJTCBL" jdbcType="DOUBLE" property="zjtcbl" />
+    <result column="J1FLBL" jdbcType="DOUBLE" property="j1flbl" />
+    <result column="J2FLBL" jdbcType="DOUBLE" property="j2flbl" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customer_fcrate_zd">
+    insert into customer_fcrate_zd (xh, XSXX, XSSX, 
+      JXSJB, ZJTCBL, J1FLBL, 
+      J2FLBL, EnableFlag)
+    values (#{xh,jdbcType=INTEGER}, #{xsxx,jdbcType=DOUBLE}, #{xssx,jdbcType=DOUBLE}, 
+      #{jxsjb,jdbcType=VARCHAR}, #{zjtcbl,jdbcType=DOUBLE}, #{j1flbl,jdbcType=DOUBLE}, 
+      #{j2flbl,jdbcType=DOUBLE}, #{enableflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customer_fcrate_zd">
+    insert into customer_fcrate_zd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="xsxx != null">
+        XSXX,
+      </if>
+      <if test="xssx != null">
+        XSSX,
+      </if>
+      <if test="jxsjb != null">
+        JXSJB,
+      </if>
+      <if test="zjtcbl != null">
+        ZJTCBL,
+      </if>
+      <if test="j1flbl != null">
+        J1FLBL,
+      </if>
+      <if test="j2flbl != null">
+        J2FLBL,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="xsxx != null">
+        #{xsxx,jdbcType=DOUBLE},
+      </if>
+      <if test="xssx != null">
+        #{xssx,jdbcType=DOUBLE},
+      </if>
+      <if test="jxsjb != null">
+        #{jxsjb,jdbcType=VARCHAR},
+      </if>
+      <if test="zjtcbl != null">
+        #{zjtcbl,jdbcType=DOUBLE},
+      </if>
+      <if test="j1flbl != null">
+        #{j1flbl,jdbcType=DOUBLE},
+      </if>
+      <if test="j2flbl != null">
+        #{j2flbl,jdbcType=DOUBLE},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

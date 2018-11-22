@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Zgiplib_sinainfMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zgiplib_sinainf">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="startip" jdbcType="VARCHAR" property="startip" />
+    <result column="endip" jdbcType="VARCHAR" property="endip" />
+    <result column="startipnum" jdbcType="BIGINT" property="startipnum" />
+    <result column="endipnum" jdbcType="BIGINT" property="endipnum" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="network" jdbcType="VARCHAR" property="network" />
+    <result column="fullipmsg" jdbcType="VARCHAR" property="fullipmsg" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zgiplib_sinainf">
+    insert into zgiplib_sinainf (flowno, startip, endip, 
+      startipnum, endipnum, country, 
+      sheng, shi, network, 
+      fullipmsg, addtime)
+    values (#{flowno,jdbcType=BIGINT}, #{startip,jdbcType=VARCHAR}, #{endip,jdbcType=VARCHAR}, 
+      #{startipnum,jdbcType=BIGINT}, #{endipnum,jdbcType=BIGINT}, #{country,jdbcType=VARCHAR}, 
+      #{sheng,jdbcType=VARCHAR}, #{shi,jdbcType=VARCHAR}, #{network,jdbcType=VARCHAR}, 
+      #{fullipmsg,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zgiplib_sinainf">
+    insert into zgiplib_sinainf
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="startip != null">
+        startip,
+      </if>
+      <if test="endip != null">
+        endip,
+      </if>
+      <if test="startipnum != null">
+        startipnum,
+      </if>
+      <if test="endipnum != null">
+        endipnum,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="network != null">
+        network,
+      </if>
+      <if test="fullipmsg != null">
+        fullipmsg,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="startip != null">
+        #{startip,jdbcType=VARCHAR},
+      </if>
+      <if test="endip != null">
+        #{endip,jdbcType=VARCHAR},
+      </if>
+      <if test="startipnum != null">
+        #{startipnum,jdbcType=BIGINT},
+      </if>
+      <if test="endipnum != null">
+        #{endipnum,jdbcType=BIGINT},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="network != null">
+        #{network,jdbcType=VARCHAR},
+      </if>
+      <if test="fullipmsg != null">
+        #{fullipmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

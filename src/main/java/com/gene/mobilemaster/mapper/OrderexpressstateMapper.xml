@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OrderexpressstateMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Orderexpressstate">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="ForecastArrive" jdbcType="TIMESTAMP" property="forecastarrive" />
+    <result column="fhTime" jdbcType="TIMESTAMP" property="fhtime" />
+    <result column="stateNo" jdbcType="INTEGER" property="stateno" />
+    <result column="nextCheck" jdbcType="TIMESTAMP" property="nextcheck" />
+    <result column="issent" jdbcType="INTEGER" property="issent" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Orderexpressstate">
+    insert into orderexpressstate (FlowID, orderid, ForecastArrive, 
+      fhTime, stateNo, nextCheck, 
+      issent, addDate)
+    values (#{flowid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{forecastarrive,jdbcType=TIMESTAMP}, 
+      #{fhtime,jdbcType=TIMESTAMP}, #{stateno,jdbcType=INTEGER}, #{nextcheck,jdbcType=TIMESTAMP}, 
+      #{issent,jdbcType=INTEGER}, #{adddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Orderexpressstate">
+    insert into orderexpressstate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="forecastarrive != null">
+        ForecastArrive,
+      </if>
+      <if test="fhtime != null">
+        fhTime,
+      </if>
+      <if test="stateno != null">
+        stateNo,
+      </if>
+      <if test="nextcheck != null">
+        nextCheck,
+      </if>
+      <if test="issent != null">
+        issent,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="forecastarrive != null">
+        #{forecastarrive,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fhtime != null">
+        #{fhtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stateno != null">
+        #{stateno,jdbcType=INTEGER},
+      </if>
+      <if test="nextcheck != null">
+        #{nextcheck,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issent != null">
+        #{issent,jdbcType=INTEGER},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

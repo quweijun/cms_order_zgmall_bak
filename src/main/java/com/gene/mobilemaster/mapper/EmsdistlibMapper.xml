@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.EmsdistlibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Emsdistlib">
+    <result column="dqdm" jdbcType="VARCHAR" property="dqdm" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="shengjc" jdbcType="VARCHAR" property="shengjc" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="shijc" jdbcType="VARCHAR" property="shijc" />
+    <result column="shibm" jdbcType="VARCHAR" property="shibm" />
+    <result column="qu" jdbcType="VARCHAR" property="qu" />
+    <result column="qujc" jdbcType="VARCHAR" property="qujc" />
+    <result column="qubm" jdbcType="VARCHAR" property="qubm" />
+    <result column="yzbm" jdbcType="VARCHAR" property="yzbm" />
+    <result column="class" jdbcType="VARCHAR" property="class" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Emsdistlib">
+    insert into emsdistlib (dqdm, sheng, shengjc, 
+      shi, shijc, shibm, 
+      qu, qujc, qubm, yzbm, 
+      class)
+    values (#{dqdm,jdbcType=VARCHAR}, #{sheng,jdbcType=VARCHAR}, #{shengjc,jdbcType=VARCHAR}, 
+      #{shi,jdbcType=VARCHAR}, #{shijc,jdbcType=VARCHAR}, #{shibm,jdbcType=VARCHAR}, 
+      #{qu,jdbcType=VARCHAR}, #{qujc,jdbcType=VARCHAR}, #{qubm,jdbcType=VARCHAR}, #{yzbm,jdbcType=VARCHAR}, 
+      #{class,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Emsdistlib">
+    insert into emsdistlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dqdm != null">
+        dqdm,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shengjc != null">
+        shengjc,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="shijc != null">
+        shijc,
+      </if>
+      <if test="shibm != null">
+        shibm,
+      </if>
+      <if test="qu != null">
+        qu,
+      </if>
+      <if test="qujc != null">
+        qujc,
+      </if>
+      <if test="qubm != null">
+        qubm,
+      </if>
+      <if test="yzbm != null">
+        yzbm,
+      </if>
+      <if test="class != null">
+        class,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dqdm != null">
+        #{dqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shengjc != null">
+        #{shengjc,jdbcType=VARCHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="shijc != null">
+        #{shijc,jdbcType=VARCHAR},
+      </if>
+      <if test="shibm != null">
+        #{shibm,jdbcType=VARCHAR},
+      </if>
+      <if test="qu != null">
+        #{qu,jdbcType=VARCHAR},
+      </if>
+      <if test="qujc != null">
+        #{qujc,jdbcType=VARCHAR},
+      </if>
+      <if test="qubm != null">
+        #{qubm,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null">
+        #{yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="class != null">
+        #{class,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

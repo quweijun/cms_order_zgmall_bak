@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Landxls$Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Landxls$">
+    <result column="客 户 月 结 清 单" jdbcType="VARCHAR" property="客户月结清单" />
+    <result column="F2" jdbcType="VARCHAR" property="f2" />
+    <result column="F3" jdbcType="VARCHAR" property="f3" />
+    <result column="F4" jdbcType="VARCHAR" property="f4" />
+    <result column="F5" jdbcType="VARCHAR" property="f5" />
+    <result column="F6" jdbcType="VARCHAR" property="f6" />
+    <result column="F7" jdbcType="VARCHAR" property="f7" />
+    <result column="F8" jdbcType="VARCHAR" property="f8" />
+    <result column="F9" jdbcType="VARCHAR" property="f9" />
+    <result column="F10" jdbcType="VARCHAR" property="f10" />
+    <result column="F11" jdbcType="VARCHAR" property="f11" />
+    <result column="F12" jdbcType="VARCHAR" property="f12" />
+    <result column="F13" jdbcType="VARCHAR" property="f13" />
+    <result column="F14" jdbcType="VARCHAR" property="f14" />
+    <result column="F15" jdbcType="VARCHAR" property="f15" />
+    <result column="F16" jdbcType="VARCHAR" property="f16" />
+    <result column="F17" jdbcType="VARCHAR" property="f17" />
+    <result column="F18" jdbcType="VARCHAR" property="f18" />
+    <result column="F19" jdbcType="VARCHAR" property="f19" />
+    <result column="F20" jdbcType="VARCHAR" property="f20" />
+    <result column="F21" jdbcType="VARCHAR" property="f21" />
+    <result column="F22" jdbcType="VARCHAR" property="f22" />
+    <result column="F23" jdbcType="VARCHAR" property="f23" />
+    <result column="F24" jdbcType="VARCHAR" property="f24" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Landxls$">
+    insert into landxls$ ("客 户 月 结 清 单", F2, F3, 
+      F4, F5, F6, F7, 
+      F8, F9, F10, F11, 
+      F12, F13, F14, F15, 
+      F16, F17, F18, F19, 
+      F20, F21, F22, F23, 
+      F24)
+    values (#{客户月结清单,jdbcType=VARCHAR}, #{f2,jdbcType=VARCHAR}, #{f3,jdbcType=VARCHAR}, 
+      #{f4,jdbcType=VARCHAR}, #{f5,jdbcType=VARCHAR}, #{f6,jdbcType=VARCHAR}, #{f7,jdbcType=VARCHAR}, 
+      #{f8,jdbcType=VARCHAR}, #{f9,jdbcType=VARCHAR}, #{f10,jdbcType=VARCHAR}, #{f11,jdbcType=VARCHAR}, 
+      #{f12,jdbcType=VARCHAR}, #{f13,jdbcType=VARCHAR}, #{f14,jdbcType=VARCHAR}, #{f15,jdbcType=VARCHAR}, 
+      #{f16,jdbcType=VARCHAR}, #{f17,jdbcType=VARCHAR}, #{f18,jdbcType=VARCHAR}, #{f19,jdbcType=VARCHAR}, 
+      #{f20,jdbcType=VARCHAR}, #{f21,jdbcType=VARCHAR}, #{f22,jdbcType=VARCHAR}, #{f23,jdbcType=VARCHAR}, 
+      #{f24,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Landxls$">
+    insert into landxls$
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="客户月结清单 != null">
+        "客 户 月 结 清 单",
+      </if>
+      <if test="f2 != null">
+        F2,
+      </if>
+      <if test="f3 != null">
+        F3,
+      </if>
+      <if test="f4 != null">
+        F4,
+      </if>
+      <if test="f5 != null">
+        F5,
+      </if>
+      <if test="f6 != null">
+        F6,
+      </if>
+      <if test="f7 != null">
+        F7,
+      </if>
+      <if test="f8 != null">
+        F8,
+      </if>
+      <if test="f9 != null">
+        F9,
+      </if>
+      <if test="f10 != null">
+        F10,
+      </if>
+      <if test="f11 != null">
+        F11,
+      </if>
+      <if test="f12 != null">
+        F12,
+      </if>
+      <if test="f13 != null">
+        F13,
+      </if>
+      <if test="f14 != null">
+        F14,
+      </if>
+      <if test="f15 != null">
+        F15,
+      </if>
+      <if test="f16 != null">
+        F16,
+      </if>
+      <if test="f17 != null">
+        F17,
+      </if>
+      <if test="f18 != null">
+        F18,
+      </if>
+      <if test="f19 != null">
+        F19,
+      </if>
+      <if test="f20 != null">
+        F20,
+      </if>
+      <if test="f21 != null">
+        F21,
+      </if>
+      <if test="f22 != null">
+        F22,
+      </if>
+      <if test="f23 != null">
+        F23,
+      </if>
+      <if test="f24 != null">
+        F24,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="客户月结清单 != null">
+        #{客户月结清单,jdbcType=VARCHAR},
+      </if>
+      <if test="f2 != null">
+        #{f2,jdbcType=VARCHAR},
+      </if>
+      <if test="f3 != null">
+        #{f3,jdbcType=VARCHAR},
+      </if>
+      <if test="f4 != null">
+        #{f4,jdbcType=VARCHAR},
+      </if>
+      <if test="f5 != null">
+        #{f5,jdbcType=VARCHAR},
+      </if>
+      <if test="f6 != null">
+        #{f6,jdbcType=VARCHAR},
+      </if>
+      <if test="f7 != null">
+        #{f7,jdbcType=VARCHAR},
+      </if>
+      <if test="f8 != null">
+        #{f8,jdbcType=VARCHAR},
+      </if>
+      <if test="f9 != null">
+        #{f9,jdbcType=VARCHAR},
+      </if>
+      <if test="f10 != null">
+        #{f10,jdbcType=VARCHAR},
+      </if>
+      <if test="f11 != null">
+        #{f11,jdbcType=VARCHAR},
+      </if>
+      <if test="f12 != null">
+        #{f12,jdbcType=VARCHAR},
+      </if>
+      <if test="f13 != null">
+        #{f13,jdbcType=VARCHAR},
+      </if>
+      <if test="f14 != null">
+        #{f14,jdbcType=VARCHAR},
+      </if>
+      <if test="f15 != null">
+        #{f15,jdbcType=VARCHAR},
+      </if>
+      <if test="f16 != null">
+        #{f16,jdbcType=VARCHAR},
+      </if>
+      <if test="f17 != null">
+        #{f17,jdbcType=VARCHAR},
+      </if>
+      <if test="f18 != null">
+        #{f18,jdbcType=VARCHAR},
+      </if>
+      <if test="f19 != null">
+        #{f19,jdbcType=VARCHAR},
+      </if>
+      <if test="f20 != null">
+        #{f20,jdbcType=VARCHAR},
+      </if>
+      <if test="f21 != null">
+        #{f21,jdbcType=VARCHAR},
+      </if>
+      <if test="f22 != null">
+        #{f22,jdbcType=VARCHAR},
+      </if>
+      <if test="f23 != null">
+        #{f23,jdbcType=VARCHAR},
+      </if>
+      <if test="f24 != null">
+        #{f24,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Order_alipayMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Order_alipay">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="alipayNo" jdbcType="VARCHAR" property="alipayno" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="money" jdbcType="VARCHAR" property="money" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Order_alipay">
+    insert into order_alipay (id, alipayNo, orderid, 
+      money)
+    values (#{id,jdbcType=BIGINT}, #{alipayno,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, 
+      #{money,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Order_alipay">
+    insert into order_alipay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="alipayno != null">
+        alipayNo,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="alipayno != null">
+        #{alipayno,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Online_interflowMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Online_interflow">
+    <result column="MsgID" jdbcType="INTEGER" property="msgid" />
+    <result column="SenderID" jdbcType="VARCHAR" property="senderid" />
+    <result column="ReceiverID" jdbcType="VARCHAR" property="receiverid" />
+    <result column="typeid" jdbcType="INTEGER" property="typeid" />
+    <result column="classid" jdbcType="INTEGER" property="classid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="sendDate" jdbcType="TIMESTAMP" property="senddate" />
+    <result column="isRead" jdbcType="INTEGER" property="isread" />
+    <result column="ReadTime" jdbcType="TIMESTAMP" property="readtime" />
+    <result column="isLock" jdbcType="INTEGER" property="islock" />
+    <result column="senderlock" jdbcType="INTEGER" property="senderlock" />
+    <result column="receiverlock" jdbcType="INTEGER" property="receiverlock" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Online_interflow">
+    insert into online_interflow (MsgID, SenderID, ReceiverID, 
+      typeid, classid, content, 
+      sendDate, isRead, ReadTime, 
+      isLock, senderlock, receiverlock
+      )
+    values (#{msgid,jdbcType=INTEGER}, #{senderid,jdbcType=VARCHAR}, #{receiverid,jdbcType=VARCHAR}, 
+      #{typeid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
+      #{senddate,jdbcType=TIMESTAMP}, #{isread,jdbcType=INTEGER}, #{readtime,jdbcType=TIMESTAMP}, 
+      #{islock,jdbcType=INTEGER}, #{senderlock,jdbcType=INTEGER}, #{receiverlock,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Online_interflow">
+    insert into online_interflow
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgid != null">
+        MsgID,
+      </if>
+      <if test="senderid != null">
+        SenderID,
+      </if>
+      <if test="receiverid != null">
+        ReceiverID,
+      </if>
+      <if test="typeid != null">
+        typeid,
+      </if>
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="senddate != null">
+        sendDate,
+      </if>
+      <if test="isread != null">
+        isRead,
+      </if>
+      <if test="readtime != null">
+        ReadTime,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+      <if test="senderlock != null">
+        senderlock,
+      </if>
+      <if test="receiverlock != null">
+        receiverlock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgid != null">
+        #{msgid,jdbcType=INTEGER},
+      </if>
+      <if test="senderid != null">
+        #{senderid,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverid != null">
+        #{receiverid,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="senddate != null">
+        #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="readtime != null">
+        #{readtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="senderlock != null">
+        #{senderlock,jdbcType=INTEGER},
+      </if>
+      <if test="receiverlock != null">
+        #{receiverlock,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

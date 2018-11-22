@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Tb_watchlogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Tb_watchlog">
+    <result column="wlogID" jdbcType="INTEGER" property="wlogid" />
+    <result column="watchtime" jdbcType="TIMESTAMP" property="watchtime" />
+    <result column="Clientname" jdbcType="VARCHAR" property="clientname" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="provinces" jdbcType="INTEGER" property="provinces" />
+    <result column="acceptproject" jdbcType="INTEGER" property="acceptproject" />
+    <result column="acceptstyle" jdbcType="INTEGER" property="acceptstyle" />
+    <result column="acceptnotes" jdbcType="VARCHAR" property="acceptnotes" />
+    <result column="CSNotes" jdbcType="VARCHAR" property="csnotes" />
+    <result column="Username" jdbcType="VARCHAR" property="username" />
+    <result column="userID" jdbcType="VARCHAR" property="userid" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Tb_watchlog">
+    insert into tb_watchlog (wlogID, watchtime, Clientname, 
+      mobile, provinces, acceptproject, 
+      acceptstyle, acceptnotes, CSNotes, 
+      Username, userID, flag
+      )
+    values (#{wlogid,jdbcType=INTEGER}, #{watchtime,jdbcType=TIMESTAMP}, #{clientname,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{provinces,jdbcType=INTEGER}, #{acceptproject,jdbcType=INTEGER}, 
+      #{acceptstyle,jdbcType=INTEGER}, #{acceptnotes,jdbcType=VARCHAR}, #{csnotes,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Tb_watchlog">
+    insert into tb_watchlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wlogid != null">
+        wlogID,
+      </if>
+      <if test="watchtime != null">
+        watchtime,
+      </if>
+      <if test="clientname != null">
+        Clientname,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="provinces != null">
+        provinces,
+      </if>
+      <if test="acceptproject != null">
+        acceptproject,
+      </if>
+      <if test="acceptstyle != null">
+        acceptstyle,
+      </if>
+      <if test="acceptnotes != null">
+        acceptnotes,
+      </if>
+      <if test="csnotes != null">
+        CSNotes,
+      </if>
+      <if test="username != null">
+        Username,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wlogid != null">
+        #{wlogid,jdbcType=INTEGER},
+      </if>
+      <if test="watchtime != null">
+        #{watchtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clientname != null">
+        #{clientname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="provinces != null">
+        #{provinces,jdbcType=INTEGER},
+      </if>
+      <if test="acceptproject != null">
+        #{acceptproject,jdbcType=INTEGER},
+      </if>
+      <if test="acceptstyle != null">
+        #{acceptstyle,jdbcType=INTEGER},
+      </if>
+      <if test="acceptnotes != null">
+        #{acceptnotes,jdbcType=VARCHAR},
+      </if>
+      <if test="csnotes != null">
+        #{csnotes,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

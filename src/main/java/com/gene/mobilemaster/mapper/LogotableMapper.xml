@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.LogotableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Logotable">
+    <result column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="logotype" jdbcType="INTEGER" property="logotype" />
+    <result column="logopict" jdbcType="VARCHAR" property="logopict" />
+    <result column="logourl" jdbcType="VARCHAR" property="logourl" />
+    <result column="webPict" jdbcType="VARCHAR" property="webpict" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="showloc" jdbcType="INTEGER" property="showloc" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Logotable">
+    insert into logotable (lid, logotype, logopict, 
+      logourl, webPict, addtime, 
+      addor, flag, showloc
+      )
+    values (#{lid,jdbcType=INTEGER}, #{logotype,jdbcType=INTEGER}, #{logopict,jdbcType=VARCHAR}, 
+      #{logourl,jdbcType=VARCHAR}, #{webpict,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{addor,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{showloc,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Logotable">
+    insert into logotable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        lid,
+      </if>
+      <if test="logotype != null">
+        logotype,
+      </if>
+      <if test="logopict != null">
+        logopict,
+      </if>
+      <if test="logourl != null">
+        logourl,
+      </if>
+      <if test="webpict != null">
+        webPict,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="showloc != null">
+        showloc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="logotype != null">
+        #{logotype,jdbcType=INTEGER},
+      </if>
+      <if test="logopict != null">
+        #{logopict,jdbcType=VARCHAR},
+      </if>
+      <if test="logourl != null">
+        #{logourl,jdbcType=VARCHAR},
+      </if>
+      <if test="webpict != null">
+        #{webpict,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="showloc != null">
+        #{showloc,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

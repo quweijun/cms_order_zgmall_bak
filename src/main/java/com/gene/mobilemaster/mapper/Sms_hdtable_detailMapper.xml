@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sms_hdtable_detailMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sms_hdtable_detail">
+    <result column="hdid" jdbcType="INTEGER" property="hdid" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="isread" jdbcType="INTEGER" property="isread" />
+    <result column="readtime" jdbcType="TIMESTAMP" property="readtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sms_hdtable_detail">
+    insert into sms_hdtable_detail (hdid, customerid, type, 
+      mobile, isread, readtime
+      )
+    values (#{hdid,jdbcType=INTEGER}, #{customerid,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{mobile,jdbcType=VARCHAR}, #{isread,jdbcType=INTEGER}, #{readtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sms_hdtable_detail">
+    insert into sms_hdtable_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        hdid,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="readtime != null">
+        readtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        #{hdid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="readtime != null">
+        #{readtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

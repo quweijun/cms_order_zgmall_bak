@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Symbianj2me_gourlverlibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Symbianj2me_gourlverlib">
+    <result column="urlversion" jdbcType="VARCHAR" property="urlversion" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="enableflag" jdbcType="VARCHAR" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Symbianj2me_gourlverlib">
+    insert into symbianj2me_gourlverlib (urlversion, addtime, enableflag
+      )
+    values (#{urlversion,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{enableflag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Symbianj2me_gourlverlib">
+    insert into symbianj2me_gourlverlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="urlversion != null">
+        urlversion,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="enableflag != null">
+        enableflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="urlversion != null">
+        #{urlversion,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

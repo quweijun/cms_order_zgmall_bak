@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CustomeroperationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customeroperation">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="orderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="his_user" jdbcType="VARCHAR" property="hisUser" />
+    <result column="new_user" jdbcType="VARCHAR" property="newUser" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="up_date" jdbcType="TIMESTAMP" property="upDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customeroperation">
+    insert into customeroperation (ID, orderID, his_user, 
+      new_user, update_user, up_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=VARCHAR}, #{hisUser,jdbcType=VARCHAR}, 
+      #{newUser,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{upDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customeroperation">
+    insert into customeroperation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="orderid != null">
+        orderID,
+      </if>
+      <if test="hisUser != null">
+        his_user,
+      </if>
+      <if test="newUser != null">
+        new_user,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="upDate != null">
+        up_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="hisUser != null">
+        #{hisUser,jdbcType=VARCHAR},
+      </if>
+      <if test="newUser != null">
+        #{newUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="upDate != null">
+        #{upDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

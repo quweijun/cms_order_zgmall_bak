@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.T_jieyongMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.T_jieyong">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="m_jycp" jdbcType="VARCHAR" property="mJycp" />
+    <result column="m_cptm" jdbcType="VARCHAR" property="mCptm" />
+    <result column="m_jyyt" jdbcType="VARCHAR" property="mJyyt" />
+    <result column="m_jysj" jdbcType="TIMESTAMP" property="mJysj" />
+    <result column="m_ghsj" jdbcType="TIMESTAMP" property="mGhsj" />
+    <result column="m_jyr" jdbcType="VARCHAR" property="mJyr" />
+    <result column="m_bz" jdbcType="VARCHAR" property="mBz" />
+    <result column="m_addtime" jdbcType="TIMESTAMP" property="mAddtime" />
+    <result column="m_czr" jdbcType="VARCHAR" property="mCzr" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.T_jieyong">
+    insert into t_jieyong (ID, m_jycp, m_cptm, 
+      m_jyyt, m_jysj, m_ghsj, 
+      m_jyr, m_bz, m_addtime, 
+      m_czr)
+    values (#{id,jdbcType=INTEGER}, #{mJycp,jdbcType=VARCHAR}, #{mCptm,jdbcType=VARCHAR}, 
+      #{mJyyt,jdbcType=VARCHAR}, #{mJysj,jdbcType=TIMESTAMP}, #{mGhsj,jdbcType=TIMESTAMP}, 
+      #{mJyr,jdbcType=VARCHAR}, #{mBz,jdbcType=VARCHAR}, #{mAddtime,jdbcType=TIMESTAMP}, 
+      #{mCzr,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.T_jieyong">
+    insert into t_jieyong
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="mJycp != null">
+        m_jycp,
+      </if>
+      <if test="mCptm != null">
+        m_cptm,
+      </if>
+      <if test="mJyyt != null">
+        m_jyyt,
+      </if>
+      <if test="mJysj != null">
+        m_jysj,
+      </if>
+      <if test="mGhsj != null">
+        m_ghsj,
+      </if>
+      <if test="mJyr != null">
+        m_jyr,
+      </if>
+      <if test="mBz != null">
+        m_bz,
+      </if>
+      <if test="mAddtime != null">
+        m_addtime,
+      </if>
+      <if test="mCzr != null">
+        m_czr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mJycp != null">
+        #{mJycp,jdbcType=VARCHAR},
+      </if>
+      <if test="mCptm != null">
+        #{mCptm,jdbcType=VARCHAR},
+      </if>
+      <if test="mJyyt != null">
+        #{mJyyt,jdbcType=VARCHAR},
+      </if>
+      <if test="mJysj != null">
+        #{mJysj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mGhsj != null">
+        #{mGhsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mJyr != null">
+        #{mJyr,jdbcType=VARCHAR},
+      </if>
+      <if test="mBz != null">
+        #{mBz,jdbcType=VARCHAR},
+      </if>
+      <if test="mAddtime != null">
+        #{mAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mCzr != null">
+        #{mCzr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

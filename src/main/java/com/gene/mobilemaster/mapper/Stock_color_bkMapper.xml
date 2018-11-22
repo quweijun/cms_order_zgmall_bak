@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Stock_color_bkMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Stock_color_bk">
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="colorlist" jdbcType="VARCHAR" property="colorlist" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Stock_color_bk">
+    insert into stock_color_bk (productid, colorlist)
+    values (#{productid,jdbcType=VARCHAR}, #{colorlist,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Stock_color_bk">
+    insert into stock_color_bk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="colorlist != null">
+        colorlist,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="colorlist != null">
+        #{colorlist,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

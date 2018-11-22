@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProdsalesareaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Prodsalesarea">
+    <result column="productID" jdbcType="VARCHAR" property="productid" />
+    <result column="SalesArea" jdbcType="VARCHAR" property="salesarea" />
+    <result column="SalesAreaName" jdbcType="VARCHAR" property="salesareaname" />
+    <result column="AllowSales" jdbcType="INTEGER" property="allowsales" />
+    <result column="AreaYH" jdbcType="INTEGER" property="areayh" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Prodsalesarea">
+    insert into prodsalesarea (productID, SalesArea, SalesAreaName, 
+      AllowSales, AreaYH)
+    values (#{productid,jdbcType=VARCHAR}, #{salesarea,jdbcType=VARCHAR}, #{salesareaname,jdbcType=VARCHAR}, 
+      #{allowsales,jdbcType=INTEGER}, #{areayh,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Prodsalesarea">
+    insert into prodsalesarea
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productID,
+      </if>
+      <if test="salesarea != null">
+        SalesArea,
+      </if>
+      <if test="salesareaname != null">
+        SalesAreaName,
+      </if>
+      <if test="allowsales != null">
+        AllowSales,
+      </if>
+      <if test="areayh != null">
+        AreaYH,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="salesarea != null">
+        #{salesarea,jdbcType=VARCHAR},
+      </if>
+      <if test="salesareaname != null">
+        #{salesareaname,jdbcType=VARCHAR},
+      </if>
+      <if test="allowsales != null">
+        #{allowsales,jdbcType=INTEGER},
+      </if>
+      <if test="areayh != null">
+        #{areayh,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

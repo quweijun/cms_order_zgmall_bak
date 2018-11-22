@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProductvideoMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Productvideo">
+    <result column="VideoID" jdbcType="BIGINT" property="videoid" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="video_title" jdbcType="VARCHAR" property="videoTitle" />
+    <result column="video_path" jdbcType="VARCHAR" property="videoPath" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="file_size" jdbcType="DOUBLE" property="fileSize" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Productvideo">
+    insert into productvideo (VideoID, productid, video_title, 
+      video_path, file_name, file_size, 
+      addor, addDate)
+    values (#{videoid,jdbcType=BIGINT}, #{productid,jdbcType=VARCHAR}, #{videoTitle,jdbcType=VARCHAR}, 
+      #{videoPath,jdbcType=VARCHAR}, #{fileName,jdbcType=VARCHAR}, #{fileSize,jdbcType=DOUBLE}, 
+      #{addor,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Productvideo">
+    insert into productvideo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="videoid != null">
+        VideoID,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="videoTitle != null">
+        video_title,
+      </if>
+      <if test="videoPath != null">
+        video_path,
+      </if>
+      <if test="fileName != null">
+        file_name,
+      </if>
+      <if test="fileSize != null">
+        file_size,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="videoid != null">
+        #{videoid,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="videoTitle != null">
+        #{videoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="videoPath != null">
+        #{videoPath,jdbcType=VARCHAR},
+      </if>
+      <if test="fileName != null">
+        #{fileName,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null">
+        #{fileSize,jdbcType=DOUBLE},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

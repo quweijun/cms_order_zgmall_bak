@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ad_location_relationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ad_location_relation">
+    <result column="DataId" jdbcType="INTEGER" property="dataid" />
+    <result column="AdId" jdbcType="INTEGER" property="adid" />
+    <result column="Location" jdbcType="INTEGER" property="location" />
+    <result column="kidLocation" jdbcType="INTEGER" property="kidlocation" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="Addor" jdbcType="DOUBLE" property="addor" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ad_location_relation">
+    insert into ad_location_relation (DataId, AdId, Location, 
+      kidLocation, EnableFlag, addtime, 
+      Addor)
+    values (#{dataid,jdbcType=INTEGER}, #{adid,jdbcType=INTEGER}, #{location,jdbcType=INTEGER}, 
+      #{kidlocation,jdbcType=INTEGER}, #{enableflag,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{addor,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ad_location_relation">
+    insert into ad_location_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dataid != null">
+        DataId,
+      </if>
+      <if test="adid != null">
+        AdId,
+      </if>
+      <if test="location != null">
+        Location,
+      </if>
+      <if test="kidlocation != null">
+        kidLocation,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        Addor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dataid != null">
+        #{dataid,jdbcType=INTEGER},
+      </if>
+      <if test="adid != null">
+        #{adid,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=INTEGER},
+      </if>
+      <if test="kidlocation != null">
+        #{kidlocation,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

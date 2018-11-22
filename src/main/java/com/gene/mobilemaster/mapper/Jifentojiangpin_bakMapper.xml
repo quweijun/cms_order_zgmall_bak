@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Jifentojiangpin_bakMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jifentojiangpin_bak">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="WapSpaceID" jdbcType="BIGINT" property="wapspaceid" />
+    <result column="JiangPinID" jdbcType="BIGINT" property="jiangpinid" />
+    <result column="ApplyDate" jdbcType="TIMESTAMP" property="applydate" />
+    <result column="ReachDate" jdbcType="TIMESTAMP" property="reachdate" />
+    <result column="ApplyState" jdbcType="VARCHAR" property="applystate" />
+    <result column="TrueName" jdbcType="VARCHAR" property="truename" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="PostNo" jdbcType="VARCHAR" property="postno" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="KuaiDiNo" jdbcType="VARCHAR" property="kuaidino" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jifentojiangpin_bak">
+    insert into jifentojiangpin_bak (FlowID, WapSpaceID, JiangPinID, 
+      ApplyDate, ReachDate, ApplyState, 
+      TrueName, Address, PostNo, 
+      Mobile, KuaiDiNo, operator
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{wapspaceid,jdbcType=BIGINT}, #{jiangpinid,jdbcType=BIGINT}, 
+      #{applydate,jdbcType=TIMESTAMP}, #{reachdate,jdbcType=TIMESTAMP}, #{applystate,jdbcType=VARCHAR}, 
+      #{truename,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{postno,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{kuaidino,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jifentojiangpin_bak">
+    insert into jifentojiangpin_bak
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="wapspaceid != null">
+        WapSpaceID,
+      </if>
+      <if test="jiangpinid != null">
+        JiangPinID,
+      </if>
+      <if test="applydate != null">
+        ApplyDate,
+      </if>
+      <if test="reachdate != null">
+        ReachDate,
+      </if>
+      <if test="applystate != null">
+        ApplyState,
+      </if>
+      <if test="truename != null">
+        TrueName,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="postno != null">
+        PostNo,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="kuaidino != null">
+        KuaiDiNo,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="wapspaceid != null">
+        #{wapspaceid,jdbcType=BIGINT},
+      </if>
+      <if test="jiangpinid != null">
+        #{jiangpinid,jdbcType=BIGINT},
+      </if>
+      <if test="applydate != null">
+        #{applydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reachdate != null">
+        #{reachdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="applystate != null">
+        #{applystate,jdbcType=VARCHAR},
+      </if>
+      <if test="truename != null">
+        #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="postno != null">
+        #{postno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="kuaidino != null">
+        #{kuaidino,jdbcType=VARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

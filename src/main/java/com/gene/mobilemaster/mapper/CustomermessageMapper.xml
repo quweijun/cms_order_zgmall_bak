@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CustomermessageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customermessage">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="CustomerID" jdbcType="BIGINT" property="customerid" />
+    <result column="Message" jdbcType="VARCHAR" property="message" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="AccessTime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="OperPerson" jdbcType="VARCHAR" property="operperson" />
+    <result column="ReadFlag" jdbcType="VARCHAR" property="readflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customermessage">
+    insert into customermessage (FlowID, CustomerID, Message, 
+      Type, AccessTime, OperPerson, 
+      ReadFlag)
+    values (#{flowid,jdbcType=BIGINT}, #{customerid,jdbcType=BIGINT}, #{message,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{accesstime,jdbcType=TIMESTAMP}, #{operperson,jdbcType=VARCHAR}, 
+      #{readflag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customermessage">
+    insert into customermessage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="customerid != null">
+        CustomerID,
+      </if>
+      <if test="message != null">
+        Message,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="accesstime != null">
+        AccessTime,
+      </if>
+      <if test="operperson != null">
+        OperPerson,
+      </if>
+      <if test="readflag != null">
+        ReadFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operperson != null">
+        #{operperson,jdbcType=VARCHAR},
+      </if>
+      <if test="readflag != null">
+        #{readflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

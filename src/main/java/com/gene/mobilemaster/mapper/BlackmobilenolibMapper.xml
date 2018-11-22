@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BlackmobilenolibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Blackmobilenolib">
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="enableflag" jdbcType="INTEGER" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Blackmobilenolib">
+    insert into blackmobilenolib (FlowNo, Mobile, addtime, 
+      enableflag)
+    values (#{flowno,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{enableflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Blackmobilenolib">
+    insert into blackmobilenolib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="enableflag != null">
+        enableflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SaleflagpriorMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Saleflagprior">
+    <result column="saleflag" jdbcType="VARCHAR" property="saleflag" />
+    <result column="priorflag" jdbcType="INTEGER" property="priorflag" />
+    <result column="saletype" jdbcType="INTEGER" property="saletype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Saleflagprior">
+    insert into saleflagprior (saleflag, priorflag, saletype
+      )
+    values (#{saleflag,jdbcType=VARCHAR}, #{priorflag,jdbcType=INTEGER}, #{saletype,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Saleflagprior">
+    insert into saleflagprior
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="saleflag != null">
+        saleflag,
+      </if>
+      <if test="priorflag != null">
+        priorflag,
+      </if>
+      <if test="saletype != null">
+        saletype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="saleflag != null">
+        #{saleflag,jdbcType=VARCHAR},
+      </if>
+      <if test="priorflag != null">
+        #{priorflag,jdbcType=INTEGER},
+      </if>
+      <if test="saletype != null">
+        #{saletype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

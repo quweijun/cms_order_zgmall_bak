@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TotalMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Total">
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="warecolor" jdbcType="CHAR" property="warecolor" />
+    <result column="waresize" jdbcType="CHAR" property="waresize" />
+    <result column="flag2" jdbcType="INTEGER" property="flag2" />
+    <result column="total" jdbcType="INTEGER" property="total" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Total">
+    insert into total (productid, productname, warecolor, 
+      waresize, flag2, total
+      )
+    values (#{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{warecolor,jdbcType=CHAR}, 
+      #{waresize,jdbcType=CHAR}, #{flag2,jdbcType=INTEGER}, #{total,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Total">
+    insert into total
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="warecolor != null">
+        warecolor,
+      </if>
+      <if test="waresize != null">
+        waresize,
+      </if>
+      <if test="flag2 != null">
+        flag2,
+      </if>
+      <if test="total != null">
+        total,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="warecolor != null">
+        #{warecolor,jdbcType=CHAR},
+      </if>
+      <if test="waresize != null">
+        #{waresize,jdbcType=CHAR},
+      </if>
+      <if test="flag2 != null">
+        #{flag2,jdbcType=INTEGER},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

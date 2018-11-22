@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Extpropcheck2Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Extpropcheck2">
+    <result column="ExtPropID" jdbcType="INTEGER" property="extpropid" />
+    <result column="repExtPropID" jdbcType="INTEGER" property="repextpropid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Extpropcheck2">
+    insert into extpropcheck2 (ExtPropID, repExtPropID)
+    values (#{extpropid,jdbcType=INTEGER}, #{repextpropid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Extpropcheck2">
+    insert into extpropcheck2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="extpropid != null">
+        ExtPropID,
+      </if>
+      <if test="repextpropid != null">
+        repExtPropID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="extpropid != null">
+        #{extpropid,jdbcType=INTEGER},
+      </if>
+      <if test="repextpropid != null">
+        #{repextpropid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

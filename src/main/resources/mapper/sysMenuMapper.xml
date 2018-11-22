@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zgmall.mapper.consoledb.SysMenuMapper">
+    <select id="selectMenuRole" resultType="java.util.HashMap" parameterType="string">
+         SELECT m.*,m1.menu_name parentName FROM sys_menu_role mr
+         LEFT JOIN sys_menu m  ON  m.uuid=mr.menu_id
+         LEFT JOIN sys_menu m1  ON  m.parent_id=m1.uuid
+         LEFT JOIN  sys_role r   ON mr.role_id=r.uuid
+         WHERE  r.uuid=#{roleId}
+    </select>
+    <select id="selectMenuAndParent" parameterType="com.zgmall.model.SysMenu" resultType="java.util.HashMap">
+        SELECT m.*,m1.menu_name parentName FROM sys_menu m LEFT JOIN sys_menu m1 ON m.parent_id=m1.uuid
+        <where>
+            <if test="menuName!=null and menuName!=''">
+                  m.menu_name like "%"#{menuName}"%"
+            </if>
+            <if test="parentId!=null and parentId!=''">
+                AND  m.parent_id =#{parentId}
+            </if>
+            <if test="menuType!=null">
+                AND  m.menu_type =${menuType}
+            </if>
+        </where>
+        ORDER BY m.menu_order IS NULL,m.menu_order,m.menu_type ASC,TIME DESC
+    </select>
+    <select id="selectParentMenu" parameterType="com.zgmall.model.SysMenu" resultType="com.zgmall.model.SysMenu">
+        SELECT  menu_name menuName,uuid, parent_id parentId,menu_type menuType FROM sys_menu
+        <where>
+            <if test="menuType==0"> menu_type=0 </if>
+            <if test="menuType==1"> menu_type=0 </if>
+            <if test="menuType==2"> menu_type=1 </if>
+            <if test="parentId!='' and parentId!=null"> parent_id =#{parentId} </if>
+        </where>
+    </select>
+    <select id="selectUserPerms" parameterType="string" resultType="com.zgmall.model.SysMenu">
+        SELECT * FROM sys_menu
+        WHERE uuid
+        IN(
+        SELECT  mr.menu_id FROM sys_menu_role  mr RIGHT JOIN sys_role r ON mr.role_id=r.uuid
+        WHERE r.uuid
+        IN (
+        SELECT ur.role_id FROM sys_user_role ur RIGHT JOIN sys_user u ON u.uuid=ur.user_id
+        <where>
+            <if test="_parameter !=''">
+                u.uuid=#{_parameter }
+            </if>
+        </where>
+        )
+        )
+    </select>
+</mapper>

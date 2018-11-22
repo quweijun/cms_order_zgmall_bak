@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SystemsinglemessageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Systemsinglemessage">
+    <result column="MsgID" jdbcType="INTEGER" property="msgid" />
+    <result column="customerid" jdbcType="CHAR" property="customerid" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="isread" jdbcType="INTEGER" property="isread" />
+    <result column="readtime" jdbcType="TIMESTAMP" property="readtime" />
+    <result column="islock" jdbcType="INTEGER" property="islock" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Systemsinglemessage">
+    insert into systemsinglemessage (MsgID, customerid, type, 
+      productid, title, content, 
+      mobile, addTime, isread, 
+      readtime, islock)
+    values (#{msgid,jdbcType=INTEGER}, #{customerid,jdbcType=CHAR}, #{type,jdbcType=INTEGER}, 
+      #{productid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{isread,jdbcType=INTEGER}, 
+      #{readtime,jdbcType=TIMESTAMP}, #{islock,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Systemsinglemessage">
+    insert into systemsinglemessage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgid != null">
+        MsgID,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="readtime != null">
+        readtime,
+      </if>
+      <if test="islock != null">
+        islock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgid != null">
+        #{msgid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=CHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="readtime != null">
+        #{readtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

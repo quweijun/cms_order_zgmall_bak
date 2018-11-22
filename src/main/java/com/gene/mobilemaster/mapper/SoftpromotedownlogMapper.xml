@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SoftpromotedownlogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Softpromotedownlog">
+    <result column="SoftID" jdbcType="VARCHAR" property="softid" />
+    <result column="SnCode" jdbcType="INTEGER" property="sncode" />
+    <result column="Imei" jdbcType="VARCHAR" property="imei" />
+    <result column="ReportTime" jdbcType="TIMESTAMP" property="reporttime" />
+    <result column="ReportStatus" jdbcType="VARCHAR" property="reportstatus" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Softpromotedownlog">
+    insert into softpromotedownlog (SoftID, SnCode, Imei, 
+      ReportTime, ReportStatus)
+    values (#{softid,jdbcType=VARCHAR}, #{sncode,jdbcType=INTEGER}, #{imei,jdbcType=VARCHAR}, 
+      #{reporttime,jdbcType=TIMESTAMP}, #{reportstatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Softpromotedownlog">
+    insert into softpromotedownlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="softid != null">
+        SoftID,
+      </if>
+      <if test="sncode != null">
+        SnCode,
+      </if>
+      <if test="imei != null">
+        Imei,
+      </if>
+      <if test="reporttime != null">
+        ReportTime,
+      </if>
+      <if test="reportstatus != null">
+        ReportStatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="softid != null">
+        #{softid,jdbcType=VARCHAR},
+      </if>
+      <if test="sncode != null">
+        #{sncode,jdbcType=INTEGER},
+      </if>
+      <if test="imei != null">
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="reporttime != null">
+        #{reporttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reportstatus != null">
+        #{reportstatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

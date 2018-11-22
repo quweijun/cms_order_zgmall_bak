@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ware_recordsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ware_records">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="barcodeid" jdbcType="INTEGER" property="barcodeid" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="caozuo" jdbcType="VARCHAR" property="caozuo" />
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ware_records">
+    insert into ware_records (ID, barcodeid, editor, 
+      caozuo, beizhu, addtime
+      )
+    values (#{id,jdbcType=INTEGER}, #{barcodeid,jdbcType=INTEGER}, #{editor,jdbcType=VARCHAR}, 
+      #{caozuo,jdbcType=VARCHAR}, #{beizhu,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ware_records">
+    insert into ware_records
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="caozuo != null">
+        caozuo,
+      </if>
+      <if test="beizhu != null">
+        beizhu,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=INTEGER},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="caozuo != null">
+        #{caozuo,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null">
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

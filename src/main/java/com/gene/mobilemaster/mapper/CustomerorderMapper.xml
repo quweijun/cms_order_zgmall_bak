@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CustomerorderMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customerorder">
+    <result column="customerid" jdbcType="BIGINT" property="customerid" />
+    <result column="customername" jdbcType="VARCHAR" property="customername" />
+    <result column="customermobile" jdbcType="VARCHAR" property="customermobile" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="allccurency" jdbcType="DOUBLE" property="allccurency" />
+    <result column="giftamount" jdbcType="DOUBLE" property="giftamount" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="logintimes" jdbcType="INTEGER" property="logintimes" />
+    <result column="ljjf" jdbcType="INTEGER" property="ljjf" />
+    <result column="dqjf" jdbcType="INTEGER" property="dqjf" />
+    <result column="doneOrder" jdbcType="INTEGER" property="doneorder" />
+    <result column="doneMoney" jdbcType="DOUBLE" property="donemoney" />
+    <result column="rejectOrder" jdbcType="INTEGER" property="rejectorder" />
+    <result column="rejectMoney" jdbcType="INTEGER" property="rejectmoney" />
+    <result column="doneScore" jdbcType="INTEGER" property="donescore" />
+    <result column="rejectScore" jdbcType="INTEGER" property="rejectscore" />
+    <result column="theoryLoginScore" jdbcType="DOUBLE" property="theoryloginscore" />
+    <result column="theoryDqjf" jdbcType="DOUBLE" property="theorydqjf" />
+    <result column="Differenc" jdbcType="DOUBLE" property="differenc" />
+    <result column="fen" jdbcType="INTEGER" property="fen" />
+    <result column="chazhi" jdbcType="INTEGER" property="chazhi" />
+    <result column="oneScore" jdbcType="INTEGER" property="onescore" />
+    <result column="RejectScore" jdbcType="INTEGER" property="rejectscore" />
+    <result column="beforelastsixDoneScore" jdbcType="INTEGER" property="beforelastsixdonescore" />
+    <result column="beforelastsixRejectScore" jdbcType="INTEGER" property="beforelastsixrejectscore" />
+    <result column="lastallyearDoneScore" jdbcType="INTEGER" property="lastallyeardonescore" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customerorder">
+    insert into customerorder (customerid, customername, customermobile, 
+      address, allccurency, giftamount, 
+      registertime, logintimes, ljjf, 
+      dqjf, doneOrder, doneMoney, 
+      rejectOrder, rejectMoney, doneScore, 
+      rejectScore, theoryLoginScore, theoryDqjf, 
+      Differenc, fen, chazhi, 
+      oneScore, RejectScore, beforelastsixDoneScore,
+      beforelastsixRejectScore, lastallyearDoneScore
+      )
+    values (#{customerid,jdbcType=BIGINT}, #{customername,jdbcType=VARCHAR}, #{customermobile,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{allccurency,jdbcType=DOUBLE}, #{giftamount,jdbcType=DOUBLE}, 
+      #{registertime,jdbcType=TIMESTAMP}, #{logintimes,jdbcType=INTEGER}, #{ljjf,jdbcType=INTEGER}, 
+      #{dqjf,jdbcType=INTEGER}, #{doneorder,jdbcType=INTEGER}, #{donemoney,jdbcType=DOUBLE}, 
+      #{rejectorder,jdbcType=INTEGER}, #{rejectmoney,jdbcType=INTEGER}, #{donescore,jdbcType=INTEGER}, 
+      #{rejectscore,jdbcType=INTEGER}, #{theoryloginscore,jdbcType=DOUBLE}, #{theorydqjf,jdbcType=DOUBLE}, 
+      #{differenc,jdbcType=DOUBLE}, #{fen,jdbcType=INTEGER}, #{chazhi,jdbcType=INTEGER}, 
+      #{onescore,jdbcType=INTEGER}, #{rejectscore,jdbcType=INTEGER}, #{beforelastsixdonescore,jdbcType=INTEGER},
+      #{beforelastsixrejectscore,jdbcType=INTEGER}, #{lastallyeardonescore,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customerorder">
+    insert into customerorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="customername != null">
+        customername,
+      </if>
+      <if test="customermobile != null">
+        customermobile,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="allccurency != null">
+        allccurency,
+      </if>
+      <if test="giftamount != null">
+        giftamount,
+      </if>
+      <if test="registertime != null">
+        registertime,
+      </if>
+      <if test="logintimes != null">
+        logintimes,
+      </if>
+      <if test="ljjf != null">
+        ljjf,
+      </if>
+      <if test="dqjf != null">
+        dqjf,
+      </if>
+      <if test="doneorder != null">
+        doneOrder,
+      </if>
+      <if test="donemoney != null">
+        doneMoney,
+      </if>
+      <if test="rejectorder != null">
+        rejectOrder,
+      </if>
+      <if test="rejectmoney != null">
+        rejectMoney,
+      </if>
+      <if test="donescore != null">
+        doneScore,
+      </if>
+      <if test="rejectscore != null">
+        rejectScore,
+      </if>
+      <if test="theoryloginscore != null">
+        theoryLoginScore,
+      </if>
+      <if test="theorydqjf != null">
+        theoryDqjf,
+      </if>
+      <if test="differenc != null">
+        Differenc,
+      </if>
+      <if test="fen != null">
+        fen,
+      </if>
+      <if test="chazhi != null">
+        chazhi,
+      </if>
+      <if test="onescore != null">
+        oneScore,
+      </if>
+      <if test="rejectscore != null">
+        RejectScore,
+      </if>
+      <if test="beforelastsixdonescore != null">
+        beforelastsixDoneScore,
+      </if>
+      <if test="beforelastsixrejectscore != null">
+        beforelastsixRejectScore,
+      </if>
+      <if test="lastallyeardonescore != null">
+        lastallyearDoneScore,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="customermobile != null">
+        #{customermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="allccurency != null">
+        #{allccurency,jdbcType=DOUBLE},
+      </if>
+      <if test="giftamount != null">
+        #{giftamount,jdbcType=DOUBLE},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logintimes != null">
+        #{logintimes,jdbcType=INTEGER},
+      </if>
+      <if test="ljjf != null">
+        #{ljjf,jdbcType=INTEGER},
+      </if>
+      <if test="dqjf != null">
+        #{dqjf,jdbcType=INTEGER},
+      </if>
+      <if test="doneorder != null">
+        #{doneorder,jdbcType=INTEGER},
+      </if>
+      <if test="donemoney != null">
+        #{donemoney,jdbcType=DOUBLE},
+      </if>
+      <if test="rejectorder != null">
+        #{rejectorder,jdbcType=INTEGER},
+      </if>
+      <if test="rejectmoney != null">
+        #{rejectmoney,jdbcType=INTEGER},
+      </if>
+      <if test="donescore != null">
+        #{donescore,jdbcType=INTEGER},
+      </if>
+      <if test="rejectscore != null">
+        #{rejectscore,jdbcType=INTEGER},
+      </if>
+      <if test="theoryloginscore != null">
+        #{theoryloginscore,jdbcType=DOUBLE},
+      </if>
+      <if test="theorydqjf != null">
+        #{theorydqjf,jdbcType=DOUBLE},
+      </if>
+      <if test="differenc != null">
+        #{differenc,jdbcType=DOUBLE},
+      </if>
+      <if test="fen != null">
+        #{fen,jdbcType=INTEGER},
+      </if>
+      <if test="chazhi != null">
+        #{chazhi,jdbcType=INTEGER},
+      </if>
+      <if test="onescore != null">
+        #{onescore,jdbcType=INTEGER},
+      </if>
+      <if test="rejectscore != null">
+        #{rejectscore,jdbcType=INTEGER},
+      </if>
+      <if test="beforelastsixdonescore != null">
+        #{beforelastsixdonescore,jdbcType=INTEGER},
+      </if>
+      <if test="beforelastsixrejectscore != null">
+        #{beforelastsixrejectscore,jdbcType=INTEGER},
+      </if>
+      <if test="lastallyeardonescore != null">
+        #{lastallyeardonescore,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

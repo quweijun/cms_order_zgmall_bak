@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModuleyzysMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Moduleyzys">
+    <result column="yzysid" jdbcType="INTEGER" property="yzysid" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="updatedate" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="QuickCfgStrList" jdbcType="VARCHAR" property="quickcfgstrlist" />
+    <result column="yzbqlx" jdbcType="VARCHAR" property="yzbqlx" />
+    <result column="syfw" jdbcType="VARCHAR" property="syfw" />
+    <result column="enableflag" jdbcType="VARCHAR" property="enableflag" />
+    <result column="adduser" jdbcType="VARCHAR" property="adduser" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Moduleyzys">
+    insert into moduleyzys (yzysid, name, content, 
+      addtime, updatedate, QuickCfgStrList, 
+      yzbqlx, syfw, enableflag, 
+      adduser)
+    values (#{yzysid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, #{quickcfgstrlist,jdbcType=VARCHAR}, 
+      #{yzbqlx,jdbcType=VARCHAR}, #{syfw,jdbcType=VARCHAR}, #{enableflag,jdbcType=VARCHAR}, 
+      #{adduser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Moduleyzys">
+    insert into moduleyzys
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="yzysid != null">
+        yzysid,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="updatedate != null">
+        updatedate,
+      </if>
+      <if test="quickcfgstrlist != null">
+        QuickCfgStrList,
+      </if>
+      <if test="yzbqlx != null">
+        yzbqlx,
+      </if>
+      <if test="syfw != null">
+        syfw,
+      </if>
+      <if test="enableflag != null">
+        enableflag,
+      </if>
+      <if test="adduser != null">
+        adduser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="yzysid != null">
+        #{yzysid,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="quickcfgstrlist != null">
+        #{quickcfgstrlist,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbqlx != null">
+        #{yzbqlx,jdbcType=VARCHAR},
+      </if>
+      <if test="syfw != null">
+        #{syfw,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

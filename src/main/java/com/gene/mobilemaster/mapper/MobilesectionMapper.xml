@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.MobilesectionMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Mobilesection">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="sections" jdbcType="VARCHAR" property="sections" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Mobilesection">
+    insert into mobilesection (flowid, sections, editor, 
+      flag, addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{sections,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Mobilesection">
+    insert into mobilesection
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="sections != null">
+        sections,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="sections != null">
+        #{sections,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

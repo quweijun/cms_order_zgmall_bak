@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ProdtypeflblMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Prodtypeflbl">
+    <result column="BigType" jdbcType="INTEGER" property="bigtype" />
+    <result column="SmallType" jdbcType="INTEGER" property="smalltype" />
+    <result column="ProdFLBL" jdbcType="DOUBLE" property="prodflbl" />
+    <result column="ProdFCSX" jdbcType="DOUBLE" property="prodfcsx" />
+    <result column="ThreeProdFLBL" jdbcType="DOUBLE" property="threeprodflbl" />
+    <result column="ThreeProdFCSX" jdbcType="DOUBLE" property="threeprodfcsx" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Prodtypeflbl">
+    insert into prodtypeflbl (BigType, SmallType, ProdFLBL, 
+      ProdFCSX, ThreeProdFLBL, ThreeProdFCSX
+      )
+    values (#{bigtype,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, #{prodflbl,jdbcType=DOUBLE}, 
+      #{prodfcsx,jdbcType=DOUBLE}, #{threeprodflbl,jdbcType=DOUBLE}, #{threeprodfcsx,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Prodtypeflbl">
+    insert into prodtypeflbl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bigtype != null">
+        BigType,
+      </if>
+      <if test="smalltype != null">
+        SmallType,
+      </if>
+      <if test="prodflbl != null">
+        ProdFLBL,
+      </if>
+      <if test="prodfcsx != null">
+        ProdFCSX,
+      </if>
+      <if test="threeprodflbl != null">
+        ThreeProdFLBL,
+      </if>
+      <if test="threeprodfcsx != null">
+        ThreeProdFCSX,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="prodflbl != null">
+        #{prodflbl,jdbcType=DOUBLE},
+      </if>
+      <if test="prodfcsx != null">
+        #{prodfcsx,jdbcType=DOUBLE},
+      </if>
+      <if test="threeprodflbl != null">
+        #{threeprodflbl,jdbcType=DOUBLE},
+      </if>
+      <if test="threeprodfcsx != null">
+        #{threeprodfcsx,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

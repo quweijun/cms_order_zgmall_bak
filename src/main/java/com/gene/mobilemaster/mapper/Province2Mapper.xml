@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Province2Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Province2">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="shengname" jdbcType="VARCHAR" property="shengname" />
+    <result column="shengNo" jdbcType="VARCHAR" property="shengno" />
+    <result column="shengorder" jdbcType="INTEGER" property="shengorder" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Province2">
+    insert into province2 (id, shengname, shengNo, 
+      shengorder)
+    values (#{id,jdbcType=INTEGER}, #{shengname,jdbcType=VARCHAR}, #{shengno,jdbcType=VARCHAR}, 
+      #{shengorder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Province2">
+    insert into province2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="shengname != null">
+        shengname,
+      </if>
+      <if test="shengno != null">
+        shengNo,
+      </if>
+      <if test="shengorder != null">
+        shengorder,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shengname != null">
+        #{shengname,jdbcType=VARCHAR},
+      </if>
+      <if test="shengno != null">
+        #{shengno,jdbcType=VARCHAR},
+      </if>
+      <if test="shengorder != null">
+        #{shengorder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

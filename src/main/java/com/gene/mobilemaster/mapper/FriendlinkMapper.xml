@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.FriendlinkMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Friendlink">
+    <result column="Countdate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="SiteFlag" jdbcType="VARCHAR" property="siteflag" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="shortname" jdbcType="VARCHAR" property="shortname" />
+    <result column="bottom" jdbcType="INTEGER" property="bottom" />
+    <result column="realincount" jdbcType="BIGINT" property="realincount" />
+    <result column="uptime" jdbcType="TIMESTAMP" property="uptime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Friendlink">
+    insert into friendlink (Countdate, SiteFlag, channelid, 
+      shortname, bottom, realincount, 
+      uptime)
+    values (#{countdate,jdbcType=TIMESTAMP}, #{siteflag,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, 
+      #{shortname,jdbcType=VARCHAR}, #{bottom,jdbcType=INTEGER}, #{realincount,jdbcType=BIGINT}, 
+      #{uptime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Friendlink">
+    insert into friendlink
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        Countdate,
+      </if>
+      <if test="siteflag != null">
+        SiteFlag,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="shortname != null">
+        shortname,
+      </if>
+      <if test="bottom != null">
+        bottom,
+      </if>
+      <if test="realincount != null">
+        realincount,
+      </if>
+      <if test="uptime != null">
+        uptime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="siteflag != null">
+        #{siteflag,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="bottom != null">
+        #{bottom,jdbcType=INTEGER},
+      </if>
+      <if test="realincount != null">
+        #{realincount,jdbcType=BIGINT},
+      </if>
+      <if test="uptime != null">
+        #{uptime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ems_expressidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ems_expressid">
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ems_expressid">
+    insert into ems_expressid (expressid)
+    values (#{expressid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ems_expressid">
+    insert into ems_expressid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="expressid != null">
+        expressid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

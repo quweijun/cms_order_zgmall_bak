@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ArealistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Arealist">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="sheng_jp" jdbcType="CHAR" property="shengJp" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="shi_jp" jdbcType="CHAR" property="shiJp" />
+    <result column="qu" jdbcType="VARCHAR" property="qu" />
+    <result column="qu_jp" jdbcType="CHAR" property="quJp" />
+    <result column="code" jdbcType="CHAR" property="code" />
+    <result column="class" jdbcType="INTEGER" property="class" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Arealist">
+    insert into arealist (ID, sheng, sheng_jp, 
+      shi, shi_jp, qu, qu_jp, 
+      code, class)
+    values (#{id,jdbcType=INTEGER}, #{sheng,jdbcType=VARCHAR}, #{shengJp,jdbcType=CHAR}, 
+      #{shi,jdbcType=VARCHAR}, #{shiJp,jdbcType=CHAR}, #{qu,jdbcType=VARCHAR}, #{quJp,jdbcType=CHAR}, 
+      #{code,jdbcType=CHAR}, #{class,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Arealist">
+    insert into arealist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shengJp != null">
+        sheng_jp,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="shiJp != null">
+        shi_jp,
+      </if>
+      <if test="qu != null">
+        qu,
+      </if>
+      <if test="quJp != null">
+        qu_jp,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="class != null">
+        class,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shengJp != null">
+        #{shengJp,jdbcType=CHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="shiJp != null">
+        #{shiJp,jdbcType=CHAR},
+      </if>
+      <if test="qu != null">
+        #{qu,jdbcType=VARCHAR},
+      </if>
+      <if test="quJp != null">
+        #{quJp,jdbcType=CHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=CHAR},
+      </if>
+      <if test="class != null">
+        #{class,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

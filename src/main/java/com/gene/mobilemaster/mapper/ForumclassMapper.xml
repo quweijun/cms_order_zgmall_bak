@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ForumclassMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Forumclass">
+    <result column="classid" jdbcType="INTEGER" property="classid" />
+    <result column="className" jdbcType="VARCHAR" property="classname" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="isquestion" jdbcType="INTEGER" property="isquestion" />
+    <result column="islogin" jdbcType="INTEGER" property="islogin" />
+    <result column="member_grade" jdbcType="INTEGER" property="memberGrade" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Forumclass">
+    insert into forumclass (classid, className, creater, 
+      addDate, isquestion, islogin, 
+      member_grade)
+    values (#{classid,jdbcType=INTEGER}, #{classname,jdbcType=VARCHAR}, #{creater,jdbcType=VARCHAR}, 
+      #{adddate,jdbcType=TIMESTAMP}, #{isquestion,jdbcType=INTEGER}, #{islogin,jdbcType=INTEGER}, 
+      #{memberGrade,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Forumclass">
+    insert into forumclass
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="classname != null">
+        className,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+      <if test="isquestion != null">
+        isquestion,
+      </if>
+      <if test="islogin != null">
+        islogin,
+      </if>
+      <if test="memberGrade != null">
+        member_grade,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="classname != null">
+        #{classname,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isquestion != null">
+        #{isquestion,jdbcType=INTEGER},
+      </if>
+      <if test="islogin != null">
+        #{islogin,jdbcType=INTEGER},
+      </if>
+      <if test="memberGrade != null">
+        #{memberGrade,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

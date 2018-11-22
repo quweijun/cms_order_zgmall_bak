@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sms_trackingMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sms_tracking">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="zddh" jdbcType="CHAR" property="zddh" />
+    <result column="mddh" jdbcType="CHAR" property="mddh" />
+    <result column="mddh2" jdbcType="CHAR" property="mddh2" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="SmsDirect" jdbcType="VARCHAR" property="smsdirect" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="issuc" jdbcType="INTEGER" property="issuc" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="sendtime" jdbcType="TIMESTAMP" property="sendtime" />
+    <result column="replytime" jdbcType="TIMESTAMP" property="replytime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sms_tracking">
+    insert into sms_tracking (flowid, zddh, mddh, 
+      mddh2, orderid, productid, 
+      SmsDirect, customerid, mobile, 
+      content, issuc, editor, 
+      sendtime, replytime)
+    values (#{flowid,jdbcType=BIGINT}, #{zddh,jdbcType=CHAR}, #{mddh,jdbcType=CHAR}, 
+      #{mddh2,jdbcType=CHAR}, #{orderid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{smsdirect,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{issuc,jdbcType=INTEGER}, #{editor,jdbcType=VARCHAR}, 
+      #{sendtime,jdbcType=TIMESTAMP}, #{replytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sms_tracking">
+    insert into sms_tracking
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="mddh2 != null">
+        mddh2,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="smsdirect != null">
+        SmsDirect,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="issuc != null">
+        issuc,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="sendtime != null">
+        sendtime,
+      </if>
+      <if test="replytime != null">
+        replytime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="zddh != null">
+        #{zddh,jdbcType=CHAR},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=CHAR},
+      </if>
+      <if test="mddh2 != null">
+        #{mddh2,jdbcType=CHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsdirect != null">
+        #{smsdirect,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="issuc != null">
+        #{issuc,jdbcType=INTEGER},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null">
+        #{sendtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="replytime != null">
+        #{replytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

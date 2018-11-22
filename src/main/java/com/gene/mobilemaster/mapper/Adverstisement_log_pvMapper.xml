@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Adverstisement_log_pvMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Adverstisement_log_pv">
+    <result column="id" jdbcType="DOUBLE" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="adtype" jdbcType="INTEGER" property="adtype" />
+    <result column="kidLocation" jdbcType="INTEGER" property="kidlocation" />
+    <result column="subchannel" jdbcType="INTEGER" property="subchannel" />
+    <result column="VisitCount" jdbcType="INTEGER" property="visitcount" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Adverstisement_log_pv">
+    insert into adverstisement_log_pv (id, title, adtype, 
+      kidLocation, subchannel, VisitCount, 
+      addtime)
+    values (#{id,jdbcType=DOUBLE}, #{title,jdbcType=VARCHAR}, #{adtype,jdbcType=INTEGER}, 
+      #{kidlocation,jdbcType=INTEGER}, #{subchannel,jdbcType=INTEGER}, #{visitcount,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Adverstisement_log_pv">
+    insert into adverstisement_log_pv
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="adtype != null">
+        adtype,
+      </if>
+      <if test="kidlocation != null">
+        kidLocation,
+      </if>
+      <if test="subchannel != null">
+        subchannel,
+      </if>
+      <if test="visitcount != null">
+        VisitCount,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DOUBLE},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="adtype != null">
+        #{adtype,jdbcType=INTEGER},
+      </if>
+      <if test="kidlocation != null">
+        #{kidlocation,jdbcType=INTEGER},
+      </if>
+      <if test="subchannel != null">
+        #{subchannel,jdbcType=INTEGER},
+      </if>
+      <if test="visitcount != null">
+        #{visitcount,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

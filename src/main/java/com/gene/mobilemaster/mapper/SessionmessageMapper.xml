@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SessionmessageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sessionmessage">
+    <result column="SessionID" jdbcType="VARCHAR" property="sessionid" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="Content" jdbcType="VARCHAR" property="content" />
+    <result column="MapMsgID" jdbcType="INTEGER" property="mapmsgid" />
+    <result column="MapForumID" jdbcType="INTEGER" property="mapforumid" />
+    <result column="MapForumReplyID" jdbcType="INTEGER" property="mapforumreplyid" />
+    <result column="ClearFlag" jdbcType="INTEGER" property="clearflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sessionmessage">
+    insert into sessionmessage (SessionID, AddTime, Content, 
+      MapMsgID, MapForumID, MapForumReplyID, 
+      ClearFlag)
+    values (#{sessionid,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, 
+      #{mapmsgid,jdbcType=INTEGER}, #{mapforumid,jdbcType=INTEGER}, #{mapforumreplyid,jdbcType=INTEGER}, 
+      #{clearflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sessionmessage">
+    insert into sessionmessage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        SessionID,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="content != null">
+        Content,
+      </if>
+      <if test="mapmsgid != null">
+        MapMsgID,
+      </if>
+      <if test="mapforumid != null">
+        MapForumID,
+      </if>
+      <if test="mapforumreplyid != null">
+        MapForumReplyID,
+      </if>
+      <if test="clearflag != null">
+        ClearFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="mapmsgid != null">
+        #{mapmsgid,jdbcType=INTEGER},
+      </if>
+      <if test="mapforumid != null">
+        #{mapforumid,jdbcType=INTEGER},
+      </if>
+      <if test="mapforumreplyid != null">
+        #{mapforumreplyid,jdbcType=INTEGER},
+      </if>
+      <if test="clearflag != null">
+        #{clearflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

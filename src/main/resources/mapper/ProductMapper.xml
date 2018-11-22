@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zgmall.mapper.businessdb.product.JDProductLibMapper">
+    <select id="query"  resultType="com.zgmall.model.product.JDProductLib">
+        SELECT *
+        FROM jd_productlib s
+        <where>
+            <if test="searchbrand != null and searchbrand!=''">
+                s.brand = #{searchbrand}
+            </if>
+            <if test="searchword != null and searchword!=''">
+                AND s.cpname like "%"#{searchword}"%"
+            </if>
+            <!--s.brand = #{searchbrand}  AND  s.cpname LIKE "%"#{searchword}"%"-->
+        </where>
+        order by id ASC
+    </select>
+
+    <select id="queryByObj" parameterType="com.zgmall.vo.ProductVo" resultType="com.zgmall.model.product.JDProductLib">
+        SELECT *
+        FROM jd_productlib s
+        <where>
+            <if test="searchbrand != null and searchbrand!=''">
+                s.brand = #{searchbrand}
+            </if>
+            <if test="searchword != null and searchword!=''">
+                AND s.cpname like "%"#{searchword}"%"
+            </if>
+            <if test="flbh!= null and flbh!=''">   AND s.flbh = #{flbh} </if>
+            <if test="cpid!= null and cpid!=''">   AND s.cpid = #{cpid} </if>
+            <if test="brand!= null and brand!=''">   AND s.brand = #{brand} </if>
+            <if test="brandid!= null and brandid!=''">   AND s.brandid = #{brandid} </if>
+            <if test="enableflag!= null and enableflag!=''">   AND s.enableflag = #{enableflag} </if>
+            <if test="zgflc1!= null and zgflc1!=''">   AND s.zgflc1 = #{zgflc1} </if>
+            <if test="zgflc2!= null and zgflc2!=''">   AND s.zgflc2 = #{zgflc2} </if>
+            <if test="zgflc3!= null and zgflc3!=''">   AND s.zgflc3 = #{zgflc3} </if>
+        </where>
+        order by id ASC
+    </select>
+    <select id="zgfl" resultType="java.util.HashMap">
+        <if test="fllevel==1">
+            select id as value,typename as label,0 as parentid from bigtype  order by id ASC
+        </if>
+        <if test="fllevel==2">
+            select id as value,typename as label,bigid as parentid  from smalltype
+            <where>
+                <if test="parentid != null and parentid!=0">
+                      bigid=#{parentid}
+                </if>
+            </where>
+            order by id ASC
+        </if>
+        <if test="fllevel==3">
+            select  id as value,typename as label,smallid as parentid  from subclass  order by id ASC
+            <where>
+                <if test="parentid != null and parentid!=0">
+                    smallid=#{parentid}
+                </if>
+            </where>
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SoftpromoteMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Softpromote">
+    <result column="softid" jdbcType="BIGINT" property="softid" />
+    <result column="up_type" jdbcType="VARCHAR" property="upType" />
+    <result column="catalog" jdbcType="VARCHAR" property="catalog" />
+    <result column="soft_name" jdbcType="VARCHAR" property="softName" />
+    <result column="soft_desc" jdbcType="VARCHAR" property="softDesc" />
+    <result column="soft_image" jdbcType="VARCHAR" property="softImage" />
+    <result column="down_url" jdbcType="VARCHAR" property="downUrl" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="isEnable" jdbcType="INTEGER" property="isenable" />
+    <result column="adddate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="down_size" jdbcType="VARCHAR" property="downSize" />
+    <result column="reporturl" jdbcType="VARCHAR" property="reporturl" />
+    <result column="downloadCounts" jdbcType="BIGINT" property="downloadcounts" />
+    <result column="softType" jdbcType="VARCHAR" property="softtype" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Softpromote">
+    insert into softpromote (softid, up_type, catalog, 
+      soft_name, soft_desc, soft_image, 
+      down_url, version, isEnable, 
+      adddate, down_size, reporturl, 
+      downloadCounts, softType, channelid
+      )
+    values (#{softid,jdbcType=BIGINT}, #{upType,jdbcType=VARCHAR}, #{catalog,jdbcType=VARCHAR}, 
+      #{softName,jdbcType=VARCHAR}, #{softDesc,jdbcType=VARCHAR}, #{softImage,jdbcType=VARCHAR}, 
+      #{downUrl,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{isenable,jdbcType=INTEGER}, 
+      #{adddate,jdbcType=TIMESTAMP}, #{downSize,jdbcType=VARCHAR}, #{reporturl,jdbcType=VARCHAR}, 
+      #{downloadcounts,jdbcType=BIGINT}, #{softtype,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Softpromote">
+    insert into softpromote
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="softid != null">
+        softid,
+      </if>
+      <if test="upType != null">
+        up_type,
+      </if>
+      <if test="catalog != null">
+        catalog,
+      </if>
+      <if test="softName != null">
+        soft_name,
+      </if>
+      <if test="softDesc != null">
+        soft_desc,
+      </if>
+      <if test="softImage != null">
+        soft_image,
+      </if>
+      <if test="downUrl != null">
+        down_url,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="isenable != null">
+        isEnable,
+      </if>
+      <if test="adddate != null">
+        adddate,
+      </if>
+      <if test="downSize != null">
+        down_size,
+      </if>
+      <if test="reporturl != null">
+        reporturl,
+      </if>
+      <if test="downloadcounts != null">
+        downloadCounts,
+      </if>
+      <if test="softtype != null">
+        softType,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="softid != null">
+        #{softid,jdbcType=BIGINT},
+      </if>
+      <if test="upType != null">
+        #{upType,jdbcType=VARCHAR},
+      </if>
+      <if test="catalog != null">
+        #{catalog,jdbcType=VARCHAR},
+      </if>
+      <if test="softName != null">
+        #{softName,jdbcType=VARCHAR},
+      </if>
+      <if test="softDesc != null">
+        #{softDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="softImage != null">
+        #{softImage,jdbcType=VARCHAR},
+      </if>
+      <if test="downUrl != null">
+        #{downUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="isenable != null">
+        #{isenable,jdbcType=INTEGER},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downSize != null">
+        #{downSize,jdbcType=VARCHAR},
+      </if>
+      <if test="reporturl != null">
+        #{reporturl,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadcounts != null">
+        #{downloadcounts,jdbcType=BIGINT},
+      </if>
+      <if test="softtype != null">
+        #{softtype,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

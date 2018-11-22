@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OrdertrackingcfgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ordertrackingcfg">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="EarlyType" jdbcType="VARCHAR" property="earlytype" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="MoreThanDate" jdbcType="INTEGER" property="morethandate" />
+    <result column="LessThanDate" jdbcType="INTEGER" property="lessthandate" />
+    <result column="DateHour" jdbcType="INTEGER" property="datehour" />
+    <result column="BZ" jdbcType="INTEGER" property="bz" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ordertrackingcfg">
+    insert into ordertrackingcfg (id, EarlyType, Description, 
+      MoreThanDate, LessThanDate, DateHour, 
+      BZ)
+    values (#{id,jdbcType=INTEGER}, #{earlytype,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{morethandate,jdbcType=INTEGER}, #{lessthandate,jdbcType=INTEGER}, #{datehour,jdbcType=INTEGER}, 
+      #{bz,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ordertrackingcfg">
+    insert into ordertrackingcfg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="earlytype != null">
+        EarlyType,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="morethandate != null">
+        MoreThanDate,
+      </if>
+      <if test="lessthandate != null">
+        LessThanDate,
+      </if>
+      <if test="datehour != null">
+        DateHour,
+      </if>
+      <if test="bz != null">
+        BZ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="earlytype != null">
+        #{earlytype,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="morethandate != null">
+        #{morethandate,jdbcType=INTEGER},
+      </if>
+      <if test="lessthandate != null">
+        #{lessthandate,jdbcType=INTEGER},
+      </if>
+      <if test="datehour != null">
+        #{datehour,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

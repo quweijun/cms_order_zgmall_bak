@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UseroutboxMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Useroutbox">
+    <result column="flowId" jdbcType="INTEGER" property="flowid" />
+    <result column="msgNo" jdbcType="VARCHAR" property="msgno" />
+    <result column="replyNo" jdbcType="VARCHAR" property="replyno" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="getter" jdbcType="VARCHAR" property="getter" />
+    <result column="classid" jdbcType="INTEGER" property="classid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="sendDate" jdbcType="TIMESTAMP" property="senddate" />
+    <result column="isDraft" jdbcType="INTEGER" property="isdraft" />
+    <result column="isSys" jdbcType="INTEGER" property="issys" />
+    <result column="isShare" jdbcType="INTEGER" property="isshare" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Useroutbox">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Useroutbox">
+    insert into useroutbox (flowId, msgNo, replyNo, 
+      username, getter, classid, 
+      title, sendDate, isDraft, 
+      isSys, isShare, content
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{msgno,jdbcType=VARCHAR}, #{replyno,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{getter,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{senddate,jdbcType=TIMESTAMP}, #{isdraft,jdbcType=INTEGER}, 
+      #{issys,jdbcType=INTEGER}, #{isshare,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Useroutbox">
+    insert into useroutbox
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowId,
+      </if>
+      <if test="msgno != null">
+        msgNo,
+      </if>
+      <if test="replyno != null">
+        replyNo,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="getter != null">
+        getter,
+      </if>
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="senddate != null">
+        sendDate,
+      </if>
+      <if test="isdraft != null">
+        isDraft,
+      </if>
+      <if test="issys != null">
+        isSys,
+      </if>
+      <if test="isshare != null">
+        isShare,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="msgno != null">
+        #{msgno,jdbcType=VARCHAR},
+      </if>
+      <if test="replyno != null">
+        #{replyno,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="getter != null">
+        #{getter,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="senddate != null">
+        #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdraft != null">
+        #{isdraft,jdbcType=INTEGER},
+      </if>
+      <if test="issys != null">
+        #{issys,jdbcType=INTEGER},
+      </if>
+      <if test="isshare != null">
+        #{isshare,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

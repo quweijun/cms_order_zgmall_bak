@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.VerifylogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Verifylog">
+    <result column="ID" jdbcType="BIGINT" property="id" />
+    <result column="VerifyID" jdbcType="VARCHAR" property="verifyid" />
+    <result column="verifyType" jdbcType="VARCHAR" property="verifytype" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="verifier" jdbcType="VARCHAR" property="verifier" />
+    <result column="verifyTime" jdbcType="TIMESTAMP" property="verifytime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Verifylog">
+    insert into verifylog (ID, VerifyID, verifyType, 
+      remark, verifier, verifyTime
+      )
+    values (#{id,jdbcType=BIGINT}, #{verifyid,jdbcType=VARCHAR}, #{verifytype,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{verifier,jdbcType=VARCHAR}, #{verifytime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Verifylog">
+    insert into verifylog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="verifyid != null">
+        VerifyID,
+      </if>
+      <if test="verifytype != null">
+        verifyType,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="verifier != null">
+        verifier,
+      </if>
+      <if test="verifytime != null">
+        verifyTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="verifyid != null">
+        #{verifyid,jdbcType=VARCHAR},
+      </if>
+      <if test="verifytype != null">
+        #{verifytype,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="verifier != null">
+        #{verifier,jdbcType=VARCHAR},
+      </if>
+      <if test="verifytime != null">
+        #{verifytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

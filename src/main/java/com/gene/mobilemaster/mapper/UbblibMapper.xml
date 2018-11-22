@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UbblibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ubblib">
+    <result column="FlowNo" jdbcType="BIGINT" property="flowno" />
+    <result column="Ubbtype" jdbcType="VARCHAR" property="ubbtype" />
+    <result column="UBBName" jdbcType="VARCHAR" property="ubbname" />
+    <result column="UBBCode" jdbcType="VARCHAR" property="ubbcode" />
+    <result column="BzDesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ubblib">
+    insert into ubblib (FlowNo, Ubbtype, UBBName, 
+      UBBCode, BzDesc, EnableFlag, 
+      xh)
+    values (#{flowno,jdbcType=BIGINT}, #{ubbtype,jdbcType=VARCHAR}, #{ubbname,jdbcType=VARCHAR}, 
+      #{ubbcode,jdbcType=VARCHAR}, #{bzdesc,jdbcType=VARCHAR}, #{enableflag,jdbcType=INTEGER}, 
+      #{xh,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ubblib">
+    insert into ubblib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="ubbtype != null">
+        Ubbtype,
+      </if>
+      <if test="ubbname != null">
+        UBBName,
+      </if>
+      <if test="ubbcode != null">
+        UBBCode,
+      </if>
+      <if test="bzdesc != null">
+        BzDesc,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="ubbtype != null">
+        #{ubbtype,jdbcType=VARCHAR},
+      </if>
+      <if test="ubbname != null">
+        #{ubbname,jdbcType=VARCHAR},
+      </if>
+      <if test="ubbcode != null">
+        #{ubbcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

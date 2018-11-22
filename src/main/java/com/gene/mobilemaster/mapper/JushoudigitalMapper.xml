@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.JushoudigitalMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jushoudigital">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="bigtypename" jdbcType="VARCHAR" property="bigtypename" />
+    <result column="smalltypename" jdbcType="VARCHAR" property="smalltypename" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="zaitu1" jdbcType="INTEGER" property="zaitu1" />
+    <result column="zaitu2" jdbcType="INTEGER" property="zaitu2" />
+    <result column="jushou1" jdbcType="INTEGER" property="jushou1" />
+    <result column="jushou2" jdbcType="INTEGER" property="jushou2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jushoudigital">
+    insert into jushoudigital (flowid, bigtypename, smalltypename, 
+      productid, productname, zaitu1, 
+      zaitu2, jushou1, jushou2
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{bigtypename,jdbcType=VARCHAR}, #{smalltypename,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{zaitu1,jdbcType=INTEGER}, 
+      #{zaitu2,jdbcType=INTEGER}, #{jushou1,jdbcType=INTEGER}, #{jushou2,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jushoudigital">
+    insert into jushoudigital
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="bigtypename != null">
+        bigtypename,
+      </if>
+      <if test="smalltypename != null">
+        smalltypename,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="zaitu1 != null">
+        zaitu1,
+      </if>
+      <if test="zaitu2 != null">
+        zaitu2,
+      </if>
+      <if test="jushou1 != null">
+        jushou1,
+      </if>
+      <if test="jushou2 != null">
+        jushou2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="bigtypename != null">
+        #{bigtypename,jdbcType=VARCHAR},
+      </if>
+      <if test="smalltypename != null">
+        #{smalltypename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="zaitu1 != null">
+        #{zaitu1,jdbcType=INTEGER},
+      </if>
+      <if test="zaitu2 != null">
+        #{zaitu2,jdbcType=INTEGER},
+      </if>
+      <if test="jushou1 != null">
+        #{jushou1,jdbcType=INTEGER},
+      </if>
+      <if test="jushou2 != null">
+        #{jushou2,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

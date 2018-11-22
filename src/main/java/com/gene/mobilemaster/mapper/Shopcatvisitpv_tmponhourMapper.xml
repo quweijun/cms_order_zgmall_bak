@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Shopcatvisitpv_tmponhourMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Shopcatvisitpv_tmponhour">
+    <result column="ID" jdbcType="BIGINT" property="id" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="productType" jdbcType="VARCHAR" property="producttype" />
+    <result column="WhereIn" jdbcType="VARCHAR" property="wherein" />
+    <result column="VisitCount" jdbcType="INTEGER" property="visitcount" />
+    <result column="VisitTime" jdbcType="TIMESTAMP" property="visittime" />
+    <result column="VisitHour" jdbcType="INTEGER" property="visithour" />
+    <result column="ChannelId" jdbcType="VARCHAR" property="channelid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Shopcatvisitpv_tmponhour">
+    insert into shopcatvisitpv_tmponhour (ID, productId, productType, 
+      WhereIn, VisitCount, VisitTime, 
+      VisitHour, ChannelId)
+    values (#{id,jdbcType=BIGINT}, #{productid,jdbcType=VARCHAR}, #{producttype,jdbcType=VARCHAR}, 
+      #{wherein,jdbcType=VARCHAR}, #{visitcount,jdbcType=INTEGER}, #{visittime,jdbcType=TIMESTAMP}, 
+      #{visithour,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Shopcatvisitpv_tmponhour">
+    insert into shopcatvisitpv_tmponhour
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="productid != null">
+        productId,
+      </if>
+      <if test="producttype != null">
+        productType,
+      </if>
+      <if test="wherein != null">
+        WhereIn,
+      </if>
+      <if test="visitcount != null">
+        VisitCount,
+      </if>
+      <if test="visittime != null">
+        VisitTime,
+      </if>
+      <if test="visithour != null">
+        VisitHour,
+      </if>
+      <if test="channelid != null">
+        ChannelId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="wherein != null">
+        #{wherein,jdbcType=VARCHAR},
+      </if>
+      <if test="visitcount != null">
+        #{visitcount,jdbcType=INTEGER},
+      </if>
+      <if test="visittime != null">
+        #{visittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visithour != null">
+        #{visithour,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

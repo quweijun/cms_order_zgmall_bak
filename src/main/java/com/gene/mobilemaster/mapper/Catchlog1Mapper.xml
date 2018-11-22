@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Catchlog1Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Catchlog1">
+    <result column="Accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="pstr" jdbcType="VARCHAR" property="pstr" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Catchlog1">
+    insert into catchlog1 (Accesstime, IP, pstr
+      )
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR}, #{pstr,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Catchlog1">
+    insert into catchlog1
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        Accesstime,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="pstr != null">
+        pstr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="pstr != null">
+        #{pstr,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

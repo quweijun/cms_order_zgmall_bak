@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Quhao_historyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Quhao_history">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="quhaotype" jdbcType="INTEGER" property="quhaotype" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="ua" jdbcType="VARCHAR" property="ua" />
+    <result column="mobiletype" jdbcType="VARCHAR" property="mobiletype" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="spec" jdbcType="VARCHAR" property="spec" />
+    <result column="md5name" jdbcType="VARCHAR" property="md5name" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Quhao_history">
+    insert into quhao_history (id, quhaotype, mobile, 
+      ua, mobiletype, channelid, 
+      productid, flag, spec, 
+      md5name, addtime)
+    values (#{id,jdbcType=BIGINT}, #{quhaotype,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, 
+      #{ua,jdbcType=VARCHAR}, #{mobiletype,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{spec,jdbcType=VARCHAR}, 
+      #{md5name,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Quhao_history">
+    insert into quhao_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="quhaotype != null">
+        quhaotype,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="ua != null">
+        ua,
+      </if>
+      <if test="mobiletype != null">
+        mobiletype,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="spec != null">
+        spec,
+      </if>
+      <if test="md5name != null">
+        md5name,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="quhaotype != null">
+        #{quhaotype,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="ua != null">
+        #{ua,jdbcType=VARCHAR},
+      </if>
+      <if test="mobiletype != null">
+        #{mobiletype,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="spec != null">
+        #{spec,jdbcType=VARCHAR},
+      </if>
+      <if test="md5name != null">
+        #{md5name,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

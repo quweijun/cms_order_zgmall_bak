@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ExpressinfomationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Expressinfomation">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="hycompany" jdbcType="VARCHAR" property="hycompany" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Expressinfomation">
+    insert into expressinfomation (flowid, hycompany, expressid, 
+      addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{hycompany,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Expressinfomation">
+    insert into expressinfomation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="hycompany != null">
+        hycompany,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="hycompany != null">
+        #{hycompany,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

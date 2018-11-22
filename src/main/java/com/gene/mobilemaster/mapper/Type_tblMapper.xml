@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Type_tblMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Type_tbl">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="TypeID" jdbcType="INTEGER" property="typeid" />
+    <result column="TypeName" jdbcType="VARCHAR" property="typename" />
+    <result column="TypeModuleID" jdbcType="INTEGER" property="typemoduleid" />
+    <result column="ModuleID" jdbcType="INTEGER" property="moduleid" />
+    <result column="ModuleName" jdbcType="VARCHAR" property="modulename" />
+    <result column="RuleOne" jdbcType="VARCHAR" property="ruleone" />
+    <result column="RuleTwo" jdbcType="VARCHAR" property="ruletwo" />
+    <result column="RuleThree" jdbcType="VARCHAR" property="rulethree" />
+    <result column="RuleFour" jdbcType="VARCHAR" property="rulefour" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Type_tbl">
+    insert into type_tbl (ID, TypeID, TypeName, 
+      TypeModuleID, ModuleID, ModuleName, 
+      RuleOne, RuleTwo, RuleThree, 
+      RuleFour)
+    values (#{id,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR}, 
+      #{typemoduleid,jdbcType=INTEGER}, #{moduleid,jdbcType=INTEGER}, #{modulename,jdbcType=VARCHAR}, 
+      #{ruleone,jdbcType=VARCHAR}, #{ruletwo,jdbcType=VARCHAR}, #{rulethree,jdbcType=VARCHAR}, 
+      #{rulefour,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Type_tbl">
+    insert into type_tbl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="typeid != null">
+        TypeID,
+      </if>
+      <if test="typename != null">
+        TypeName,
+      </if>
+      <if test="typemoduleid != null">
+        TypeModuleID,
+      </if>
+      <if test="moduleid != null">
+        ModuleID,
+      </if>
+      <if test="modulename != null">
+        ModuleName,
+      </if>
+      <if test="ruleone != null">
+        RuleOne,
+      </if>
+      <if test="ruletwo != null">
+        RuleTwo,
+      </if>
+      <if test="rulethree != null">
+        RuleThree,
+      </if>
+      <if test="rulefour != null">
+        RuleFour,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="typemoduleid != null">
+        #{typemoduleid,jdbcType=INTEGER},
+      </if>
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=INTEGER},
+      </if>
+      <if test="modulename != null">
+        #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleone != null">
+        #{ruleone,jdbcType=VARCHAR},
+      </if>
+      <if test="ruletwo != null">
+        #{ruletwo,jdbcType=VARCHAR},
+      </if>
+      <if test="rulethree != null">
+        #{rulethree,jdbcType=VARCHAR},
+      </if>
+      <if test="rulefour != null">
+        #{rulefour,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

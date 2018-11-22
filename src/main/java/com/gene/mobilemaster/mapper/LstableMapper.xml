@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.LstableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Lstable">
+    <result column="sessionid" jdbcType="INTEGER" property="sessionid" />
+    <result column="rk" jdbcType="INTEGER" property="rk" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="accesstime" jdbcType="VARCHAR" property="accesstime" />
+    <result column="call_line_id" jdbcType="VARCHAR" property="callLineId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Lstable">
+    insert into lstable (sessionid, rk, channelid, 
+      accesstime, call_line_id)
+    values (#{sessionid,jdbcType=INTEGER}, #{rk,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR}, 
+      #{accesstime,jdbcType=VARCHAR}, #{callLineId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Lstable">
+    insert into lstable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        sessionid,
+      </if>
+      <if test="rk != null">
+        rk,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="callLineId != null">
+        call_line_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=INTEGER},
+      </if>
+      <if test="rk != null">
+        #{rk,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=VARCHAR},
+      </if>
+      <if test="callLineId != null">
+        #{callLineId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

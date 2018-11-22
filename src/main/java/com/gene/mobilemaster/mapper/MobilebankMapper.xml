@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.MobilebankMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Mobilebank">
+    <result column="mobile_Bank_id" jdbcType="BIGINT" property="mobileBankId" />
+    <result column="idCardName" jdbcType="VARCHAR" property="idcardname" />
+    <result column="idCardNo" jdbcType="VARCHAR" property="idcardno" />
+    <result column="bankAddress" jdbcType="VARCHAR" property="bankaddress" />
+    <result column="idCardType" jdbcType="VARCHAR" property="idcardtype" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="idCardAddress" jdbcType="VARCHAR" property="idcardaddress" />
+    <result column="bankPhoneNumber" jdbcType="VARCHAR" property="bankphonenumber" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="bankCardNo" jdbcType="VARCHAR" property="bankcardno" />
+    <result column="mobile_bank" jdbcType="VARCHAR" property="mobileBank" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Mobilebank">
+    insert into mobilebank (mobile_Bank_id, idCardName, idCardNo, 
+      bankAddress, idCardType, userName, 
+      idCardAddress, bankPhoneNumber, mobile, 
+      bankCardNo, mobile_bank, orderid
+      )
+    values (#{mobileBankId,jdbcType=BIGINT}, #{idcardname,jdbcType=VARCHAR}, #{idcardno,jdbcType=VARCHAR}, 
+      #{bankaddress,jdbcType=VARCHAR}, #{idcardtype,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{idcardaddress,jdbcType=VARCHAR}, #{bankphonenumber,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{bankcardno,jdbcType=VARCHAR}, #{mobileBank,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Mobilebank">
+    insert into mobilebank
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mobileBankId != null">
+        mobile_Bank_id,
+      </if>
+      <if test="idcardname != null">
+        idCardName,
+      </if>
+      <if test="idcardno != null">
+        idCardNo,
+      </if>
+      <if test="bankaddress != null">
+        bankAddress,
+      </if>
+      <if test="idcardtype != null">
+        idCardType,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="idcardaddress != null">
+        idCardAddress,
+      </if>
+      <if test="bankphonenumber != null">
+        bankPhoneNumber,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="bankcardno != null">
+        bankCardNo,
+      </if>
+      <if test="mobileBank != null">
+        mobile_bank,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mobileBankId != null">
+        #{mobileBankId,jdbcType=BIGINT},
+      </if>
+      <if test="idcardname != null">
+        #{idcardname,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null">
+        #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="bankaddress != null">
+        #{bankaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardtype != null">
+        #{idcardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardaddress != null">
+        #{idcardaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bankphonenumber != null">
+        #{bankphonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bankcardno != null">
+        #{bankcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileBank != null">
+        #{mobileBank,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

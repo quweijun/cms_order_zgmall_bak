@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.JifendhMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jifendh">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="customerid" jdbcType="BIGINT" property="customerid" />
+    <result column="dh_leixing" jdbcType="VARCHAR" property="dhLeixing" />
+    <result column="dh_jifen" jdbcType="VARCHAR" property="dhJifen" />
+    <result column="dh_jiazhi" jdbcType="VARCHAR" property="dhJiazhi" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jifendh">
+    insert into jifendh (flowid, customerid, dh_leixing, 
+      dh_jifen, dh_jiazhi, editor, 
+      remarks, addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{customerid,jdbcType=BIGINT}, #{dhLeixing,jdbcType=VARCHAR}, 
+      #{dhJifen,jdbcType=VARCHAR}, #{dhJiazhi,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jifendh">
+    insert into jifendh
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="dhLeixing != null">
+        dh_leixing,
+      </if>
+      <if test="dhJifen != null">
+        dh_jifen,
+      </if>
+      <if test="dhJiazhi != null">
+        dh_jiazhi,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="dhLeixing != null">
+        #{dhLeixing,jdbcType=VARCHAR},
+      </if>
+      <if test="dhJifen != null">
+        #{dhJifen,jdbcType=VARCHAR},
+      </if>
+      <if test="dhJiazhi != null">
+        #{dhJiazhi,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

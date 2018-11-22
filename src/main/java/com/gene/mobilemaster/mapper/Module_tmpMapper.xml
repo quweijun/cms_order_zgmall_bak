@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Module_tmpMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Module_tmp">
+    <result column="modulename" jdbcType="VARCHAR" property="modulename" />
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Module_tmp">
+    insert into module_tmp (modulename, FlowID)
+    values (#{modulename,jdbcType=VARCHAR}, #{flowid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Module_tmp">
+    insert into module_tmp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="modulename != null">
+        modulename,
+      </if>
+      <if test="flowid != null">
+        FlowID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="modulename != null">
+        #{modulename,jdbcType=VARCHAR},
+      </if>
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

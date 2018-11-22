@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.MobileinterfacemonitorMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Mobileinterfacemonitor">
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="UserAgent" jdbcType="VARCHAR" property="useragent" />
+    <result column="catchmobileurl" jdbcType="VARCHAR" property="catchmobileurl" />
+    <result column="Accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Mobileinterfacemonitor">
+    insert into mobileinterfacemonitor (FlowNo, UserAgent, catchmobileurl, 
+      Accesstime)
+    values (#{flowno,jdbcType=INTEGER}, #{useragent,jdbcType=VARCHAR}, #{catchmobileurl,jdbcType=VARCHAR}, 
+      #{accesstime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Mobileinterfacemonitor">
+    insert into mobileinterfacemonitor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="useragent != null">
+        UserAgent,
+      </if>
+      <if test="catchmobileurl != null">
+        catchmobileurl,
+      </if>
+      <if test="accesstime != null">
+        Accesstime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="useragent != null">
+        #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="catchmobileurl != null">
+        #{catchmobileurl,jdbcType=VARCHAR},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

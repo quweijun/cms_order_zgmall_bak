@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Htcallinface_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Htcallinface_log">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="subtype" jdbcType="VARCHAR" property="subtype" />
+    <result column="m" jdbcType="VARCHAR" property="m" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="presskey" jdbcType="VARCHAR" property="presskey" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="ordercount" jdbcType="BIGINT" property="ordercount" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="edittime" jdbcType="TIMESTAMP" property="edittime" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="lock" jdbcType="INTEGER" property="lock" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Htcallinface_log">
+    insert into htcallinface_log (flowno, action, subtype, 
+      m, customerid, presskey, 
+      ip, addtime, ordercount, 
+      flag, editor, edittime, 
+      remarks, lock)
+    values (#{flowno,jdbcType=BIGINT}, #{action,jdbcType=VARCHAR}, #{subtype,jdbcType=VARCHAR}, 
+      #{m,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, #{presskey,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{ordercount,jdbcType=BIGINT}, 
+      #{flag,jdbcType=INTEGER}, #{editor,jdbcType=VARCHAR}, #{edittime,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR}, #{lock,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Htcallinface_log">
+    insert into htcallinface_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="subtype != null">
+        subtype,
+      </if>
+      <if test="m != null">
+        m,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="presskey != null">
+        presskey,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="ordercount != null">
+        ordercount,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="edittime != null">
+        edittime,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+      <if test="lock != null">
+        lock,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="subtype != null">
+        #{subtype,jdbcType=VARCHAR},
+      </if>
+      <if test="m != null">
+        #{m,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="presskey != null">
+        #{presskey,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ordercount != null">
+        #{ordercount,jdbcType=BIGINT},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null">
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="lock != null">
+        #{lock,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

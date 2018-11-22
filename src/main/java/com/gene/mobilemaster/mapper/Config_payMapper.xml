@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Config_payMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Config_pay">
+    <result column="alipay_percent" jdbcType="DOUBLE" property="alipayPercent" />
+    <result column="Myburse_percent" jdbcType="DOUBLE" property="mybursePercent" />
+    <result column="dingjin_percent" jdbcType="DOUBLE" property="dingjinPercent" />
+    <result column="kdfh_percent" jdbcType="DOUBLE" property="kdfhPercent" />
+    <result column="dinjing_min" jdbcType="DOUBLE" property="dinjingMin" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="configid" jdbcType="INTEGER" property="configid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Config_pay">
+    insert into config_pay (alipay_percent, Myburse_percent, dingjin_percent, 
+      kdfh_percent, dinjing_min, addtime, 
+      flag, configid)
+    values (#{alipayPercent,jdbcType=DOUBLE}, #{mybursePercent,jdbcType=DOUBLE}, #{dingjinPercent,jdbcType=DOUBLE}, 
+      #{kdfhPercent,jdbcType=DOUBLE}, #{dinjingMin,jdbcType=DOUBLE}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=INTEGER}, #{configid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Config_pay">
+    insert into config_pay
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="alipayPercent != null">
+        alipay_percent,
+      </if>
+      <if test="mybursePercent != null">
+        Myburse_percent,
+      </if>
+      <if test="dingjinPercent != null">
+        dingjin_percent,
+      </if>
+      <if test="kdfhPercent != null">
+        kdfh_percent,
+      </if>
+      <if test="dinjingMin != null">
+        dinjing_min,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="configid != null">
+        configid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="alipayPercent != null">
+        #{alipayPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="mybursePercent != null">
+        #{mybursePercent,jdbcType=DOUBLE},
+      </if>
+      <if test="dingjinPercent != null">
+        #{dingjinPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="kdfhPercent != null">
+        #{kdfhPercent,jdbcType=DOUBLE},
+      </if>
+      <if test="dinjingMin != null">
+        #{dinjingMin,jdbcType=DOUBLE},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="configid != null">
+        #{configid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

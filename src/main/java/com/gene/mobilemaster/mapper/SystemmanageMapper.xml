@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SystemmanageMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Systemmanage">
+    <result column="sysid" jdbcType="INTEGER" property="sysid" />
+    <result column="sysName" jdbcType="VARCHAR" property="sysname" />
+    <result column="sysBz" jdbcType="VARCHAR" property="sysbz" />
+    <result column="sysBh" jdbcType="VARCHAR" property="sysbh" />
+    <result column="sysUrl" jdbcType="VARCHAR" property="sysurl" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="isqy" jdbcType="INTEGER" property="isqy" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Systemmanage">
+    insert into systemmanage (sysid, sysName, sysBz, 
+      sysBh, sysUrl, xh, 
+      isqy, addtime)
+    values (#{sysid,jdbcType=INTEGER}, #{sysname,jdbcType=VARCHAR}, #{sysbz,jdbcType=VARCHAR}, 
+      #{sysbh,jdbcType=VARCHAR}, #{sysurl,jdbcType=VARCHAR}, #{xh,jdbcType=INTEGER}, 
+      #{isqy,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Systemmanage">
+    insert into systemmanage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sysid != null">
+        sysid,
+      </if>
+      <if test="sysname != null">
+        sysName,
+      </if>
+      <if test="sysbz != null">
+        sysBz,
+      </if>
+      <if test="sysbh != null">
+        sysBh,
+      </if>
+      <if test="sysurl != null">
+        sysUrl,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="isqy != null">
+        isqy,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sysid != null">
+        #{sysid,jdbcType=INTEGER},
+      </if>
+      <if test="sysname != null">
+        #{sysname,jdbcType=VARCHAR},
+      </if>
+      <if test="sysbz != null">
+        #{sysbz,jdbcType=VARCHAR},
+      </if>
+      <if test="sysbh != null">
+        #{sysbh,jdbcType=VARCHAR},
+      </if>
+      <if test="sysurl != null">
+        #{sysurl,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="isqy != null">
+        #{isqy,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

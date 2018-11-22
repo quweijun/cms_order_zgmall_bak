@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ad_yqf_trackMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ad_yqf_track">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="src" jdbcType="VARCHAR" property="src" />
+    <result column="channel" jdbcType="VARCHAR" property="channel" />
+    <result column="cid" jdbcType="VARCHAR" property="cid" />
+    <result column="wi" jdbcType="VARCHAR" property="wi" />
+    <result column="zgcid" jdbcType="BIGINT" property="zgcid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ad_yqf_track">
+    insert into ad_yqf_track (flowno, src, channel, 
+      cid, wi, zgcid, addtime
+      )
+    values (#{flowno,jdbcType=BIGINT}, #{src,jdbcType=VARCHAR}, #{channel,jdbcType=VARCHAR}, 
+      #{cid,jdbcType=VARCHAR}, #{wi,jdbcType=VARCHAR}, #{zgcid,jdbcType=BIGINT}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ad_yqf_track">
+    insert into ad_yqf_track
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="src != null">
+        src,
+      </if>
+      <if test="channel != null">
+        channel,
+      </if>
+      <if test="cid != null">
+        cid,
+      </if>
+      <if test="wi != null">
+        wi,
+      </if>
+      <if test="zgcid != null">
+        zgcid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="src != null">
+        #{src,jdbcType=VARCHAR},
+      </if>
+      <if test="channel != null">
+        #{channel,jdbcType=VARCHAR},
+      </if>
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="wi != null">
+        #{wi,jdbcType=VARCHAR},
+      </if>
+      <if test="zgcid != null">
+        #{zgcid,jdbcType=BIGINT},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

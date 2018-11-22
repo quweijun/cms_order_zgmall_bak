@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModulepgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Modulepg">
+    <result column="sid" jdbcType="INTEGER" property="sid" />
+    <result column="pgid" jdbcType="INTEGER" property="pgid" />
+    <result column="pgname" jdbcType="VARCHAR" property="pgname" />
+    <result column="pgcontent" jdbcType="VARCHAR" property="pgcontent" />
+    <result column="pglx" jdbcType="VARCHAR" property="pglx" />
+    <result column="pgbz" jdbcType="VARCHAR" property="pgbz" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="adduser" jdbcType="VARCHAR" property="adduser" />
+    <result column="templateflag" jdbcType="VARCHAR" property="templateflag" />
+    <result column="enableflag" jdbcType="VARCHAR" property="enableflag" />
+    <result column="showtitle" jdbcType="VARCHAR" property="showtitle" />
+    <result column="ymlx" jdbcType="VARCHAR" property="ymlx" />
+    <result column="ymlx_nofitpgid" jdbcType="INTEGER" property="ymlxNofitpgid" />
+    <result column="dqms" jdbcType="VARCHAR" property="dqms" />
+    <result column="topbanner" jdbcType="VARCHAR" property="topbanner" />
+    <result column="bottombanner" jdbcType="VARCHAR" property="bottombanner" />
+    <result column="gotopgid" jdbcType="INTEGER" property="gotopgid" />
+    <result column="style" jdbcType="VARCHAR" property="style" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Modulepg">
+    insert into modulepg (sid, pgid, pgname, 
+      pgcontent, pglx, pgbz, 
+      addtime, updatetime, adduser, 
+      templateflag, enableflag, showtitle, 
+      ymlx, ymlx_nofitpgid, dqms, 
+      topbanner, bottombanner, gotopgid, 
+      style)
+    values (#{sid,jdbcType=INTEGER}, #{pgid,jdbcType=INTEGER}, #{pgname,jdbcType=VARCHAR}, 
+      #{pgcontent,jdbcType=VARCHAR}, #{pglx,jdbcType=VARCHAR}, #{pgbz,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{adduser,jdbcType=VARCHAR}, 
+      #{templateflag,jdbcType=VARCHAR}, #{enableflag,jdbcType=VARCHAR}, #{showtitle,jdbcType=VARCHAR}, 
+      #{ymlx,jdbcType=VARCHAR}, #{ymlxNofitpgid,jdbcType=INTEGER}, #{dqms,jdbcType=VARCHAR}, 
+      #{topbanner,jdbcType=VARCHAR}, #{bottombanner,jdbcType=VARCHAR}, #{gotopgid,jdbcType=INTEGER}, 
+      #{style,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Modulepg">
+    insert into modulepg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        sid,
+      </if>
+      <if test="pgid != null">
+        pgid,
+      </if>
+      <if test="pgname != null">
+        pgname,
+      </if>
+      <if test="pgcontent != null">
+        pgcontent,
+      </if>
+      <if test="pglx != null">
+        pglx,
+      </if>
+      <if test="pgbz != null">
+        pgbz,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="adduser != null">
+        adduser,
+      </if>
+      <if test="templateflag != null">
+        templateflag,
+      </if>
+      <if test="enableflag != null">
+        enableflag,
+      </if>
+      <if test="showtitle != null">
+        showtitle,
+      </if>
+      <if test="ymlx != null">
+        ymlx,
+      </if>
+      <if test="ymlxNofitpgid != null">
+        ymlx_nofitpgid,
+      </if>
+      <if test="dqms != null">
+        dqms,
+      </if>
+      <if test="topbanner != null">
+        topbanner,
+      </if>
+      <if test="bottombanner != null">
+        bottombanner,
+      </if>
+      <if test="gotopgid != null">
+        gotopgid,
+      </if>
+      <if test="style != null">
+        style,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sid != null">
+        #{sid,jdbcType=INTEGER},
+      </if>
+      <if test="pgid != null">
+        #{pgid,jdbcType=INTEGER},
+      </if>
+      <if test="pgname != null">
+        #{pgname,jdbcType=VARCHAR},
+      </if>
+      <if test="pgcontent != null">
+        #{pgcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="pglx != null">
+        #{pglx,jdbcType=VARCHAR},
+      </if>
+      <if test="pgbz != null">
+        #{pgbz,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="templateflag != null">
+        #{templateflag,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+      <if test="showtitle != null">
+        #{showtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ymlx != null">
+        #{ymlx,jdbcType=VARCHAR},
+      </if>
+      <if test="ymlxNofitpgid != null">
+        #{ymlxNofitpgid,jdbcType=INTEGER},
+      </if>
+      <if test="dqms != null">
+        #{dqms,jdbcType=VARCHAR},
+      </if>
+      <if test="topbanner != null">
+        #{topbanner,jdbcType=VARCHAR},
+      </if>
+      <if test="bottombanner != null">
+        #{bottombanner,jdbcType=VARCHAR},
+      </if>
+      <if test="gotopgid != null">
+        #{gotopgid,jdbcType=INTEGER},
+      </if>
+      <if test="style != null">
+        #{style,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Andriod_action_recordsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Andriod_action_records">
+    <result column="flowNo" jdbcType="BIGINT" property="flowno" />
+    <result column="uniqueID" jdbcType="VARCHAR" property="uniqueid" />
+    <result column="ua" jdbcType="VARCHAR" property="ua" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="actionID" jdbcType="VARCHAR" property="actionid" />
+    <result column="actionRemark" jdbcType="VARCHAR" property="actionremark" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="userflag" jdbcType="VARCHAR" property="userflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Andriod_action_records">
+    insert into andriod_action_records (flowNo, uniqueID, ua, 
+      action, addTime, actionID, 
+      actionRemark, address, userflag
+      )
+    values (#{flowno,jdbcType=BIGINT}, #{uniqueid,jdbcType=VARCHAR}, #{ua,jdbcType=VARCHAR}, 
+      #{action,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{actionid,jdbcType=VARCHAR}, 
+      #{actionremark,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{userflag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Andriod_action_records">
+    insert into andriod_action_records
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowNo,
+      </if>
+      <if test="uniqueid != null">
+        uniqueID,
+      </if>
+      <if test="ua != null">
+        ua,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="actionid != null">
+        actionID,
+      </if>
+      <if test="actionremark != null">
+        actionRemark,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="userflag != null">
+        userflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=VARCHAR},
+      </if>
+      <if test="ua != null">
+        #{ua,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="actionid != null">
+        #{actionid,jdbcType=VARCHAR},
+      </if>
+      <if test="actionremark != null">
+        #{actionremark,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="userflag != null">
+        #{userflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.GuestbackaccesslibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Guestbackaccesslib">
+    <result column="GuestID" jdbcType="BIGINT" property="guestid" />
+    <result column="LoginID" jdbcType="VARCHAR" property="loginid" />
+    <result column="LoginName" jdbcType="VARCHAR" property="loginname" />
+    <result column="AccessTimes" jdbcType="INTEGER" property="accesstimes" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="LastAccessDate" jdbcType="TIMESTAMP" property="lastaccessdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Guestbackaccesslib">
+    insert into guestbackaccesslib (GuestID, LoginID, LoginName, 
+      AccessTimes, CreateDate, LastAccessDate
+      )
+    values (#{guestid,jdbcType=BIGINT}, #{loginid,jdbcType=VARCHAR}, #{loginname,jdbcType=VARCHAR}, 
+      #{accesstimes,jdbcType=INTEGER}, #{createdate,jdbcType=TIMESTAMP}, #{lastaccessdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Guestbackaccesslib">
+    insert into guestbackaccesslib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="guestid != null">
+        GuestID,
+      </if>
+      <if test="loginid != null">
+        LoginID,
+      </if>
+      <if test="loginname != null">
+        LoginName,
+      </if>
+      <if test="accesstimes != null">
+        AccessTimes,
+      </if>
+      <if test="createdate != null">
+        CreateDate,
+      </if>
+      <if test="lastaccessdate != null">
+        LastAccessDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="guestid != null">
+        #{guestid,jdbcType=BIGINT},
+      </if>
+      <if test="loginid != null">
+        #{loginid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginname != null">
+        #{loginname,jdbcType=VARCHAR},
+      </if>
+      <if test="accesstimes != null">
+        #{accesstimes,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastaccessdate != null">
+        #{lastaccessdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

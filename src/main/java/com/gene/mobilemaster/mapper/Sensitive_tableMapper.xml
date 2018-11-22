@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sensitive_tableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sensitive_table">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sensitive_table">
+    insert into sensitive_table (flowid, keywords, editor, 
+      addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{keywords,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sensitive_table">
+    insert into sensitive_table
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="keywords != null">
+        keywords,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

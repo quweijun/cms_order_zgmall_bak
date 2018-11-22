@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.NewsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.News">
+    <result column="newsid" jdbcType="INTEGER" property="newsid" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="issuer" jdbcType="VARCHAR" property="issuer" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="times" jdbcType="INTEGER" property="times" />
+    <result column="displaytype" jdbcType="INTEGER" property="displaytype" />
+    <result column="newskey" jdbcType="VARCHAR" property="newskey" />
+    <result column="smalltype" jdbcType="INTEGER" property="smalltype" />
+    <result column="topflag" jdbcType="INTEGER" property="topflag" />
+    <result column="hits" jdbcType="INTEGER" property="hits" />
+    <result column="lastUptUser" jdbcType="VARCHAR" property="lastuptuser" />
+    <result column="lastUptTime" jdbcType="TIMESTAMP" property="lastupttime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.NewsWithBLOBs">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="content2" jdbcType="LONGVARCHAR" property="content2" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    content, content2
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.NewsWithBLOBs">
+    insert into news (newsid, type, title, 
+      issuer, addtime, flag, 
+      times, displaytype, newskey, 
+      smalltype, topflag, hits, 
+      lastUptUser, lastUptTime, content, 
+      content2)
+    values (#{newsid,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{issuer,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER}, 
+      #{times,jdbcType=INTEGER}, #{displaytype,jdbcType=INTEGER}, #{newskey,jdbcType=VARCHAR}, 
+      #{smalltype,jdbcType=INTEGER}, #{topflag,jdbcType=INTEGER}, #{hits,jdbcType=INTEGER}, 
+      #{lastuptuser,jdbcType=VARCHAR}, #{lastupttime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}, 
+      #{content2,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.NewsWithBLOBs">
+    insert into news
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="newsid != null">
+        newsid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="issuer != null">
+        issuer,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+      <if test="displaytype != null">
+        displaytype,
+      </if>
+      <if test="newskey != null">
+        newskey,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="topflag != null">
+        topflag,
+      </if>
+      <if test="hits != null">
+        hits,
+      </if>
+      <if test="lastuptuser != null">
+        lastUptUser,
+      </if>
+      <if test="lastupttime != null">
+        lastUptTime,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="content2 != null">
+        content2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="newsid != null">
+        #{newsid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="issuer != null">
+        #{issuer,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=INTEGER},
+      </if>
+      <if test="displaytype != null">
+        #{displaytype,jdbcType=INTEGER},
+      </if>
+      <if test="newskey != null">
+        #{newskey,jdbcType=VARCHAR},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="topflag != null">
+        #{topflag,jdbcType=INTEGER},
+      </if>
+      <if test="hits != null">
+        #{hits,jdbcType=INTEGER},
+      </if>
+      <if test="lastuptuser != null">
+        #{lastuptuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupttime != null">
+        #{lastupttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="content2 != null">
+        #{content2,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

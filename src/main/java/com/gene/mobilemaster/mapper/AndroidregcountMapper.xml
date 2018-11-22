@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.AndroidregcountMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Androidregcount">
+    <result column="FlowId" jdbcType="INTEGER" property="flowid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="androidVersion" jdbcType="VARCHAR" property="androidversion" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="unique" jdbcType="VARCHAR" property="unique" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Androidregcount">
+    insert into androidregcount (FlowId, channelid, userName, 
+      androidVersion, addtime, unique
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{androidversion,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{unique,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Androidregcount">
+    insert into androidregcount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowId,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="androidversion != null">
+        androidVersion,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="unique != null">
+        unique,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="androidversion != null">
+        #{androidversion,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unique != null">
+        #{unique,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

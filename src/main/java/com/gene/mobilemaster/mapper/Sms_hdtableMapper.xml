@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sms_hdtableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sms_hdtable">
+    <result column="hdid" jdbcType="INTEGER" property="hdid" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="c_a" jdbcType="INTEGER" property="cA" />
+    <result column="lever" jdbcType="INTEGER" property="lever" />
+    <result column="add_num" jdbcType="INTEGER" property="addNum" />
+    <result column="update_num" jdbcType="INTEGER" property="updateNum" />
+    <result column="redpackets" jdbcType="INTEGER" property="redpackets" />
+    <result column="coupon" jdbcType="VARCHAR" property="coupon" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="startTime" jdbcType="TIMESTAMP" property="starttime" />
+    <result column="endTime" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="issms" jdbcType="INTEGER" property="issms" />
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="isuser" jdbcType="INTEGER" property="isuser" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sms_hdtable">
+    insert into sms_hdtable (hdid, type, c_a, 
+      lever, add_num, update_num, 
+      redpackets, coupon, title, 
+      content, startTime, endTime, 
+      issms, beizhu, addtime, 
+      isuser)
+    values (#{hdid,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{cA,jdbcType=INTEGER}, 
+      #{lever,jdbcType=INTEGER}, #{addNum,jdbcType=INTEGER}, #{updateNum,jdbcType=INTEGER}, 
+      #{redpackets,jdbcType=INTEGER}, #{coupon,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{issms,jdbcType=INTEGER}, #{beizhu,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{isuser,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sms_hdtable">
+    insert into sms_hdtable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        hdid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="cA != null">
+        c_a,
+      </if>
+      <if test="lever != null">
+        lever,
+      </if>
+      <if test="addNum != null">
+        add_num,
+      </if>
+      <if test="updateNum != null">
+        update_num,
+      </if>
+      <if test="redpackets != null">
+        redpackets,
+      </if>
+      <if test="coupon != null">
+        coupon,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="starttime != null">
+        startTime,
+      </if>
+      <if test="endtime != null">
+        endTime,
+      </if>
+      <if test="issms != null">
+        issms,
+      </if>
+      <if test="beizhu != null">
+        beizhu,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="isuser != null">
+        isuser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        #{hdid,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="cA != null">
+        #{cA,jdbcType=INTEGER},
+      </if>
+      <if test="lever != null">
+        #{lever,jdbcType=INTEGER},
+      </if>
+      <if test="addNum != null">
+        #{addNum,jdbcType=INTEGER},
+      </if>
+      <if test="updateNum != null">
+        #{updateNum,jdbcType=INTEGER},
+      </if>
+      <if test="redpackets != null">
+        #{redpackets,jdbcType=INTEGER},
+      </if>
+      <if test="coupon != null">
+        #{coupon,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issms != null">
+        #{issms,jdbcType=INTEGER},
+      </if>
+      <if test="beizhu != null">
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isuser != null">
+        #{isuser,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SearchboxmannegerMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Searchboxmanneger">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="pindaoid" jdbcType="INTEGER" property="pindaoid" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Searchboxmanneger">
+    insert into searchboxmanneger (id, pindaoid, keyword, 
+      flag, addtime, operator
+      )
+    values (#{id,jdbcType=INTEGER}, #{pindaoid,jdbcType=INTEGER}, #{keyword,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Searchboxmanneger">
+    insert into searchboxmanneger
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="pindaoid != null">
+        pindaoid,
+      </if>
+      <if test="keyword != null">
+        keyword,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="pindaoid != null">
+        #{pindaoid,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

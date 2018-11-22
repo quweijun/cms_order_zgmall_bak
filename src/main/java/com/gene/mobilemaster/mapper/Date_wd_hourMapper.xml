@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Date_wd_hourMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Date_wd_hour">
+    <result column="sHour" jdbcType="INTEGER" property="shour" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Date_wd_hour">
+    insert into date_wd_hour (sHour)
+    values (#{shour,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Date_wd_hour">
+    insert into date_wd_hour
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shour != null">
+        sHour,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shour != null">
+        #{shour,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

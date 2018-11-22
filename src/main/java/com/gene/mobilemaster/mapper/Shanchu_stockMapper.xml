@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Shanchu_stockMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Shanchu_stock">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="now_state" jdbcType="INTEGER" property="nowState" />
+    <result column="pre_state" jdbcType="INTEGER" property="preState" />
+    <result column="stock" jdbcType="CHAR" property="stock" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Shanchu_stock">
+    insert into shanchu_stock (ID, now_state, pre_state, 
+      stock, name, addtime
+      )
+    values (#{id,jdbcType=INTEGER}, #{nowState,jdbcType=INTEGER}, #{preState,jdbcType=INTEGER}, 
+      #{stock,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Shanchu_stock">
+    insert into shanchu_stock
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="nowState != null">
+        now_state,
+      </if>
+      <if test="preState != null">
+        pre_state,
+      </if>
+      <if test="stock != null">
+        stock,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="nowState != null">
+        #{nowState,jdbcType=INTEGER},
+      </if>
+      <if test="preState != null">
+        #{preState,jdbcType=INTEGER},
+      </if>
+      <if test="stock != null">
+        #{stock,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

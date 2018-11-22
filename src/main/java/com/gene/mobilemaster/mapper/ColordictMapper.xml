@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ColordictMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Colordict">
+    <result column="ColorID" jdbcType="INTEGER" property="colorid" />
+    <result column="ColorName" jdbcType="VARCHAR" property="colorname" />
+    <result column="ColorPYJC" jdbcType="VARCHAR" property="colorpyjc" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="AddUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="EnableFlag" jdbcType="VARCHAR" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Colordict">
+    insert into colordict (ColorID, ColorName, ColorPYJC, 
+      AddTime, AddUser, EnableFlag
+      )
+    values (#{colorid,jdbcType=INTEGER}, #{colorname,jdbcType=VARCHAR}, #{colorpyjc,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{adduser,jdbcType=VARCHAR}, #{enableflag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Colordict">
+    insert into colordict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="colorid != null">
+        ColorID,
+      </if>
+      <if test="colorname != null">
+        ColorName,
+      </if>
+      <if test="colorpyjc != null">
+        ColorPYJC,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="adduser != null">
+        AddUser,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="colorid != null">
+        #{colorid,jdbcType=INTEGER},
+      </if>
+      <if test="colorname != null">
+        #{colorname,jdbcType=VARCHAR},
+      </if>
+      <if test="colorpyjc != null">
+        #{colorpyjc,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SaleslogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Saleslog">
+    <result column="salesLogId" jdbcType="INTEGER" property="saleslogid" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="barcodeid" jdbcType="VARCHAR" property="barcodeid" />
+    <result column="salesMake" jdbcType="VARCHAR" property="salesmake" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="LogTime" jdbcType="TIMESTAMP" property="logtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Saleslog">
+    insert into saleslog (salesLogId, UserName, barcodeid, 
+      salesMake, remark, LogTime
+      )
+    values (#{saleslogid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{barcodeid,jdbcType=VARCHAR}, 
+      #{salesmake,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{logtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Saleslog">
+    insert into saleslog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="saleslogid != null">
+        salesLogId,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="salesmake != null">
+        salesMake,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="logtime != null">
+        LogTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="saleslogid != null">
+        #{saleslogid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="salesmake != null">
+        #{salesmake,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="logtime != null">
+        #{logtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

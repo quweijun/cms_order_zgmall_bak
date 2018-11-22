@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Settlementoveralltable_excelMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Settlementoveralltable_excel">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="CompanyID" jdbcType="INTEGER" property="companyid" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="ordername" jdbcType="VARCHAR" property="ordername" />
+    <result column="orderhk" jdbcType="DOUBLE" property="orderhk" />
+    <result column="yshk" jdbcType="DOUBLE" property="yshk" />
+    <result column="reimbursement" jdbcType="TIMESTAMP" property="reimbursement" />
+    <result column="formalities" jdbcType="DOUBLE" property="formalities" />
+    <result column="ServiceFee" jdbcType="DOUBLE" property="servicefee" />
+    <result column="sshk" jdbcType="DOUBLE" property="sshk" />
+    <result column="backamout" jdbcType="DOUBLE" property="backamout" />
+    <result column="SetTleMentFlag" jdbcType="INTEGER" property="settlementflag" />
+    <result column="isCheck" jdbcType="INTEGER" property="ischeck" />
+    <result column="CheckDate" jdbcType="TIMESTAMP" property="checkdate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Settlementoveralltable_excel">
+    insert into settlementoveralltable_excel (id, CompanyID, expressid, 
+      ordername, orderhk, yshk, 
+      reimbursement, formalities, ServiceFee, 
+      sshk, backamout, SetTleMentFlag, 
+      isCheck, CheckDate)
+    values (#{id,jdbcType=INTEGER}, #{companyid,jdbcType=INTEGER}, #{expressid,jdbcType=VARCHAR}, 
+      #{ordername,jdbcType=VARCHAR}, #{orderhk,jdbcType=DOUBLE}, #{yshk,jdbcType=DOUBLE}, 
+      #{reimbursement,jdbcType=TIMESTAMP}, #{formalities,jdbcType=DOUBLE}, #{servicefee,jdbcType=DOUBLE}, 
+      #{sshk,jdbcType=DOUBLE}, #{backamout,jdbcType=DOUBLE}, #{settlementflag,jdbcType=INTEGER}, 
+      #{ischeck,jdbcType=INTEGER}, #{checkdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Settlementoveralltable_excel">
+    insert into settlementoveralltable_excel
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="companyid != null">
+        CompanyID,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="ordername != null">
+        ordername,
+      </if>
+      <if test="orderhk != null">
+        orderhk,
+      </if>
+      <if test="yshk != null">
+        yshk,
+      </if>
+      <if test="reimbursement != null">
+        reimbursement,
+      </if>
+      <if test="formalities != null">
+        formalities,
+      </if>
+      <if test="servicefee != null">
+        ServiceFee,
+      </if>
+      <if test="sshk != null">
+        sshk,
+      </if>
+      <if test="backamout != null">
+        backamout,
+      </if>
+      <if test="settlementflag != null">
+        SetTleMentFlag,
+      </if>
+      <if test="ischeck != null">
+        isCheck,
+      </if>
+      <if test="checkdate != null">
+        CheckDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="companyid != null">
+        #{companyid,jdbcType=INTEGER},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="ordername != null">
+        #{ordername,jdbcType=VARCHAR},
+      </if>
+      <if test="orderhk != null">
+        #{orderhk,jdbcType=DOUBLE},
+      </if>
+      <if test="yshk != null">
+        #{yshk,jdbcType=DOUBLE},
+      </if>
+      <if test="reimbursement != null">
+        #{reimbursement,jdbcType=TIMESTAMP},
+      </if>
+      <if test="formalities != null">
+        #{formalities,jdbcType=DOUBLE},
+      </if>
+      <if test="servicefee != null">
+        #{servicefee,jdbcType=DOUBLE},
+      </if>
+      <if test="sshk != null">
+        #{sshk,jdbcType=DOUBLE},
+      </if>
+      <if test="backamout != null">
+        #{backamout,jdbcType=DOUBLE},
+      </if>
+      <if test="settlementflag != null">
+        #{settlementflag,jdbcType=INTEGER},
+      </if>
+      <if test="ischeck != null">
+        #{ischeck,jdbcType=INTEGER},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

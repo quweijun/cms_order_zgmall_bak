@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sp_code_detailMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sp_code_detail">
+    <result column="urlid" jdbcType="INTEGER" property="urlid" />
+    <result column="codeid" jdbcType="INTEGER" property="codeid" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="urlname" jdbcType="VARCHAR" property="urlname" />
+    <result column="isEnable" jdbcType="INTEGER" property="isenable" />
+    <result column="isMain" jdbcType="INTEGER" property="ismain" />
+    <result column="orderby" jdbcType="INTEGER" property="orderby" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sp_code_detail">
+    insert into sp_code_detail (urlid, codeid, url, 
+      urlname, isEnable, isMain, 
+      orderby)
+    values (#{urlid,jdbcType=INTEGER}, #{codeid,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, 
+      #{urlname,jdbcType=VARCHAR}, #{isenable,jdbcType=INTEGER}, #{ismain,jdbcType=INTEGER}, 
+      #{orderby,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sp_code_detail">
+    insert into sp_code_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="urlid != null">
+        urlid,
+      </if>
+      <if test="codeid != null">
+        codeid,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="urlname != null">
+        urlname,
+      </if>
+      <if test="isenable != null">
+        isEnable,
+      </if>
+      <if test="ismain != null">
+        isMain,
+      </if>
+      <if test="orderby != null">
+        orderby,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="urlid != null">
+        #{urlid,jdbcType=INTEGER},
+      </if>
+      <if test="codeid != null">
+        #{codeid,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="urlname != null">
+        #{urlname,jdbcType=VARCHAR},
+      </if>
+      <if test="isenable != null">
+        #{isenable,jdbcType=INTEGER},
+      </if>
+      <if test="ismain != null">
+        #{ismain,jdbcType=INTEGER},
+      </if>
+      <if test="orderby != null">
+        #{orderby,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

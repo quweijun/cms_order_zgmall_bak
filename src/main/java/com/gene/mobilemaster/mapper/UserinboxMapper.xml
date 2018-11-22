@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UserinboxMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Userinbox">
+    <result column="flowId" jdbcType="INTEGER" property="flowid" />
+    <result column="msgNo" jdbcType="VARCHAR" property="msgno" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="sender" jdbcType="VARCHAR" property="sender" />
+    <result column="classid" jdbcType="INTEGER" property="classid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="sendDate" jdbcType="TIMESTAMP" property="senddate" />
+    <result column="isRead" jdbcType="INTEGER" property="isread" />
+    <result column="isSys" jdbcType="INTEGER" property="issys" />
+    <result column="isLock" jdbcType="INTEGER" property="islock" />
+    <result column="isShare" jdbcType="INTEGER" property="isshare" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Userinbox">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Userinbox">
+    insert into userinbox (flowId, msgNo, username, 
+      sender, classid, title, 
+      sendDate, isRead, isSys, 
+      isLock, isShare, content
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{msgno,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{sender,jdbcType=VARCHAR}, #{classid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{senddate,jdbcType=TIMESTAMP}, #{isread,jdbcType=INTEGER}, #{issys,jdbcType=INTEGER}, 
+      #{islock,jdbcType=INTEGER}, #{isshare,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Userinbox">
+    insert into userinbox
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowId,
+      </if>
+      <if test="msgno != null">
+        msgNo,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="sender != null">
+        sender,
+      </if>
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="senddate != null">
+        sendDate,
+      </if>
+      <if test="isread != null">
+        isRead,
+      </if>
+      <if test="issys != null">
+        isSys,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+      <if test="isshare != null">
+        isShare,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="msgno != null">
+        #{msgno,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="sender != null">
+        #{sender,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="senddate != null">
+        #{senddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="issys != null">
+        #{issys,jdbcType=INTEGER},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="isshare != null">
+        #{isshare,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

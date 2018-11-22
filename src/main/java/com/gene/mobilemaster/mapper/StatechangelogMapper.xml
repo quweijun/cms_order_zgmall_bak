@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.StatechangelogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Statechangelog">
+    <result column="FlowID" jdbcType="BIGINT" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="stateNo" jdbcType="INTEGER" property="stateno" />
+    <result column="NewStateNo" jdbcType="INTEGER" property="newstateno" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Statechangelog">
+    <result column="remarks" jdbcType="LONGVARCHAR" property="remarks" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    remarks
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Statechangelog">
+    insert into statechangelog (FlowID, orderid, stateNo, 
+      NewStateNo, userid, addDate, 
+      remarks)
+    values (#{flowid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{stateno,jdbcType=INTEGER}, 
+      #{newstateno,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Statechangelog">
+    insert into statechangelog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="stateno != null">
+        stateNo,
+      </if>
+      <if test="newstateno != null">
+        NewStateNo,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="stateno != null">
+        #{stateno,jdbcType=INTEGER},
+      </if>
+      <if test="newstateno != null">
+        #{newstateno,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

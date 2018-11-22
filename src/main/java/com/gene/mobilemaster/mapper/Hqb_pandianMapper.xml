@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Hqb_pandianMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Hqb_pandian">
+    <result column="barcodeid" jdbcType="DOUBLE" property="barcodeid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Hqb_pandian">
+    insert into hqb_pandian (barcodeid)
+    values (#{barcodeid,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Hqb_pandian">
+    insert into hqb_pandian
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

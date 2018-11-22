@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SalescountMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Salescount">
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="signFor" jdbcType="INTEGER" property="signfor" />
+    <result column="sendBack" jdbcType="INTEGER" property="sendback" />
+    <result column="noSign" jdbcType="INTEGER" property="nosign" />
+    <result column="datetime" jdbcType="VARCHAR" property="datetime" />
+    <result column="reject" jdbcType="INTEGER" property="reject" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Salescount">
+    insert into salescount (productid, signFor, sendBack, 
+      noSign, datetime, reject
+      )
+    values (#{productid,jdbcType=VARCHAR}, #{signfor,jdbcType=INTEGER}, #{sendback,jdbcType=INTEGER}, 
+      #{nosign,jdbcType=INTEGER}, #{datetime,jdbcType=VARCHAR}, #{reject,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Salescount">
+    insert into salescount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="signfor != null">
+        signFor,
+      </if>
+      <if test="sendback != null">
+        sendBack,
+      </if>
+      <if test="nosign != null">
+        noSign,
+      </if>
+      <if test="datetime != null">
+        datetime,
+      </if>
+      <if test="reject != null">
+        reject,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="signfor != null">
+        #{signfor,jdbcType=INTEGER},
+      </if>
+      <if test="sendback != null">
+        #{sendback,jdbcType=INTEGER},
+      </if>
+      <if test="nosign != null">
+        #{nosign,jdbcType=INTEGER},
+      </if>
+      <if test="datetime != null">
+        #{datetime,jdbcType=VARCHAR},
+      </if>
+      <if test="reject != null">
+        #{reject,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

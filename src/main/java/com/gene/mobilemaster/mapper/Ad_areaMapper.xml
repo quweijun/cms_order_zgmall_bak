@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ad_areaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ad_area">
+    <result column="adid" jdbcType="INTEGER" property="adid" />
+    <result column="location" jdbcType="INTEGER" property="location" />
+    <result column="kidLocation" jdbcType="INTEGER" property="kidlocation" />
+    <result column="subchannel" jdbcType="INTEGER" property="subchannel" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="adtype" jdbcType="INTEGER" property="adtype" />
+    <result column="adpict" jdbcType="VARCHAR" property="adpict" />
+    <result column="adurl" jdbcType="VARCHAR" property="adurl" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="phtoflag" jdbcType="INTEGER" property="phtoflag" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="serialNumber" jdbcType="INTEGER" property="serialnumber" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ad_area">
+    insert into ad_area (adid, location, kidLocation, 
+      subchannel, number, title, 
+      adtype, adpict, adurl, 
+      addtime, addor, phtoflag, 
+      flag, amount, serialNumber
+      )
+    values (#{adid,jdbcType=INTEGER}, #{location,jdbcType=INTEGER}, #{kidlocation,jdbcType=INTEGER}, 
+      #{subchannel,jdbcType=INTEGER}, #{number,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{adtype,jdbcType=INTEGER}, #{adpict,jdbcType=VARCHAR}, #{adurl,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{addor,jdbcType=VARCHAR}, #{phtoflag,jdbcType=INTEGER}, 
+      #{flag,jdbcType=INTEGER}, #{amount,jdbcType=INTEGER}, #{serialnumber,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ad_area">
+    insert into ad_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="adid != null">
+        adid,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="kidlocation != null">
+        kidLocation,
+      </if>
+      <if test="subchannel != null">
+        subchannel,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="adtype != null">
+        adtype,
+      </if>
+      <if test="adpict != null">
+        adpict,
+      </if>
+      <if test="adurl != null">
+        adurl,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="phtoflag != null">
+        phtoflag,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="amount != null">
+        amount,
+      </if>
+      <if test="serialnumber != null">
+        serialNumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="adid != null">
+        #{adid,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=INTEGER},
+      </if>
+      <if test="kidlocation != null">
+        #{kidlocation,jdbcType=INTEGER},
+      </if>
+      <if test="subchannel != null">
+        #{subchannel,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="adtype != null">
+        #{adtype,jdbcType=INTEGER},
+      </if>
+      <if test="adpict != null">
+        #{adpict,jdbcType=VARCHAR},
+      </if>
+      <if test="adurl != null">
+        #{adurl,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="phtoflag != null">
+        #{phtoflag,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=INTEGER},
+      </if>
+      <if test="serialnumber != null">
+        #{serialnumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

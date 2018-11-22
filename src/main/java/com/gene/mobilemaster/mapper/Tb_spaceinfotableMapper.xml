@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Tb_spaceinfotableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Tb_spaceinfotable">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="rows" jdbcType="CHAR" property="rows" />
+    <result column="reserved" jdbcType="VARCHAR" property="reserved" />
+    <result column="data" jdbcType="VARCHAR" property="data" />
+    <result column="index_size" jdbcType="VARCHAR" property="indexSize" />
+    <result column="unused" jdbcType="VARCHAR" property="unused" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Tb_spaceinfotable">
+    insert into tb_spaceinfotable (ID, name, rows, 
+      reserved, data, index_size, 
+      unused)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{rows,jdbcType=CHAR}, 
+      #{reserved,jdbcType=VARCHAR}, #{data,jdbcType=VARCHAR}, #{indexSize,jdbcType=VARCHAR}, 
+      #{unused,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Tb_spaceinfotable">
+    insert into tb_spaceinfotable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="rows != null">
+        rows,
+      </if>
+      <if test="reserved != null">
+        reserved,
+      </if>
+      <if test="data != null">
+        data,
+      </if>
+      <if test="indexSize != null">
+        index_size,
+      </if>
+      <if test="unused != null">
+        unused,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="rows != null">
+        #{rows,jdbcType=CHAR},
+      </if>
+      <if test="reserved != null">
+        #{reserved,jdbcType=VARCHAR},
+      </if>
+      <if test="data != null">
+        #{data,jdbcType=VARCHAR},
+      </if>
+      <if test="indexSize != null">
+        #{indexSize,jdbcType=VARCHAR},
+      </if>
+      <if test="unused != null">
+        #{unused,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Interface_trackMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Interface_track">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="interface" jdbcType="VARCHAR" property="interface" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Interface_track">
+    insert into interface_track (flowid, interface, IP, 
+      addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{interface,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Interface_track">
+    insert into interface_track
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="interface != null">
+        interface,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="interface != null">
+        #{interface,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,26 @@
+neo.galaxy.logger.factory = com.neo.galaxy.core.logger.support.DefaultLoggerFactory
+
+## enable CommonConfiguration, default value is true, or when this property is not specified
+neo.galaxy.auto-common.enable = false
+
+neo.galaxy.rest-template.loadbalance.enbale-all = false
+
+## sessionFactory enable, default value is true, or when this property is not specified
+neo.galaxy.session-factory.enable = false
+
+## configuration of fastjson, default enable value is false
+neo.galaxy.fastjson.enable = true
+neo.galaxy.fastjson.filter.exclude = ${management.context-path}
+
+#neo.galaxy.fastjson.filter.exclude = ${management.context-path}
+neo.galaxy.fastjson.date-format = yyyy-MM-dd HH:mm:ss
+
+
+neo.galaxy.sql.path.prefix = classpath:sql
+neo.galaxy.sql.encoding = UTF-8
+neo.galaxy.sql.comment = ##
+
+# remote port only support RMI for now
+neo.galaxy.cloud.remote.port = 2500
+
+neo.galaxy.api.gateway.url = @galaxy.api-gateway.url@

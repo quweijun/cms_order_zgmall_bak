@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Producttype_color_relationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Producttype_color_relation">
+    <result column="BigType" jdbcType="INTEGER" property="bigtype" />
+    <result column="SmallType" jdbcType="INTEGER" property="smalltype" />
+    <result column="SubClass" jdbcType="INTEGER" property="subclass" />
+    <result column="ColorID" jdbcType="INTEGER" property="colorid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Producttype_color_relation">
+    insert into producttype_color_relation (BigType, SmallType, SubClass, 
+      ColorID)
+    values (#{bigtype,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, #{subclass,jdbcType=INTEGER}, 
+      #{colorid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Producttype_color_relation">
+    insert into producttype_color_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bigtype != null">
+        BigType,
+      </if>
+      <if test="smalltype != null">
+        SmallType,
+      </if>
+      <if test="subclass != null">
+        SubClass,
+      </if>
+      <if test="colorid != null">
+        ColorID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="colorid != null">
+        #{colorid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

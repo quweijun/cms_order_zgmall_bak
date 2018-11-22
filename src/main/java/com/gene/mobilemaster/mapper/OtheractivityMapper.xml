@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OtheractivityMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Otheractivity">
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="pvcount" jdbcType="INTEGER" property="pvcount" />
+    <result column="usercount" jdbcType="INTEGER" property="usercount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Otheractivity">
+    insert into otheractivity (accesstime, channelid, pvcount, 
+      usercount)
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{pvcount,jdbcType=INTEGER}, 
+      #{usercount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Otheractivity">
+    insert into otheractivity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="pvcount != null">
+        pvcount,
+      </if>
+      <if test="usercount != null">
+        usercount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="pvcount != null">
+        #{pvcount,jdbcType=INTEGER},
+      </if>
+      <if test="usercount != null">
+        #{usercount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

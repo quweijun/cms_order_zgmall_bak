@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CountsidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Countsid">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="sidsum" jdbcType="INTEGER" property="sidsum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Countsid">
+    insert into countsid (id, accesstime, sidsum
+      )
+    values (#{id,jdbcType=INTEGER}, #{accesstime,jdbcType=TIMESTAMP}, #{sidsum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Countsid">
+    insert into countsid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="sidsum != null">
+        sidsum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sidsum != null">
+        #{sidsum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

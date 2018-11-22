@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Smsinfo_historyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Smsinfo_history">
+    <result column="FlowNo" jdbcType="INTEGER" property="flowno" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="SmsDirect" jdbcType="VARCHAR" property="smsdirect" />
+    <result column="SmsContent" jdbcType="VARCHAR" property="smscontent" />
+    <result column="SmsProcTime" jdbcType="TIMESTAMP" property="smsproctime" />
+    <result column="OrderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="smsdate" jdbcType="VARCHAR" property="smsdate" />
+    <result column="smscode" jdbcType="VARCHAR" property="smscode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Smsinfo_history">
+    insert into smsinfo_history (FlowNo, Mobile, SmsDirect, 
+      SmsContent, SmsProcTime, OrderID, 
+      smsdate, smscode)
+    values (#{flowno,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{smsdirect,jdbcType=VARCHAR}, 
+      #{smscontent,jdbcType=VARCHAR}, #{smsproctime,jdbcType=TIMESTAMP}, #{orderid,jdbcType=VARCHAR}, 
+      #{smsdate,jdbcType=VARCHAR}, #{smscode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Smsinfo_history">
+    insert into smsinfo_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="smsdirect != null">
+        SmsDirect,
+      </if>
+      <if test="smscontent != null">
+        SmsContent,
+      </if>
+      <if test="smsproctime != null">
+        SmsProcTime,
+      </if>
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="smsdate != null">
+        smsdate,
+      </if>
+      <if test="smscode != null">
+        smscode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="smsdirect != null">
+        #{smsdirect,jdbcType=VARCHAR},
+      </if>
+      <if test="smscontent != null">
+        #{smscontent,jdbcType=VARCHAR},
+      </if>
+      <if test="smsproctime != null">
+        #{smsproctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="smsdate != null">
+        #{smsdate,jdbcType=VARCHAR},
+      </if>
+      <if test="smscode != null">
+        #{smscode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

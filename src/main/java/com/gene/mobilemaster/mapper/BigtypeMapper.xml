@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BigtypeMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Bigtype">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="xhs" jdbcType="INTEGER" property="xhs" />
+    <result column="bgimg" jdbcType="VARCHAR" property="bgimg" />
+    <result column="bigcss" jdbcType="VARCHAR" property="bigcss" />
+    <result column="isShow" jdbcType="INTEGER" property="isshow" />
+    <result column="displayname" jdbcType="VARCHAR" property="displayname" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Bigtype">
+    insert into bigtype (id, typename, flag, 
+      xhs, bgimg, bigcss, 
+      isShow, displayname)
+    values (#{id,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{xhs,jdbcType=INTEGER}, #{bgimg,jdbcType=VARCHAR}, #{bigcss,jdbcType=VARCHAR}, 
+      #{isshow,jdbcType=INTEGER}, #{displayname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Bigtype">
+    insert into bigtype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="xhs != null">
+        xhs,
+      </if>
+      <if test="bgimg != null">
+        bgimg,
+      </if>
+      <if test="bigcss != null">
+        bigcss,
+      </if>
+      <if test="isshow != null">
+        isShow,
+      </if>
+      <if test="displayname != null">
+        displayname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="xhs != null">
+        #{xhs,jdbcType=INTEGER},
+      </if>
+      <if test="bgimg != null">
+        #{bgimg,jdbcType=VARCHAR},
+      </if>
+      <if test="bigcss != null">
+        #{bigcss,jdbcType=VARCHAR},
+      </if>
+      <if test="isshow != null">
+        #{isshow,jdbcType=INTEGER},
+      </if>
+      <if test="displayname != null">
+        #{displayname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Android_index_titleMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Android_index_title">
+    <result column="relationId" jdbcType="INTEGER" property="relationid" />
+    <result column="modalId" jdbcType="INTEGER" property="modalid" />
+    <result column="hdid" jdbcType="INTEGER" property="hdid" />
+    <result column="hdtitle" jdbcType="VARCHAR" property="hdtitle" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Android_index_title">
+    insert into android_index_title (relationId, modalId, hdid, 
+      hdtitle, xh, flag, 
+      addUser, addTime)
+    values (#{relationid,jdbcType=INTEGER}, #{modalid,jdbcType=INTEGER}, #{hdid,jdbcType=INTEGER}, 
+      #{hdtitle,jdbcType=VARCHAR}, #{xh,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, 
+      #{adduser,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Android_index_title">
+    insert into android_index_title
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="relationid != null">
+        relationId,
+      </if>
+      <if test="modalid != null">
+        modalId,
+      </if>
+      <if test="hdid != null">
+        hdid,
+      </if>
+      <if test="hdtitle != null">
+        hdtitle,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="relationid != null">
+        #{relationid,jdbcType=INTEGER},
+      </if>
+      <if test="modalid != null">
+        #{modalid,jdbcType=INTEGER},
+      </if>
+      <if test="hdid != null">
+        #{hdid,jdbcType=INTEGER},
+      </if>
+      <if test="hdtitle != null">
+        #{hdtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

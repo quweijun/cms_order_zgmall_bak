@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Customer_fcrateMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customer_fcrate">
+    <result column="CustomerID" jdbcType="BIGINT" property="customerid" />
+    <result column="JSSJB" jdbcType="VARCHAR" property="jssjb" />
+    <result column="JSSJBMC" jdbcType="VARCHAR" property="jssjbmc" />
+    <result column="ZJCCBL" jdbcType="DOUBLE" property="zjccbl" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customer_fcrate">
+    insert into customer_fcrate (CustomerID, JSSJB, JSSJBMC, 
+      ZJCCBL, EnableFlag, addtime
+      )
+    values (#{customerid,jdbcType=BIGINT}, #{jssjb,jdbcType=VARCHAR}, #{jssjbmc,jdbcType=VARCHAR}, 
+      #{zjccbl,jdbcType=DOUBLE}, #{enableflag,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customer_fcrate">
+    insert into customer_fcrate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        CustomerID,
+      </if>
+      <if test="jssjb != null">
+        JSSJB,
+      </if>
+      <if test="jssjbmc != null">
+        JSSJBMC,
+      </if>
+      <if test="zjccbl != null">
+        ZJCCBL,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="jssjb != null">
+        #{jssjb,jdbcType=VARCHAR},
+      </if>
+      <if test="jssjbmc != null">
+        #{jssjbmc,jdbcType=VARCHAR},
+      </if>
+      <if test="zjccbl != null">
+        #{zjccbl,jdbcType=DOUBLE},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

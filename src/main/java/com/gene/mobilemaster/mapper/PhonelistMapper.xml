@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PhonelistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Phonelist">
+    <result column="Col001" jdbcType="VARCHAR" property="col001" />
+    <result column="Col002" jdbcType="VARCHAR" property="col002" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Phonelist">
+    insert into phonelist (Col001, Col002)
+    values (#{col001,jdbcType=VARCHAR}, #{col002,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Phonelist">
+    insert into phonelist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="col001 != null">
+        Col001,
+      </if>
+      <if test="col002 != null">
+        Col002,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="col001 != null">
+        #{col001,jdbcType=VARCHAR},
+      </if>
+      <if test="col002 != null">
+        #{col002,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

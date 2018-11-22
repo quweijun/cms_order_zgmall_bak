@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CatchrateMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Catchrate">
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="rate1" jdbcType="DOUBLE" property="rate1" />
+    <result column="rate2" jdbcType="DOUBLE" property="rate2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Catchrate">
+    insert into catchrate (accesstime, rate1, rate2
+      )
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{rate1,jdbcType=DOUBLE}, #{rate2,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Catchrate">
+    insert into catchrate
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="rate1 != null">
+        rate1,
+      </if>
+      <if test="rate2 != null">
+        rate2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rate1 != null">
+        #{rate1,jdbcType=DOUBLE},
+      </if>
+      <if test="rate2 != null">
+        #{rate2,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

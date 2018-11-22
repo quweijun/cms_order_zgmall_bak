@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Score_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Score_log">
+    <result column="score_log_id" jdbcType="BIGINT" property="scoreLogId" />
+    <result column="score_rule_id" jdbcType="BIGINT" property="scoreRuleId" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="JiangPinID" jdbcType="BIGINT" property="jiangpinid" />
+    <result column="add_date" jdbcType="TIMESTAMP" property="addDate" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="JifenToJiangPinId" jdbcType="INTEGER" property="jifentojiangpinid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Score_log">
+    insert into score_log (score_log_id, score_rule_id, operation, 
+      score, productid, orderid, 
+      customerid, JiangPinID, add_date, 
+      flag, JifenToJiangPinId)
+    values (#{scoreLogId,jdbcType=BIGINT}, #{scoreRuleId,jdbcType=BIGINT}, #{operation,jdbcType=VARCHAR}, 
+      #{score,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, 
+      #{customerid,jdbcType=VARCHAR}, #{jiangpinid,jdbcType=BIGINT}, #{addDate,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=INTEGER}, #{jifentojiangpinid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Score_log">
+    insert into score_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scoreLogId != null">
+        score_log_id,
+      </if>
+      <if test="scoreRuleId != null">
+        score_rule_id,
+      </if>
+      <if test="operation != null">
+        operation,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="jiangpinid != null">
+        JiangPinID,
+      </if>
+      <if test="addDate != null">
+        add_date,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="jifentojiangpinid != null">
+        JifenToJiangPinId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scoreLogId != null">
+        #{scoreLogId,jdbcType=BIGINT},
+      </if>
+      <if test="scoreRuleId != null">
+        #{scoreRuleId,jdbcType=BIGINT},
+      </if>
+      <if test="operation != null">
+        #{operation,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="jiangpinid != null">
+        #{jiangpinid,jdbcType=BIGINT},
+      </if>
+      <if test="addDate != null">
+        #{addDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="jifentojiangpinid != null">
+        #{jifentojiangpinid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

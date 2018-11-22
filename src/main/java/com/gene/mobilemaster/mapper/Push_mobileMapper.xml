@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Push_mobileMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Push_mobile">
+    <result column="customermobile" jdbcType="VARCHAR" property="customermobile" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Push_mobile">
+    insert into push_mobile (customermobile)
+    values (#{customermobile,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Push_mobile">
+    insert into push_mobile
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customermobile != null">
+        customermobile,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customermobile != null">
+        #{customermobile,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

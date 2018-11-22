@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ChannelinfopermonthMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Channelinfopermonth">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="year" jdbcType="INTEGER" property="year" />
+    <result column="month" jdbcType="INTEGER" property="month" />
+    <result column="rksum" jdbcType="INTEGER" property="rksum" />
+    <result column="pvsum" jdbcType="INTEGER" property="pvsum" />
+    <result column="yhsum" jdbcType="INTEGER" property="yhsum" />
+    <result column="ordersum" jdbcType="INTEGER" property="ordersum" />
+    <result column="sureorder" jdbcType="INTEGER" property="sureorder" />
+    <result column="doneorder" jdbcType="INTEGER" property="doneorder" />
+    <result column="backorder" jdbcType="INTEGER" property="backorder" />
+    <result column="serviceorder" jdbcType="INTEGER" property="serviceorder" />
+    <result column="repealorder" jdbcType="INTEGER" property="repealorder" />
+    <result column="orderrate" jdbcType="DOUBLE" property="orderrate" />
+    <result column="surerate" jdbcType="DOUBLE" property="surerate" />
+    <result column="repealrate" jdbcType="DOUBLE" property="repealrate" />
+    <result column="donerate" jdbcType="DOUBLE" property="donerate" />
+    <result column="backrate" jdbcType="DOUBLE" property="backrate" />
+    <result column="servicerate" jdbcType="DOUBLE" property="servicerate" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Channelinfopermonth">
+    insert into channelinfopermonth (flowid, channelid, year, 
+      month, rksum, pvsum, 
+      yhsum, ordersum, sureorder, 
+      doneorder, backorder, serviceorder, 
+      repealorder, orderrate, surerate, 
+      repealrate, donerate, backrate, 
+      servicerate, addtime)
+    values (#{flowid,jdbcType=INTEGER}, #{channelid,jdbcType=VARCHAR}, #{year,jdbcType=INTEGER}, 
+      #{month,jdbcType=INTEGER}, #{rksum,jdbcType=INTEGER}, #{pvsum,jdbcType=INTEGER}, 
+      #{yhsum,jdbcType=INTEGER}, #{ordersum,jdbcType=INTEGER}, #{sureorder,jdbcType=INTEGER}, 
+      #{doneorder,jdbcType=INTEGER}, #{backorder,jdbcType=INTEGER}, #{serviceorder,jdbcType=INTEGER}, 
+      #{repealorder,jdbcType=INTEGER}, #{orderrate,jdbcType=DOUBLE}, #{surerate,jdbcType=DOUBLE}, 
+      #{repealrate,jdbcType=DOUBLE}, #{donerate,jdbcType=DOUBLE}, #{backrate,jdbcType=DOUBLE}, 
+      #{servicerate,jdbcType=DOUBLE}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Channelinfopermonth">
+    insert into channelinfopermonth
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="year != null">
+        year,
+      </if>
+      <if test="month != null">
+        month,
+      </if>
+      <if test="rksum != null">
+        rksum,
+      </if>
+      <if test="pvsum != null">
+        pvsum,
+      </if>
+      <if test="yhsum != null">
+        yhsum,
+      </if>
+      <if test="ordersum != null">
+        ordersum,
+      </if>
+      <if test="sureorder != null">
+        sureorder,
+      </if>
+      <if test="doneorder != null">
+        doneorder,
+      </if>
+      <if test="backorder != null">
+        backorder,
+      </if>
+      <if test="serviceorder != null">
+        serviceorder,
+      </if>
+      <if test="repealorder != null">
+        repealorder,
+      </if>
+      <if test="orderrate != null">
+        orderrate,
+      </if>
+      <if test="surerate != null">
+        surerate,
+      </if>
+      <if test="repealrate != null">
+        repealrate,
+      </if>
+      <if test="donerate != null">
+        donerate,
+      </if>
+      <if test="backrate != null">
+        backrate,
+      </if>
+      <if test="servicerate != null">
+        servicerate,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null">
+        #{year,jdbcType=INTEGER},
+      </if>
+      <if test="month != null">
+        #{month,jdbcType=INTEGER},
+      </if>
+      <if test="rksum != null">
+        #{rksum,jdbcType=INTEGER},
+      </if>
+      <if test="pvsum != null">
+        #{pvsum,jdbcType=INTEGER},
+      </if>
+      <if test="yhsum != null">
+        #{yhsum,jdbcType=INTEGER},
+      </if>
+      <if test="ordersum != null">
+        #{ordersum,jdbcType=INTEGER},
+      </if>
+      <if test="sureorder != null">
+        #{sureorder,jdbcType=INTEGER},
+      </if>
+      <if test="doneorder != null">
+        #{doneorder,jdbcType=INTEGER},
+      </if>
+      <if test="backorder != null">
+        #{backorder,jdbcType=INTEGER},
+      </if>
+      <if test="serviceorder != null">
+        #{serviceorder,jdbcType=INTEGER},
+      </if>
+      <if test="repealorder != null">
+        #{repealorder,jdbcType=INTEGER},
+      </if>
+      <if test="orderrate != null">
+        #{orderrate,jdbcType=DOUBLE},
+      </if>
+      <if test="surerate != null">
+        #{surerate,jdbcType=DOUBLE},
+      </if>
+      <if test="repealrate != null">
+        #{repealrate,jdbcType=DOUBLE},
+      </if>
+      <if test="donerate != null">
+        #{donerate,jdbcType=DOUBLE},
+      </if>
+      <if test="backrate != null">
+        #{backrate,jdbcType=DOUBLE},
+      </if>
+      <if test="servicerate != null">
+        #{servicerate,jdbcType=DOUBLE},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

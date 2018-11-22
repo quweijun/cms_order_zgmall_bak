@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PingjiareplyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pingjiareply">
+    <result column="flowid" jdbcType="DOUBLE" property="flowid" />
+    <result column="postid" jdbcType="INTEGER" property="postid" />
+    <result column="reply" jdbcType="VARCHAR" property="reply" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="update_user" jdbcType="VARCHAR" property="updateUser" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="isLock" jdbcType="INTEGER" property="islock" />
+    <result column="isSys" jdbcType="INTEGER" property="issys" />
+    <result column="sessionid" jdbcType="VARCHAR" property="sessionid" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="rplevel" jdbcType="INTEGER" property="rplevel" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pingjiareply">
+    insert into pingjiareply (flowid, postid, reply, 
+      username, update_user, update_date, 
+      isLock, isSys, sessionid, 
+      addDate, rplevel)
+    values (#{flowid,jdbcType=DOUBLE}, #{postid,jdbcType=INTEGER}, #{reply,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{islock,jdbcType=INTEGER}, #{issys,jdbcType=INTEGER}, #{sessionid,jdbcType=VARCHAR}, 
+      #{adddate,jdbcType=TIMESTAMP}, #{rplevel,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pingjiareply">
+    insert into pingjiareply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="postid != null">
+        postid,
+      </if>
+      <if test="reply != null">
+        reply,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="updateUser != null">
+        update_user,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+      <if test="issys != null">
+        isSys,
+      </if>
+      <if test="sessionid != null">
+        sessionid,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+      <if test="rplevel != null">
+        rplevel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=DOUBLE},
+      </if>
+      <if test="postid != null">
+        #{postid,jdbcType=INTEGER},
+      </if>
+      <if test="reply != null">
+        #{reply,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUser != null">
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="issys != null">
+        #{issys,jdbcType=INTEGER},
+      </if>
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rplevel != null">
+        #{rplevel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BackexpressidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Backexpressid">
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="adddate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Backexpressid">
+    insert into backexpressid (expressid, adddate)
+    values (#{expressid,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Backexpressid">
+    insert into backexpressid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="adddate != null">
+        adddate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

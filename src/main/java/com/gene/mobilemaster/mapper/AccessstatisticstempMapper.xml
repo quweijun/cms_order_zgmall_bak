@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.AccessstatisticstempMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Accessstatisticstemp">
+    <result column="ID" jdbcType="BIGINT" property="id" />
+    <result column="VisitID" jdbcType="VARCHAR" property="visitid" />
+    <result column="productType" jdbcType="INTEGER" property="producttype" />
+    <result column="ggy" jdbcType="VARCHAR" property="ggy" />
+    <result column="ClickType" jdbcType="VARCHAR" property="clicktype" />
+    <result column="URL" jdbcType="VARCHAR" property="url" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="ChannelId" jdbcType="INTEGER" property="channelid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Accessstatisticstemp">
+    insert into accessstatisticstemp (ID, VisitID, productType, 
+      ggy, ClickType, URL, 
+      addTime, ChannelId)
+    values (#{id,jdbcType=BIGINT}, #{visitid,jdbcType=VARCHAR}, #{producttype,jdbcType=INTEGER}, 
+      #{ggy,jdbcType=VARCHAR}, #{clicktype,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{channelid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Accessstatisticstemp">
+    insert into accessstatisticstemp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="visitid != null">
+        VisitID,
+      </if>
+      <if test="producttype != null">
+        productType,
+      </if>
+      <if test="ggy != null">
+        ggy,
+      </if>
+      <if test="clicktype != null">
+        ClickType,
+      </if>
+      <if test="url != null">
+        URL,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="channelid != null">
+        ChannelId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="visitid != null">
+        #{visitid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        #{producttype,jdbcType=INTEGER},
+      </if>
+      <if test="ggy != null">
+        #{ggy,jdbcType=VARCHAR},
+      </if>
+      <if test="clicktype != null">
+        #{clicktype,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

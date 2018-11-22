@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SubclassMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Subclass">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="bigid" jdbcType="INTEGER" property="bigid" />
+    <result column="smallid" jdbcType="INTEGER" property="smallid" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="xhs" jdbcType="INTEGER" property="xhs" />
+    <result column="orders" jdbcType="INTEGER" property="orders" />
+    <result column="android_icon" jdbcType="VARCHAR" property="androidIcon" />
+    <result column="JDFL" jdbcType="VARCHAR" property="jdfl" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Subclass">
+    insert into subclass (id, bigid, smallid, 
+      typename, flag, xhs, 
+      orders, android_icon, JDFL
+      )
+    values (#{id,jdbcType=INTEGER}, #{bigid,jdbcType=INTEGER}, #{smallid,jdbcType=INTEGER}, 
+      #{typename,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{xhs,jdbcType=INTEGER}, 
+      #{orders,jdbcType=INTEGER}, #{androidIcon,jdbcType=VARCHAR}, #{jdfl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Subclass">
+    insert into subclass
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bigid != null">
+        bigid,
+      </if>
+      <if test="smallid != null">
+        smallid,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="xhs != null">
+        xhs,
+      </if>
+      <if test="orders != null">
+        orders,
+      </if>
+      <if test="androidIcon != null">
+        android_icon,
+      </if>
+      <if test="jdfl != null">
+        JDFL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bigid != null">
+        #{bigid,jdbcType=INTEGER},
+      </if>
+      <if test="smallid != null">
+        #{smallid,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="xhs != null">
+        #{xhs,jdbcType=INTEGER},
+      </if>
+      <if test="orders != null">
+        #{orders,jdbcType=INTEGER},
+      </if>
+      <if test="androidIcon != null">
+        #{androidIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="jdfl != null">
+        #{jdfl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

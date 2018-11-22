@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.EmsdistpydqlibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Emsdistpydqlib">
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="cityjc" jdbcType="VARCHAR" property="cityjc" />
+    <result column="bhcity" jdbcType="INTEGER" property="bhcity" />
+    <result column="xian" jdbcType="VARCHAR" property="xian" />
+    <result column="xianjc" jdbcType="VARCHAR" property="xianjc" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Emsdistpydqlib">
+    insert into emsdistpydqlib (sheng, city, cityjc, 
+      bhcity, xian, xianjc
+      )
+    values (#{sheng,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{cityjc,jdbcType=VARCHAR}, 
+      #{bhcity,jdbcType=INTEGER}, #{xian,jdbcType=VARCHAR}, #{xianjc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Emsdistpydqlib">
+    insert into emsdistpydqlib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="cityjc != null">
+        cityjc,
+      </if>
+      <if test="bhcity != null">
+        bhcity,
+      </if>
+      <if test="xian != null">
+        xian,
+      </if>
+      <if test="xianjc != null">
+        xianjc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="cityjc != null">
+        #{cityjc,jdbcType=VARCHAR},
+      </if>
+      <if test="bhcity != null">
+        #{bhcity,jdbcType=INTEGER},
+      </if>
+      <if test="xian != null">
+        #{xian,jdbcType=VARCHAR},
+      </if>
+      <if test="xianjc != null">
+        #{xianjc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

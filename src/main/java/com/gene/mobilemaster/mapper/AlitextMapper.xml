@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.AlitextMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Alitext">
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="paras" jdbcType="VARCHAR" property="paras" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Alitext">
+    insert into alitext (orderid, paras)
+    values (#{orderid,jdbcType=VARCHAR}, #{paras,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Alitext">
+    insert into alitext
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="paras != null">
+        paras,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="paras != null">
+        #{paras,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

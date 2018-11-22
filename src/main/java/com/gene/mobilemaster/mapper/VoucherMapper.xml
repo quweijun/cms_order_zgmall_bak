@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.VoucherMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Voucher">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="md5name" jdbcType="VARCHAR" property="md5name" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="coupon" jdbcType="VARCHAR" property="coupon" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Voucher">
+    insert into voucher (flowid, md5name, mobile, 
+      coupon, addtime, beizhu
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{md5name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{coupon,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{beizhu,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Voucher">
+    insert into voucher
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="md5name != null">
+        md5name,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="coupon != null">
+        coupon,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="beizhu != null">
+        beizhu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="md5name != null">
+        #{md5name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="coupon != null">
+        #{coupon,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beizhu != null">
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ZhuanquzdMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zhuanquzd">
+    <result column="ZQID" jdbcType="INTEGER" property="zqid" />
+    <result column="ZQName" jdbcType="VARCHAR" property="zqname" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="BzDesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="AddOr" jdbcType="VARCHAR" property="addor" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="UptOr" jdbcType="VARCHAR" property="uptor" />
+    <result column="UptTime" jdbcType="TIMESTAMP" property="upttime" />
+    <result column="XH" jdbcType="INTEGER" property="xh" />
+    <result column="DivCss1" jdbcType="VARCHAR" property="divcss1" />
+    <result column="DivCss2" jdbcType="VARCHAR" property="divcss2" />
+    <result column="IsPublic" jdbcType="INTEGER" property="ispublic" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Zhuanquzd">
+    <result column="AttachCssScript" jdbcType="LONGVARCHAR" property="attachcssscript" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    AttachCssScript
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zhuanquzd">
+    insert into zhuanquzd (ZQID, ZQName, EnableFlag, 
+      BzDesc, AddOr, AddTime, 
+      UptOr, UptTime, XH, 
+      DivCss1, DivCss2, IsPublic, 
+      AttachCssScript)
+    values (#{zqid,jdbcType=INTEGER}, #{zqname,jdbcType=VARCHAR}, #{enableflag,jdbcType=INTEGER}, 
+      #{bzdesc,jdbcType=VARCHAR}, #{addor,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{uptor,jdbcType=VARCHAR}, #{upttime,jdbcType=TIMESTAMP}, #{xh,jdbcType=INTEGER}, 
+      #{divcss1,jdbcType=VARCHAR}, #{divcss2,jdbcType=VARCHAR}, #{ispublic,jdbcType=INTEGER}, 
+      #{attachcssscript,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zhuanquzd">
+    insert into zhuanquzd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zqid != null">
+        ZQID,
+      </if>
+      <if test="zqname != null">
+        ZQName,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="bzdesc != null">
+        BzDesc,
+      </if>
+      <if test="addor != null">
+        AddOr,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="uptor != null">
+        UptOr,
+      </if>
+      <if test="upttime != null">
+        UptTime,
+      </if>
+      <if test="xh != null">
+        XH,
+      </if>
+      <if test="divcss1 != null">
+        DivCss1,
+      </if>
+      <if test="divcss2 != null">
+        DivCss2,
+      </if>
+      <if test="ispublic != null">
+        IsPublic,
+      </if>
+      <if test="attachcssscript != null">
+        AttachCssScript,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zqid != null">
+        #{zqid,jdbcType=INTEGER},
+      </if>
+      <if test="zqname != null">
+        #{zqname,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uptor != null">
+        #{uptor,jdbcType=VARCHAR},
+      </if>
+      <if test="upttime != null">
+        #{upttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="divcss1 != null">
+        #{divcss1,jdbcType=VARCHAR},
+      </if>
+      <if test="divcss2 != null">
+        #{divcss2,jdbcType=VARCHAR},
+      </if>
+      <if test="ispublic != null">
+        #{ispublic,jdbcType=INTEGER},
+      </if>
+      <if test="attachcssscript != null">
+        #{attachcssscript,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

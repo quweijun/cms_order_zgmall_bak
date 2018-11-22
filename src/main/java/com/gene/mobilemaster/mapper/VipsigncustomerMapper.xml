@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.VipsigncustomerMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Vipsigncustomer">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="customerid" jdbcType="INTEGER" property="customerid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Vipsigncustomer">
+    insert into vipsigncustomer (flowid, customerid)
+    values (#{flowid,jdbcType=BIGINT}, #{customerid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Vipsigncustomer">
+    insert into vipsigncustomer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

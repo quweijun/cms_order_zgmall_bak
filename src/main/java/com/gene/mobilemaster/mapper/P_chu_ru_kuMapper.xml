@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.P_chu_ru_kuMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.P_chu_ru_ku">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="new_productid" jdbcType="VARCHAR" property="newProductid" />
+    <result column="old_productid" jdbcType="VARCHAR" property="oldProductid" />
+    <result column="barcodeid" jdbcType="VARCHAR" property="barcodeid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="smalltypename" jdbcType="VARCHAR" property="smalltypename" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="prodsize" jdbcType="VARCHAR" property="prodsize" />
+    <result column="leixing" jdbcType="VARCHAR" property="leixing" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.P_chu_ru_ku">
+    insert into p_chu_ru_ku (ID, new_productid, old_productid, 
+      barcodeid, productname, typename, 
+      smalltypename, prodcolor, prodsize, 
+      leixing, editor, flag, 
+      addtime)
+    values (#{id,jdbcType=INTEGER}, #{newProductid,jdbcType=VARCHAR}, #{oldProductid,jdbcType=VARCHAR}, 
+      #{barcodeid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{typename,jdbcType=VARCHAR}, 
+      #{smalltypename,jdbcType=VARCHAR}, #{prodcolor,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, 
+      #{leixing,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.P_chu_ru_ku">
+    insert into p_chu_ru_ku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="newProductid != null">
+        new_productid,
+      </if>
+      <if test="oldProductid != null">
+        old_productid,
+      </if>
+      <if test="barcodeid != null">
+        barcodeid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="smalltypename != null">
+        smalltypename,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="prodsize != null">
+        prodsize,
+      </if>
+      <if test="leixing != null">
+        leixing,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="newProductid != null">
+        #{newProductid,jdbcType=VARCHAR},
+      </if>
+      <if test="oldProductid != null">
+        #{oldProductid,jdbcType=VARCHAR},
+      </if>
+      <if test="barcodeid != null">
+        #{barcodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="smalltypename != null">
+        #{smalltypename,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="prodsize != null">
+        #{prodsize,jdbcType=VARCHAR},
+      </if>
+      <if test="leixing != null">
+        #{leixing,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

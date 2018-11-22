@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ShipmentslogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Shipmentslog">
+    <result column="slID" jdbcType="INTEGER" property="slid" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="orderMumber" jdbcType="VARCHAR" property="ordermumber" />
+    <result column="indent" jdbcType="VARCHAR" property="indent" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="LonTime" jdbcType="TIMESTAMP" property="lontime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Shipmentslog">
+    insert into shipmentslog (slID, UserName, orderMumber, 
+      indent, remark, LonTime
+      )
+    values (#{slid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{ordermumber,jdbcType=VARCHAR}, 
+      #{indent,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{lontime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Shipmentslog">
+    insert into shipmentslog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="slid != null">
+        slID,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="ordermumber != null">
+        orderMumber,
+      </if>
+      <if test="indent != null">
+        indent,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="lontime != null">
+        LonTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="slid != null">
+        #{slid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="ordermumber != null">
+        #{ordermumber,jdbcType=VARCHAR},
+      </if>
+      <if test="indent != null">
+        #{indent,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="lontime != null">
+        #{lontime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

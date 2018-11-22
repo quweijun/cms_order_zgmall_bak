@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CustomermybankMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customermybank">
+    <result column="bankid" jdbcType="INTEGER" property="bankid" />
+    <result column="mainflag" jdbcType="INTEGER" property="mainflag" />
+    <result column="customerid" jdbcType="INTEGER" property="customerid" />
+    <result column="orderphone" jdbcType="VARCHAR" property="orderphone" />
+    <result column="bankName" jdbcType="VARCHAR" property="bankname" />
+    <result column="subbranchName" jdbcType="VARCHAR" property="subbranchname" />
+    <result column="accountNo" jdbcType="VARCHAR" property="accountno" />
+    <result column="accountName" jdbcType="VARCHAR" property="accountname" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customermybank">
+    insert into customermybank (bankid, mainflag, customerid, 
+      orderphone, bankName, subbranchName, 
+      accountNo, accountName, addtime
+      )
+    values (#{bankid,jdbcType=INTEGER}, #{mainflag,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, 
+      #{orderphone,jdbcType=VARCHAR}, #{bankname,jdbcType=VARCHAR}, #{subbranchname,jdbcType=VARCHAR}, 
+      #{accountno,jdbcType=VARCHAR}, #{accountname,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customermybank">
+    insert into customermybank
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bankid != null">
+        bankid,
+      </if>
+      <if test="mainflag != null">
+        mainflag,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="orderphone != null">
+        orderphone,
+      </if>
+      <if test="bankname != null">
+        bankName,
+      </if>
+      <if test="subbranchname != null">
+        subbranchName,
+      </if>
+      <if test="accountno != null">
+        accountNo,
+      </if>
+      <if test="accountname != null">
+        accountName,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bankid != null">
+        #{bankid,jdbcType=INTEGER},
+      </if>
+      <if test="mainflag != null">
+        #{mainflag,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="orderphone != null">
+        #{orderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="subbranchname != null">
+        #{subbranchname,jdbcType=VARCHAR},
+      </if>
+      <if test="accountno != null">
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null">
+        #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

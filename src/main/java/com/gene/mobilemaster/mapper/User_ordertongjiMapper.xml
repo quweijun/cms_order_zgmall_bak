@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.User_ordertongjiMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.User_ordertongji">
+    <result column="t_ID" jdbcType="INTEGER" property="tId" />
+    <result column="t_riqi" jdbcType="TIMESTAMP" property="tRiqi" />
+    <result column="t_shengcheng_num" jdbcType="INTEGER" property="tShengchengNum" />
+    <result column="t_queren_num" jdbcType="INTEGER" property="tQuerenNum" />
+    <result column="t_old_queren_num" jdbcType="INTEGER" property="tOldQuerenNum" />
+    <result column="t_qianshou_num" jdbcType="INTEGER" property="tQianshouNum" />
+    <result column="t_userid" jdbcType="VARCHAR" property="tUserid" />
+    <result column="t_addtime" jdbcType="TIMESTAMP" property="tAddtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.User_ordertongji">
+    insert into user_ordertongji (t_ID, t_riqi, t_shengcheng_num, 
+      t_queren_num, t_old_queren_num, t_qianshou_num, 
+      t_userid, t_addtime)
+    values (#{tId,jdbcType=INTEGER}, #{tRiqi,jdbcType=TIMESTAMP}, #{tShengchengNum,jdbcType=INTEGER}, 
+      #{tQuerenNum,jdbcType=INTEGER}, #{tOldQuerenNum,jdbcType=INTEGER}, #{tQianshouNum,jdbcType=INTEGER}, 
+      #{tUserid,jdbcType=VARCHAR}, #{tAddtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.User_ordertongji">
+    insert into user_ordertongji
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        t_ID,
+      </if>
+      <if test="tRiqi != null">
+        t_riqi,
+      </if>
+      <if test="tShengchengNum != null">
+        t_shengcheng_num,
+      </if>
+      <if test="tQuerenNum != null">
+        t_queren_num,
+      </if>
+      <if test="tOldQuerenNum != null">
+        t_old_queren_num,
+      </if>
+      <if test="tQianshouNum != null">
+        t_qianshou_num,
+      </if>
+      <if test="tUserid != null">
+        t_userid,
+      </if>
+      <if test="tAddtime != null">
+        t_addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        #{tId,jdbcType=INTEGER},
+      </if>
+      <if test="tRiqi != null">
+        #{tRiqi,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tShengchengNum != null">
+        #{tShengchengNum,jdbcType=INTEGER},
+      </if>
+      <if test="tQuerenNum != null">
+        #{tQuerenNum,jdbcType=INTEGER},
+      </if>
+      <if test="tOldQuerenNum != null">
+        #{tOldQuerenNum,jdbcType=INTEGER},
+      </if>
+      <if test="tQianshouNum != null">
+        #{tQianshouNum,jdbcType=INTEGER},
+      </if>
+      <if test="tUserid != null">
+        #{tUserid,jdbcType=VARCHAR},
+      </if>
+      <if test="tAddtime != null">
+        #{tAddtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

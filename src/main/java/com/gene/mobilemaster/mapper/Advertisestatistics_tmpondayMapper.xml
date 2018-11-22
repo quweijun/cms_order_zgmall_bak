@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Advertisestatistics_tmpondayMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Advertisestatistics_tmponday">
+    <result column="id" jdbcType="DOUBLE" property="id" />
+    <result column="adid" jdbcType="INTEGER" property="adid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="adtype" jdbcType="INTEGER" property="adtype" />
+    <result column="VisitTime" jdbcType="TIMESTAMP" property="visittime" />
+    <result column="VisitCount" jdbcType="INTEGER" property="visitcount" />
+    <result column="VisitCount2" jdbcType="INTEGER" property="visitcount2" />
+    <result column="NoTrueVisitCount" jdbcType="INTEGER" property="notruevisitcount" />
+    <result column="NoTrueVisitCount2" jdbcType="INTEGER" property="notruevisitcount2" />
+    <result column="kidLocation" jdbcType="INTEGER" property="kidlocation" />
+    <result column="subchannel" jdbcType="INTEGER" property="subchannel" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Advertisestatistics_tmponday">
+    insert into advertisestatistics_tmponday (id, adid, title, 
+      adtype, VisitTime, VisitCount, 
+      VisitCount2, NoTrueVisitCount, NoTrueVisitCount2, 
+      kidLocation, subchannel)
+    values (#{id,jdbcType=DOUBLE}, #{adid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{adtype,jdbcType=INTEGER}, #{visittime,jdbcType=TIMESTAMP}, #{visitcount,jdbcType=INTEGER}, 
+      #{visitcount2,jdbcType=INTEGER}, #{notruevisitcount,jdbcType=INTEGER}, #{notruevisitcount2,jdbcType=INTEGER}, 
+      #{kidlocation,jdbcType=INTEGER}, #{subchannel,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Advertisestatistics_tmponday">
+    insert into advertisestatistics_tmponday
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="adid != null">
+        adid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="adtype != null">
+        adtype,
+      </if>
+      <if test="visittime != null">
+        VisitTime,
+      </if>
+      <if test="visitcount != null">
+        VisitCount,
+      </if>
+      <if test="visitcount2 != null">
+        VisitCount2,
+      </if>
+      <if test="notruevisitcount != null">
+        NoTrueVisitCount,
+      </if>
+      <if test="notruevisitcount2 != null">
+        NoTrueVisitCount2,
+      </if>
+      <if test="kidlocation != null">
+        kidLocation,
+      </if>
+      <if test="subchannel != null">
+        subchannel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DOUBLE},
+      </if>
+      <if test="adid != null">
+        #{adid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="adtype != null">
+        #{adtype,jdbcType=INTEGER},
+      </if>
+      <if test="visittime != null">
+        #{visittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visitcount != null">
+        #{visitcount,jdbcType=INTEGER},
+      </if>
+      <if test="visitcount2 != null">
+        #{visitcount2,jdbcType=INTEGER},
+      </if>
+      <if test="notruevisitcount != null">
+        #{notruevisitcount,jdbcType=INTEGER},
+      </if>
+      <if test="notruevisitcount2 != null">
+        #{notruevisitcount2,jdbcType=INTEGER},
+      </if>
+      <if test="kidlocation != null">
+        #{kidlocation,jdbcType=INTEGER},
+      </if>
+      <if test="subchannel != null">
+        #{subchannel,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

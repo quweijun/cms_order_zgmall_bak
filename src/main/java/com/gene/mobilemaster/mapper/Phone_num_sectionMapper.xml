@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Phone_num_sectionMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Phone_num_section">
+    <result column="telid" jdbcType="INTEGER" property="telid" />
+    <result column="operator" jdbcType="CHAR" property="operator" />
+    <result column="number_section" jdbcType="CHAR" property="numberSection" />
+    <result column="network" jdbcType="CHAR" property="network" />
+    <result column="networkdesc" jdbcType="VARCHAR" property="networkdesc" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Phone_num_section">
+    insert into phone_num_section (telid, operator, number_section, 
+      network, networkdesc, flag
+      )
+    values (#{telid,jdbcType=INTEGER}, #{operator,jdbcType=CHAR}, #{numberSection,jdbcType=CHAR}, 
+      #{network,jdbcType=CHAR}, #{networkdesc,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Phone_num_section">
+    insert into phone_num_section
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="telid != null">
+        telid,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+      <if test="numberSection != null">
+        number_section,
+      </if>
+      <if test="network != null">
+        network,
+      </if>
+      <if test="networkdesc != null">
+        networkdesc,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="telid != null">
+        #{telid,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=CHAR},
+      </if>
+      <if test="numberSection != null">
+        #{numberSection,jdbcType=CHAR},
+      </if>
+      <if test="network != null">
+        #{network,jdbcType=CHAR},
+      </if>
+      <if test="networkdesc != null">
+        #{networkdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

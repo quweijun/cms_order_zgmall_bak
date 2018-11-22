@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.StockvsorderMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Stockvsorder">
+    <result column="wareid" jdbcType="VARCHAR" property="wareid" />
+    <result column="bigtype" jdbcType="VARCHAR" property="bigtype" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="warecolor" jdbcType="CHAR" property="warecolor" />
+    <result column="waresize" jdbcType="CHAR" property="waresize" />
+    <result column="stocksum" jdbcType="INTEGER" property="stocksum" />
+    <result column="ordersum" jdbcType="INTEGER" property="ordersum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Stockvsorder">
+    insert into stockvsorder (wareid, bigtype, productname, 
+      warecolor, waresize, stocksum, 
+      ordersum)
+    values (#{wareid,jdbcType=VARCHAR}, #{bigtype,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, 
+      #{warecolor,jdbcType=CHAR}, #{waresize,jdbcType=CHAR}, #{stocksum,jdbcType=INTEGER}, 
+      #{ordersum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Stockvsorder">
+    insert into stockvsorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wareid != null">
+        wareid,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="warecolor != null">
+        warecolor,
+      </if>
+      <if test="waresize != null">
+        waresize,
+      </if>
+      <if test="stocksum != null">
+        stocksum,
+      </if>
+      <if test="ordersum != null">
+        ordersum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wareid != null">
+        #{wareid,jdbcType=VARCHAR},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="warecolor != null">
+        #{warecolor,jdbcType=CHAR},
+      </if>
+      <if test="waresize != null">
+        #{waresize,jdbcType=CHAR},
+      </if>
+      <if test="stocksum != null">
+        #{stocksum,jdbcType=INTEGER},
+      </if>
+      <if test="ordersum != null">
+        #{ordersum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

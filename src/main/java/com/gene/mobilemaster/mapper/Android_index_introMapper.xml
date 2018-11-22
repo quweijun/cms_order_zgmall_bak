@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Android_index_introMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Android_index_intro">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="index_loading_img" jdbcType="VARCHAR" property="indexLoadingImg" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Android_index_intro">
+    insert into android_index_intro (id, logo, index_loading_img, 
+      addUser, addTime, flag
+      )
+    values (#{id,jdbcType=INTEGER}, #{logo,jdbcType=VARCHAR}, #{indexLoadingImg,jdbcType=VARCHAR}, 
+      #{adduser,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Android_index_intro">
+    insert into android_index_intro
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="logo != null">
+        logo,
+      </if>
+      <if test="indexLoadingImg != null">
+        index_loading_img,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="logo != null">
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="indexLoadingImg != null">
+        #{indexLoadingImg,jdbcType=VARCHAR},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

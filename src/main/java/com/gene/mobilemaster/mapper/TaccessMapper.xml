@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TaccessMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Taccess">
+    <result column="sessionid" jdbcType="INTEGER" property="sessionid" />
+    <result column="accessnum" jdbcType="INTEGER" property="accessnum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Taccess">
+    insert into taccess (sessionid, accessnum)
+    values (#{sessionid,jdbcType=INTEGER}, #{accessnum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Taccess">
+    insert into taccess
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        sessionid,
+      </if>
+      <if test="accessnum != null">
+        accessnum,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=INTEGER},
+      </if>
+      <if test="accessnum != null">
+        #{accessnum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

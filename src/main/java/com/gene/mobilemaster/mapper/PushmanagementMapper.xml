@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PushmanagementMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pushmanagement">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="channelID" jdbcType="INTEGER" property="channelid" />
+    <result column="subdomainID" jdbcType="VARCHAR" property="subdomainid" />
+    <result column="pushAddress" jdbcType="VARCHAR" property="pushaddress" />
+    <result column="RealAddress" jdbcType="VARCHAR" property="realaddress" />
+    <result column="pushMsg" jdbcType="VARCHAR" property="pushmsg" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="updateDate" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="isValid" jdbcType="VARCHAR" property="isvalid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pushmanagement">
+    insert into pushmanagement (ID, channelID, subdomainID, 
+      pushAddress, RealAddress, pushMsg, 
+      createDate, updateDate, userName, 
+      isValid)
+    values (#{id,jdbcType=INTEGER}, #{channelid,jdbcType=INTEGER}, #{subdomainid,jdbcType=VARCHAR}, 
+      #{pushaddress,jdbcType=VARCHAR}, #{realaddress,jdbcType=VARCHAR}, #{pushmsg,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{updatedate,jdbcType=TIMESTAMP}, #{username,jdbcType=VARCHAR}, 
+      #{isvalid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pushmanagement">
+    insert into pushmanagement
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="channelid != null">
+        channelID,
+      </if>
+      <if test="subdomainid != null">
+        subdomainID,
+      </if>
+      <if test="pushaddress != null">
+        pushAddress,
+      </if>
+      <if test="realaddress != null">
+        RealAddress,
+      </if>
+      <if test="pushmsg != null">
+        pushMsg,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+      <if test="updatedate != null">
+        updateDate,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="isvalid != null">
+        isValid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=INTEGER},
+      </if>
+      <if test="subdomainid != null">
+        #{subdomainid,jdbcType=VARCHAR},
+      </if>
+      <if test="pushaddress != null">
+        #{pushaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="realaddress != null">
+        #{realaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="pushmsg != null">
+        #{pushmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="isvalid != null">
+        #{isvalid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

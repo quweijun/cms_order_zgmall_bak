@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OthermiddleMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Othermiddle">
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="rksum" jdbcType="INTEGER" property="rksum" />
+    <result column="yxrksum" jdbcType="INTEGER" property="yxrksum" />
+    <result column="yxpvsum" jdbcType="INTEGER" property="yxpvsum" />
+    <result column="yxyhsum" jdbcType="INTEGER" property="yxyhsum" />
+    <result column="endsum" jdbcType="VARCHAR" property="endsum" />
+    <result column="dpvsum" jdbcType="INTEGER" property="dpvsum" />
+    <result column="Spvsum" jdbcType="INTEGER" property="spvsum" />
+    <result column="hyyhsum" jdbcType="INTEGER" property="hyyhsum" />
+    <result column="ch" jdbcType="INTEGER" property="ch" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Othermiddle">
+    insert into othermiddle (accesstime, channelid, rksum, 
+      yxrksum, yxpvsum, yxyhsum, 
+      endsum, dpvsum, Spvsum, 
+      hyyhsum, ch)
+    values (#{accesstime,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{rksum,jdbcType=INTEGER}, 
+      #{yxrksum,jdbcType=INTEGER}, #{yxpvsum,jdbcType=INTEGER}, #{yxyhsum,jdbcType=INTEGER}, 
+      #{endsum,jdbcType=VARCHAR}, #{dpvsum,jdbcType=INTEGER}, #{spvsum,jdbcType=INTEGER}, 
+      #{hyyhsum,jdbcType=INTEGER}, #{ch,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Othermiddle">
+    insert into othermiddle
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="rksum != null">
+        rksum,
+      </if>
+      <if test="yxrksum != null">
+        yxrksum,
+      </if>
+      <if test="yxpvsum != null">
+        yxpvsum,
+      </if>
+      <if test="yxyhsum != null">
+        yxyhsum,
+      </if>
+      <if test="endsum != null">
+        endsum,
+      </if>
+      <if test="dpvsum != null">
+        dpvsum,
+      </if>
+      <if test="spvsum != null">
+        Spvsum,
+      </if>
+      <if test="hyyhsum != null">
+        hyyhsum,
+      </if>
+      <if test="ch != null">
+        ch,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="rksum != null">
+        #{rksum,jdbcType=INTEGER},
+      </if>
+      <if test="yxrksum != null">
+        #{yxrksum,jdbcType=INTEGER},
+      </if>
+      <if test="yxpvsum != null">
+        #{yxpvsum,jdbcType=INTEGER},
+      </if>
+      <if test="yxyhsum != null">
+        #{yxyhsum,jdbcType=INTEGER},
+      </if>
+      <if test="endsum != null">
+        #{endsum,jdbcType=VARCHAR},
+      </if>
+      <if test="dpvsum != null">
+        #{dpvsum,jdbcType=INTEGER},
+      </if>
+      <if test="spvsum != null">
+        #{spvsum,jdbcType=INTEGER},
+      </if>
+      <if test="hyyhsum != null">
+        #{hyyhsum,jdbcType=INTEGER},
+      </if>
+      <if test="ch != null">
+        #{ch,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Record_tblMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Record_tbl">
+    <result column="RecordID" jdbcType="INTEGER" property="recordid" />
+    <result column="MemberID" jdbcType="INTEGER" property="memberid" />
+    <result column="DayTime" jdbcType="TIMESTAMP" property="daytime" />
+    <result column="IPAddress" jdbcType="VARCHAR" property="ipaddress" />
+    <result column="ProductID" jdbcType="INTEGER" property="productid" />
+    <result column="GameID" jdbcType="VARCHAR" property="gameid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="SessionID" jdbcType="VARCHAR" property="sessionid" />
+    <result column="Bool" jdbcType="TINYINT" property="bool" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Record_tbl">
+    insert into record_tbl (RecordID, MemberID, DayTime, 
+      IPAddress, ProductID, GameID, 
+      orderid, SessionID, Bool
+      )
+    values (#{recordid,jdbcType=INTEGER}, #{memberid,jdbcType=INTEGER}, #{daytime,jdbcType=TIMESTAMP}, 
+      #{ipaddress,jdbcType=VARCHAR}, #{productid,jdbcType=INTEGER}, #{gameid,jdbcType=VARCHAR}, 
+      #{orderid,jdbcType=VARCHAR}, #{sessionid,jdbcType=VARCHAR}, #{bool,jdbcType=TINYINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Record_tbl">
+    insert into record_tbl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordid != null">
+        RecordID,
+      </if>
+      <if test="memberid != null">
+        MemberID,
+      </if>
+      <if test="daytime != null">
+        DayTime,
+      </if>
+      <if test="ipaddress != null">
+        IPAddress,
+      </if>
+      <if test="productid != null">
+        ProductID,
+      </if>
+      <if test="gameid != null">
+        GameID,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="sessionid != null">
+        SessionID,
+      </if>
+      <if test="bool != null">
+        Bool,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordid != null">
+        #{recordid,jdbcType=INTEGER},
+      </if>
+      <if test="memberid != null">
+        #{memberid,jdbcType=INTEGER},
+      </if>
+      <if test="daytime != null">
+        #{daytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipaddress != null">
+        #{ipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="gameid != null">
+        #{gameid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="sessionid != null">
+        #{sessionid,jdbcType=VARCHAR},
+      </if>
+      <if test="bool != null">
+        #{bool,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

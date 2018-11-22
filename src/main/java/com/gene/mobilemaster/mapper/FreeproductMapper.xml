@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.FreeproductMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Freeproduct">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="types" jdbcType="INTEGER" property="types" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="hdid" jdbcType="INTEGER" property="hdid" />
+    <result column="smalltype" jdbcType="INTEGER" property="smalltype" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Freeproduct">
+    insert into freeproduct (flowid, types, productid, 
+      hdid, smalltype, editor, 
+      addtime, flag)
+    values (#{flowid,jdbcType=BIGINT}, #{types,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, 
+      #{hdid,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, #{editor,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Freeproduct">
+    insert into freeproduct
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="types != null">
+        types,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="hdid != null">
+        hdid,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="types != null">
+        #{types,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="hdid != null">
+        #{hdid,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

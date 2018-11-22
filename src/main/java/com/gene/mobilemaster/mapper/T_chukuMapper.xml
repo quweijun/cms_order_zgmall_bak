@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.T_chukuMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.T_chuku">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="m_jycp" jdbcType="VARCHAR" property="mJycp" />
+    <result column="m_cptm" jdbcType="VARCHAR" property="mCptm" />
+    <result column="m_zyyt" jdbcType="VARCHAR" property="mZyyt" />
+    <result column="m_jysj" jdbcType="TIMESTAMP" property="mJysj" />
+    <result column="m_rksj" jdbcType="TIMESTAMP" property="mRksj" />
+    <result column="m_jyr" jdbcType="VARCHAR" property="mJyr" />
+    <result column="m_bz" jdbcType="VARCHAR" property="mBz" />
+    <result column="m_addtime" jdbcType="TIMESTAMP" property="mAddtime" />
+    <result column="m_czr" jdbcType="VARCHAR" property="mCzr" />
+    <result column="m_chuku" jdbcType="INTEGER" property="mChuku" />
+    <result column="m_orderid" jdbcType="VARCHAR" property="mOrderid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.T_chuku">
+    insert into t_chuku (ID, m_jycp, m_cptm, 
+      m_zyyt, m_jysj, m_rksj, 
+      m_jyr, m_bz, m_addtime, 
+      m_czr, m_chuku, m_orderid
+      )
+    values (#{id,jdbcType=INTEGER}, #{mJycp,jdbcType=VARCHAR}, #{mCptm,jdbcType=VARCHAR}, 
+      #{mZyyt,jdbcType=VARCHAR}, #{mJysj,jdbcType=TIMESTAMP}, #{mRksj,jdbcType=TIMESTAMP}, 
+      #{mJyr,jdbcType=VARCHAR}, #{mBz,jdbcType=VARCHAR}, #{mAddtime,jdbcType=TIMESTAMP}, 
+      #{mCzr,jdbcType=VARCHAR}, #{mChuku,jdbcType=INTEGER}, #{mOrderid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.T_chuku">
+    insert into t_chuku
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="mJycp != null">
+        m_jycp,
+      </if>
+      <if test="mCptm != null">
+        m_cptm,
+      </if>
+      <if test="mZyyt != null">
+        m_zyyt,
+      </if>
+      <if test="mJysj != null">
+        m_jysj,
+      </if>
+      <if test="mRksj != null">
+        m_rksj,
+      </if>
+      <if test="mJyr != null">
+        m_jyr,
+      </if>
+      <if test="mBz != null">
+        m_bz,
+      </if>
+      <if test="mAddtime != null">
+        m_addtime,
+      </if>
+      <if test="mCzr != null">
+        m_czr,
+      </if>
+      <if test="mChuku != null">
+        m_chuku,
+      </if>
+      <if test="mOrderid != null">
+        m_orderid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mJycp != null">
+        #{mJycp,jdbcType=VARCHAR},
+      </if>
+      <if test="mCptm != null">
+        #{mCptm,jdbcType=VARCHAR},
+      </if>
+      <if test="mZyyt != null">
+        #{mZyyt,jdbcType=VARCHAR},
+      </if>
+      <if test="mJysj != null">
+        #{mJysj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mRksj != null">
+        #{mRksj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mJyr != null">
+        #{mJyr,jdbcType=VARCHAR},
+      </if>
+      <if test="mBz != null">
+        #{mBz,jdbcType=VARCHAR},
+      </if>
+      <if test="mAddtime != null">
+        #{mAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mCzr != null">
+        #{mCzr,jdbcType=VARCHAR},
+      </if>
+      <if test="mChuku != null">
+        #{mChuku,jdbcType=INTEGER},
+      </if>
+      <if test="mOrderid != null">
+        #{mOrderid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

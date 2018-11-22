@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.DaicaigouMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Daicaigou">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="prodsize" jdbcType="VARCHAR" property="prodsize" />
+    <result column="daifahuo" jdbcType="INTEGER" property="daifahuo" />
+    <result column="kucun" jdbcType="INTEGER" property="kucun" />
+    <result column="surplus" jdbcType="INTEGER" property="surplus" />
+    <result column="caigou" jdbcType="INTEGER" property="caigou" />
+    <result column="caigou_time" jdbcType="TIMESTAMP" property="caigouTime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Daicaigou">
+    insert into daicaigou (ID, typename, productid, 
+      productname, prodcolor, prodsize, 
+      daifahuo, kucun, surplus, 
+      caigou, caigou_time, flag, 
+      addtime)
+    values (#{id,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=VARCHAR}, #{prodcolor,jdbcType=VARCHAR}, #{prodsize,jdbcType=VARCHAR}, 
+      #{daifahuo,jdbcType=INTEGER}, #{kucun,jdbcType=INTEGER}, #{surplus,jdbcType=INTEGER}, 
+      #{caigou,jdbcType=INTEGER}, #{caigouTime,jdbcType=TIMESTAMP}, #{flag,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Daicaigou">
+    insert into daicaigou
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="prodsize != null">
+        prodsize,
+      </if>
+      <if test="daifahuo != null">
+        daifahuo,
+      </if>
+      <if test="kucun != null">
+        kucun,
+      </if>
+      <if test="surplus != null">
+        surplus,
+      </if>
+      <if test="caigou != null">
+        caigou,
+      </if>
+      <if test="caigouTime != null">
+        caigou_time,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="prodsize != null">
+        #{prodsize,jdbcType=VARCHAR},
+      </if>
+      <if test="daifahuo != null">
+        #{daifahuo,jdbcType=INTEGER},
+      </if>
+      <if test="kucun != null">
+        #{kucun,jdbcType=INTEGER},
+      </if>
+      <if test="surplus != null">
+        #{surplus,jdbcType=INTEGER},
+      </if>
+      <if test="caigou != null">
+        #{caigou,jdbcType=INTEGER},
+      </if>
+      <if test="caigouTime != null">
+        #{caigouTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

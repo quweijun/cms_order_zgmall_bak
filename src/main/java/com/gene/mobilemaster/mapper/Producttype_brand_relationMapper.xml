@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Producttype_brand_relationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Producttype_brand_relation">
+    <result column="BigType" jdbcType="INTEGER" property="bigtype" />
+    <result column="SmallType" jdbcType="INTEGER" property="smalltype" />
+    <result column="SubClass" jdbcType="INTEGER" property="subclass" />
+    <result column="BrandID" jdbcType="INTEGER" property="brandid" />
+    <result column="EnableFlag" jdbcType="VARCHAR" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Producttype_brand_relation">
+    insert into producttype_brand_relation (BigType, SmallType, SubClass, 
+      BrandID, EnableFlag)
+    values (#{bigtype,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, #{subclass,jdbcType=INTEGER}, 
+      #{brandid,jdbcType=INTEGER}, #{enableflag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Producttype_brand_relation">
+    insert into producttype_brand_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bigtype != null">
+        BigType,
+      </if>
+      <if test="smalltype != null">
+        SmallType,
+      </if>
+      <if test="subclass != null">
+        SubClass,
+      </if>
+      <if test="brandid != null">
+        BrandID,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="brandid != null">
+        #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

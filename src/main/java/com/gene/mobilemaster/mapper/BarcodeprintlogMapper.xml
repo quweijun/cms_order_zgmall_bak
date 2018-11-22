@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BarcodeprintlogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Barcodeprintlog">
+    <result column="flowID" jdbcType="BIGINT" property="flowid" />
+    <result column="startCode" jdbcType="VARCHAR" property="startcode" />
+    <result column="endCode" jdbcType="VARCHAR" property="endcode" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Barcodeprintlog">
+    insert into barcodeprintlog (flowID, startCode, endCode, 
+      addtime, addor)
+    values (#{flowid,jdbcType=BIGINT}, #{startcode,jdbcType=VARCHAR}, #{endcode,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{addor,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Barcodeprintlog">
+    insert into barcodeprintlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowID,
+      </if>
+      <if test="startcode != null">
+        startCode,
+      </if>
+      <if test="endcode != null">
+        endCode,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="startcode != null">
+        #{startcode,jdbcType=VARCHAR},
+      </if>
+      <if test="endcode != null">
+        #{endcode,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Customer_tjstaticsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customer_tjstatics">
+    <result column="tj_customermobile" jdbcType="VARCHAR" property="tjCustomermobile" />
+    <result column="tj_customerid" jdbcType="BIGINT" property="tjCustomerid" />
+    <result column="tj_customername" jdbcType="VARCHAR" property="tjCustomername" />
+    <result column="tjcount" jdbcType="INTEGER" property="tjcount" />
+    <result column="tjbindcount" jdbcType="INTEGER" property="tjbindcount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customer_tjstatics">
+    insert into customer_tjstatics (tj_customermobile, tj_customerid, tj_customername, 
+      tjcount, tjbindcount)
+    values (#{tjCustomermobile,jdbcType=VARCHAR}, #{tjCustomerid,jdbcType=BIGINT}, #{tjCustomername,jdbcType=VARCHAR}, 
+      #{tjcount,jdbcType=INTEGER}, #{tjbindcount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customer_tjstatics">
+    insert into customer_tjstatics
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tjCustomermobile != null">
+        tj_customermobile,
+      </if>
+      <if test="tjCustomerid != null">
+        tj_customerid,
+      </if>
+      <if test="tjCustomername != null">
+        tj_customername,
+      </if>
+      <if test="tjcount != null">
+        tjcount,
+      </if>
+      <if test="tjbindcount != null">
+        tjbindcount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tjCustomermobile != null">
+        #{tjCustomermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="tjCustomerid != null">
+        #{tjCustomerid,jdbcType=BIGINT},
+      </if>
+      <if test="tjCustomername != null">
+        #{tjCustomername,jdbcType=VARCHAR},
+      </if>
+      <if test="tjcount != null">
+        #{tjcount,jdbcType=INTEGER},
+      </if>
+      <if test="tjbindcount != null">
+        #{tjbindcount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

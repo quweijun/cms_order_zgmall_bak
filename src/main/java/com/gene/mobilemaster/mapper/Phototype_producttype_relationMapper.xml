@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Phototype_producttype_relationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Phototype_producttype_relation">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="BigType" jdbcType="INTEGER" property="bigtype" />
+    <result column="PicTypeId" jdbcType="INTEGER" property="pictypeid" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Phototype_producttype_relation">
+    insert into phototype_producttype_relation (ID, BigType, PicTypeId, 
+      EnableFlag, addUser, addTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{bigtype,jdbcType=INTEGER}, #{pictypeid,jdbcType=INTEGER}, 
+      #{enableflag,jdbcType=INTEGER}, #{adduser,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Phototype_producttype_relation">
+    insert into phototype_producttype_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="bigtype != null">
+        BigType,
+      </if>
+      <if test="pictypeid != null">
+        PicTypeId,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="pictypeid != null">
+        #{pictypeid,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

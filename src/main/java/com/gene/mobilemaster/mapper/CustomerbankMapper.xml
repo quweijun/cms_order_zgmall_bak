@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CustomerbankMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customerbank">
+    <result column="flowID" jdbcType="INTEGER" property="flowid" />
+    <result column="serviceid" jdbcType="INTEGER" property="serviceid" />
+    <result column="orderphone" jdbcType="VARCHAR" property="orderphone" />
+    <result column="bankName" jdbcType="VARCHAR" property="bankname" />
+    <result column="accountNo" jdbcType="VARCHAR" property="accountno" />
+    <result column="accountName" jdbcType="VARCHAR" property="accountname" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customerbank">
+    insert into customerbank (flowID, serviceid, orderphone, 
+      bankName, accountNo, accountName, 
+      addtime)
+    values (#{flowid,jdbcType=INTEGER}, #{serviceid,jdbcType=INTEGER}, #{orderphone,jdbcType=VARCHAR}, 
+      #{bankname,jdbcType=VARCHAR}, #{accountno,jdbcType=VARCHAR}, #{accountname,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customerbank">
+    insert into customerbank
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowID,
+      </if>
+      <if test="serviceid != null">
+        serviceid,
+      </if>
+      <if test="orderphone != null">
+        orderphone,
+      </if>
+      <if test="bankname != null">
+        bankName,
+      </if>
+      <if test="accountno != null">
+        accountNo,
+      </if>
+      <if test="accountname != null">
+        accountName,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="serviceid != null">
+        #{serviceid,jdbcType=INTEGER},
+      </if>
+      <if test="orderphone != null">
+        #{orderphone,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="accountno != null">
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="accountname != null">
+        #{accountname,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

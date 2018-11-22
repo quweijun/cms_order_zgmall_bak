@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Hdtable_1207Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Hdtable_1207">
+    <result column="hdid" jdbcType="INTEGER" property="hdid" />
+    <result column="hdtype" jdbcType="INTEGER" property="hdtype" />
+    <result column="subchannel" jdbcType="INTEGER" property="subchannel" />
+    <result column="hdname" jdbcType="VARCHAR" property="hdname" />
+    <result column="hdphoto" jdbcType="VARCHAR" property="hdphoto" />
+    <result column="photourl" jdbcType="VARCHAR" property="photourl" />
+    <result column="begindate" jdbcType="TIMESTAMP" property="begindate" />
+    <result column="enddate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="location" jdbcType="INTEGER" property="location" />
+    <result column="hddesc" jdbcType="VARCHAR" property="hddesc" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="Addor" jdbcType="VARCHAR" property="addor" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="photoflag" jdbcType="INTEGER" property="photoflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Hdtable_1207">
+    insert into hdtable_1207 (hdid, hdtype, subchannel, 
+      hdname, hdphoto, photourl, 
+      begindate, enddate, location, 
+      hddesc, addtime, Addor, 
+      flag, photoflag)
+    values (#{hdid,jdbcType=INTEGER}, #{hdtype,jdbcType=INTEGER}, #{subchannel,jdbcType=INTEGER}, 
+      #{hdname,jdbcType=VARCHAR}, #{hdphoto,jdbcType=VARCHAR}, #{photourl,jdbcType=VARCHAR}, 
+      #{begindate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, #{location,jdbcType=INTEGER}, 
+      #{hddesc,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{addor,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{photoflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Hdtable_1207">
+    insert into hdtable_1207
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        hdid,
+      </if>
+      <if test="hdtype != null">
+        hdtype,
+      </if>
+      <if test="subchannel != null">
+        subchannel,
+      </if>
+      <if test="hdname != null">
+        hdname,
+      </if>
+      <if test="hdphoto != null">
+        hdphoto,
+      </if>
+      <if test="photourl != null">
+        photourl,
+      </if>
+      <if test="begindate != null">
+        begindate,
+      </if>
+      <if test="enddate != null">
+        enddate,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="hddesc != null">
+        hddesc,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        Addor,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="photoflag != null">
+        photoflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hdid != null">
+        #{hdid,jdbcType=INTEGER},
+      </if>
+      <if test="hdtype != null">
+        #{hdtype,jdbcType=INTEGER},
+      </if>
+      <if test="subchannel != null">
+        #{subchannel,jdbcType=INTEGER},
+      </if>
+      <if test="hdname != null">
+        #{hdname,jdbcType=VARCHAR},
+      </if>
+      <if test="hdphoto != null">
+        #{hdphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="photourl != null">
+        #{photourl,jdbcType=VARCHAR},
+      </if>
+      <if test="begindate != null">
+        #{begindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=INTEGER},
+      </if>
+      <if test="hddesc != null">
+        #{hddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="photoflag != null">
+        #{photoflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

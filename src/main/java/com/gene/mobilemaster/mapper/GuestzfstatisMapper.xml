@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.GuestzfstatisMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Guestzfstatis">
+    <result column="FlowNo" jdbcType="BIGINT" property="flowno" />
+    <result column="urlmd5name" jdbcType="VARCHAR" property="urlmd5name" />
+    <result column="guestid" jdbcType="BIGINT" property="guestid" />
+    <result column="custid" jdbcType="BIGINT" property="custid" />
+    <result column="MyLLCS" jdbcType="INTEGER" property="myllcs" />
+    <result column="ZfLLCS" jdbcType="INTEGER" property="zfllcs" />
+    <result column="All_ZfLLCS" jdbcType="INTEGER" property="allZfllcs" />
+    <result column="parentUrlMd5name" jdbcType="VARCHAR" property="parenturlmd5name" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="ua" jdbcType="VARCHAR" property="ua" />
+    <result column="redpackflag" jdbcType="INTEGER" property="redpackflag" />
+    <result column="redpackje" jdbcType="INTEGER" property="redpackje" />
+    <result column="GuestName" jdbcType="VARCHAR" property="guestname" />
+    <result column="GuestMobile" jdbcType="VARCHAR" property="guestmobile" />
+    <result column="GuestAddr" jdbcType="VARCHAR" property="guestaddr" />
+    <result column="GuestLY" jdbcType="VARCHAR" property="guestly" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Guestzfstatis">
+    insert into guestzfstatis (FlowNo, urlmd5name, guestid, 
+      custid, MyLLCS, ZfLLCS, 
+      All_ZfLLCS, parentUrlMd5name, addtime, 
+      ip, ua, redpackflag, 
+      redpackje, GuestName, GuestMobile, 
+      GuestAddr, GuestLY)
+    values (#{flowno,jdbcType=BIGINT}, #{urlmd5name,jdbcType=VARCHAR}, #{guestid,jdbcType=BIGINT}, 
+      #{custid,jdbcType=BIGINT}, #{myllcs,jdbcType=INTEGER}, #{zfllcs,jdbcType=INTEGER}, 
+      #{allZfllcs,jdbcType=INTEGER}, #{parenturlmd5name,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{ip,jdbcType=VARCHAR}, #{ua,jdbcType=VARCHAR}, #{redpackflag,jdbcType=INTEGER}, 
+      #{redpackje,jdbcType=INTEGER}, #{guestname,jdbcType=VARCHAR}, #{guestmobile,jdbcType=VARCHAR}, 
+      #{guestaddr,jdbcType=VARCHAR}, #{guestly,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Guestzfstatis">
+    insert into guestzfstatis
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="urlmd5name != null">
+        urlmd5name,
+      </if>
+      <if test="guestid != null">
+        guestid,
+      </if>
+      <if test="custid != null">
+        custid,
+      </if>
+      <if test="myllcs != null">
+        MyLLCS,
+      </if>
+      <if test="zfllcs != null">
+        ZfLLCS,
+      </if>
+      <if test="allZfllcs != null">
+        All_ZfLLCS,
+      </if>
+      <if test="parenturlmd5name != null">
+        parentUrlMd5name,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="ua != null">
+        ua,
+      </if>
+      <if test="redpackflag != null">
+        redpackflag,
+      </if>
+      <if test="redpackje != null">
+        redpackje,
+      </if>
+      <if test="guestname != null">
+        GuestName,
+      </if>
+      <if test="guestmobile != null">
+        GuestMobile,
+      </if>
+      <if test="guestaddr != null">
+        GuestAddr,
+      </if>
+      <if test="guestly != null">
+        GuestLY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="urlmd5name != null">
+        #{urlmd5name,jdbcType=VARCHAR},
+      </if>
+      <if test="guestid != null">
+        #{guestid,jdbcType=BIGINT},
+      </if>
+      <if test="custid != null">
+        #{custid,jdbcType=BIGINT},
+      </if>
+      <if test="myllcs != null">
+        #{myllcs,jdbcType=INTEGER},
+      </if>
+      <if test="zfllcs != null">
+        #{zfllcs,jdbcType=INTEGER},
+      </if>
+      <if test="allZfllcs != null">
+        #{allZfllcs,jdbcType=INTEGER},
+      </if>
+      <if test="parenturlmd5name != null">
+        #{parenturlmd5name,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="ua != null">
+        #{ua,jdbcType=VARCHAR},
+      </if>
+      <if test="redpackflag != null">
+        #{redpackflag,jdbcType=INTEGER},
+      </if>
+      <if test="redpackje != null">
+        #{redpackje,jdbcType=INTEGER},
+      </if>
+      <if test="guestname != null">
+        #{guestname,jdbcType=VARCHAR},
+      </if>
+      <if test="guestmobile != null">
+        #{guestmobile,jdbcType=VARCHAR},
+      </if>
+      <if test="guestaddr != null">
+        #{guestaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="guestly != null">
+        #{guestly,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

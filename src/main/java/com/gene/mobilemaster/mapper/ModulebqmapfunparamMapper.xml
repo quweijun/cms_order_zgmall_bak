@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModulebqmapfunparamMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Modulebqmapfunparam">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="bqlb" jdbcType="VARCHAR" property="bqlb" />
+    <result column="ywlx" jdbcType="VARCHAR" property="ywlx" />
+    <result column="paramxh" jdbcType="INTEGER" property="paramxh" />
+    <result column="paramname" jdbcType="VARCHAR" property="paramname" />
+    <result column="paramchnname" jdbcType="VARCHAR" property="paramchnname" />
+    <result column="paramtype" jdbcType="VARCHAR" property="paramtype" />
+    <result column="datalisttype" jdbcType="VARCHAR" property="datalisttype" />
+    <result column="datalistvalue" jdbcType="VARCHAR" property="datalistvalue" />
+    <result column="defaultValue" jdbcType="VARCHAR" property="defaultvalue" />
+    <result column="readonly" jdbcType="VARCHAR" property="readonly" />
+    <result column="searchurl" jdbcType="VARCHAR" property="searchurl" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Modulebqmapfunparam">
+    insert into modulebqmapfunparam (flowid, bqlb, ywlx, 
+      paramxh, paramname, paramchnname, 
+      paramtype, datalisttype, datalistvalue, 
+      defaultValue, readonly, searchurl
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{bqlb,jdbcType=VARCHAR}, #{ywlx,jdbcType=VARCHAR}, 
+      #{paramxh,jdbcType=INTEGER}, #{paramname,jdbcType=VARCHAR}, #{paramchnname,jdbcType=VARCHAR}, 
+      #{paramtype,jdbcType=VARCHAR}, #{datalisttype,jdbcType=VARCHAR}, #{datalistvalue,jdbcType=VARCHAR}, 
+      #{defaultvalue,jdbcType=VARCHAR}, #{readonly,jdbcType=VARCHAR}, #{searchurl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Modulebqmapfunparam">
+    insert into modulebqmapfunparam
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="bqlb != null">
+        bqlb,
+      </if>
+      <if test="ywlx != null">
+        ywlx,
+      </if>
+      <if test="paramxh != null">
+        paramxh,
+      </if>
+      <if test="paramname != null">
+        paramname,
+      </if>
+      <if test="paramchnname != null">
+        paramchnname,
+      </if>
+      <if test="paramtype != null">
+        paramtype,
+      </if>
+      <if test="datalisttype != null">
+        datalisttype,
+      </if>
+      <if test="datalistvalue != null">
+        datalistvalue,
+      </if>
+      <if test="defaultvalue != null">
+        defaultValue,
+      </if>
+      <if test="readonly != null">
+        readonly,
+      </if>
+      <if test="searchurl != null">
+        searchurl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="bqlb != null">
+        #{bqlb,jdbcType=VARCHAR},
+      </if>
+      <if test="ywlx != null">
+        #{ywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="paramxh != null">
+        #{paramxh,jdbcType=INTEGER},
+      </if>
+      <if test="paramname != null">
+        #{paramname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramchnname != null">
+        #{paramchnname,jdbcType=VARCHAR},
+      </if>
+      <if test="paramtype != null">
+        #{paramtype,jdbcType=VARCHAR},
+      </if>
+      <if test="datalisttype != null">
+        #{datalisttype,jdbcType=VARCHAR},
+      </if>
+      <if test="datalistvalue != null">
+        #{datalistvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultvalue != null">
+        #{defaultvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="readonly != null">
+        #{readonly,jdbcType=VARCHAR},
+      </if>
+      <if test="searchurl != null">
+        #{searchurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

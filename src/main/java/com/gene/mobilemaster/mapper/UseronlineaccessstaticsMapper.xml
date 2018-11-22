@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UseronlineaccessstaticsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Useronlineaccessstatics">
+    <result column="flowno" jdbcType="BIGINT" property="flowno" />
+    <result column="CountDate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="AllPv" jdbcType="INTEGER" property="allpv" />
+    <result column="Wap1Pv" jdbcType="INTEGER" property="wap1pv" />
+    <result column="Wap2Pv" jdbcType="INTEGER" property="wap2pv" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Useronlineaccessstatics">
+    insert into useronlineaccessstatics (flowno, CountDate, AllPv, 
+      Wap1Pv, Wap2Pv)
+    values (#{flowno,jdbcType=BIGINT}, #{countdate,jdbcType=TIMESTAMP}, #{allpv,jdbcType=INTEGER}, 
+      #{wap1pv,jdbcType=INTEGER}, #{wap2pv,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Useronlineaccessstatics">
+    insert into useronlineaccessstatics
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="countdate != null">
+        CountDate,
+      </if>
+      <if test="allpv != null">
+        AllPv,
+      </if>
+      <if test="wap1pv != null">
+        Wap1Pv,
+      </if>
+      <if test="wap2pv != null">
+        Wap2Pv,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="allpv != null">
+        #{allpv,jdbcType=INTEGER},
+      </if>
+      <if test="wap1pv != null">
+        #{wap1pv,jdbcType=INTEGER},
+      </if>
+      <if test="wap2pv != null">
+        #{wap2pv,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

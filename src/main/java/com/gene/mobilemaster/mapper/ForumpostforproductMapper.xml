@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ForumpostforproductMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Forumpostforproduct">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="ViewsForProduct" jdbcType="VARCHAR" property="viewsforproduct" />
+    <result column="StatisticsTime" jdbcType="TIMESTAMP" property="statisticstime" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Forumpostforproduct">
+    insert into forumpostforproduct (id, productid, ViewsForProduct, 
+      StatisticsTime, bigtype)
+    values (#{id,jdbcType=BIGINT}, #{productid,jdbcType=VARCHAR}, #{viewsforproduct,jdbcType=VARCHAR}, 
+      #{statisticstime,jdbcType=TIMESTAMP}, #{bigtype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Forumpostforproduct">
+    insert into forumpostforproduct
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="viewsforproduct != null">
+        ViewsForProduct,
+      </if>
+      <if test="statisticstime != null">
+        StatisticsTime,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="viewsforproduct != null">
+        #{viewsforproduct,jdbcType=VARCHAR},
+      </if>
+      <if test="statisticstime != null">
+        #{statisticstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

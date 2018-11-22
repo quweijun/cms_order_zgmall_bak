@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Page_areaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Page_area">
+    <result column="pageid" jdbcType="INTEGER" property="pageid" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="subchannel" jdbcType="INTEGER" property="subchannel" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="pageurl" jdbcType="VARCHAR" property="pageurl" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="taxis" jdbcType="INTEGER" property="taxis" />
+    <result column="UbbContent" jdbcType="VARCHAR" property="ubbcontent" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Page_area">
+    insert into page_area (pageid, sort, subchannel, 
+      title, pageurl, addtime, 
+      addor, flag, taxis, 
+      UbbContent)
+    values (#{pageid,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, #{subchannel,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{pageurl,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{addor,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{taxis,jdbcType=INTEGER}, 
+      #{ubbcontent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Page_area">
+    insert into page_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pageid != null">
+        pageid,
+      </if>
+      <if test="sort != null">
+        sort,
+      </if>
+      <if test="subchannel != null">
+        subchannel,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="pageurl != null">
+        pageurl,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="taxis != null">
+        taxis,
+      </if>
+      <if test="ubbcontent != null">
+        UbbContent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pageid != null">
+        #{pageid,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="subchannel != null">
+        #{subchannel,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pageurl != null">
+        #{pageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="taxis != null">
+        #{taxis,jdbcType=INTEGER},
+      </if>
+      <if test="ubbcontent != null">
+        #{ubbcontent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

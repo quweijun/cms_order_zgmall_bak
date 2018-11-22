@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ware_records_allMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ware_records_all">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="xinpinrk" jdbcType="INTEGER" property="xinpinrk" />
+    <result column="jushourk" jdbcType="INTEGER" property="jushourk" />
+    <result column="fahuo" jdbcType="INTEGER" property="fahuo" />
+    <result column="chuku" jdbcType="INTEGER" property="chuku" />
+    <result column="yingrk" jdbcType="INTEGER" property="yingrk" />
+    <result column="shijirk" jdbcType="INTEGER" property="shijirk" />
+    <result column="ruku" jdbcType="INTEGER" property="ruku" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ware_records_all">
+    insert into ware_records_all (ID, xinpinrk, jushourk, 
+      fahuo, chuku, yingrk, 
+      shijirk, ruku, addtime
+      )
+    values (#{id,jdbcType=INTEGER}, #{xinpinrk,jdbcType=INTEGER}, #{jushourk,jdbcType=INTEGER}, 
+      #{fahuo,jdbcType=INTEGER}, #{chuku,jdbcType=INTEGER}, #{yingrk,jdbcType=INTEGER}, 
+      #{shijirk,jdbcType=INTEGER}, #{ruku,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ware_records_all">
+    insert into ware_records_all
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="xinpinrk != null">
+        xinpinrk,
+      </if>
+      <if test="jushourk != null">
+        jushourk,
+      </if>
+      <if test="fahuo != null">
+        fahuo,
+      </if>
+      <if test="chuku != null">
+        chuku,
+      </if>
+      <if test="yingrk != null">
+        yingrk,
+      </if>
+      <if test="shijirk != null">
+        shijirk,
+      </if>
+      <if test="ruku != null">
+        ruku,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="xinpinrk != null">
+        #{xinpinrk,jdbcType=INTEGER},
+      </if>
+      <if test="jushourk != null">
+        #{jushourk,jdbcType=INTEGER},
+      </if>
+      <if test="fahuo != null">
+        #{fahuo,jdbcType=INTEGER},
+      </if>
+      <if test="chuku != null">
+        #{chuku,jdbcType=INTEGER},
+      </if>
+      <if test="yingrk != null">
+        #{yingrk,jdbcType=INTEGER},
+      </if>
+      <if test="shijirk != null">
+        #{shijirk,jdbcType=INTEGER},
+      </if>
+      <if test="ruku != null">
+        #{ruku,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Wa_l_producttableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Wa_l_producttable">
+    <result column="zgid" jdbcType="VARCHAR" property="zgid" />
+    <result column="ProductName" jdbcType="VARCHAR" property="productname" />
+    <result column="Productggy" jdbcType="VARCHAR" property="productggy" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+    <result column="smalltype" jdbcType="INTEGER" property="smalltype" />
+    <result column="subclass" jdbcType="INTEGER" property="subclass" />
+    <result column="brandid" jdbcType="INTEGER" property="brandid" />
+    <result column="brandname" jdbcType="VARCHAR" property="brandname" />
+    <result column="avgprice" jdbcType="DOUBLE" property="avgprice" />
+    <result column="marketprice" jdbcType="DOUBLE" property="marketprice" />
+    <result column="zgprice" jdbcType="DOUBLE" property="zgprice" />
+    <result column="prodcolor" jdbcType="VARCHAR" property="prodcolor" />
+    <result column="salestype" jdbcType="VARCHAR" property="salestype" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="AddOr" jdbcType="VARCHAR" property="addor" />
+    <result column="WA_cpid" jdbcType="VARCHAR" property="waCpid" />
+    <result column="WA_cpmc" jdbcType="VARCHAR" property="waCpmc" />
+    <result column="WA_cpflmc" jdbcType="VARCHAR" property="waCpflmc" />
+    <result column="WA_cpflurl" jdbcType="VARCHAR" property="waCpflurl" />
+    <result column="WA_cpcolor" jdbcType="VARCHAR" property="waCpcolor" />
+    <result column="WA_cpjg" jdbcType="DOUBLE" property="waCpjg" />
+    <result column="ExportZgFlag" jdbcType="INTEGER" property="exportzgflag" />
+    <result column="ExportZgTime" jdbcType="TIMESTAMP" property="exportzgtime" />
+    <result column="Exporter" jdbcType="VARCHAR" property="exporter" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Wa_l_producttableWithBLOBs">
+    <result column="ProductTS" jdbcType="LONGVARCHAR" property="productts" />
+    <result column="ProductCS" jdbcType="LONGVARCHAR" property="productcs" />
+    <result column="WA_cpjj" jdbcType="LONGVARCHAR" property="waCpjj" />
+    <result column="WA_cpcs" jdbcType="LONGVARCHAR" property="waCpcs" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    ProductTS, ProductCS, WA_cpjj, WA_cpcs
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Wa_l_producttableWithBLOBs">
+    insert into wa_l_producttable (zgid, ProductName, Productggy, 
+      bigtype, smalltype, subclass, 
+      brandid, brandname, avgprice, 
+      marketprice, zgprice, prodcolor, 
+      salestype, AddTime, AddOr, 
+      WA_cpid, WA_cpmc, WA_cpflmc, 
+      WA_cpflurl, WA_cpcolor, WA_cpjg, 
+      ExportZgFlag, ExportZgTime, Exporter, 
+      ProductTS, ProductCS, WA_cpjj, 
+      WA_cpcs)
+    values (#{zgid,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{productggy,jdbcType=VARCHAR}, 
+      #{bigtype,jdbcType=INTEGER}, #{smalltype,jdbcType=INTEGER}, #{subclass,jdbcType=INTEGER}, 
+      #{brandid,jdbcType=INTEGER}, #{brandname,jdbcType=VARCHAR}, #{avgprice,jdbcType=DOUBLE}, 
+      #{marketprice,jdbcType=DOUBLE}, #{zgprice,jdbcType=DOUBLE}, #{prodcolor,jdbcType=VARCHAR}, 
+      #{salestype,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{addor,jdbcType=VARCHAR}, 
+      #{waCpid,jdbcType=VARCHAR}, #{waCpmc,jdbcType=VARCHAR}, #{waCpflmc,jdbcType=VARCHAR}, 
+      #{waCpflurl,jdbcType=VARCHAR}, #{waCpcolor,jdbcType=VARCHAR}, #{waCpjg,jdbcType=DOUBLE}, 
+      #{exportzgflag,jdbcType=INTEGER}, #{exportzgtime,jdbcType=TIMESTAMP}, #{exporter,jdbcType=VARCHAR}, 
+      #{productts,jdbcType=LONGVARCHAR}, #{productcs,jdbcType=LONGVARCHAR}, #{waCpjj,jdbcType=LONGVARCHAR}, 
+      #{waCpcs,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Wa_l_producttableWithBLOBs">
+    insert into wa_l_producttable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="zgid != null">
+        zgid,
+      </if>
+      <if test="productname != null">
+        ProductName,
+      </if>
+      <if test="productggy != null">
+        Productggy,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="smalltype != null">
+        smalltype,
+      </if>
+      <if test="subclass != null">
+        subclass,
+      </if>
+      <if test="brandid != null">
+        brandid,
+      </if>
+      <if test="brandname != null">
+        brandname,
+      </if>
+      <if test="avgprice != null">
+        avgprice,
+      </if>
+      <if test="marketprice != null">
+        marketprice,
+      </if>
+      <if test="zgprice != null">
+        zgprice,
+      </if>
+      <if test="prodcolor != null">
+        prodcolor,
+      </if>
+      <if test="salestype != null">
+        salestype,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="addor != null">
+        AddOr,
+      </if>
+      <if test="waCpid != null">
+        WA_cpid,
+      </if>
+      <if test="waCpmc != null">
+        WA_cpmc,
+      </if>
+      <if test="waCpflmc != null">
+        WA_cpflmc,
+      </if>
+      <if test="waCpflurl != null">
+        WA_cpflurl,
+      </if>
+      <if test="waCpcolor != null">
+        WA_cpcolor,
+      </if>
+      <if test="waCpjg != null">
+        WA_cpjg,
+      </if>
+      <if test="exportzgflag != null">
+        ExportZgFlag,
+      </if>
+      <if test="exportzgtime != null">
+        ExportZgTime,
+      </if>
+      <if test="exporter != null">
+        Exporter,
+      </if>
+      <if test="productts != null">
+        ProductTS,
+      </if>
+      <if test="productcs != null">
+        ProductCS,
+      </if>
+      <if test="waCpjj != null">
+        WA_cpjj,
+      </if>
+      <if test="waCpcs != null">
+        WA_cpcs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="zgid != null">
+        #{zgid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="productggy != null">
+        #{productggy,jdbcType=VARCHAR},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="smalltype != null">
+        #{smalltype,jdbcType=INTEGER},
+      </if>
+      <if test="subclass != null">
+        #{subclass,jdbcType=INTEGER},
+      </if>
+      <if test="brandid != null">
+        #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="brandname != null">
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="avgprice != null">
+        #{avgprice,jdbcType=DOUBLE},
+      </if>
+      <if test="marketprice != null">
+        #{marketprice,jdbcType=DOUBLE},
+      </if>
+      <if test="zgprice != null">
+        #{zgprice,jdbcType=DOUBLE},
+      </if>
+      <if test="prodcolor != null">
+        #{prodcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="salestype != null">
+        #{salestype,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="waCpid != null">
+        #{waCpid,jdbcType=VARCHAR},
+      </if>
+      <if test="waCpmc != null">
+        #{waCpmc,jdbcType=VARCHAR},
+      </if>
+      <if test="waCpflmc != null">
+        #{waCpflmc,jdbcType=VARCHAR},
+      </if>
+      <if test="waCpflurl != null">
+        #{waCpflurl,jdbcType=VARCHAR},
+      </if>
+      <if test="waCpcolor != null">
+        #{waCpcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="waCpjg != null">
+        #{waCpjg,jdbcType=DOUBLE},
+      </if>
+      <if test="exportzgflag != null">
+        #{exportzgflag,jdbcType=INTEGER},
+      </if>
+      <if test="exportzgtime != null">
+        #{exportzgtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exporter != null">
+        #{exporter,jdbcType=VARCHAR},
+      </if>
+      <if test="productts != null">
+        #{productts,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="productcs != null">
+        #{productcs,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="waCpjj != null">
+        #{waCpjj,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="waCpcs != null">
+        #{waCpcs,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

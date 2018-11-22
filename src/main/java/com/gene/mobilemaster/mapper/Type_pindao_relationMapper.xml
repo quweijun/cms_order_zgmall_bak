@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Type_pindao_relationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Type_pindao_relation">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="TypeId" jdbcType="INTEGER" property="typeid" />
+    <result column="ShowTitle" jdbcType="VARCHAR" property="showtitle" />
+    <result column="ConfigId" jdbcType="INTEGER" property="configid" />
+    <result column="PindaoId" jdbcType="INTEGER" property="pindaoid" />
+    <result column="CategoryID" jdbcType="INTEGER" property="categoryid" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="NewCPTimeOut" jdbcType="INTEGER" property="newcptimeout" />
+    <result column="HotCPTimeOut" jdbcType="INTEGER" property="hotcptimeout" />
+    <result column="pkflag" jdbcType="INTEGER" property="pkflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Type_pindao_relation">
+    insert into type_pindao_relation (ID, TypeId, ShowTitle, 
+      ConfigId, PindaoId, CategoryID, 
+      EnableFlag, NewCPTimeOut, HotCPTimeOut, 
+      pkflag)
+    values (#{id,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, #{showtitle,jdbcType=VARCHAR}, 
+      #{configid,jdbcType=INTEGER}, #{pindaoid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, 
+      #{enableflag,jdbcType=INTEGER}, #{newcptimeout,jdbcType=INTEGER}, #{hotcptimeout,jdbcType=INTEGER}, 
+      #{pkflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Type_pindao_relation">
+    insert into type_pindao_relation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="typeid != null">
+        TypeId,
+      </if>
+      <if test="showtitle != null">
+        ShowTitle,
+      </if>
+      <if test="configid != null">
+        ConfigId,
+      </if>
+      <if test="pindaoid != null">
+        PindaoId,
+      </if>
+      <if test="categoryid != null">
+        CategoryID,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="newcptimeout != null">
+        NewCPTimeOut,
+      </if>
+      <if test="hotcptimeout != null">
+        HotCPTimeOut,
+      </if>
+      <if test="pkflag != null">
+        pkflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="showtitle != null">
+        #{showtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="configid != null">
+        #{configid,jdbcType=INTEGER},
+      </if>
+      <if test="pindaoid != null">
+        #{pindaoid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="newcptimeout != null">
+        #{newcptimeout,jdbcType=INTEGER},
+      </if>
+      <if test="hotcptimeout != null">
+        #{hotcptimeout,jdbcType=INTEGER},
+      </if>
+      <if test="pkflag != null">
+        #{pkflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

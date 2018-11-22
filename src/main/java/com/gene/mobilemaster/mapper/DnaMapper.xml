@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.DnaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Dna">
+    <result column="TrackDirect" jdbcType="VARCHAR" property="trackdirect" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="ProcCode" jdbcType="VARCHAR" property="proccode" />
+    <result column="AccountNum" jdbcType="VARCHAR" property="accountnum" />
+    <result column="ProcessCode" jdbcType="VARCHAR" property="processcode" />
+    <result column="Amount" jdbcType="VARCHAR" property="amount" />
+    <result column="CurCode" jdbcType="VARCHAR" property="curcode" />
+    <result column="TransDatetime" jdbcType="VARCHAR" property="transdatetime" />
+    <result column="AcqSsn" jdbcType="VARCHAR" property="acqssn" />
+    <result column="Ltime" jdbcType="VARCHAR" property="ltime" />
+    <result column="Ldate" jdbcType="VARCHAR" property="ldate" />
+    <result column="settleDate" jdbcType="VARCHAR" property="settledate" />
+    <result column="UpsNo" jdbcType="VARCHAR" property="upsno" />
+    <result column="TsNo" jdbcType="VARCHAR" property="tsno" />
+    <result column="Reference" jdbcType="VARCHAR" property="reference" />
+    <result column="ReturnAddress" jdbcType="VARCHAR" property="returnaddress" />
+    <result column="RespCode" jdbcType="VARCHAR" property="respcode" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="TerminalNo" jdbcType="VARCHAR" property="terminalno" />
+    <result column="MerchantNo" jdbcType="VARCHAR" property="merchantno" />
+    <result column="OrderNo" jdbcType="VARCHAR" property="orderno" />
+    <result column="OrderState" jdbcType="VARCHAR" property="orderstate" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="ValidTime" jdbcType="VARCHAR" property="validtime" />
+    <result column="OrderType" jdbcType="VARCHAR" property="ordertype" />
+    <result column="CustName" jdbcType="VARCHAR" property="custname" />
+    <result column="CustID" jdbcType="VARCHAR" property="custid" />
+    <result column="BankName" jdbcType="VARCHAR" property="bankname" />
+    <result column="CustAddress" jdbcType="VARCHAR" property="custaddress" />
+    <result column="BankAddress" jdbcType="VARCHAR" property="bankaddress" />
+    <result column="Beneficiary" jdbcType="VARCHAR" property="beneficiary" />
+    <result column="CustIP" jdbcType="VARCHAR" property="custip" />
+    <result column="BindCode" jdbcType="VARCHAR" property="bindcode" />
+    <result column="CustPhoto" jdbcType="VARCHAR" property="custphoto" />
+    <result column="CustCert" jdbcType="VARCHAR" property="custcert" />
+    <result column="TransData" jdbcType="VARCHAR" property="transdata" />
+    <result column="Pin" jdbcType="VARCHAR" property="pin" />
+    <result column="LoginPin" jdbcType="VARCHAR" property="loginpin" />
+    <result column="Mac" jdbcType="VARCHAR" property="mac" />
+    <result column="DNA_ID" jdbcType="BIGINT" property="dnaId" />
+    <result column="BitMap" jdbcType="VARCHAR" property="bitmap" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Dna">
+    insert into dna (TrackDirect, addtime, ProcCode, 
+      AccountNum, ProcessCode, Amount, 
+      CurCode, TransDatetime, AcqSsn, 
+      Ltime, Ldate, settleDate, 
+      UpsNo, TsNo, Reference, 
+      ReturnAddress, RespCode, Remark, 
+      TerminalNo, MerchantNo, OrderNo, 
+      OrderState, Description, ValidTime, 
+      OrderType, CustName, CustID, 
+      BankName, CustAddress, BankAddress, 
+      Beneficiary, CustIP, BindCode, 
+      CustPhoto, CustCert, TransData, 
+      Pin, LoginPin, Mac, 
+      DNA_ID, BitMap)
+    values (#{trackdirect,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{proccode,jdbcType=VARCHAR}, 
+      #{accountnum,jdbcType=VARCHAR}, #{processcode,jdbcType=VARCHAR}, #{amount,jdbcType=VARCHAR}, 
+      #{curcode,jdbcType=VARCHAR}, #{transdatetime,jdbcType=VARCHAR}, #{acqssn,jdbcType=VARCHAR}, 
+      #{ltime,jdbcType=VARCHAR}, #{ldate,jdbcType=VARCHAR}, #{settledate,jdbcType=VARCHAR}, 
+      #{upsno,jdbcType=VARCHAR}, #{tsno,jdbcType=VARCHAR}, #{reference,jdbcType=VARCHAR}, 
+      #{returnaddress,jdbcType=VARCHAR}, #{respcode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{terminalno,jdbcType=VARCHAR}, #{merchantno,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, 
+      #{orderstate,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{validtime,jdbcType=VARCHAR}, 
+      #{ordertype,jdbcType=VARCHAR}, #{custname,jdbcType=VARCHAR}, #{custid,jdbcType=VARCHAR}, 
+      #{bankname,jdbcType=VARCHAR}, #{custaddress,jdbcType=VARCHAR}, #{bankaddress,jdbcType=VARCHAR}, 
+      #{beneficiary,jdbcType=VARCHAR}, #{custip,jdbcType=VARCHAR}, #{bindcode,jdbcType=VARCHAR}, 
+      #{custphoto,jdbcType=VARCHAR}, #{custcert,jdbcType=VARCHAR}, #{transdata,jdbcType=VARCHAR}, 
+      #{pin,jdbcType=VARCHAR}, #{loginpin,jdbcType=VARCHAR}, #{mac,jdbcType=VARCHAR}, 
+      #{dnaId,jdbcType=BIGINT}, #{bitmap,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Dna">
+    insert into dna
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="trackdirect != null">
+        TrackDirect,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="proccode != null">
+        ProcCode,
+      </if>
+      <if test="accountnum != null">
+        AccountNum,
+      </if>
+      <if test="processcode != null">
+        ProcessCode,
+      </if>
+      <if test="amount != null">
+        Amount,
+      </if>
+      <if test="curcode != null">
+        CurCode,
+      </if>
+      <if test="transdatetime != null">
+        TransDatetime,
+      </if>
+      <if test="acqssn != null">
+        AcqSsn,
+      </if>
+      <if test="ltime != null">
+        Ltime,
+      </if>
+      <if test="ldate != null">
+        Ldate,
+      </if>
+      <if test="settledate != null">
+        settleDate,
+      </if>
+      <if test="upsno != null">
+        UpsNo,
+      </if>
+      <if test="tsno != null">
+        TsNo,
+      </if>
+      <if test="reference != null">
+        Reference,
+      </if>
+      <if test="returnaddress != null">
+        ReturnAddress,
+      </if>
+      <if test="respcode != null">
+        RespCode,
+      </if>
+      <if test="remark != null">
+        Remark,
+      </if>
+      <if test="terminalno != null">
+        TerminalNo,
+      </if>
+      <if test="merchantno != null">
+        MerchantNo,
+      </if>
+      <if test="orderno != null">
+        OrderNo,
+      </if>
+      <if test="orderstate != null">
+        OrderState,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="validtime != null">
+        ValidTime,
+      </if>
+      <if test="ordertype != null">
+        OrderType,
+      </if>
+      <if test="custname != null">
+        CustName,
+      </if>
+      <if test="custid != null">
+        CustID,
+      </if>
+      <if test="bankname != null">
+        BankName,
+      </if>
+      <if test="custaddress != null">
+        CustAddress,
+      </if>
+      <if test="bankaddress != null">
+        BankAddress,
+      </if>
+      <if test="beneficiary != null">
+        Beneficiary,
+      </if>
+      <if test="custip != null">
+        CustIP,
+      </if>
+      <if test="bindcode != null">
+        BindCode,
+      </if>
+      <if test="custphoto != null">
+        CustPhoto,
+      </if>
+      <if test="custcert != null">
+        CustCert,
+      </if>
+      <if test="transdata != null">
+        TransData,
+      </if>
+      <if test="pin != null">
+        Pin,
+      </if>
+      <if test="loginpin != null">
+        LoginPin,
+      </if>
+      <if test="mac != null">
+        Mac,
+      </if>
+      <if test="dnaId != null">
+        DNA_ID,
+      </if>
+      <if test="bitmap != null">
+        BitMap,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="trackdirect != null">
+        #{trackdirect,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="proccode != null">
+        #{proccode,jdbcType=VARCHAR},
+      </if>
+      <if test="accountnum != null">
+        #{accountnum,jdbcType=VARCHAR},
+      </if>
+      <if test="processcode != null">
+        #{processcode,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="curcode != null">
+        #{curcode,jdbcType=VARCHAR},
+      </if>
+      <if test="transdatetime != null">
+        #{transdatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="acqssn != null">
+        #{acqssn,jdbcType=VARCHAR},
+      </if>
+      <if test="ltime != null">
+        #{ltime,jdbcType=VARCHAR},
+      </if>
+      <if test="ldate != null">
+        #{ldate,jdbcType=VARCHAR},
+      </if>
+      <if test="settledate != null">
+        #{settledate,jdbcType=VARCHAR},
+      </if>
+      <if test="upsno != null">
+        #{upsno,jdbcType=VARCHAR},
+      </if>
+      <if test="tsno != null">
+        #{tsno,jdbcType=VARCHAR},
+      </if>
+      <if test="reference != null">
+        #{reference,jdbcType=VARCHAR},
+      </if>
+      <if test="returnaddress != null">
+        #{returnaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="respcode != null">
+        #{respcode,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalno != null">
+        #{terminalno,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantno != null">
+        #{merchantno,jdbcType=VARCHAR},
+      </if>
+      <if test="orderno != null">
+        #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="validtime != null">
+        #{validtime,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertype != null">
+        #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="custid != null">
+        #{custid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankname != null">
+        #{bankname,jdbcType=VARCHAR},
+      </if>
+      <if test="custaddress != null">
+        #{custaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="bankaddress != null">
+        #{bankaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="beneficiary != null">
+        #{beneficiary,jdbcType=VARCHAR},
+      </if>
+      <if test="custip != null">
+        #{custip,jdbcType=VARCHAR},
+      </if>
+      <if test="bindcode != null">
+        #{bindcode,jdbcType=VARCHAR},
+      </if>
+      <if test="custphoto != null">
+        #{custphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="custcert != null">
+        #{custcert,jdbcType=VARCHAR},
+      </if>
+      <if test="transdata != null">
+        #{transdata,jdbcType=VARCHAR},
+      </if>
+      <if test="pin != null">
+        #{pin,jdbcType=VARCHAR},
+      </if>
+      <if test="loginpin != null">
+        #{loginpin,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null">
+        #{mac,jdbcType=VARCHAR},
+      </if>
+      <if test="dnaId != null">
+        #{dnaId,jdbcType=BIGINT},
+      </if>
+      <if test="bitmap != null">
+        #{bitmap,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

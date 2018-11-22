@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.PingjiaMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Pingjia">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="typeid" jdbcType="INTEGER" property="typeid" />
+    <result column="classid" jdbcType="INTEGER" property="classid" />
+    <result column="topostid" jdbcType="INTEGER" property="topostid" />
+    <result column="bigtype" jdbcType="CHAR" property="bigtype" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="sms_content" jdbcType="VARCHAR" property="smsContent" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="isgood" jdbcType="INTEGER" property="isgood" />
+    <result column="ispublic" jdbcType="INTEGER" property="ispublic" />
+    <result column="issys" jdbcType="INTEGER" property="issys" />
+    <result column="islock" jdbcType="INTEGER" property="islock" />
+    <result column="forbidreply" jdbcType="INTEGER" property="forbidreply" />
+    <result column="accesstime" jdbcType="INTEGER" property="accesstime" />
+    <result column="tempid" jdbcType="INTEGER" property="tempid" />
+    <result column="fenshu" jdbcType="INTEGER" property="fenshu" />
+    <result column="waptype" jdbcType="VARCHAR" property="waptype" />
+    <result column="issms" jdbcType="INTEGER" property="issms" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Pingjia">
+    insert into pingjia (flowid, typeid, classid, 
+      topostid, bigtype, productid, 
+      productname, mobile, customerid, 
+      username, orderid, title, 
+      content, sms_content, addtime, 
+      editor, updatetime, isgood, 
+      ispublic, issys, islock, 
+      forbidreply, accesstime, tempid, 
+      fenshu, waptype, issms
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{typeid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, 
+      #{topostid,jdbcType=INTEGER}, #{bigtype,jdbcType=CHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{productname,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
+      #{username,jdbcType=VARCHAR}, #{orderid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{smsContent,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{editor,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{isgood,jdbcType=INTEGER}, 
+      #{ispublic,jdbcType=INTEGER}, #{issys,jdbcType=INTEGER}, #{islock,jdbcType=INTEGER}, 
+      #{forbidreply,jdbcType=INTEGER}, #{accesstime,jdbcType=INTEGER}, #{tempid,jdbcType=INTEGER}, 
+      #{fenshu,jdbcType=INTEGER}, #{waptype,jdbcType=VARCHAR}, #{issms,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Pingjia">
+    insert into pingjia
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="typeid != null">
+        typeid,
+      </if>
+      <if test="classid != null">
+        classid,
+      </if>
+      <if test="topostid != null">
+        topostid,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="smsContent != null">
+        sms_content,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="isgood != null">
+        isgood,
+      </if>
+      <if test="ispublic != null">
+        ispublic,
+      </if>
+      <if test="issys != null">
+        issys,
+      </if>
+      <if test="islock != null">
+        islock,
+      </if>
+      <if test="forbidreply != null">
+        forbidreply,
+      </if>
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+      <if test="tempid != null">
+        tempid,
+      </if>
+      <if test="fenshu != null">
+        fenshu,
+      </if>
+      <if test="waptype != null">
+        waptype,
+      </if>
+      <if test="issms != null">
+        issms,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="typeid != null">
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="topostid != null">
+        #{topostid,jdbcType=INTEGER},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=CHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="smsContent != null">
+        #{smsContent,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isgood != null">
+        #{isgood,jdbcType=INTEGER},
+      </if>
+      <if test="ispublic != null">
+        #{ispublic,jdbcType=INTEGER},
+      </if>
+      <if test="issys != null">
+        #{issys,jdbcType=INTEGER},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="forbidreply != null">
+        #{forbidreply,jdbcType=INTEGER},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=INTEGER},
+      </if>
+      <if test="tempid != null">
+        #{tempid,jdbcType=INTEGER},
+      </if>
+      <if test="fenshu != null">
+        #{fenshu,jdbcType=INTEGER},
+      </if>
+      <if test="waptype != null">
+        #{waptype,jdbcType=VARCHAR},
+      </if>
+      <if test="issms != null">
+        #{issms,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

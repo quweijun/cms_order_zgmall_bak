@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Largess_productidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Largess_productid">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="pjid" jdbcType="VARCHAR" property="pjid" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Largess_productid">
+    insert into largess_productid (flowid, pjid, productid, 
+      addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{pjid,jdbcType=VARCHAR}, #{productid,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Largess_productid">
+    insert into largess_productid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="pjid != null">
+        pjid,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="pjid != null">
+        #{pjid,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

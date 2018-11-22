@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.CommunitysMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Communitys">
+    <result column="community_id" jdbcType="BIGINT" property="communityId" />
+    <result column="zddh" jdbcType="INTEGER" property="zddh" />
+    <result column="mddh" jdbcType="INTEGER" property="mddh" />
+    <result column="moderators_id" jdbcType="INTEGER" property="moderatorsId" />
+    <result column="customerid" jdbcType="INTEGER" property="customerid" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="hits" jdbcType="INTEGER" property="hits" />
+    <result column="islock" jdbcType="INTEGER" property="islock" />
+    <result column="isgood" jdbcType="INTEGER" property="isgood" />
+    <result column="isdigest" jdbcType="INTEGER" property="isdigest" />
+    <result column="isstrong" jdbcType="INTEGER" property="isstrong" />
+    <result column="isread" jdbcType="INTEGER" property="isread" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="adddate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Communitys">
+    insert into communitys (community_id, zddh, mddh, 
+      moderators_id, customerid, nickname, 
+      title, img, content, 
+      hits, islock, isgood, 
+      isdigest, isstrong, isread, 
+      IP, addtime, adddate
+      )
+    values (#{communityId,jdbcType=BIGINT}, #{zddh,jdbcType=INTEGER}, #{mddh,jdbcType=INTEGER}, 
+      #{moderatorsId,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{nickname,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{hits,jdbcType=INTEGER}, #{islock,jdbcType=INTEGER}, #{isgood,jdbcType=INTEGER}, 
+      #{isdigest,jdbcType=INTEGER}, #{isstrong,jdbcType=INTEGER}, #{isread,jdbcType=INTEGER}, 
+      #{ip,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{adddate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Communitys">
+    insert into communitys
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="communityId != null">
+        community_id,
+      </if>
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="moderatorsId != null">
+        moderators_id,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="nickname != null">
+        nickname,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="hits != null">
+        hits,
+      </if>
+      <if test="islock != null">
+        islock,
+      </if>
+      <if test="isgood != null">
+        isgood,
+      </if>
+      <if test="isdigest != null">
+        isdigest,
+      </if>
+      <if test="isstrong != null">
+        isstrong,
+      </if>
+      <if test="isread != null">
+        isread,
+      </if>
+      <if test="ip != null">
+        IP,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="adddate != null">
+        adddate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="communityId != null">
+        #{communityId,jdbcType=BIGINT},
+      </if>
+      <if test="zddh != null">
+        #{zddh,jdbcType=INTEGER},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=INTEGER},
+      </if>
+      <if test="moderatorsId != null">
+        #{moderatorsId,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="hits != null">
+        #{hits,jdbcType=INTEGER},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="isgood != null">
+        #{isgood,jdbcType=INTEGER},
+      </if>
+      <if test="isdigest != null">
+        #{isdigest,jdbcType=INTEGER},
+      </if>
+      <if test="isstrong != null">
+        #{isstrong,jdbcType=INTEGER},
+      </if>
+      <if test="isread != null">
+        #{isread,jdbcType=INTEGER},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

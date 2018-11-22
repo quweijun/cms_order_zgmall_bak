@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ExceluploadlogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Exceluploadlog">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="excelType" jdbcType="VARCHAR" property="exceltype" />
+    <result column="formerName" jdbcType="VARCHAR" property="formername" />
+    <result column="newName" jdbcType="VARCHAR" property="newname" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Exceluploadlog">
+    insert into exceluploadlog (flowid, excelType, formerName, 
+      newName, addDate)
+    values (#{flowid,jdbcType=INTEGER}, #{exceltype,jdbcType=VARCHAR}, #{formername,jdbcType=VARCHAR}, 
+      #{newname,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Exceluploadlog">
+    insert into exceluploadlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="exceltype != null">
+        excelType,
+      </if>
+      <if test="formername != null">
+        formerName,
+      </if>
+      <if test="newname != null">
+        newName,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="exceltype != null">
+        #{exceltype,jdbcType=VARCHAR},
+      </if>
+      <if test="formername != null">
+        #{formername,jdbcType=VARCHAR},
+      </if>
+      <if test="newname != null">
+        #{newname,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.GotopgidlogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Gotopgidlog">
+    <result column="pgid" jdbcType="VARCHAR" property="pgid" />
+    <result column="gotopgid" jdbcType="VARCHAR" property="gotopgid" />
+    <result column="gototime" jdbcType="TIMESTAMP" property="gototime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Gotopgidlog">
+    insert into gotopgidlog (pgid, gotopgid, gototime
+      )
+    values (#{pgid,jdbcType=VARCHAR}, #{gotopgid,jdbcType=VARCHAR}, #{gototime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Gotopgidlog">
+    insert into gotopgidlog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pgid != null">
+        pgid,
+      </if>
+      <if test="gotopgid != null">
+        gotopgid,
+      </if>
+      <if test="gototime != null">
+        gototime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pgid != null">
+        #{pgid,jdbcType=VARCHAR},
+      </if>
+      <if test="gotopgid != null">
+        #{gotopgid,jdbcType=VARCHAR},
+      </if>
+      <if test="gototime != null">
+        #{gototime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Order_monitorMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Order_monitor">
+    <result column="truename" jdbcType="VARCHAR" property="truename" />
+    <result column="mobilenumber" jdbcType="VARCHAR" property="mobilenumber" />
+    <result column="dgjcount" jdbcType="INTEGER" property="dgjcount" />
+    <result column="dqrcount" jdbcType="INTEGER" property="dqrcount" />
+    <result column="dfhcount" jdbcType="INTEGER" property="dfhcount" />
+    <result column="yfhcount" jdbcType="INTEGER" property="yfhcount" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Order_monitor">
+    insert into order_monitor (truename, mobilenumber, dgjcount, 
+      dqrcount, dfhcount, yfhcount
+      )
+    values (#{truename,jdbcType=VARCHAR}, #{mobilenumber,jdbcType=VARCHAR}, #{dgjcount,jdbcType=INTEGER}, 
+      #{dqrcount,jdbcType=INTEGER}, #{dfhcount,jdbcType=INTEGER}, #{yfhcount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Order_monitor">
+    insert into order_monitor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="truename != null">
+        truename,
+      </if>
+      <if test="mobilenumber != null">
+        mobilenumber,
+      </if>
+      <if test="dgjcount != null">
+        dgjcount,
+      </if>
+      <if test="dqrcount != null">
+        dqrcount,
+      </if>
+      <if test="dfhcount != null">
+        dfhcount,
+      </if>
+      <if test="yfhcount != null">
+        yfhcount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="truename != null">
+        #{truename,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilenumber != null">
+        #{mobilenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="dgjcount != null">
+        #{dgjcount,jdbcType=INTEGER},
+      </if>
+      <if test="dqrcount != null">
+        #{dqrcount,jdbcType=INTEGER},
+      </if>
+      <if test="dfhcount != null">
+        #{dfhcount,jdbcType=INTEGER},
+      </if>
+      <if test="yfhcount != null">
+        #{yfhcount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

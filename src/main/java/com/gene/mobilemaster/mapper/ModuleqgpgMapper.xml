@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModuleqgpgMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Moduleqgpg">
+    <result column="Cid" jdbcType="VARCHAR" property="cid" />
+    <result column="Wap1Pgid" jdbcType="INTEGER" property="wap1pgid" />
+    <result column="Wap2Pgid" jdbcType="INTEGER" property="wap2pgid" />
+    <result column="CustUrl" jdbcType="VARCHAR" property="custurl" />
+    <result column="addor" jdbcType="VARCHAR" property="addor" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="BzDesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="EnableFlag" jdbcType="VARCHAR" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Moduleqgpg">
+    insert into moduleqgpg (Cid, Wap1Pgid, Wap2Pgid, 
+      CustUrl, addor, addtime, 
+      BzDesc, EnableFlag)
+    values (#{cid,jdbcType=VARCHAR}, #{wap1pgid,jdbcType=INTEGER}, #{wap2pgid,jdbcType=INTEGER}, 
+      #{custurl,jdbcType=VARCHAR}, #{addor,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{bzdesc,jdbcType=VARCHAR}, #{enableflag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Moduleqgpg">
+    insert into moduleqgpg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        Cid,
+      </if>
+      <if test="wap1pgid != null">
+        Wap1Pgid,
+      </if>
+      <if test="wap2pgid != null">
+        Wap2Pgid,
+      </if>
+      <if test="custurl != null">
+        CustUrl,
+      </if>
+      <if test="addor != null">
+        addor,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="bzdesc != null">
+        BzDesc,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cid != null">
+        #{cid,jdbcType=VARCHAR},
+      </if>
+      <if test="wap1pgid != null">
+        #{wap1pgid,jdbcType=INTEGER},
+      </if>
+      <if test="wap2pgid != null">
+        #{wap2pgid,jdbcType=INTEGER},
+      </if>
+      <if test="custurl != null">
+        #{custurl,jdbcType=VARCHAR},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

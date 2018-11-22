@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SmalltypeMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Smalltype">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="bigid" jdbcType="INTEGER" property="bigid" />
+    <result column="typename" jdbcType="VARCHAR" property="typename" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="xhs" jdbcType="INTEGER" property="xhs" />
+    <result column="bgimg" jdbcType="VARCHAR" property="bgimg" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Smalltype">
+    insert into smalltype (id, bigid, typename, 
+      flag, updatetime, editor, 
+      xhs, bgimg)
+    values (#{id,jdbcType=INTEGER}, #{bigid,jdbcType=INTEGER}, #{typename,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=INTEGER}, #{updatetime,jdbcType=TIMESTAMP}, #{editor,jdbcType=VARCHAR}, 
+      #{xhs,jdbcType=INTEGER}, #{bgimg,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Smalltype">
+    insert into smalltype
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bigid != null">
+        bigid,
+      </if>
+      <if test="typename != null">
+        typename,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="xhs != null">
+        xhs,
+      </if>
+      <if test="bgimg != null">
+        bgimg,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bigid != null">
+        #{bigid,jdbcType=INTEGER},
+      </if>
+      <if test="typename != null">
+        #{typename,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="xhs != null">
+        #{xhs,jdbcType=INTEGER},
+      </if>
+      <if test="bgimg != null">
+        #{bgimg,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

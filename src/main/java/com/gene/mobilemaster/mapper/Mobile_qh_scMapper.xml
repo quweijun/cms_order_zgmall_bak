@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Mobile_qh_scMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Mobile_qh_sc">
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="accesstime" jdbcType="TIMESTAMP" property="accesstime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Mobile_qh_sc">
+    insert into mobile_qh_sc (mobile, accesstime)
+    values (#{mobile,jdbcType=VARCHAR}, #{accesstime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Mobile_qh_sc">
+    insert into mobile_qh_sc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="accesstime != null">
+        accesstime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

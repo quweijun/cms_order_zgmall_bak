@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TreemiddletableMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Treemiddletable">
+    <result column="accecctime" jdbcType="TIMESTAMP" property="accecctime" />
+    <result column="productname" jdbcType="VARCHAR" property="productname" />
+    <result column="vcount" jdbcType="INTEGER" property="vcount" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Treemiddletable">
+    insert into treemiddletable (accecctime, productname, vcount, 
+      productid, bigtype)
+    values (#{accecctime,jdbcType=TIMESTAMP}, #{productname,jdbcType=VARCHAR}, #{vcount,jdbcType=INTEGER}, 
+      #{productid,jdbcType=VARCHAR}, #{bigtype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Treemiddletable">
+    insert into treemiddletable
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accecctime != null">
+        accecctime,
+      </if>
+      <if test="productname != null">
+        productname,
+      </if>
+      <if test="vcount != null">
+        vcount,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accecctime != null">
+        #{accecctime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="vcount != null">
+        #{vcount,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

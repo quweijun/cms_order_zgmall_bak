@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TaocanMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Taocan">
+    <result column="tcID" jdbcType="INTEGER" property="tcid" />
+    <result column="tcName" jdbcType="VARCHAR" property="tcname" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Taocan">
+    insert into taocan (tcID, tcName, addTime, 
+      flag, xh)
+    values (#{tcid,jdbcType=INTEGER}, #{tcname,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{flag,jdbcType=INTEGER}, #{xh,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Taocan">
+    insert into taocan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tcid != null">
+        tcID,
+      </if>
+      <if test="tcname != null">
+        tcName,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tcid != null">
+        #{tcid,jdbcType=INTEGER},
+      </if>
+      <if test="tcname != null">
+        #{tcname,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

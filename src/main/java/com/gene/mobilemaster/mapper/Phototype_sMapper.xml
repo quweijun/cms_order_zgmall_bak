@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Phototype_sMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Phototype_s">
+    <result column="picdm" jdbcType="VARCHAR" property="picdm" />
+    <result column="picsize" jdbcType="VARCHAR" property="picsize" />
+    <result column="phototypeid" jdbcType="INTEGER" property="phototypeid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Phototype_s">
+    insert into phototype_s (picdm, picsize, phototypeid
+      )
+    values (#{picdm,jdbcType=VARCHAR}, #{picsize,jdbcType=VARCHAR}, #{phototypeid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Phototype_s">
+    insert into phototype_s
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="picdm != null">
+        picdm,
+      </if>
+      <if test="picsize != null">
+        picsize,
+      </if>
+      <if test="phototypeid != null">
+        phototypeid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="picdm != null">
+        #{picdm,jdbcType=VARCHAR},
+      </if>
+      <if test="picsize != null">
+        #{picsize,jdbcType=VARCHAR},
+      </if>
+      <if test="phototypeid != null">
+        #{phototypeid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

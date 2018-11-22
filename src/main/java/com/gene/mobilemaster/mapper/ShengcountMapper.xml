@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ShengcountMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Shengcount">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="renshu" jdbcType="INTEGER" property="renshu" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Shengcount">
+    insert into shengcount (flowid, province, renshu
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{province,jdbcType=VARCHAR}, #{renshu,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Shengcount">
+    insert into shengcount
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="renshu != null">
+        renshu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="renshu != null">
+        #{renshu,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

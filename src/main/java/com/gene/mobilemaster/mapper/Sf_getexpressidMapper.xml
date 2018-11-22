@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sf_getexpressidMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sf_getexpressid">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="filter_result" jdbcType="VARCHAR" property="filterResult" />
+    <result column="destcode" jdbcType="VARCHAR" property="destcode" />
+    <result column="mailno" jdbcType="VARCHAR" property="mailno" />
+    <result column="origincode" jdbcType="VARCHAR" property="origincode" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="beizhu" jdbcType="VARCHAR" property="beizhu" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sf_getexpressid">
+    insert into sf_getexpressid (flowid, orderid, filter_result, 
+      destcode, mailno, origincode, 
+      editor, beizhu, addtime
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{filterResult,jdbcType=VARCHAR}, 
+      #{destcode,jdbcType=VARCHAR}, #{mailno,jdbcType=VARCHAR}, #{origincode,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR}, #{beizhu,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sf_getexpressid">
+    insert into sf_getexpressid
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="filterResult != null">
+        filter_result,
+      </if>
+      <if test="destcode != null">
+        destcode,
+      </if>
+      <if test="mailno != null">
+        mailno,
+      </if>
+      <if test="origincode != null">
+        origincode,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="beizhu != null">
+        beizhu,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="filterResult != null">
+        #{filterResult,jdbcType=VARCHAR},
+      </if>
+      <if test="destcode != null">
+        #{destcode,jdbcType=VARCHAR},
+      </if>
+      <if test="mailno != null">
+        #{mailno,jdbcType=VARCHAR},
+      </if>
+      <if test="origincode != null">
+        #{origincode,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="beizhu != null">
+        #{beizhu,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

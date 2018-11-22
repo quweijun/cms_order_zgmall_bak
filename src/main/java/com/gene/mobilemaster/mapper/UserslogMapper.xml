@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.UserslogMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Userslog">
+    <result column="UsersLogID" jdbcType="INTEGER" property="userslogid" />
+    <result column="UsersID" jdbcType="INTEGER" property="usersid" />
+    <result column="UsersName" jdbcType="VARCHAR" property="usersname" />
+    <result column="TheLoginIP" jdbcType="VARCHAR" property="theloginip" />
+    <result column="TheLoginTime" jdbcType="TIMESTAMP" property="thelogintime" />
+    <result column="OperationContent" jdbcType="VARCHAR" property="operationcontent" />
+    <result column="OperatingTime" jdbcType="TIMESTAMP" property="operatingtime" />
+    <result column="Systemtype" jdbcType="VARCHAR" property="systemtype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Userslog">
+    insert into userslog (UsersLogID, UsersID, UsersName, 
+      TheLoginIP, TheLoginTime, OperationContent, 
+      OperatingTime, Systemtype)
+    values (#{userslogid,jdbcType=INTEGER}, #{usersid,jdbcType=INTEGER}, #{usersname,jdbcType=VARCHAR}, 
+      #{theloginip,jdbcType=VARCHAR}, #{thelogintime,jdbcType=TIMESTAMP}, #{operationcontent,jdbcType=VARCHAR}, 
+      #{operatingtime,jdbcType=TIMESTAMP}, #{systemtype,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Userslog">
+    insert into userslog
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userslogid != null">
+        UsersLogID,
+      </if>
+      <if test="usersid != null">
+        UsersID,
+      </if>
+      <if test="usersname != null">
+        UsersName,
+      </if>
+      <if test="theloginip != null">
+        TheLoginIP,
+      </if>
+      <if test="thelogintime != null">
+        TheLoginTime,
+      </if>
+      <if test="operationcontent != null">
+        OperationContent,
+      </if>
+      <if test="operatingtime != null">
+        OperatingTime,
+      </if>
+      <if test="systemtype != null">
+        Systemtype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userslogid != null">
+        #{userslogid,jdbcType=INTEGER},
+      </if>
+      <if test="usersid != null">
+        #{usersid,jdbcType=INTEGER},
+      </if>
+      <if test="usersname != null">
+        #{usersname,jdbcType=VARCHAR},
+      </if>
+      <if test="theloginip != null">
+        #{theloginip,jdbcType=VARCHAR},
+      </if>
+      <if test="thelogintime != null">
+        #{thelogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operationcontent != null">
+        #{operationcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="operatingtime != null">
+        #{operatingtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="systemtype != null">
+        #{systemtype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

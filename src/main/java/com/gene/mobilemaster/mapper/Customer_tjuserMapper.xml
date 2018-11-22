@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Customer_tjuserMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customer_tjuser">
+    <result column="CountDate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="registertime" jdbcType="TIMESTAMP" property="registertime" />
+    <result column="customerid" jdbcType="BIGINT" property="customerid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="customermobile" jdbcType="VARCHAR" property="customermobile" />
+    <result column="mobileBound" jdbcType="INTEGER" property="mobilebound" />
+    <result column="tj_customermobile" jdbcType="VARCHAR" property="tjCustomermobile" />
+    <result column="tj_customerid" jdbcType="BIGINT" property="tjCustomerid" />
+    <result column="tj_customername" jdbcType="VARCHAR" property="tjCustomername" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customer_tjuser">
+    insert into customer_tjuser (CountDate, registertime, customerid, 
+      username, customermobile, mobileBound, 
+      tj_customermobile, tj_customerid, tj_customername
+      )
+    values (#{countdate,jdbcType=TIMESTAMP}, #{registertime,jdbcType=TIMESTAMP}, #{customerid,jdbcType=BIGINT}, 
+      #{username,jdbcType=VARCHAR}, #{customermobile,jdbcType=VARCHAR}, #{mobilebound,jdbcType=INTEGER}, 
+      #{tjCustomermobile,jdbcType=VARCHAR}, #{tjCustomerid,jdbcType=BIGINT}, #{tjCustomername,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customer_tjuser">
+    insert into customer_tjuser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        CountDate,
+      </if>
+      <if test="registertime != null">
+        registertime,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="customermobile != null">
+        customermobile,
+      </if>
+      <if test="mobilebound != null">
+        mobileBound,
+      </if>
+      <if test="tjCustomermobile != null">
+        tj_customermobile,
+      </if>
+      <if test="tjCustomerid != null">
+        tj_customerid,
+      </if>
+      <if test="tjCustomername != null">
+        tj_customername,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registertime != null">
+        #{registertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="customermobile != null">
+        #{customermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilebound != null">
+        #{mobilebound,jdbcType=INTEGER},
+      </if>
+      <if test="tjCustomermobile != null">
+        #{tjCustomermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="tjCustomerid != null">
+        #{tjCustomerid,jdbcType=BIGINT},
+      </if>
+      <if test="tjCustomername != null">
+        #{tjCustomername,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

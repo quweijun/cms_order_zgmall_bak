@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BigpresentMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Bigpresent">
+    <result column="ID" jdbcType="INTEGER" property="id" />
+    <result column="productID" jdbcType="VARCHAR" property="productid" />
+    <result column="Non_pjName" jdbcType="VARCHAR" property="nonPjname" />
+    <result column="Non_pjPhoto" jdbcType="VARCHAR" property="nonPjphoto" />
+    <result column="Non_pjDesc" jdbcType="VARCHAR" property="nonPjdesc" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="AddUserId" jdbcType="INTEGER" property="adduserid" />
+    <result column="Addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Bigpresent">
+    insert into bigpresent (ID, productID, Non_pjName, 
+      Non_pjPhoto, Non_pjDesc, EnableFlag, 
+      AddUserId, Addtime)
+    values (#{id,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, #{nonPjname,jdbcType=VARCHAR}, 
+      #{nonPjphoto,jdbcType=VARCHAR}, #{nonPjdesc,jdbcType=VARCHAR}, #{enableflag,jdbcType=INTEGER}, 
+      #{adduserid,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Bigpresent">
+    insert into bigpresent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="productid != null">
+        productID,
+      </if>
+      <if test="nonPjname != null">
+        Non_pjName,
+      </if>
+      <if test="nonPjphoto != null">
+        Non_pjPhoto,
+      </if>
+      <if test="nonPjdesc != null">
+        Non_pjDesc,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="adduserid != null">
+        AddUserId,
+      </if>
+      <if test="addtime != null">
+        Addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="nonPjname != null">
+        #{nonPjname,jdbcType=VARCHAR},
+      </if>
+      <if test="nonPjphoto != null">
+        #{nonPjphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="nonPjdesc != null">
+        #{nonPjdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="adduserid != null">
+        #{adduserid,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

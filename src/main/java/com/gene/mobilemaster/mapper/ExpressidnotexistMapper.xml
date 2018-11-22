@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ExpressidnotexistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Expressidnotexist">
+    <result column="fileID" jdbcType="VARCHAR" property="fileid" />
+    <result column="expressid" jdbcType="VARCHAR" property="expressid" />
+    <result column="receivable" jdbcType="DOUBLE" property="receivable" />
+    <result column="received" jdbcType="DOUBLE" property="received" />
+    <result column="settleDate" jdbcType="VARCHAR" property="settledate" />
+    <result column="settleCost" jdbcType="DOUBLE" property="settlecost" />
+    <result column="serverCost" jdbcType="DOUBLE" property="servercost" />
+    <result column="backExpressCost" jdbcType="DOUBLE" property="backexpresscost" />
+    <result column="addDate" jdbcType="TIMESTAMP" property="adddate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Expressidnotexist">
+    insert into expressidnotexist (fileID, expressid, receivable, 
+      received, settleDate, settleCost, 
+      serverCost, backExpressCost, addDate
+      )
+    values (#{fileid,jdbcType=VARCHAR}, #{expressid,jdbcType=VARCHAR}, #{receivable,jdbcType=DOUBLE}, 
+      #{received,jdbcType=DOUBLE}, #{settledate,jdbcType=VARCHAR}, #{settlecost,jdbcType=DOUBLE}, 
+      #{servercost,jdbcType=DOUBLE}, #{backexpresscost,jdbcType=DOUBLE}, #{adddate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Expressidnotexist">
+    insert into expressidnotexist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        fileID,
+      </if>
+      <if test="expressid != null">
+        expressid,
+      </if>
+      <if test="receivable != null">
+        receivable,
+      </if>
+      <if test="received != null">
+        received,
+      </if>
+      <if test="settledate != null">
+        settleDate,
+      </if>
+      <if test="settlecost != null">
+        settleCost,
+      </if>
+      <if test="servercost != null">
+        serverCost,
+      </if>
+      <if test="backexpresscost != null">
+        backExpressCost,
+      </if>
+      <if test="adddate != null">
+        addDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        #{fileid,jdbcType=VARCHAR},
+      </if>
+      <if test="expressid != null">
+        #{expressid,jdbcType=VARCHAR},
+      </if>
+      <if test="receivable != null">
+        #{receivable,jdbcType=DOUBLE},
+      </if>
+      <if test="received != null">
+        #{received,jdbcType=DOUBLE},
+      </if>
+      <if test="settledate != null">
+        #{settledate,jdbcType=VARCHAR},
+      </if>
+      <if test="settlecost != null">
+        #{settlecost,jdbcType=DOUBLE},
+      </if>
+      <if test="servercost != null">
+        #{servercost,jdbcType=DOUBLE},
+      </if>
+      <if test="backexpresscost != null">
+        #{backexpresscost,jdbcType=DOUBLE},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

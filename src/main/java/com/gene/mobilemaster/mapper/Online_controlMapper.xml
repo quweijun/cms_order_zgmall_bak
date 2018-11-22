@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Online_controlMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Online_control">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="customerid" jdbcType="INTEGER" property="customerid" />
+    <result column="customername" jdbcType="VARCHAR" property="customername" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="pictrue" jdbcType="VARCHAR" property="pictrue" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="height" jdbcType="VARCHAR" property="height" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="Educational" jdbcType="VARCHAR" property="educational" />
+    <result column="book" jdbcType="VARCHAR" property="book" />
+    <result column="Idol" jdbcType="VARCHAR" property="idol" />
+    <result column="Hate" jdbcType="VARCHAR" property="hate" />
+    <result column="Hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="Declaration" jdbcType="VARCHAR" property="declaration" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="px_id" jdbcType="INTEGER" property="pxId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Online_control">
+    insert into online_control (flowid, customerid, customername, 
+      type, pictrue, age, 
+      height, weight, Educational, 
+      book, Idol, Hate, Hobby, 
+      Declaration, introduction, flag, 
+      status, addtime, px_id
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{customerid,jdbcType=INTEGER}, #{customername,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER}, #{pictrue,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
+      #{height,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{educational,jdbcType=VARCHAR}, 
+      #{book,jdbcType=VARCHAR}, #{idol,jdbcType=VARCHAR}, #{hate,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR}, 
+      #{declaration,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}, #{pxId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Online_control">
+    insert into online_control
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="customername != null">
+        customername,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="pictrue != null">
+        pictrue,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="educational != null">
+        Educational,
+      </if>
+      <if test="book != null">
+        book,
+      </if>
+      <if test="idol != null">
+        Idol,
+      </if>
+      <if test="hate != null">
+        Hate,
+      </if>
+      <if test="hobby != null">
+        Hobby,
+      </if>
+      <if test="declaration != null">
+        Declaration,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="pxId != null">
+        px_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="pictrue != null">
+        #{pictrue,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="educational != null">
+        #{educational,jdbcType=VARCHAR},
+      </if>
+      <if test="book != null">
+        #{book,jdbcType=VARCHAR},
+      </if>
+      <if test="idol != null">
+        #{idol,jdbcType=VARCHAR},
+      </if>
+      <if test="hate != null">
+        #{hate,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null">
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="declaration != null">
+        #{declaration,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="pxId != null">
+        #{pxId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Ems_dzexpressid2Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Ems_dzexpressid2">
+    <result column="yjhm" jdbcType="VARCHAR" property="yjhm" />
+    <result column="jsrq" jdbcType="VARCHAR" property="jsrq" />
+    <result column="jjrq" jdbcType="VARCHAR" property="jjrq" />
+    <result column="yshk" jdbcType="DOUBLE" property="yshk" />
+    <result column="收件人姓名" jdbcType="VARCHAR" property="收件人姓名" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="sshk" jdbcType="DOUBLE" property="sshk" />
+    <result column="jsf" jdbcType="DOUBLE" property="jsf" />
+    <result column="ttfwf" jdbcType="DOUBLE" property="ttfwf" />
+    <result column="退回服务费" jdbcType="DOUBLE" property="退回服务费" />
+    <result column="退回邮费" jdbcType="DOUBLE" property="退回邮费" />
+    <result column="偏远地区服务费" jdbcType="DOUBLE" property="偏远地区服务费" />
+    <result column="合计费用" jdbcType="DOUBLE" property="合计费用" />
+    <result column="jshk" jdbcType="DOUBLE" property="jshk" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Ems_dzexpressid2">
+    insert into ems_dzexpressid2 (yjhm, jsrq, jjrq, 
+      yshk, 收件人姓名, address, 
+      sshk, jsf, ttfwf, 退回服务费, 
+      退回邮费, 偏远地区服务费, 合计费用, jshk
+      )
+    values (#{yjhm,jdbcType=VARCHAR}, #{jsrq,jdbcType=VARCHAR}, #{jjrq,jdbcType=VARCHAR}, 
+      #{yshk,jdbcType=DOUBLE}, #{收件人姓名,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{sshk,jdbcType=DOUBLE}, #{jsf,jdbcType=DOUBLE}, #{ttfwf,jdbcType=DOUBLE}, #{退回服务费,jdbcType=DOUBLE}, 
+      #{退回邮费,jdbcType=DOUBLE}, #{偏远地区服务费,jdbcType=DOUBLE}, #{合计费用,jdbcType=DOUBLE}, #{jshk,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Ems_dzexpressid2">
+    insert into ems_dzexpressid2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="yjhm != null">
+        yjhm,
+      </if>
+      <if test="jsrq != null">
+        jsrq,
+      </if>
+      <if test="jjrq != null">
+        jjrq,
+      </if>
+      <if test="yshk != null">
+        yshk,
+      </if>
+      <if test="收件人姓名 != null">
+        收件人姓名,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="sshk != null">
+        sshk,
+      </if>
+      <if test="jsf != null">
+        jsf,
+      </if>
+      <if test="ttfwf != null">
+        ttfwf,
+      </if>
+      <if test="退回服务费 != null">
+        退回服务费,
+      </if>
+      <if test="退回邮费 != null">
+        退回邮费,
+      </if>
+      <if test="偏远地区服务费 != null">
+        偏远地区服务费,
+      </if>
+      <if test="合计费用 != null">
+        合计费用,
+      </if>
+      <if test="jshk != null">
+        jshk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="yjhm != null">
+        #{yjhm,jdbcType=VARCHAR},
+      </if>
+      <if test="jsrq != null">
+        #{jsrq,jdbcType=VARCHAR},
+      </if>
+      <if test="jjrq != null">
+        #{jjrq,jdbcType=VARCHAR},
+      </if>
+      <if test="yshk != null">
+        #{yshk,jdbcType=DOUBLE},
+      </if>
+      <if test="收件人姓名 != null">
+        #{收件人姓名,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="sshk != null">
+        #{sshk,jdbcType=DOUBLE},
+      </if>
+      <if test="jsf != null">
+        #{jsf,jdbcType=DOUBLE},
+      </if>
+      <if test="ttfwf != null">
+        #{ttfwf,jdbcType=DOUBLE},
+      </if>
+      <if test="退回服务费 != null">
+        #{退回服务费,jdbcType=DOUBLE},
+      </if>
+      <if test="退回邮费 != null">
+        #{退回邮费,jdbcType=DOUBLE},
+      </if>
+      <if test="偏远地区服务费 != null">
+        #{偏远地区服务费,jdbcType=DOUBLE},
+      </if>
+      <if test="合计费用 != null">
+        #{合计费用,jdbcType=DOUBLE},
+      </if>
+      <if test="jshk != null">
+        #{jshk,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+</mapper>

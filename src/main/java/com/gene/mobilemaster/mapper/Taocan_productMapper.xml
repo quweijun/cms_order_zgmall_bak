@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Taocan_productMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Taocan_product">
+    <result column="flowNO" jdbcType="INTEGER" property="flowno" />
+    <result column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="tcID" jdbcType="INTEGER" property="tcid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="typeflag" jdbcType="INTEGER" property="typeflag" />
+    <result column="yhMoney" jdbcType="DOUBLE" property="yhmoney" />
+    <result column="lastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+    <result column="lastUpdateUser" jdbcType="VARCHAR" property="lastupdateuser" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Taocan_product">
+    insert into taocan_product (flowNO, productid, tcID, 
+      addtime, xh, flag, 
+      typeflag, yhMoney, lastUpdateTime, 
+      lastUpdateUser)
+    values (#{flowno,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, #{tcid,jdbcType=INTEGER}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{xh,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, 
+      #{typeflag,jdbcType=INTEGER}, #{yhmoney,jdbcType=DOUBLE}, #{lastupdatetime,jdbcType=TIMESTAMP}, 
+      #{lastupdateuser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Taocan_product">
+    insert into taocan_product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowNO,
+      </if>
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="tcid != null">
+        tcID,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="typeflag != null">
+        typeflag,
+      </if>
+      <if test="yhmoney != null">
+        yhMoney,
+      </if>
+      <if test="lastupdatetime != null">
+        lastUpdateTime,
+      </if>
+      <if test="lastupdateuser != null">
+        lastUpdateUser,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="tcid != null">
+        #{tcid,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="typeflag != null">
+        #{typeflag,jdbcType=INTEGER},
+      </if>
+      <if test="yhmoney != null">
+        #{yhmoney,jdbcType=DOUBLE},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateuser != null">
+        #{lastupdateuser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

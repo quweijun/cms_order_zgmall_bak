@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Scvorderform_historyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Scvorderform_history">
+    <result column="FlowID" jdbcType="VARCHAR" property="flowid" />
+    <result column="BussinessID" jdbcType="VARCHAR" property="bussinessid" />
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="RegisterFlowNo" jdbcType="VARCHAR" property="registerflowno" />
+    <result column="SubmitDate" jdbcType="TIMESTAMP" property="submitdate" />
+    <result column="BussinessPrice" jdbcType="VARCHAR" property="bussinessprice" />
+    <result column="OrderFlag" jdbcType="VARCHAR" property="orderflag" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="Flag2" jdbcType="VARCHAR" property="flag2" />
+    <result column="TCPrice" jdbcType="VARCHAR" property="tcprice" />
+    <result column="Inserttime" jdbcType="TIMESTAMP" property="inserttime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Scvorderform_history">
+    insert into scvorderform_history (FlowID, BussinessID, ChannelID, 
+      RegisterFlowNo, SubmitDate, BussinessPrice, 
+      OrderFlag, flag, Flag2, 
+      TCPrice, Inserttime)
+    values (#{flowid,jdbcType=VARCHAR}, #{bussinessid,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, 
+      #{registerflowno,jdbcType=VARCHAR}, #{submitdate,jdbcType=TIMESTAMP}, #{bussinessprice,jdbcType=VARCHAR}, 
+      #{orderflag,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}, #{flag2,jdbcType=VARCHAR}, 
+      #{tcprice,jdbcType=VARCHAR}, #{inserttime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Scvorderform_history">
+    insert into scvorderform_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlowID,
+      </if>
+      <if test="bussinessid != null">
+        BussinessID,
+      </if>
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="registerflowno != null">
+        RegisterFlowNo,
+      </if>
+      <if test="submitdate != null">
+        SubmitDate,
+      </if>
+      <if test="bussinessprice != null">
+        BussinessPrice,
+      </if>
+      <if test="orderflag != null">
+        OrderFlag,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="flag2 != null">
+        Flag2,
+      </if>
+      <if test="tcprice != null">
+        TCPrice,
+      </if>
+      <if test="inserttime != null">
+        Inserttime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=VARCHAR},
+      </if>
+      <if test="bussinessid != null">
+        #{bussinessid,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="registerflowno != null">
+        #{registerflowno,jdbcType=VARCHAR},
+      </if>
+      <if test="submitdate != null">
+        #{submitdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bussinessprice != null">
+        #{bussinessprice,jdbcType=VARCHAR},
+      </if>
+      <if test="orderflag != null">
+        #{orderflag,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="flag2 != null">
+        #{flag2,jdbcType=VARCHAR},
+      </if>
+      <if test="tcprice != null">
+        #{tcprice,jdbcType=VARCHAR},
+      </if>
+      <if test="inserttime != null">
+        #{inserttime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

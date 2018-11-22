@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.OlpayrecordsMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Olpayrecords">
+    <result column="payID" jdbcType="BIGINT" property="payid" />
+    <result column="fee" jdbcType="VARCHAR" property="fee" />
+    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo" />
+    <result column="payType" jdbcType="VARCHAR" property="paytype" />
+    <result column="out_trade_type" jdbcType="VARCHAR" property="outTradeType" />
+    <result column="isSuccess" jdbcType="INTEGER" property="issuccess" />
+    <result column="trade_no_forAlipay" jdbcType="VARCHAR" property="tradeNoForalipay" />
+    <result column="payTime" jdbcType="TIMESTAMP" property="paytime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Olpayrecords">
+    insert into olpayrecords (payID, fee, trade_no, 
+      addtime, out_trade_no, payType, 
+      out_trade_type, isSuccess, trade_no_forAlipay, 
+      payTime)
+    values (#{payid,jdbcType=BIGINT}, #{fee,jdbcType=VARCHAR}, #{tradeNo,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{outTradeNo,jdbcType=VARCHAR}, #{paytype,jdbcType=VARCHAR}, 
+      #{outTradeType,jdbcType=VARCHAR}, #{issuccess,jdbcType=INTEGER}, #{tradeNoForalipay,jdbcType=VARCHAR}, 
+      #{paytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Olpayrecords">
+    insert into olpayrecords
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="payid != null">
+        payID,
+      </if>
+      <if test="fee != null">
+        fee,
+      </if>
+      <if test="tradeNo != null">
+        trade_no,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no,
+      </if>
+      <if test="paytype != null">
+        payType,
+      </if>
+      <if test="outTradeType != null">
+        out_trade_type,
+      </if>
+      <if test="issuccess != null">
+        isSuccess,
+      </if>
+      <if test="tradeNoForalipay != null">
+        trade_no_forAlipay,
+      </if>
+      <if test="paytime != null">
+        payTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="payid != null">
+        #{payid,jdbcType=BIGINT},
+      </if>
+      <if test="fee != null">
+        #{fee,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeNo != null">
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="outTradeNo != null">
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paytype != null">
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeType != null">
+        #{outTradeType,jdbcType=VARCHAR},
+      </if>
+      <if test="issuccess != null">
+        #{issuccess,jdbcType=INTEGER},
+      </if>
+      <if test="tradeNoForalipay != null">
+        #{tradeNoForalipay,jdbcType=VARCHAR},
+      </if>
+      <if test="paytime != null">
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

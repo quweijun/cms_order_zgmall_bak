@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ClientactiveMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Clientactive">
+    <result column="Flowid" jdbcType="DOUBLE" property="flowid" />
+    <result column="UserAgent" jdbcType="VARCHAR" property="useragent" />
+    <result column="mos" jdbcType="VARCHAR" property="mos" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="unique" jdbcType="VARCHAR" property="unique" />
+    <result column="activeCode" jdbcType="VARCHAR" property="activecode" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="adddate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="activedate" jdbcType="TIMESTAMP" property="activedate" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="ver" jdbcType="VARCHAR" property="ver" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="truth" jdbcType="VARCHAR" property="truth" />
+    <result column="im" jdbcType="VARCHAR" property="im" />
+    <result column="sensitize" jdbcType="VARCHAR" property="sensitize" />
+    <result column="phone_address" jdbcType="VARCHAR" property="phoneAddress" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Clientactive">
+    insert into clientactive (Flowid, UserAgent, mos, 
+      ip, unique, activeCode, 
+      channelid, adddate, activedate, 
+      mobile, ver, username, 
+      truth, im, sensitize, 
+      phone_address)
+    values (#{flowid,jdbcType=DOUBLE}, #{useragent,jdbcType=VARCHAR}, #{mos,jdbcType=VARCHAR}, 
+      #{ip,jdbcType=VARCHAR}, #{unique,jdbcType=VARCHAR}, #{activecode,jdbcType=VARCHAR}, 
+      #{channelid,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}, #{activedate,jdbcType=TIMESTAMP}, 
+      #{mobile,jdbcType=VARCHAR}, #{ver,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{truth,jdbcType=VARCHAR}, #{im,jdbcType=VARCHAR}, #{sensitize,jdbcType=VARCHAR}, 
+      #{phoneAddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Clientactive">
+    insert into clientactive
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        Flowid,
+      </if>
+      <if test="useragent != null">
+        UserAgent,
+      </if>
+      <if test="mos != null">
+        mos,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="unique != null">
+        unique,
+      </if>
+      <if test="activecode != null">
+        activeCode,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="adddate != null">
+        adddate,
+      </if>
+      <if test="activedate != null">
+        activedate,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="ver != null">
+        ver,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="truth != null">
+        truth,
+      </if>
+      <if test="im != null">
+        im,
+      </if>
+      <if test="sensitize != null">
+        sensitize,
+      </if>
+      <if test="phoneAddress != null">
+        phone_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=DOUBLE},
+      </if>
+      <if test="useragent != null">
+        #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="mos != null">
+        #{mos,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="unique != null">
+        #{unique,jdbcType=VARCHAR},
+      </if>
+      <if test="activecode != null">
+        #{activecode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activedate != null">
+        #{activedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="ver != null">
+        #{ver,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="truth != null">
+        #{truth,jdbcType=VARCHAR},
+      </if>
+      <if test="im != null">
+        #{im,jdbcType=VARCHAR},
+      </if>
+      <if test="sensitize != null">
+        #{sensitize,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneAddress != null">
+        #{phoneAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

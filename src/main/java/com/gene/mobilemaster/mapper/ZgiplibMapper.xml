@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ZgiplibMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zgiplib">
+    <result column="flowno" jdbcType="INTEGER" property="flowno" />
+    <result column="ipstart" jdbcType="BIGINT" property="ipstart" />
+    <result column="ipend" jdbcType="BIGINT" property="ipend" />
+    <result column="shengid" jdbcType="VARCHAR" property="shengid" />
+    <result column="sheng" jdbcType="VARCHAR" property="sheng" />
+    <result column="shi" jdbcType="VARCHAR" property="shi" />
+    <result column="ipnet" jdbcType="VARCHAR" property="ipnet" />
+    <result column="iplen" jdbcType="INTEGER" property="iplen" />
+    <result column="ipPrior" jdbcType="INTEGER" property="ipprior" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zgiplib">
+    insert into zgiplib (flowno, ipstart, ipend, 
+      shengid, sheng, shi, 
+      ipnet, iplen, ipPrior
+      )
+    values (#{flowno,jdbcType=INTEGER}, #{ipstart,jdbcType=BIGINT}, #{ipend,jdbcType=BIGINT}, 
+      #{shengid,jdbcType=VARCHAR}, #{sheng,jdbcType=VARCHAR}, #{shi,jdbcType=VARCHAR}, 
+      #{ipnet,jdbcType=VARCHAR}, #{iplen,jdbcType=INTEGER}, #{ipprior,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zgiplib">
+    insert into zgiplib
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        flowno,
+      </if>
+      <if test="ipstart != null">
+        ipstart,
+      </if>
+      <if test="ipend != null">
+        ipend,
+      </if>
+      <if test="shengid != null">
+        shengid,
+      </if>
+      <if test="sheng != null">
+        sheng,
+      </if>
+      <if test="shi != null">
+        shi,
+      </if>
+      <if test="ipnet != null">
+        ipnet,
+      </if>
+      <if test="iplen != null">
+        iplen,
+      </if>
+      <if test="ipprior != null">
+        ipPrior,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="ipstart != null">
+        #{ipstart,jdbcType=BIGINT},
+      </if>
+      <if test="ipend != null">
+        #{ipend,jdbcType=BIGINT},
+      </if>
+      <if test="shengid != null">
+        #{shengid,jdbcType=VARCHAR},
+      </if>
+      <if test="sheng != null">
+        #{sheng,jdbcType=VARCHAR},
+      </if>
+      <if test="shi != null">
+        #{shi,jdbcType=VARCHAR},
+      </if>
+      <if test="ipnet != null">
+        #{ipnet,jdbcType=VARCHAR},
+      </if>
+      <if test="iplen != null">
+        #{iplen,jdbcType=INTEGER},
+      </if>
+      <if test="ipprior != null">
+        #{ipprior,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

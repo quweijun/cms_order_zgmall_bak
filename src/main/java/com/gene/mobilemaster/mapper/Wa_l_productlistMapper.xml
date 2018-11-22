@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Wa_l_productlistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Wa_l_productlist">
+    <result column="FlOWID" jdbcType="BIGINT" property="flowid" />
+    <result column="FLBH" jdbcType="VARCHAR" property="flbh" />
+    <result column="ZGFLC1" jdbcType="INTEGER" property="zgflc1" />
+    <result column="ZGFLC2" jdbcType="INTEGER" property="zgflc2" />
+    <result column="ZGFLC3" jdbcType="INTEGER" property="zgflc3" />
+    <result column="JDCpid" jdbcType="VARCHAR" property="jdcpid" />
+    <result column="JDCpName" jdbcType="VARCHAR" property="jdcpname" />
+    <result column="JDCpPrice" jdbcType="DOUBLE" property="jdcpprice" />
+    <result column="JDPageNo" jdbcType="INTEGER" property="jdpageno" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="DownFlag" jdbcType="INTEGER" property="downflag" />
+    <result column="DownDate" jdbcType="TIMESTAMP" property="downdate" />
+    <result column="LastMidifyDate" jdbcType="TIMESTAMP" property="lastmidifydate" />
+    <result column="CpPriceChangeList" jdbcType="VARCHAR" property="cppricechangelist" />
+    <result column="ImgUrl" jdbcType="VARCHAR" property="imgurl" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Wa_l_productlist">
+    insert into wa_l_productlist (FlOWID, FLBH, ZGFLC1, 
+      ZGFLC2, ZGFLC3, JDCpid, 
+      JDCpName, JDCpPrice, JDPageNo, 
+      createdate, DownFlag, DownDate, 
+      LastMidifyDate, CpPriceChangeList, ImgUrl
+      )
+    values (#{flowid,jdbcType=BIGINT}, #{flbh,jdbcType=VARCHAR}, #{zgflc1,jdbcType=INTEGER}, 
+      #{zgflc2,jdbcType=INTEGER}, #{zgflc3,jdbcType=INTEGER}, #{jdcpid,jdbcType=VARCHAR}, 
+      #{jdcpname,jdbcType=VARCHAR}, #{jdcpprice,jdbcType=DOUBLE}, #{jdpageno,jdbcType=INTEGER}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{downflag,jdbcType=INTEGER}, #{downdate,jdbcType=TIMESTAMP}, 
+      #{lastmidifydate,jdbcType=TIMESTAMP}, #{cppricechangelist,jdbcType=VARCHAR}, #{imgurl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Wa_l_productlist">
+    insert into wa_l_productlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        FlOWID,
+      </if>
+      <if test="flbh != null">
+        FLBH,
+      </if>
+      <if test="zgflc1 != null">
+        ZGFLC1,
+      </if>
+      <if test="zgflc2 != null">
+        ZGFLC2,
+      </if>
+      <if test="zgflc3 != null">
+        ZGFLC3,
+      </if>
+      <if test="jdcpid != null">
+        JDCpid,
+      </if>
+      <if test="jdcpname != null">
+        JDCpName,
+      </if>
+      <if test="jdcpprice != null">
+        JDCpPrice,
+      </if>
+      <if test="jdpageno != null">
+        JDPageNo,
+      </if>
+      <if test="createdate != null">
+        createdate,
+      </if>
+      <if test="downflag != null">
+        DownFlag,
+      </if>
+      <if test="downdate != null">
+        DownDate,
+      </if>
+      <if test="lastmidifydate != null">
+        LastMidifyDate,
+      </if>
+      <if test="cppricechangelist != null">
+        CpPriceChangeList,
+      </if>
+      <if test="imgurl != null">
+        ImgUrl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="flbh != null">
+        #{flbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zgflc1 != null">
+        #{zgflc1,jdbcType=INTEGER},
+      </if>
+      <if test="zgflc2 != null">
+        #{zgflc2,jdbcType=INTEGER},
+      </if>
+      <if test="zgflc3 != null">
+        #{zgflc3,jdbcType=INTEGER},
+      </if>
+      <if test="jdcpid != null">
+        #{jdcpid,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcpname != null">
+        #{jdcpname,jdbcType=VARCHAR},
+      </if>
+      <if test="jdcpprice != null">
+        #{jdcpprice,jdbcType=DOUBLE},
+      </if>
+      <if test="jdpageno != null">
+        #{jdpageno,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downflag != null">
+        #{downflag,jdbcType=INTEGER},
+      </if>
+      <if test="downdate != null">
+        #{downdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmidifydate != null">
+        #{lastmidifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cppricechangelist != null">
+        #{cppricechangelist,jdbcType=VARCHAR},
+      </if>
+      <if test="imgurl != null">
+        #{imgurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

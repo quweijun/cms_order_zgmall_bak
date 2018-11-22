@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Filterqg_qdlistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Filterqg_qdlist">
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="EnableFlag" jdbcType="VARCHAR" property="enableflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Filterqg_qdlist">
+    insert into filterqg_qdlist (ChannelID, EnableFlag)
+    values (#{channelid,jdbcType=VARCHAR}, #{enableflag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Filterqg_qdlist">
+    insert into filterqg_qdlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

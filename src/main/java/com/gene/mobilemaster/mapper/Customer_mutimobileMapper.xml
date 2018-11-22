@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Customer_mutimobileMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Customer_mutimobile">
+    <result column="CustomerID" jdbcType="BIGINT" property="customerid" />
+    <result column="logintimes" jdbcType="INTEGER" property="logintimes" />
+    <result column="AllCcurency" jdbcType="DOUBLE" property="allccurency" />
+    <result column="RedPackets" jdbcType="DOUBLE" property="redpackets" />
+    <result column="LJJF" jdbcType="INTEGER" property="ljjf" />
+    <result column="lastlogintime" jdbcType="TIMESTAMP" property="lastlogintime" />
+    <result column="CustomerMobile" jdbcType="VARCHAR" property="customermobile" />
+    <result column="UserName" jdbcType="VARCHAR" property="username" />
+    <result column="CustomerName" jdbcType="VARCHAR" property="customername" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="MobileBound" jdbcType="INTEGER" property="mobilebound" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="InitAllCcurency" jdbcType="DOUBLE" property="initallccurency" />
+    <result column="InitRedPackets" jdbcType="DOUBLE" property="initredpackets" />
+    <result column="InitLJJF" jdbcType="INTEGER" property="initljjf" />
+    <result column="InitMobileBound" jdbcType="INTEGER" property="initmobilebound" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Customer_mutimobile">
+    insert into customer_mutimobile (CustomerID, logintimes, AllCcurency, 
+      RedPackets, LJJF, lastlogintime, 
+      CustomerMobile, UserName, CustomerName, 
+      address, MobileBound, flag, 
+      InitAllCcurency, InitRedPackets, InitLJJF, 
+      InitMobileBound)
+    values (#{customerid,jdbcType=BIGINT}, #{logintimes,jdbcType=INTEGER}, #{allccurency,jdbcType=DOUBLE}, 
+      #{redpackets,jdbcType=DOUBLE}, #{ljjf,jdbcType=INTEGER}, #{lastlogintime,jdbcType=TIMESTAMP}, 
+      #{customermobile,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{customername,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{mobilebound,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, 
+      #{initallccurency,jdbcType=DOUBLE}, #{initredpackets,jdbcType=DOUBLE}, #{initljjf,jdbcType=INTEGER}, 
+      #{initmobilebound,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Customer_mutimobile">
+    insert into customer_mutimobile
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        CustomerID,
+      </if>
+      <if test="logintimes != null">
+        logintimes,
+      </if>
+      <if test="allccurency != null">
+        AllCcurency,
+      </if>
+      <if test="redpackets != null">
+        RedPackets,
+      </if>
+      <if test="ljjf != null">
+        LJJF,
+      </if>
+      <if test="lastlogintime != null">
+        lastlogintime,
+      </if>
+      <if test="customermobile != null">
+        CustomerMobile,
+      </if>
+      <if test="username != null">
+        UserName,
+      </if>
+      <if test="customername != null">
+        CustomerName,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="mobilebound != null">
+        MobileBound,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="initallccurency != null">
+        InitAllCcurency,
+      </if>
+      <if test="initredpackets != null">
+        InitRedPackets,
+      </if>
+      <if test="initljjf != null">
+        InitLJJF,
+      </if>
+      <if test="initmobilebound != null">
+        InitMobileBound,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="logintimes != null">
+        #{logintimes,jdbcType=INTEGER},
+      </if>
+      <if test="allccurency != null">
+        #{allccurency,jdbcType=DOUBLE},
+      </if>
+      <if test="redpackets != null">
+        #{redpackets,jdbcType=DOUBLE},
+      </if>
+      <if test="ljjf != null">
+        #{ljjf,jdbcType=INTEGER},
+      </if>
+      <if test="lastlogintime != null">
+        #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="customermobile != null">
+        #{customermobile,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="customername != null">
+        #{customername,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilebound != null">
+        #{mobilebound,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="initallccurency != null">
+        #{initallccurency,jdbcType=DOUBLE},
+      </if>
+      <if test="initredpackets != null">
+        #{initredpackets,jdbcType=DOUBLE},
+      </if>
+      <if test="initljjf != null">
+        #{initljjf,jdbcType=INTEGER},
+      </if>
+      <if test="initmobilebound != null">
+        #{initmobilebound,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

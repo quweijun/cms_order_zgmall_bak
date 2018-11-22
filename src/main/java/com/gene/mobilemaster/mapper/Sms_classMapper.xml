@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sms_classMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sms_class">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="zddh" jdbcType="VARCHAR" property="zddh" />
+    <result column="mddh" jdbcType="VARCHAR" property="mddh" />
+    <result column="mddh2" jdbcType="VARCHAR" property="mddh2" />
+    <result column="mddh3" jdbcType="VARCHAR" property="mddh3" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="moban" jdbcType="VARCHAR" property="moban" />
+    <result column="bzdesc" jdbcType="VARCHAR" property="bzdesc" />
+    <result column="xh" jdbcType="INTEGER" property="xh" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sms_class">
+    insert into sms_class (flowid, zddh, mddh, 
+      mddh2, mddh3, name, 
+      moban, bzdesc, xh, 
+      flag)
+    values (#{flowid,jdbcType=BIGINT}, #{zddh,jdbcType=VARCHAR}, #{mddh,jdbcType=VARCHAR}, 
+      #{mddh2,jdbcType=VARCHAR}, #{mddh3,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{moban,jdbcType=VARCHAR}, #{bzdesc,jdbcType=VARCHAR}, #{xh,jdbcType=INTEGER}, 
+      #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sms_class">
+    insert into sms_class
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="zddh != null">
+        zddh,
+      </if>
+      <if test="mddh != null">
+        mddh,
+      </if>
+      <if test="mddh2 != null">
+        mddh2,
+      </if>
+      <if test="mddh3 != null">
+        mddh3,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="moban != null">
+        moban,
+      </if>
+      <if test="bzdesc != null">
+        bzdesc,
+      </if>
+      <if test="xh != null">
+        xh,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="zddh != null">
+        #{zddh,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh != null">
+        #{mddh,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh2 != null">
+        #{mddh2,jdbcType=VARCHAR},
+      </if>
+      <if test="mddh3 != null">
+        #{mddh3,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="moban != null">
+        #{moban,jdbcType=VARCHAR},
+      </if>
+      <if test="bzdesc != null">
+        #{bzdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

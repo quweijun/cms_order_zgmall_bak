@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Olpayrecords_errorMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Olpayrecords_error">
+    <result column="payID" jdbcType="BIGINT" property="payid" />
+    <result column="trade_no" jdbcType="VARCHAR" property="tradeNo" />
+    <result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo" />
+    <result column="trade_fee" jdbcType="VARCHAR" property="tradeFee" />
+    <result column="out_trade_fee" jdbcType="VARCHAR" property="outTradeFee" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Olpayrecords_error">
+    insert into olpayrecords_error (payID, trade_no, out_trade_no, 
+      trade_fee, out_trade_fee, addtime, 
+      remarks)
+    values (#{payid,jdbcType=BIGINT}, #{tradeNo,jdbcType=VARCHAR}, #{outTradeNo,jdbcType=VARCHAR}, 
+      #{tradeFee,jdbcType=VARCHAR}, #{outTradeFee,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{remarks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Olpayrecords_error">
+    insert into olpayrecords_error
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="payid != null">
+        payID,
+      </if>
+      <if test="tradeNo != null">
+        trade_no,
+      </if>
+      <if test="outTradeNo != null">
+        out_trade_no,
+      </if>
+      <if test="tradeFee != null">
+        trade_fee,
+      </if>
+      <if test="outTradeFee != null">
+        out_trade_fee,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="remarks != null">
+        remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="payid != null">
+        #{payid,jdbcType=BIGINT},
+      </if>
+      <if test="tradeNo != null">
+        #{tradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeNo != null">
+        #{outTradeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeFee != null">
+        #{tradeFee,jdbcType=VARCHAR},
+      </if>
+      <if test="outTradeFee != null">
+        #{outTradeFee,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remarks != null">
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

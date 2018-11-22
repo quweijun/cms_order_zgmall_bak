@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Tb_orderdeliverytrackMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Tb_orderdeliverytrack">
+    <result column="FlowNo" jdbcType="BIGINT" property="flowno" />
+    <result column="OrderID" jdbcType="VARCHAR" property="orderid" />
+    <result column="ODT_StatusUptTime" jdbcType="TIMESTAMP" property="odtStatusupttime" />
+    <result column="ODT_CSNotes" jdbcType="VARCHAR" property="odtCsnotes" />
+    <result column="ODT_Notes" jdbcType="VARCHAR" property="odtNotes" />
+    <result column="userID" jdbcType="VARCHAR" property="userid" />
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="ODT_SendMark" jdbcType="VARCHAR" property="odtSendmark" />
+    <result column="EnableFlag" jdbcType="VARCHAR" property="enableflag" />
+    <result column="ODT_SubmitTime" jdbcType="TIMESTAMP" property="odtSubmittime" />
+    <result column="odttype" jdbcType="INTEGER" property="odttype" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Tb_orderdeliverytrack">
+    insert into tb_orderdeliverytrack (FlowNo, OrderID, ODT_StatusUptTime, 
+      ODT_CSNotes, ODT_Notes, userID, 
+      Mobile, ODT_SendMark, EnableFlag, 
+      ODT_SubmitTime, odttype)
+    values (#{flowno,jdbcType=BIGINT}, #{orderid,jdbcType=VARCHAR}, #{odtStatusupttime,jdbcType=TIMESTAMP}, 
+      #{odtCsnotes,jdbcType=VARCHAR}, #{odtNotes,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{odtSendmark,jdbcType=VARCHAR}, #{enableflag,jdbcType=VARCHAR}, 
+      #{odtSubmittime,jdbcType=TIMESTAMP}, #{odttype,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Tb_orderdeliverytrack">
+    insert into tb_orderdeliverytrack
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNo,
+      </if>
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="odtStatusupttime != null">
+        ODT_StatusUptTime,
+      </if>
+      <if test="odtCsnotes != null">
+        ODT_CSNotes,
+      </if>
+      <if test="odtNotes != null">
+        ODT_Notes,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="odtSendmark != null">
+        ODT_SendMark,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="odtSubmittime != null">
+        ODT_SubmitTime,
+      </if>
+      <if test="odttype != null">
+        odttype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=BIGINT},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="odtStatusupttime != null">
+        #{odtStatusupttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odtCsnotes != null">
+        #{odtCsnotes,jdbcType=VARCHAR},
+      </if>
+      <if test="odtNotes != null">
+        #{odtNotes,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="odtSendmark != null">
+        #{odtSendmark,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+      <if test="odtSubmittime != null">
+        #{odtSubmittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="odttype != null">
+        #{odttype,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

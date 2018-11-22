@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Andriod_activationMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Andriod_activation">
+    <result column="flowid" jdbcType="BIGINT" property="flowid" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="uniqueID" jdbcType="VARCHAR" property="uniqueid" />
+    <result column="activeDate" jdbcType="TIMESTAMP" property="activedate" />
+    <result column="EffectiveDate" jdbcType="TIMESTAMP" property="effectivedate" />
+    <result column="lastOperaDate" jdbcType="TIMESTAMP" property="lastoperadate" />
+    <result column="operaCount" jdbcType="BIGINT" property="operacount" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Andriod_activation">
+    insert into andriod_activation (flowid, channelid, uniqueID, 
+      activeDate, EffectiveDate, lastOperaDate, 
+      operaCount, addtime)
+    values (#{flowid,jdbcType=BIGINT}, #{channelid,jdbcType=VARCHAR}, #{uniqueid,jdbcType=VARCHAR}, 
+      #{activedate,jdbcType=TIMESTAMP}, #{effectivedate,jdbcType=TIMESTAMP}, #{lastoperadate,jdbcType=TIMESTAMP}, 
+      #{operacount,jdbcType=BIGINT}, #{addtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Andriod_activation">
+    insert into andriod_activation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="uniqueid != null">
+        uniqueID,
+      </if>
+      <if test="activedate != null">
+        activeDate,
+      </if>
+      <if test="effectivedate != null">
+        EffectiveDate,
+      </if>
+      <if test="lastoperadate != null">
+        lastOperaDate,
+      </if>
+      <if test="operacount != null">
+        operaCount,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=BIGINT},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="uniqueid != null">
+        #{uniqueid,jdbcType=VARCHAR},
+      </if>
+      <if test="activedate != null">
+        #{activedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="effectivedate != null">
+        #{effectivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastoperadate != null">
+        #{lastoperadate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operacount != null">
+        #{operacount,jdbcType=BIGINT},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

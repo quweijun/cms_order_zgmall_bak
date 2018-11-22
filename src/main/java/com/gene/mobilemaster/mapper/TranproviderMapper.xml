@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.TranproviderMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Tranprovider">
+    <result column="ProvideID" jdbcType="INTEGER" property="provideid" />
+    <result column="ProvideName" jdbcType="VARCHAR" property="providename" />
+    <result column="AccountRound" jdbcType="VARCHAR" property="accountround" />
+    <result column="OpenBank" jdbcType="VARCHAR" property="openbank" />
+    <result column="OpenPerson" jdbcType="VARCHAR" property="openperson" />
+    <result column="OpenAccountNo" jdbcType="VARCHAR" property="openaccountno" />
+    <result column="DaiFlag" jdbcType="VARCHAR" property="daiflag" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="px_id" jdbcType="INTEGER" property="pxId" />
+    <result column="ProvideFlag" jdbcType="VARCHAR" property="provideflag" />
+    <result column="ExCompanyCode" jdbcType="VARCHAR" property="excompanycode" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Tranprovider">
+    insert into tranprovider (ProvideID, ProvideName, AccountRound, 
+      OpenBank, OpenPerson, OpenAccountNo, 
+      DaiFlag, phone, px_id, 
+      ProvideFlag, ExCompanyCode)
+    values (#{provideid,jdbcType=INTEGER}, #{providename,jdbcType=VARCHAR}, #{accountround,jdbcType=VARCHAR}, 
+      #{openbank,jdbcType=VARCHAR}, #{openperson,jdbcType=VARCHAR}, #{openaccountno,jdbcType=VARCHAR}, 
+      #{daiflag,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{pxId,jdbcType=INTEGER}, 
+      #{provideflag,jdbcType=VARCHAR}, #{excompanycode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Tranprovider">
+    insert into tranprovider
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="provideid != null">
+        ProvideID,
+      </if>
+      <if test="providename != null">
+        ProvideName,
+      </if>
+      <if test="accountround != null">
+        AccountRound,
+      </if>
+      <if test="openbank != null">
+        OpenBank,
+      </if>
+      <if test="openperson != null">
+        OpenPerson,
+      </if>
+      <if test="openaccountno != null">
+        OpenAccountNo,
+      </if>
+      <if test="daiflag != null">
+        DaiFlag,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="pxId != null">
+        px_id,
+      </if>
+      <if test="provideflag != null">
+        ProvideFlag,
+      </if>
+      <if test="excompanycode != null">
+        ExCompanyCode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="provideid != null">
+        #{provideid,jdbcType=INTEGER},
+      </if>
+      <if test="providename != null">
+        #{providename,jdbcType=VARCHAR},
+      </if>
+      <if test="accountround != null">
+        #{accountround,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null">
+        #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="openperson != null">
+        #{openperson,jdbcType=VARCHAR},
+      </if>
+      <if test="openaccountno != null">
+        #{openaccountno,jdbcType=VARCHAR},
+      </if>
+      <if test="daiflag != null">
+        #{daiflag,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="pxId != null">
+        #{pxId,jdbcType=INTEGER},
+      </if>
+      <if test="provideflag != null">
+        #{provideflag,jdbcType=VARCHAR},
+      </if>
+      <if test="excompanycode != null">
+        #{excompanycode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

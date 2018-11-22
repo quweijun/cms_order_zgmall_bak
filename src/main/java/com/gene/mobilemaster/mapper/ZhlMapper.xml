@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ZhlMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Zhl">
+    <result column="tsum" jdbcType="INTEGER" property="tsum" />
+    <result column="zsum" jdbcType="INTEGER" property="zsum" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="sendtime" jdbcType="VARCHAR" property="sendtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Zhl">
+    insert into zhl (tsum, zsum, type, 
+      sendtime)
+    values (#{tsum,jdbcType=INTEGER}, #{zsum,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{sendtime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Zhl">
+    insert into zhl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tsum != null">
+        tsum,
+      </if>
+      <if test="zsum != null">
+        zsum,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="sendtime != null">
+        sendtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tsum != null">
+        #{tsum,jdbcType=INTEGER},
+      </if>
+      <if test="zsum != null">
+        #{zsum,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="sendtime != null">
+        #{sendtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

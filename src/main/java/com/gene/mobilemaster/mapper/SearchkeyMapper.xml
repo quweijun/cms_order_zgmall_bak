@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.SearchkeyMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Searchkey">
+    <result column="searchid" jdbcType="INTEGER" property="searchid" />
+    <result column="pageid" jdbcType="INTEGER" property="pageid" />
+    <result column="site" jdbcType="INTEGER" property="site" />
+    <result column="searchtype" jdbcType="INTEGER" property="searchtype" />
+    <result column="keyid" jdbcType="INTEGER" property="keyid" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="keyurl" jdbcType="VARCHAR" property="keyurl" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+    <result column="edittime" jdbcType="TIMESTAMP" property="edittime" />
+    <result column="editor" jdbcType="VARCHAR" property="editor" />
+    <result column="taxis" jdbcType="INTEGER" property="taxis" />
+    <result column="flag2" jdbcType="INTEGER" property="flag2" />
+    <result column="PROTYPES" jdbcType="VARCHAR" property="protypes" />
+    <result column="keyBigType" jdbcType="INTEGER" property="keybigtype" />
+    <result column="redflag" jdbcType="INTEGER" property="redflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Searchkey">
+    insert into searchkey (searchid, pageid, site, 
+      searchtype, keyid, keyword, 
+      keyurl, flag, edittime, 
+      editor, taxis, flag2, 
+      PROTYPES, keyBigType, redflag
+      )
+    values (#{searchid,jdbcType=INTEGER}, #{pageid,jdbcType=INTEGER}, #{site,jdbcType=INTEGER}, 
+      #{searchtype,jdbcType=INTEGER}, #{keyid,jdbcType=INTEGER}, #{keyword,jdbcType=VARCHAR}, 
+      #{keyurl,jdbcType=VARCHAR}, #{flag,jdbcType=INTEGER}, #{edittime,jdbcType=TIMESTAMP}, 
+      #{editor,jdbcType=VARCHAR}, #{taxis,jdbcType=INTEGER}, #{flag2,jdbcType=INTEGER}, 
+      #{protypes,jdbcType=VARCHAR}, #{keybigtype,jdbcType=INTEGER}, #{redflag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Searchkey">
+    insert into searchkey
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="searchid != null">
+        searchid,
+      </if>
+      <if test="pageid != null">
+        pageid,
+      </if>
+      <if test="site != null">
+        site,
+      </if>
+      <if test="searchtype != null">
+        searchtype,
+      </if>
+      <if test="keyid != null">
+        keyid,
+      </if>
+      <if test="keyword != null">
+        keyword,
+      </if>
+      <if test="keyurl != null">
+        keyurl,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="edittime != null">
+        edittime,
+      </if>
+      <if test="editor != null">
+        editor,
+      </if>
+      <if test="taxis != null">
+        taxis,
+      </if>
+      <if test="flag2 != null">
+        flag2,
+      </if>
+      <if test="protypes != null">
+        PROTYPES,
+      </if>
+      <if test="keybigtype != null">
+        keyBigType,
+      </if>
+      <if test="redflag != null">
+        redflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="searchid != null">
+        #{searchid,jdbcType=INTEGER},
+      </if>
+      <if test="pageid != null">
+        #{pageid,jdbcType=INTEGER},
+      </if>
+      <if test="site != null">
+        #{site,jdbcType=INTEGER},
+      </if>
+      <if test="searchtype != null">
+        #{searchtype,jdbcType=INTEGER},
+      </if>
+      <if test="keyid != null">
+        #{keyid,jdbcType=INTEGER},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="keyurl != null">
+        #{keyurl,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="edittime != null">
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="taxis != null">
+        #{taxis,jdbcType=INTEGER},
+      </if>
+      <if test="flag2 != null">
+        #{flag2,jdbcType=INTEGER},
+      </if>
+      <if test="protypes != null">
+        #{protypes,jdbcType=VARCHAR},
+      </if>
+      <if test="keybigtype != null">
+        #{keybigtype,jdbcType=INTEGER},
+      </if>
+      <if test="redflag != null">
+        #{redflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

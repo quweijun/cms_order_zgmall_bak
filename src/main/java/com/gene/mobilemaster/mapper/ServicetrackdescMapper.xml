@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ServicetrackdescMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Servicetrackdesc">
+    <result column="flowID" jdbcType="INTEGER" property="flowid" />
+    <result column="serviceid" jdbcType="INTEGER" property="serviceid" />
+    <result column="thestate" jdbcType="INTEGER" property="thestate" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="kfdesc" jdbcType="VARCHAR" property="kfdesc" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Servicetrackdesc">
+    insert into servicetrackdesc (flowID, serviceid, thestate, 
+      operator, kfdesc, addtime
+      )
+    values (#{flowid,jdbcType=INTEGER}, #{serviceid,jdbcType=INTEGER}, #{thestate,jdbcType=INTEGER}, 
+      #{operator,jdbcType=VARCHAR}, #{kfdesc,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Servicetrackdesc">
+    insert into servicetrackdesc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowID,
+      </if>
+      <if test="serviceid != null">
+        serviceid,
+      </if>
+      <if test="thestate != null">
+        thestate,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+      <if test="kfdesc != null">
+        kfdesc,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="serviceid != null">
+        #{serviceid,jdbcType=INTEGER},
+      </if>
+      <if test="thestate != null">
+        #{thestate,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="kfdesc != null">
+        #{kfdesc,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

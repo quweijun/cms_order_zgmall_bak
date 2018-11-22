@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Sec_skillMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Sec_skill">
+    <result column="secid" jdbcType="VARCHAR" property="secid" />
+    <result column="coustmorid" jdbcType="VARCHAR" property="coustmorid" />
+    <result column="addtime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="coustmerip" jdbcType="VARCHAR" property="coustmerip" />
+    <result column="moblie" jdbcType="VARCHAR" property="moblie" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Sec_skill">
+    insert into sec_skill (secid, coustmorid, addtime, 
+      channelid, coustmerip, moblie
+      )
+    values (#{secid,jdbcType=VARCHAR}, #{coustmorid,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{channelid,jdbcType=VARCHAR}, #{coustmerip,jdbcType=VARCHAR}, #{moblie,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Sec_skill">
+    insert into sec_skill
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="secid != null">
+        secid,
+      </if>
+      <if test="coustmorid != null">
+        coustmorid,
+      </if>
+      <if test="addtime != null">
+        addtime,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="coustmerip != null">
+        coustmerip,
+      </if>
+      <if test="moblie != null">
+        moblie,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="secid != null">
+        #{secid,jdbcType=VARCHAR},
+      </if>
+      <if test="coustmorid != null">
+        #{coustmorid,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="coustmerip != null">
+        #{coustmerip,jdbcType=VARCHAR},
+      </if>
+      <if test="moblie != null">
+        #{moblie,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

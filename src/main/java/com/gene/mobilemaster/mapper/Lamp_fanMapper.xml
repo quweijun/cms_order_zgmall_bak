@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Lamp_fanMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Lamp_fan">
+    <result column="lid" jdbcType="INTEGER" property="lid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="answer" jdbcType="INTEGER" property="answer" />
+    <result column="released_date" jdbcType="TIMESTAMP" property="releasedDate" />
+    <result column="begin_date" jdbcType="TIMESTAMP" property="beginDate" />
+    <result column="end_date" jdbcType="TIMESTAMP" property="endDate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Lamp_fan">
+    insert into lamp_fan (lid, title, answer, 
+      released_date, begin_date, end_date
+      )
+    values (#{lid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{answer,jdbcType=INTEGER}, 
+      #{releasedDate,jdbcType=TIMESTAMP}, #{beginDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Lamp_fan">
+    insert into lamp_fan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        lid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="releasedDate != null">
+        released_date,
+      </if>
+      <if test="beginDate != null">
+        begin_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lid != null">
+        #{lid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=INTEGER},
+      </if>
+      <if test="releasedDate != null">
+        #{releasedDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="beginDate != null">
+        #{beginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

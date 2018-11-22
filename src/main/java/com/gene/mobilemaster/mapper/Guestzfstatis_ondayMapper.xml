@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Guestzfstatis_ondayMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Guestzfstatis_onday">
+    <result column="countdate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="urlmd5name" jdbcType="VARCHAR" property="urlmd5name" />
+    <result column="guestid" jdbcType="BIGINT" property="guestid" />
+    <result column="ZfLLCS" jdbcType="INTEGER" property="zfllcs" />
+    <result column="hjflag" jdbcType="INTEGER" property="hjflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Guestzfstatis_onday">
+    insert into guestzfstatis_onday (countdate, urlmd5name, guestid, 
+      ZfLLCS, hjflag)
+    values (#{countdate,jdbcType=TIMESTAMP}, #{urlmd5name,jdbcType=VARCHAR}, #{guestid,jdbcType=BIGINT}, 
+      #{zfllcs,jdbcType=INTEGER}, #{hjflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Guestzfstatis_onday">
+    insert into guestzfstatis_onday
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        countdate,
+      </if>
+      <if test="urlmd5name != null">
+        urlmd5name,
+      </if>
+      <if test="guestid != null">
+        guestid,
+      </if>
+      <if test="zfllcs != null">
+        ZfLLCS,
+      </if>
+      <if test="hjflag != null">
+        hjflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="urlmd5name != null">
+        #{urlmd5name,jdbcType=VARCHAR},
+      </if>
+      <if test="guestid != null">
+        #{guestid,jdbcType=BIGINT},
+      </if>
+      <if test="zfllcs != null">
+        #{zfllcs,jdbcType=INTEGER},
+      </if>
+      <if test="hjflag != null">
+        #{hjflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

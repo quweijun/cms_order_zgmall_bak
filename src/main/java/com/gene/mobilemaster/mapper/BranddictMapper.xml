@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.BranddictMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Branddict">
+    <result column="BrandID" jdbcType="INTEGER" property="brandid" />
+    <result column="BrandName" jdbcType="VARCHAR" property="brandname" />
+    <result column="BrandNamePYJC" jdbcType="VARCHAR" property="brandnamepyjc" />
+    <result column="BrandEngName" jdbcType="VARCHAR" property="brandengname" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="AddUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="EnableFlag" jdbcType="VARCHAR" property="enableflag" />
+    <result column="BrandLogo" jdbcType="VARCHAR" property="brandlogo" />
+    <result column="BrandDesc" jdbcType="VARCHAR" property="branddesc" />
+    <result column="brandgrant" jdbcType="VARCHAR" property="brandgrant" />
+    <result column="Synopses" jdbcType="VARCHAR" property="synopses" />
+    <result column="Qualityassurance" jdbcType="VARCHAR" property="qualityassurance" />
+    <result column="CustomerServiceSupport" jdbcType="VARCHAR" property="customerservicesupport" />
+    <result column="Companyhonor" jdbcType="VARCHAR" property="companyhonor" />
+    <result column="diycontens" jdbcType="VARCHAR" property="diycontens" />
+    <result column="diyFlag" jdbcType="VARCHAR" property="diyflag" />
+    <result column="brandUrl" jdbcType="VARCHAR" property="brandurl" />
+    <result column="brandUrlFlag" jdbcType="VARCHAR" property="brandurlflag" />
+    <result column="updateUser" jdbcType="VARCHAR" property="updateuser" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="ppflag" jdbcType="INTEGER" property="ppflag" />
+    <result column="tjflag" jdbcType="INTEGER" property="tjflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Branddict">
+    insert into branddict (BrandID, BrandName, BrandNamePYJC, 
+      BrandEngName, AddTime, AddUser, 
+      EnableFlag, BrandLogo, BrandDesc, 
+      brandgrant, Synopses, Qualityassurance, 
+      CustomerServiceSupport, Companyhonor, diycontens, 
+      diyFlag, brandUrl, brandUrlFlag, 
+      updateUser, updateTime, ppflag, 
+      tjflag)
+    values (#{brandid,jdbcType=INTEGER}, #{brandname,jdbcType=VARCHAR}, #{brandnamepyjc,jdbcType=VARCHAR}, 
+      #{brandengname,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{adduser,jdbcType=VARCHAR}, 
+      #{enableflag,jdbcType=VARCHAR}, #{brandlogo,jdbcType=VARCHAR}, #{branddesc,jdbcType=VARCHAR}, 
+      #{brandgrant,jdbcType=VARCHAR}, #{synopses,jdbcType=VARCHAR}, #{qualityassurance,jdbcType=VARCHAR}, 
+      #{customerservicesupport,jdbcType=VARCHAR}, #{companyhonor,jdbcType=VARCHAR}, #{diycontens,jdbcType=VARCHAR}, 
+      #{diyflag,jdbcType=VARCHAR}, #{brandurl,jdbcType=VARCHAR}, #{brandurlflag,jdbcType=VARCHAR}, 
+      #{updateuser,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{ppflag,jdbcType=INTEGER}, 
+      #{tjflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Branddict">
+    insert into branddict
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="brandid != null">
+        BrandID,
+      </if>
+      <if test="brandname != null">
+        BrandName,
+      </if>
+      <if test="brandnamepyjc != null">
+        BrandNamePYJC,
+      </if>
+      <if test="brandengname != null">
+        BrandEngName,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="adduser != null">
+        AddUser,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="brandlogo != null">
+        BrandLogo,
+      </if>
+      <if test="branddesc != null">
+        BrandDesc,
+      </if>
+      <if test="brandgrant != null">
+        brandgrant,
+      </if>
+      <if test="synopses != null">
+        Synopses,
+      </if>
+      <if test="qualityassurance != null">
+        Qualityassurance,
+      </if>
+      <if test="customerservicesupport != null">
+        CustomerServiceSupport,
+      </if>
+      <if test="companyhonor != null">
+        Companyhonor,
+      </if>
+      <if test="diycontens != null">
+        diycontens,
+      </if>
+      <if test="diyflag != null">
+        diyFlag,
+      </if>
+      <if test="brandurl != null">
+        brandUrl,
+      </if>
+      <if test="brandurlflag != null">
+        brandUrlFlag,
+      </if>
+      <if test="updateuser != null">
+        updateUser,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+      <if test="ppflag != null">
+        ppflag,
+      </if>
+      <if test="tjflag != null">
+        tjflag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="brandid != null">
+        #{brandid,jdbcType=INTEGER},
+      </if>
+      <if test="brandname != null">
+        #{brandname,jdbcType=VARCHAR},
+      </if>
+      <if test="brandnamepyjc != null">
+        #{brandnamepyjc,jdbcType=VARCHAR},
+      </if>
+      <if test="brandengname != null">
+        #{brandengname,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=VARCHAR},
+      </if>
+      <if test="brandlogo != null">
+        #{brandlogo,jdbcType=VARCHAR},
+      </if>
+      <if test="branddesc != null">
+        #{branddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="brandgrant != null">
+        #{brandgrant,jdbcType=VARCHAR},
+      </if>
+      <if test="synopses != null">
+        #{synopses,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityassurance != null">
+        #{qualityassurance,jdbcType=VARCHAR},
+      </if>
+      <if test="customerservicesupport != null">
+        #{customerservicesupport,jdbcType=VARCHAR},
+      </if>
+      <if test="companyhonor != null">
+        #{companyhonor,jdbcType=VARCHAR},
+      </if>
+      <if test="diycontens != null">
+        #{diycontens,jdbcType=VARCHAR},
+      </if>
+      <if test="diyflag != null">
+        #{diyflag,jdbcType=VARCHAR},
+      </if>
+      <if test="brandurl != null">
+        #{brandurl,jdbcType=VARCHAR},
+      </if>
+      <if test="brandurlflag != null">
+        #{brandurlflag,jdbcType=VARCHAR},
+      </if>
+      <if test="updateuser != null">
+        #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ppflag != null">
+        #{ppflag,jdbcType=INTEGER},
+      </if>
+      <if test="tjflag != null">
+        #{tjflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

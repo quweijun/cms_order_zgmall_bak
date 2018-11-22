@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.RecommrebatereleaseMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Recommrebaterelease">
+    <result column="CountDate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="ChannelID" jdbcType="VARCHAR" property="channelid" />
+    <result column="ChannelType" jdbcType="INTEGER" property="channeltype" />
+    <result column="RebateOrderCount" jdbcType="INTEGER" property="rebateordercount" />
+    <result column="RebateOrderSumAmount" jdbcType="DOUBLE" property="rebateordersumamount" />
+    <result column="RebateAmount" jdbcType="DOUBLE" property="rebateamount" />
+    <result column="cSettleFlag" jdbcType="INTEGER" property="csettleflag" />
+    <result column="cSettleID" jdbcType="INTEGER" property="csettleid" />
+    <result column="PublishFlag" jdbcType="INTEGER" property="publishflag" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Recommrebaterelease">
+    insert into recommrebaterelease (CountDate, ChannelID, ChannelType, 
+      RebateOrderCount, RebateOrderSumAmount, 
+      RebateAmount, cSettleFlag, cSettleID, 
+      PublishFlag)
+    values (#{countdate,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{channeltype,jdbcType=INTEGER}, 
+      #{rebateordercount,jdbcType=INTEGER}, #{rebateordersumamount,jdbcType=DOUBLE}, 
+      #{rebateamount,jdbcType=DOUBLE}, #{csettleflag,jdbcType=INTEGER}, #{csettleid,jdbcType=INTEGER}, 
+      #{publishflag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Recommrebaterelease">
+    insert into recommrebaterelease
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        CountDate,
+      </if>
+      <if test="channelid != null">
+        ChannelID,
+      </if>
+      <if test="channeltype != null">
+        ChannelType,
+      </if>
+      <if test="rebateordercount != null">
+        RebateOrderCount,
+      </if>
+      <if test="rebateordersumamount != null">
+        RebateOrderSumAmount,
+      </if>
+      <if test="rebateamount != null">
+        RebateAmount,
+      </if>
+      <if test="csettleflag != null">
+        cSettleFlag,
+      </if>
+      <if test="csettleid != null">
+        cSettleID,
+      </if>
+      <if test="publishflag != null">
+        PublishFlag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="channeltype != null">
+        #{channeltype,jdbcType=INTEGER},
+      </if>
+      <if test="rebateordercount != null">
+        #{rebateordercount,jdbcType=INTEGER},
+      </if>
+      <if test="rebateordersumamount != null">
+        #{rebateordersumamount,jdbcType=DOUBLE},
+      </if>
+      <if test="rebateamount != null">
+        #{rebateamount,jdbcType=DOUBLE},
+      </if>
+      <if test="csettleflag != null">
+        #{csettleflag,jdbcType=INTEGER},
+      </if>
+      <if test="csettleid != null">
+        #{csettleid,jdbcType=INTEGER},
+      </if>
+      <if test="publishflag != null">
+        #{publishflag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

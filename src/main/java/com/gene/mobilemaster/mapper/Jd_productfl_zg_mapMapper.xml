@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Jd_productfl_zg_mapMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Jd_productfl_zg_map">
+    <result column="FlowNO" jdbcType="INTEGER" property="flowno" />
+    <result column="FLBH" jdbcType="VARCHAR" property="flbh" />
+    <result column="LB1" jdbcType="VARCHAR" property="lb1" />
+    <result column="LB2" jdbcType="VARCHAR" property="lb2" />
+    <result column="LB3" jdbcType="VARCHAR" property="lb3" />
+    <result column="ZGFLC1" jdbcType="INTEGER" property="zgflc1" />
+    <result column="ZGFLC2" jdbcType="INTEGER" property="zgflc2" />
+    <result column="ZGFLC3" jdbcType="INTEGER" property="zgflc3" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="JDListPageUrl" jdbcType="VARCHAR" property="jdlistpageurl" />
+    <result column="ListPageCount" jdbcType="INTEGER" property="listpagecount" />
+    <result column="ListPageSize" jdbcType="INTEGER" property="listpagesize" />
+    <result column="HasNewProd" jdbcType="INTEGER" property="hasnewprod" />
+    <result column="CreateDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="LastMidifyDate" jdbcType="TIMESTAMP" property="lastmidifydate" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Jd_productfl_zg_map">
+    insert into jd_productfl_zg_map (FlowNO, FLBH, LB1, 
+      LB2, LB3, ZGFLC1, ZGFLC2, 
+      ZGFLC3, EnableFlag, JDListPageUrl, 
+      ListPageCount, ListPageSize, HasNewProd, 
+      CreateDate, LastMidifyDate)
+    values (#{flowno,jdbcType=INTEGER}, #{flbh,jdbcType=VARCHAR}, #{lb1,jdbcType=VARCHAR}, 
+      #{lb2,jdbcType=VARCHAR}, #{lb3,jdbcType=VARCHAR}, #{zgflc1,jdbcType=INTEGER}, #{zgflc2,jdbcType=INTEGER}, 
+      #{zgflc3,jdbcType=INTEGER}, #{enableflag,jdbcType=INTEGER}, #{jdlistpageurl,jdbcType=VARCHAR}, 
+      #{listpagecount,jdbcType=INTEGER}, #{listpagesize,jdbcType=INTEGER}, #{hasnewprod,jdbcType=INTEGER}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{lastmidifydate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Jd_productfl_zg_map">
+    insert into jd_productfl_zg_map
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        FlowNO,
+      </if>
+      <if test="flbh != null">
+        FLBH,
+      </if>
+      <if test="lb1 != null">
+        LB1,
+      </if>
+      <if test="lb2 != null">
+        LB2,
+      </if>
+      <if test="lb3 != null">
+        LB3,
+      </if>
+      <if test="zgflc1 != null">
+        ZGFLC1,
+      </if>
+      <if test="zgflc2 != null">
+        ZGFLC2,
+      </if>
+      <if test="zgflc3 != null">
+        ZGFLC3,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="jdlistpageurl != null">
+        JDListPageUrl,
+      </if>
+      <if test="listpagecount != null">
+        ListPageCount,
+      </if>
+      <if test="listpagesize != null">
+        ListPageSize,
+      </if>
+      <if test="hasnewprod != null">
+        HasNewProd,
+      </if>
+      <if test="createdate != null">
+        CreateDate,
+      </if>
+      <if test="lastmidifydate != null">
+        LastMidifyDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowno != null">
+        #{flowno,jdbcType=INTEGER},
+      </if>
+      <if test="flbh != null">
+        #{flbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lb1 != null">
+        #{lb1,jdbcType=VARCHAR},
+      </if>
+      <if test="lb2 != null">
+        #{lb2,jdbcType=VARCHAR},
+      </if>
+      <if test="lb3 != null">
+        #{lb3,jdbcType=VARCHAR},
+      </if>
+      <if test="zgflc1 != null">
+        #{zgflc1,jdbcType=INTEGER},
+      </if>
+      <if test="zgflc2 != null">
+        #{zgflc2,jdbcType=INTEGER},
+      </if>
+      <if test="zgflc3 != null">
+        #{zgflc3,jdbcType=INTEGER},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="jdlistpageurl != null">
+        #{jdlistpageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="listpagecount != null">
+        #{listpagecount,jdbcType=INTEGER},
+      </if>
+      <if test="listpagesize != null">
+        #{listpagesize,jdbcType=INTEGER},
+      </if>
+      <if test="hasnewprod != null">
+        #{hasnewprod,jdbcType=INTEGER},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastmidifydate != null">
+        #{lastmidifydate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

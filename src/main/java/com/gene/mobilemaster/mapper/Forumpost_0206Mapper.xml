@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Forumpost_0206Mapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Forumpost_0206">
+    <result column="flowid" jdbcType="INTEGER" property="flowid" />
+    <result column="classId" jdbcType="INTEGER" property="classid" />
+    <result column="toPostId" jdbcType="INTEGER" property="topostid" />
+    <result column="bigtype" jdbcType="INTEGER" property="bigtype" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="customerid" jdbcType="VARCHAR" property="customerid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="hdid" jdbcType="VARCHAR" property="hdid" />
+    <result column="orderid" jdbcType="VARCHAR" property="orderid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="isGood" jdbcType="INTEGER" property="isgood" />
+    <result column="isPublic" jdbcType="INTEGER" property="ispublic" />
+    <result column="isSys" jdbcType="INTEGER" property="issys" />
+    <result column="isLock" jdbcType="INTEGER" property="islock" />
+    <result column="forbidReply" jdbcType="INTEGER" property="forbidreply" />
+    <result column="accessTime" jdbcType="INTEGER" property="accesstime" />
+    <result column="tempId" jdbcType="INTEGER" property="tempid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Forumpost_0206">
+    insert into forumpost_0206 (flowid, classId, toPostId, 
+      bigtype, productId, mobile, 
+      customerid, username, hdid, 
+      orderid, title, content, 
+      addTime, isGood, isPublic, 
+      isSys, isLock, forbidReply, 
+      accessTime, tempId)
+    values (#{flowid,jdbcType=INTEGER}, #{classid,jdbcType=INTEGER}, #{topostid,jdbcType=INTEGER}, 
+      #{bigtype,jdbcType=INTEGER}, #{productid,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{customerid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{hdid,jdbcType=VARCHAR}, 
+      #{orderid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{isgood,jdbcType=INTEGER}, #{ispublic,jdbcType=INTEGER}, 
+      #{issys,jdbcType=INTEGER}, #{islock,jdbcType=INTEGER}, #{forbidreply,jdbcType=INTEGER}, 
+      #{accesstime,jdbcType=INTEGER}, #{tempid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Forumpost_0206">
+    insert into forumpost_0206
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        flowid,
+      </if>
+      <if test="classid != null">
+        classId,
+      </if>
+      <if test="topostid != null">
+        toPostId,
+      </if>
+      <if test="bigtype != null">
+        bigtype,
+      </if>
+      <if test="productid != null">
+        productId,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="customerid != null">
+        customerid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="hdid != null">
+        hdid,
+      </if>
+      <if test="orderid != null">
+        orderid,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="isgood != null">
+        isGood,
+      </if>
+      <if test="ispublic != null">
+        isPublic,
+      </if>
+      <if test="issys != null">
+        isSys,
+      </if>
+      <if test="islock != null">
+        isLock,
+      </if>
+      <if test="forbidreply != null">
+        forbidReply,
+      </if>
+      <if test="accesstime != null">
+        accessTime,
+      </if>
+      <if test="tempid != null">
+        tempId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=INTEGER},
+      </if>
+      <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
+      </if>
+      <if test="topostid != null">
+        #{topostid,jdbcType=INTEGER},
+      </if>
+      <if test="bigtype != null">
+        #{bigtype,jdbcType=INTEGER},
+      </if>
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="hdid != null">
+        #{hdid,jdbcType=VARCHAR},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isgood != null">
+        #{isgood,jdbcType=INTEGER},
+      </if>
+      <if test="ispublic != null">
+        #{ispublic,jdbcType=INTEGER},
+      </if>
+      <if test="issys != null">
+        #{issys,jdbcType=INTEGER},
+      </if>
+      <if test="islock != null">
+        #{islock,jdbcType=INTEGER},
+      </if>
+      <if test="forbidreply != null">
+        #{forbidreply,jdbcType=INTEGER},
+      </if>
+      <if test="accesstime != null">
+        #{accesstime,jdbcType=INTEGER},
+      </if>
+      <if test="tempid != null">
+        #{tempid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

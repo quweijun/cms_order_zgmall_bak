@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Client_logMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Client_log">
+    <result column="Flowid" jdbcType="DOUBLE" property="flowid" />
+    <result column="UserAgent" jdbcType="VARCHAR" property="useragent" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="unique" jdbcType="VARCHAR" property="unique" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="adddate" jdbcType="TIMESTAMP" property="adddate" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="phone_address" jdbcType="VARCHAR" property="phoneAddress" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Client_log">
+    insert into client_log (Flowid, UserAgent, ip, 
+      unique, channelid, adddate, 
+      mobile, phone_address)
+    values (#{flowid,jdbcType=DOUBLE}, #{useragent,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
+      #{unique,jdbcType=VARCHAR}, #{channelid,jdbcType=VARCHAR}, #{adddate,jdbcType=TIMESTAMP}, 
+      #{mobile,jdbcType=VARCHAR}, #{phoneAddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Client_log">
+    insert into client_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        Flowid,
+      </if>
+      <if test="useragent != null">
+        UserAgent,
+      </if>
+      <if test="ip != null">
+        ip,
+      </if>
+      <if test="unique != null">
+        unique,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="adddate != null">
+        adddate,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="phoneAddress != null">
+        phone_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="flowid != null">
+        #{flowid,jdbcType=DOUBLE},
+      </if>
+      <if test="useragent != null">
+        #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null">
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="unique != null">
+        #{unique,jdbcType=VARCHAR},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="adddate != null">
+        #{adddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneAddress != null">
+        #{phoneAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

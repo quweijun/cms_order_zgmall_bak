@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.HolidayperiodMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Holidayperiod">
+    <result column="ID" jdbcType="BIGINT" property="id" />
+    <result column="HolidayPeriodId" jdbcType="INTEGER" property="holidayperiodid" />
+    <result column="HolidayPeriodType" jdbcType="INTEGER" property="holidayperiodtype" />
+    <result column="HolidayPeriodName" jdbcType="VARCHAR" property="holidayperiodname" />
+    <result column="HolidayPic" jdbcType="VARCHAR" property="holidaypic" />
+    <result column="PromotionsId" jdbcType="VARCHAR" property="promotionsid" />
+    <result column="BeginTime" jdbcType="TIMESTAMP" property="begintime" />
+    <result column="EndTime" jdbcType="TIMESTAMP" property="endtime" />
+    <result column="EnableFlag" jdbcType="INTEGER" property="enableflag" />
+    <result column="ContainsOther" jdbcType="INTEGER" property="containsother" />
+    <result column="Operator" jdbcType="VARCHAR" property="operator" />
+    <result column="AddTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="AddOr" jdbcType="VARCHAR" property="addor" />
+    <result column="TheSumOfHolidayPeriod" jdbcType="INTEGER" property="thesumofholidayperiod" />
+    <result column="NoStartHits" jdbcType="INTEGER" property="nostarthits" />
+    <result column="StartHits" jdbcType="INTEGER" property="starthits" />
+    <result column="LastUptUser" jdbcType="VARCHAR" property="lastuptuser" />
+    <result column="LastUptTime" jdbcType="TIMESTAMP" property="lastupttime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Holidayperiod">
+    insert into holidayperiod (ID, HolidayPeriodId, HolidayPeriodType, 
+      HolidayPeriodName, HolidayPic, PromotionsId, 
+      BeginTime, EndTime, EnableFlag, 
+      ContainsOther, Operator, AddTime, 
+      AddOr, TheSumOfHolidayPeriod, NoStartHits, 
+      StartHits, LastUptUser, LastUptTime
+      )
+    values (#{id,jdbcType=BIGINT}, #{holidayperiodid,jdbcType=INTEGER}, #{holidayperiodtype,jdbcType=INTEGER}, 
+      #{holidayperiodname,jdbcType=VARCHAR}, #{holidaypic,jdbcType=VARCHAR}, #{promotionsid,jdbcType=VARCHAR}, 
+      #{begintime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, #{enableflag,jdbcType=INTEGER}, 
+      #{containsother,jdbcType=INTEGER}, #{operator,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, 
+      #{addor,jdbcType=VARCHAR}, #{thesumofholidayperiod,jdbcType=INTEGER}, #{nostarthits,jdbcType=INTEGER}, 
+      #{starthits,jdbcType=INTEGER}, #{lastuptuser,jdbcType=VARCHAR}, #{lastupttime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Holidayperiod">
+    insert into holidayperiod
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="holidayperiodid != null">
+        HolidayPeriodId,
+      </if>
+      <if test="holidayperiodtype != null">
+        HolidayPeriodType,
+      </if>
+      <if test="holidayperiodname != null">
+        HolidayPeriodName,
+      </if>
+      <if test="holidaypic != null">
+        HolidayPic,
+      </if>
+      <if test="promotionsid != null">
+        PromotionsId,
+      </if>
+      <if test="begintime != null">
+        BeginTime,
+      </if>
+      <if test="endtime != null">
+        EndTime,
+      </if>
+      <if test="enableflag != null">
+        EnableFlag,
+      </if>
+      <if test="containsother != null">
+        ContainsOther,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="addtime != null">
+        AddTime,
+      </if>
+      <if test="addor != null">
+        AddOr,
+      </if>
+      <if test="thesumofholidayperiod != null">
+        TheSumOfHolidayPeriod,
+      </if>
+      <if test="nostarthits != null">
+        NoStartHits,
+      </if>
+      <if test="starthits != null">
+        StartHits,
+      </if>
+      <if test="lastuptuser != null">
+        LastUptUser,
+      </if>
+      <if test="lastupttime != null">
+        LastUptTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="holidayperiodid != null">
+        #{holidayperiodid,jdbcType=INTEGER},
+      </if>
+      <if test="holidayperiodtype != null">
+        #{holidayperiodtype,jdbcType=INTEGER},
+      </if>
+      <if test="holidayperiodname != null">
+        #{holidayperiodname,jdbcType=VARCHAR},
+      </if>
+      <if test="holidaypic != null">
+        #{holidaypic,jdbcType=VARCHAR},
+      </if>
+      <if test="promotionsid != null">
+        #{promotionsid,jdbcType=VARCHAR},
+      </if>
+      <if test="begintime != null">
+        #{begintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enableflag != null">
+        #{enableflag,jdbcType=INTEGER},
+      </if>
+      <if test="containsother != null">
+        #{containsother,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="addor != null">
+        #{addor,jdbcType=VARCHAR},
+      </if>
+      <if test="thesumofholidayperiod != null">
+        #{thesumofholidayperiod,jdbcType=INTEGER},
+      </if>
+      <if test="nostarthits != null">
+        #{nostarthits,jdbcType=INTEGER},
+      </if>
+      <if test="starthits != null">
+        #{starthits,jdbcType=INTEGER},
+      </if>
+      <if test="lastuptuser != null">
+        #{lastuptuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupttime != null">
+        #{lastupttime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ModuleysMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Moduleys">
+    <result column="pgid" jdbcType="INTEGER" property="pgid" />
+    <result column="ysid" jdbcType="INTEGER" property="ysid" />
+    <result column="ysxh" jdbcType="INTEGER" property="ysxh" />
+    <result column="bqlb" jdbcType="VARCHAR" property="bqlb" />
+    <result column="ywlx" jdbcType="VARCHAR" property="ywlx" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.gene.mobilemaster.model.Moduleys">
+    <result column="quickcfgstr" jdbcType="LONGVARCHAR" property="quickcfgstr" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    quickcfgstr
+  </sql>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Moduleys">
+    insert into moduleys (pgid, ysid, ysxh, 
+      bqlb, ywlx, quickcfgstr
+      )
+    values (#{pgid,jdbcType=INTEGER}, #{ysid,jdbcType=INTEGER}, #{ysxh,jdbcType=INTEGER}, 
+      #{bqlb,jdbcType=VARCHAR}, #{ywlx,jdbcType=VARCHAR}, #{quickcfgstr,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Moduleys">
+    insert into moduleys
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pgid != null">
+        pgid,
+      </if>
+      <if test="ysid != null">
+        ysid,
+      </if>
+      <if test="ysxh != null">
+        ysxh,
+      </if>
+      <if test="bqlb != null">
+        bqlb,
+      </if>
+      <if test="ywlx != null">
+        ywlx,
+      </if>
+      <if test="quickcfgstr != null">
+        quickcfgstr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pgid != null">
+        #{pgid,jdbcType=INTEGER},
+      </if>
+      <if test="ysid != null">
+        #{ysid,jdbcType=INTEGER},
+      </if>
+      <if test="ysxh != null">
+        #{ysxh,jdbcType=INTEGER},
+      </if>
+      <if test="bqlb != null">
+        #{bqlb,jdbcType=VARCHAR},
+      </if>
+      <if test="ywlx != null">
+        #{ywlx,jdbcType=VARCHAR},
+      </if>
+      <if test="quickcfgstr != null">
+        #{quickcfgstr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

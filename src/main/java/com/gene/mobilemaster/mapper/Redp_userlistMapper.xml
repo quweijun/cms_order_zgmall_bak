@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.Redp_userlistMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Redp_userlist">
+    <result column="Mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="isUsed" jdbcType="INTEGER" property="isused" />
+    <result column="redp" jdbcType="INTEGER" property="redp" />
+    <result column="usedTime" jdbcType="TIMESTAMP" property="usedtime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Redp_userlist">
+    insert into redp_userlist (Mobile, isUsed, redp, 
+      usedTime)
+    values (#{mobile,jdbcType=VARCHAR}, #{isused,jdbcType=INTEGER}, #{redp,jdbcType=INTEGER}, 
+      #{usedtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Redp_userlist">
+    insert into redp_userlist
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mobile != null">
+        Mobile,
+      </if>
+      <if test="isused != null">
+        isUsed,
+      </if>
+      <if test="redp != null">
+        redp,
+      </if>
+      <if test="usedtime != null">
+        usedTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="isused != null">
+        #{isused,jdbcType=INTEGER},
+      </if>
+      <if test="redp != null">
+        #{redp,jdbcType=INTEGER},
+      </if>
+      <if test="usedtime != null">
+        #{usedtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

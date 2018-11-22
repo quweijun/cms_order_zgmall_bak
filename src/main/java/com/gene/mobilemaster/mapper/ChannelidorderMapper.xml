@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gene.mobilemaster.dao.ChannelidorderMapper">
+  <resultMap id="BaseResultMap" type="com.gene.mobilemaster.model.Channelidorder">
+    <result column="countdate" jdbcType="TIMESTAMP" property="countdate" />
+    <result column="channelid" jdbcType="VARCHAR" property="channelid" />
+    <result column="allorder" jdbcType="INTEGER" property="allorder" />
+    <result column="enSureOrder" jdbcType="INTEGER" property="ensureorder" />
+    <result column="enSureOrder2" jdbcType="INTEGER" property="ensureorder2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.gene.mobilemaster.model.Channelidorder">
+    insert into channelidorder (countdate, channelid, allorder, 
+      enSureOrder, enSureOrder2)
+    values (#{countdate,jdbcType=TIMESTAMP}, #{channelid,jdbcType=VARCHAR}, #{allorder,jdbcType=INTEGER}, 
+      #{ensureorder,jdbcType=INTEGER}, #{ensureorder2,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gene.mobilemaster.model.Channelidorder">
+    insert into channelidorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        countdate,
+      </if>
+      <if test="channelid != null">
+        channelid,
+      </if>
+      <if test="allorder != null">
+        allorder,
+      </if>
+      <if test="ensureorder != null">
+        enSureOrder,
+      </if>
+      <if test="ensureorder2 != null">
+        enSureOrder2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="countdate != null">
+        #{countdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelid != null">
+        #{channelid,jdbcType=VARCHAR},
+      </if>
+      <if test="allorder != null">
+        #{allorder,jdbcType=INTEGER},
+      </if>
+      <if test="ensureorder != null">
+        #{ensureorder,jdbcType=INTEGER},
+      </if>
+      <if test="ensureorder2 != null">
+        #{ensureorder2,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
